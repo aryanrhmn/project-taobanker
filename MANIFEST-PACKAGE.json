@@ -2,9 +2,9 @@
   "project": "project-taobanker",
   "purpose": "Package-wide integrity manifest (every file except this one)",
   "generated": "2026-07-24",
-  "generated_by": "Claude Fable 5 referee session (final: strengthened manuscript files added, verdict VALID AS WRITTEN)",
+  "generated_by": "Claude Fable 5 referee session (chain of custody closed: first-session originals archived + cross-referenced)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
-  "file_count": 150,
+  "file_count": 157,
   "files": [
     {
       "path": ".claude\\settings.local.json",
@@ -553,8 +553,8 @@
     },
     {
       "path": "06-fable-brief\\CONSTANT_AUDIT.md",
-      "bytes": 7041,
-      "sha256_16": "b690214f49da61c8"
+      "bytes": 7431,
+      "sha256_16": "3a80cb15eff17f67"
     },
     {
       "path": "06-fable-brief\\DEPENDENCY_LEDGER.md",
@@ -573,8 +573,8 @@
     },
     {
       "path": "06-fable-brief\\FINDINGS.md",
-      "bytes": 12895,
-      "sha256_16": "365972f5f3ac9a5f"
+      "bytes": 13407,
+      "sha256_16": "6386f3f38e71eff6"
     },
     {
       "path": "06-fable-brief\\HOSTILE_REFEREE_PROMPT.md",
@@ -715,6 +715,41 @@
       "path": "08-strengthened-manuscript\\verify_scalar_inequalities_strengthened.py",
       "bytes": 7663,
       "sha256_16": "ca1a64e733fba384"
+    },
+    {
+      "path": "09-first-session-originals\\adversarial_independent_check.py",
+      "bytes": 1904,
+      "sha256_16": "6696a38e65ef7e4c"
+    },
+    {
+      "path": "09-first-session-originals\\babai_motion_adversarial_referee_report.pdf",
+      "bytes": 198045,
+      "sha256_16": "18c67748c1b19816"
+    },
+    {
+      "path": "09-first-session-originals\\babai_motion_adversarial_referee_report.tex",
+      "bytes": 12316,
+      "sha256_16": "3b1490949e4fcdc8"
+    },
+    {
+      "path": "09-first-session-originals\\babai_motion_d3_adversarial_patch.diff",
+      "bytes": 7431,
+      "sha256_16": "b21427a44164bbd1"
+    },
+    {
+      "path": "09-first-session-originals\\babai_motion_d3_adversarially_patched.pdf",
+      "bytes": 316186,
+      "sha256_16": "2cbea34d6a576948"
+    },
+    {
+      "path": "09-first-session-originals\\babai_motion_d3_adversarially_patched.tex",
+      "bytes": 30615,
+      "sha256_16": "c441d2c3de5d9392"
+    },
+    {
+      "path": "09-first-session-originals\\README.md",
+      "bytes": 3411,
+      "sha256_16": "9246a432116d46fd"
     },
     {
       "path": "CLAUDE.md",

@@ -1,0 +1,746 @@
+\documentclass[11pt]{amsart}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs,array}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\mot}{\operatorname{motion}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\gam}{\gamma}
+
+\title[An explicit $d^{-3}$ motion bound]{An explicit $d^{-3}$ motion bound\\for primitive distance-regular graphs}
+\author{Machine-assisted proof development}
+\date{July 23, 2026}
+
+\begin{document}
+
+\begin{abstract}
+Let $X$ be a primitive distance-regular graph on $n$ vertices, of diameter $d\ge3$.
+We prove, subject to the published inputs quoted precisely below, that either $X$ is a Johnson graph or a Hamming graph, or
+\[
+  \mot(X)\ge \frac{n}{12d^3}.
+\]
+The published Pyber--Skresanov argument gives a bound on the scale $n/d^6$ in the primitive case.  Four changes remove three powers of $d$ and sharpen the constant: an exact formula for the vertices distinguishing an adjacent pair; use of the support-sensitive form of the geodesic boundary argument; retention of the full Metsch clique expression, which forces the geometric parameter $m$ to satisfy $m\le d$; and a direct geodesic Poincar\'e inequality that improves the spectral gap used in the $\mu=1$ branch by a factor of eight.  The remaining new step is an analytic sharpening of Kivva's $\mu=2$ multiplicity argument.  It uses an exact recurrence for relative drops of the standard sequence and a direct concentration bound for the dominant distance sphere.  Unlike earlier exploratory versions, the proof uses no finite tuple enumeration and no post-2021 classification theorem.
+\end{abstract}
+\maketitle
+
+\begin{center}
+\fbox{\parbox{0.93\textwidth}{\small
+\textbf{Verification status.} The proof below is complete as written and no gap was found in a line-by-line source and algebra audit.  Every external input is identified by theorem number (using the journal numbering), and all new scalar inequalities are checked by an accompanying exact-arithmetic script.  This is nevertheless not independent peer review: the manuscript should not be cited as an established result until a specialist has checked the new $\mu=2$ argument and the source interfaces.}}
+\end{center}
+
+\section{Statement and parameters}
+Let $X$ be a primitive distance-regular graph on $n$ vertices, with valency $k$, diameter $d\ge3$, intersection numbers $b_i,c_i$, and
+\[
+  \lambda=a_1,\qquad \mu=c_2.
+\]
+Write $k_i$ for the size of a distance-$i$ sphere, $\theta$ for the second largest adjacency eigenvalue, and $-m$ for the smallest eigenvalue, so $m>0$.
+
+\begin{theorem}\label{thm:main}
+Either $X$ is a Johnson graph or a Hamming graph, or
+\begin{equation}\label{eq:main}
+  \boxed{\mot(X)\ge \frac{n}{12d^3}.}
+\end{equation}
+\end{theorem}
+
+Set
+\begin{equation}\label{eq:parameters}
+  \gam=\frac1{12d^3},\qquad
+  \eps=\frac{2}{12d^3-1}.
+\end{equation}
+The parameters satisfy the exact closure identity
+\begin{equation}\label{eq:closure}
+  \frac{\eps(1-\gam)}2=\gam.
+\end{equation}
+We shall repeatedly use
+\begin{equation}\label{eq:smallparameters}
+  \gam<\frac12,\qquad
+  \eps<\frac{2}{11d^3},\qquad
+  d\eps<\frac1{50}.
+\end{equation}
+The last inequality is strongest at $d=3$, where $d\eps=6/323<1/50$.
+
+\section{Adjacent distinguishers and automorphism support}
+For vertices $u,v$, put
+\[
+  D(u,v)=\{z:\dist(u,z)\ne\dist(v,z)\}.
+\]
+For adjacent $u,v$, the cardinality is constant; denote it by $D(1)$.
+
+\begin{lemma}[Exact adjacent-pair identity]\label{lem:D1}
+For every distance-regular graph of diameter at least three,
+\begin{equation}\label{eq:D1}
+  D(1)=2+\frac2k\sum_{i=2}^{d} k_i c_i.
+\end{equation}
+Consequently,
+\begin{equation}\label{eq:D1mu}
+  D(1)>\frac{\mu}{k}n.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+For adjacent $u,v$, the number of vertices at distance $i$ from both is $p^1_{i,i}$.  The balance identity gives
+\[
+  kp^1_{i,i}=k_i p^i_{1,i}=k_i a_i,
+\]
+so
+\[
+  D(1)=n-\frac1k\sum_{i=1}^{d}k_i a_i.
+\]
+Using $a_i=k-b_i-c_i$, $k_i b_i=k_{i+1}c_{i+1}$, $b_d=0$, and $k_1c_1=k$, we obtain
+\[
+  \sum_{i=1}^{d}k_i a_i=k(n-2)-2\sum_{i=2}^{d}k_i c_i,
+\]
+which proves \eqref{eq:D1}.
+
+We also use the standard comparison $c_i\le b_j$ whenever $i+j\le d$.  Indeed, place vertices $u,w,v$ in this order on a geodesic with $\dist(u,w)=i$ and $\dist(w,v)=j$.  Every neighbor $z$ of $w$ with $\dist(u,z)=i-1$ must satisfy $\dist(v,z)=j+1$, so the $c_i$ such neighbors form a subset of the $b_j$ such neighbors.  In particular $c_2\le b_1$, hence
+\[
+  k_2=\frac{kb_1}{c_2}\ge k_1=k.
+\]
+It follows that $\sum_{i=2}^{d}k_i\ge(n-1)/2$.  Since $c_i\ge c_2=\mu$ for $i\ge2$,
+\[
+  D(1)\ge 2+\frac{\mu}{k}(n-1)>\frac{\mu}{k}n,
+\]
+where the final inequality uses $\mu\le k$.
+\end{proof}
+
+\begin{lemma}[Support-sensitive adjacent pair]\label{lem:adjacent}
+Let $g\in\Aut(X)$ be nonidentity, put $S=\supp(g)$ and $\rho=|S|/n\le1/2$.  Some $x\in S$ has at least
+\begin{equation}\label{eq:fixedneighbors}
+  \frac{k}{d}(1-\rho)
+\end{equation}
+fixed neighbors.  If $\mu<k(1-\rho)/d$, then $x\sim x^g$ and
+\begin{equation}\label{eq:adjacentconsequences}
+  \lambda\ge\frac{k}{d}(1-\rho),
+  \qquad D(1)\le|S|.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+We spell out the orientation convention in the support-sensitive form of Pyber--Skresanov's Proposition~2.8.  For a directed edge $e$ of $X$, let
+\[
+ P_e=\sum_{u,v}\frac1{p(u,v)}
+ \#\{L:L\text{ is a }u\text{--}v\text{ geodesic using }e\},
+\]
+where $p(u,v)$ is the number of $u$--$v$ geodesics.  Their coherent-configuration argument shows that $P_e$ is independent of the directed edge; write the common value as $P$.  Summing over the $nk$ directed edges gives
+\[
+ nkP=\sum_{u,v}\dist(u,v)\le dn^2,
+ \qquad\text{so}\qquad P\le\frac{dn}{k}.
+\]
+Let
+\[
+ \delta_X^+(S)=\{(u,v):u\in S,\ v\notin S,\ u\sim v\}.
+\]
+For each ordered pair $(x,y)\in S\times(V(X)\setminus S)$, every $x$--$y$ geodesic uses at least one edge of $\delta_X^+(S)$.  Consequently
+\[
+ |S|(n-|S|)\le |\delta_X^+(S)|P,
+\]
+and hence
+\begin{equation}\label{eq:boundary}
+  |\delta_X^+(S)|\ge |S|\frac{k}{d}\frac{n-|S|}{n}.
+\end{equation}
+Each undirected cut edge contributes exactly one directed edge to $\delta_X^+(S)$, so this is also the corresponding undirected cut size.  Averaging the outbound cut degrees over the vertices of $S$ proves \eqref{eq:fixedneighbors}.  Since $S$ is the support of $g$, every neighbor outside $S$ is fixed.
+
+Every fixed neighbor of $x$ is also adjacent to $x^g$.  If $x$ and $x^g$ were nonadjacent, the existence of a common neighbor would put them at distance two, where they have exactly $\mu$ common neighbors.  This contradicts the strict hypothesis.  Thus $x\sim x^g$, and the fixed common neighbors give the lower bound on $\lambda$.
+
+For $z\notin S$,
+\[
+  \dist(x,z)=\dist(x^g,z^g)=\dist(x^g,z),
+\]
+so no fixed vertex distinguishes $x$ and $x^g$.  Hence $D(1)\le|S|$.
+\end{proof}
+
+
+\section{A direct geodesic Poincar\'e inequality}
+The next proposition is the self-contained spectral improvement used in the $\mu=1$ branch.
+
+\begin{proposition}[Geodesic spectral-gap bound]\label{prop:poincare}
+Let $G$ be the graph of a connected symmetric basis relation of valency $k$ in a homogeneous coherent configuration on $n$ points.  If $D$ is its diameter and $\theta_1$ its second largest adjacency eigenvalue, then
+\begin{equation}\label{eq:poincare}
+ k-\theta_1\ge
+ \frac{n^2k}{\displaystyle\sum_{x,y\in V(G)}\dist(x,y)^2}
+ \ge\frac{k}{D^2}.
+\end{equation}
+For a distance-regular graph,
+\begin{equation}\label{eq:poincareDRG}
+ k-\theta_1\ge
+ \frac{nk}{\displaystyle\sum_{i=0}^{D}k_i i^2}.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+For ordered vertices $x,y$, let $p(x,y)$ be the number of geodesics from $x$ to $y$.  For a directed edge $e$, define
+\[
+ Q_e=\sum_{x,y}
+ \frac{\dist(x,y)}{p(x,y)}
+ \#\{P:P\text{ is an }x\text{--}y\text{ geodesic containing }e\}.
+\]
+The intersection-number argument in Pyber--Skresanov's proof of Proposition~2.8 shows that $Q_e$ is independent of $e$.  Here is the precise interface: after fixing the three basis relations containing $(x,z)$, $(w,y)$, and $(x,y)$ for $e=(z,w)$, the number of relevant pairs and geodesics is independent of $(z,w)$ by their Lemma~2.7; the extra weight $\dist(x,y)/p(x,y)$ depends only on the basis relation containing $(x,y)$.  Write the common value as $Q$.
+
+Summing over the $nk$ directed edges gives
+\begin{equation}\label{eq:Qidentity}
+ nkQ=\sum_{x,y}\dist(x,y)^2,
+\end{equation}
+because every geodesic of length $\ell$ contributes $\ell$ at each of its $\ell$ directed edges.
+
+Let $f$ have mean zero.  Averaging Cauchy--Schwarz along all geodesics from $x$ to $y$ gives
+\[
+ (f(x)-f(y))^2
+ \le \frac{\dist(x,y)}{p(x,y)}
+ \sum_{P:x\to y}\sum_{e\in P}(\nabla_e f)^2.
+\]
+After summing over ordered pairs and using the constancy of $Q_e$,
+\[
+ 2n\lVert f\rVert_2^2
+ \le Q\sum_{e\text{ directed}}(\nabla_e f)^2
+ =2Q\,f^{\mathsf T}(kI-A)f.
+\]
+Taking $f$ in the $\theta_1$-eigenspace gives $k-\theta_1\ge n/Q$.  Equation~\eqref{eq:Qidentity} proves the first inequality in~\eqref{eq:poincare}; the bound $\dist(x,y)\le D$ proves the second.  In a distance-regular graph,
+\[
+ \sum_{x,y}\dist(x,y)^2=n\sum_{i=0}^{D}k_i i^2,
+\]
+which proves~\eqref{eq:poincareDRG}.
+\end{proof}
+
+\begin{remark}
+Pyber and Skresanov obtain $k-\theta_1\ge k/(8D^2)$ by passing from their geodesic expansion estimate through Cheeger's inequality.  Proposition~\ref{prop:poincare} applies Cauchy--Schwarz directly to the same uniform geodesic loads and retains the squared path lengths.  No novelty claim is made for this canonical-path inequality without a broader literature search.
+\end{remark}
+
+\section{Small support forces Delsarte geometry}
+The proof of Pyber--Skresanov's Proposition~2.6 retains the following consequence of Metsch's theorem.  If $\lambda^2\ge4k\mu$, then the graph contains a clique of size at least
+\begin{equation}\label{eq:metsch}
+  \lambda+2-
+  \left(\left\lceil\frac{3k}{2(\lambda+1)}\right\rceil-1\right)(\mu-1).
+\end{equation}
+
+\begin{proposition}[Structural reduction]\label{prop:structure}
+Suppose that a nonidentity automorphism has support density $\rho<\gam$.  Then
+\begin{equation}\label{eq:structdata}
+  \mu<\gam k,
+  \qquad
+  \lambda>\frac{1-\gam}{d}k,
+  \qquad
+  k>12d^3,
+\end{equation}
+and $X$ is Delsarte-geometric with smallest eigenvalue $-m$ satisfying
+\begin{equation}\label{eq:mleqd}
+  m\le d.
+\end{equation}
+\end{proposition}
+
+\begin{proof}
+Suppose first that $\mu\ge k/(2d)$.  Let $k_i=k_{\max}$ be a largest nontrivial relation valency.  Since $k_2\ge k_1$, we may take $i\ge2$.  Then
+\[
+  \frac{k_i}{k_{i-1}}=\frac{b_{i-1}}{c_i}\le\frac{k}{\mu}\le2d,
+\]
+so $n-k_{\max}\ge k_{i-1}\ge k_{\max}/(2d)$.  Every nontrivial relation of the primitive distance scheme has diameter at most $d$; hence Pyber--Skresanov Propositions~2.10 and~2.12 give
+\[
+  \mot(X)\ge\frac{n-k_{\max}}{d}.
+\]
+If $k_{\max}\ge n/2$, this is at least $n/(4d^2)$; otherwise it is greater than $n/(2d)$.  Both bounds exceed $\gam n$, contradicting $\rho<\gam$.  Therefore
+\begin{equation}\label{eq:musmallpre}
+  \mu<\frac{k}{2d}.
+\end{equation}
+
+Since $\rho<\gam<1/2$, Lemma~\ref{lem:adjacent} applies and gives
+\[
+  \lambda>\frac{1-\gam}{d}k.
+\]
+Together with Lemma~\ref{lem:D1} and $D(1)\le|S|$, it gives
+\[
+  \mu<\rho k<\gam k.
+\]
+As $\mu\ge1$, this also implies $k>1/\gam=12d^3$.
+
+Put $\alpha=(1-\gam)/d$.  We need three elementary inequalities:
+\begin{equation}\label{eq:threeconstants}
+  \alpha^2>4\gam,
+  \qquad
+  \alpha-\frac{3\gam}{2\alpha}>\frac1{d+1},
+  \qquad
+  (d+1)^2\gam<\alpha.
+\end{equation}
+For the first, $1-\gam>1/2$ gives $\alpha^2>1/(4d^2)>1/(3d^3)=4\gam$.  For the second,
+\[
+ d^2\left(\alpha-\frac1{d+1}-\frac{3\gam}{2\alpha}\right)
+ =\frac{d}{d+1}-\frac1{12d^2}-\frac{1}{8(1-\gam)}
+ >\frac34-\frac1{108}-\frac14>0.
+\]
+For the third,
+\[
+  d(d+1)^2\gam=\frac{(d+1)^2}{12d^2}\le\frac4{27}<\frac12<1-\gam.
+\]
+
+The first inequality and \eqref{eq:structdata} give $\lambda^2>4k\mu$, so \eqref{eq:metsch} applies.  Let $L$ be the resulting clique size.  Since $\lceil x\rceil-1<x$ for every real $x$,
+\begin{align*}
+ L-1
+ &\ge \lambda+1-
+ \left(\left\lceil\frac{3k}{2(\lambda+1)}\right\rceil-1\right)(\mu-1)\\
+ &>\alpha k-\frac{3k}{2(\lambda+1)}\mu
+ >k\left(\alpha-\frac{3\gam}{2\alpha}\right)
+ >\frac{k}{d+1}.
+\end{align*}
+The Delsarte clique bound $L\le1+k/m$ therefore gives $m<d+1$.  Finally,
+\[
+  m^2\mu<(d+1)^2\gam k<\alpha k<\lambda.
+\]
+By the Bang--Koolen criterion, quoted as Pyber--Skresanov Proposition~2.5, $X$ is Delsarte-geometric.  In a Delsarte geometry $m$ is the integer number of Delsarte cliques through each vertex, so $m\le d$.
+\end{proof}
+
+\section{The transition and spectral branches}
+Assume from now on that a nonidentity automorphism has support density $\rho<\gam$.  Proposition~\ref{prop:structure} is in force.
+
+\begin{lemma}[Transition without a diameter loss]\label{lem:transition}
+If
+\[
+  b_j\ge\eps k,
+  \qquad
+  c_{j+1}\ge\eps k
+\]
+for some $1\le j\le d-1$, then $|S|>\eps n>\gam n$.
+\end{lemma}
+
+\begin{proof}
+For $i\le j$, monotonicity gives $b_i\ge\eps k$; for $i\ge j+1$, it gives $c_i\ge\eps k$.  Thus $a_i\le(1-\eps)k$ for every $i\ge1$, and
+\[
+  D(1)=n-\frac1k\sum_{i=1}^{d}k_i a_i
+  \ge n-(1-\eps)(n-1)>\eps n.
+\]
+Now use $D(1)\le|S|$ from Lemma~\ref{lem:adjacent}.
+\end{proof}
+
+If no transition occurs, let $t$ be the least index with $b_t\le\eps k$, using the convention $b_d=0$.  The inequality $2\lambda\le k+\mu$ gives
+\[
+  b_1=k-\lambda-1\ge\frac{k-\mu-2}{2}
+  >\frac{1-3\gam}{2}k>\frac{k}{3},
+\]
+where $1/k<\gam$ was used.  Hence $t\ge2$.  Since $b_{t-1}>\eps k$ and no transition occurs,
+\begin{equation}\label{eq:smallbtct}
+  b_t\le\eps k,
+  \qquad
+  c_t<\eps k.
+\end{equation}
+
+\begin{lemma}[High second eigenvalue]\label{lem:hightheta}
+Under these assumptions,
+\begin{equation}\label{eq:hightheta}
+  \theta\ge(1-\eps)b_1.
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+Suppose instead that $\theta<(1-\eps)b_1$.  Since $m\le d$, $b_1>k/3$, $k>12d^3$, and $\eps<1/2$, we also have $m<(1-\eps)b_1$.  Thus the zero-weight spectral radius $\xi=\max\{\theta,m\}$ satisfies $\xi<(1-\eps)b_1$.
+
+Moreover $\lambda>\mu$, because $(1-\gam)/d>\gam$.  Every pair of vertices has at most $\lambda$ common neighbors.  Babai's spectral motion bound, Pyber--Skresanov Proposition~2.13, therefore gives
+\begin{align*}
+ \rho
+ &\ge\frac{k-\xi-\lambda}{k}
+ >\frac{1+\eps b_1}{k}\\
+ &=\frac{1-\eps}{k}+\eps\frac{k-\lambda}{k}
+ \ge\frac{1-\eps}{k}+\frac\eps2\left(1-\frac\mu k\right)\\
+ &>\frac\eps2(1-\gam)=\gam,
+\end{align*}
+contradicting $\rho<\gam$.  The last equality is \eqref{eq:closure}.
+\end{proof}
+
+\section{The published Johnson and $\mu=1$ endgames}
+\begin{proposition}[The case $\mu\ge3$]\label{prop:mu3}
+Under \eqref{eq:smallbtct} and \eqref{eq:hightheta}, if $\mu\ge3$, then $X$ is a Johnson graph.
+\end{proposition}
+
+\begin{proof}
+If the neighborhood graphs are disconnected, Pyber--Skresanov Proposition~2.20 gives
+\[
+  \theta+1\le\frac57b_1,
+\]
+contradicting \eqref{eq:hightheta}, since $\eps<2/7$.  Hence the neighborhood graphs are connected.
+
+Pyber--Skresanov Proposition~2.19 supplies an absolute constant $\eps_*>0.0065$ such that a Delsarte-geometric distance-regular graph with $\mu\ge2$, a connected neighborhood graph,
+\[
+  \theta+1>(1-\eps_*)b_1,
+  \qquad
+  k\ge\max\{m^3,29\},
+\]
+is Johnson.  Here $\eps\le2/323<13/2000=0.0065<\eps_*$ and \eqref{eq:hightheta} give the spectral condition, while $k>12d^3\ge12m^3$ gives the valency condition.
+\end{proof}
+
+\begin{proposition}[The case $\mu=1$]\label{prop:mu1}
+Under Proposition~\ref{prop:structure}, the case $\mu=1$ contradicts $\rho<\gam$.
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:poincare} gives
+\[
+  \theta\le k\left(1-\frac1{d^2}\right).
+\]
+Since $m\le d$ and $k>12d^3$, the zero-weight spectral radius satisfies
+\[
+  \xi=\max\{\theta,m\}\le k(1-\eta),
+  \qquad \eta=\frac1{d^2}<\frac12.
+\]
+If $m\ge3$, then
+\[
+  k>12d^3\ge4md^2=\frac{4m}{\eta},
+  \qquad k>m^2.
+\]
+Pyber--Skresanov Proposition~2.14 therefore yields
+\[
+  \mot(X)\ge\frac{\eta n}{4}=\frac{n}{4d^2}>\gam n.
+\]
+
+If $m<3$, integrality gives $m=1$ or $2$.  The case $m=1$ is impossible: every vertex would lie in exactly one Delsarte clique, and connectedness would force the graph to be complete, contrary to $d\ge3$.  Thus $m=2$, and Pyber--Skresanov Proposition~2.15 gives $\mot(X)\ge n/16>\gam n$.
+\end{proof}
+
+\section{An analytic Hamming-stability lemma}\label{sec:mu2}
+We now handle the only branch not covered by a published endgame with the desired parameter scale.
+
+\begin{proposition}[Sharpened $\mu=2$ endgame]\label{prop:mu2}
+Let $X$ be a Delsarte-geometric distance-regular graph of diameter $d\ge3$, with smallest eigenvalue $-m$, where $m\le d$, and $\mu=2$.  Let
+\[
+  0<\eps=\frac{2}{12d^3-1}.
+\]
+Suppose that, for some $2\le t\le d$,
+\begin{equation}\label{eq:mu2hyp}
+  b_t\le\eps k,
+  \qquad c_t<\eps k,
+  \qquad \theta\ge(1-\eps)b_1,
+  \qquad k>12d^3.
+\end{equation}
+Then $X$ is a Hamming graph.
+\end{proposition}
+
+\begin{proof}
+The geometric identities of Kivva's Lemma~2.17 are
+\begin{equation}\label{eq:geometricidentities}
+  c_i=\tau_i\psi_{i-1},
+  \qquad
+  b_i=(m-\tau_i)\left(\frac{k}{m}+1-\psi_i\right).
+\end{equation}
+Kivva's Lemma~2.18 gives $\tau_2\ge\psi_1$.  Since $\mu=\tau_2\psi_1=2$, we have
+\begin{equation}\label{eq:mu2parameters}
+  \tau_2=2,
+  \qquad \psi_1=1,
+  \qquad b_1=\frac{m-1}{m}k,
+  \qquad \lambda=\frac{k}{m}-1.
+\end{equation}
+In particular, every neighborhood graph is a disjoint union of $m$ cliques by Kivva's Lemma~2.20.  Since $X$ is geometric and $\mu=2$, Kivva's Lemma~3.10 also supplies an induced quadrangle; hence Terwilliger's inequality is available wherever it is used below.
+
+Since $\eps<1/m^2$, Kivva's Lemma~4.2 gives
+\begin{equation}\label{eq:taugrowth}
+  \tau_i<\tau_{i+1}\qquad(1\le i\le t-2).
+\end{equation}
+The parameters are integral, so $\tau_i\ge i$ for $i\le t-1$.  Put
+\begin{equation}\label{eq:rdef}
+  r=m-\tau_{t-1}.
+\end{equation}
+Since $\tau_{t-1}\le m-1$ and $\tau_{t-1}\ge t-1$,
+\begin{equation}\label{eq:rrange}
+  1\le r\le m-t+1,
+  \qquad 2\le t\le m.
+\end{equation}
+
+Let $(u_i)_{i=0}^{d}$ be the standard sequence for $\theta$.  Define the relative drops
+\begin{equation}\label{eq:ydef}
+  y_i=\frac{u_{i-1}-u_i}{u_{i-1}}
+\end{equation}
+whenever $u_{i-1}>0$.  The standard-sequence recurrence gives the exact identity
+\begin{equation}\label{eq:riccati}
+  y_{i+1}
+  =\frac{k-\theta+c_i y_i/(1-y_i)}{b_i}.
+\end{equation}
+Set
+\begin{equation}\label{eq:BA}
+  B=1+(m-1)\eps,
+  \qquad
+  A=\frac{1+(5m/3-1)\eps}{1-m\eps},
+  \qquad
+  \delta=A-1=\frac{(8m-3)\eps}{3(1-m\eps)}.
+\end{equation}
+From \eqref{eq:mu2parameters} and the eigenvalue hypothesis,
+\begin{equation}\label{eq:u1bounds}
+  k-\theta\le\frac{k}{m}B,
+  \qquad
+  u_1=\frac\theta k\ge(1-\eps)\frac{m-1}{m}=:u_*.
+\end{equation}
+The small-parameter estimates \eqref{eq:smallparameters} and $m\le d$ imply
+\begin{equation}\label{eq:Asmall}
+  m\eps<\frac1{50},
+  \qquad A<\frac65,
+  \qquad \delta<3d\eps.
+\end{equation}
+Indeed, writing $x=m\eps<1/50$,
+\[
+  A\le\frac{1+5x/3}{1-x}
+  <\frac{155}{147}<\frac65,
+  \qquad
+  \delta<\frac{8d\eps}{3(1-x)}
+  <\frac{400}{147}d\eps<3d\eps.
+\]
+
+At $i=1$, using $c_1=1$, $b_1=(m-1)k/m$, $1/k<\gam$, and \eqref{eq:u1bounds},
+\begin{align}
+ y_2
+ &\le \frac{B}{m-1}
+ +\frac{m\gam}{m-1}\frac{1-u_*}{u_*}\notag\\
+ &=\frac1{m-1}\left(
+ B+\frac{m\gam B}{(m-1)(1-\eps)}
+ \right).\label{eq:y2raw}
+\end{align}
+Since
+\[
+  \frac{B}{m-1}=\frac1{m-1}+\eps\le1+\eps,
+\]
+while $(1+\eps)/(1-\eps)<2$ and $2\gam<\eps$, we have
+\[
+  \frac{\gam B}{(m-1)(1-\eps)}<\eps.
+\]
+Furthermore
+\[
+ A-B=\frac{m\eps(B+2/3)}{1-m\eps}>m\eps.
+\]
+Hence
+\begin{equation}\label{eq:y2}
+  0\le y_2<\frac{A}{m-1}.
+\end{equation}
+If $t=2$, the product below is empty and only the already positive entry $u_1$ is used.  If $t\ge3$, then $m\ge3$, so \eqref{eq:y2} and $A<6/5$ give $y_2<3/5<1$ and hence $u_2>0$.
+
+We claim inductively that
+\begin{equation}\label{eq:yinduction}
+  0\le y_{i+1}\le\frac{A}{m-\tau_i}
+  \qquad(1\le i\le t-2).
+\end{equation}
+The base is \eqref{eq:y2}.  Suppose $2\le i\le t-2$ and the preceding bound holds.  Strict growth gives
+\[
+  m-\tau_{i-1}\ge r+t-i\ge3,
+\]
+so $y_i\le A/3<2/5$ and therefore $y_i/(1-y_i)<2/3$.  Also $c_i\le c_t<\eps k$ and, since $\psi_i\le c_{i+1}\le c_t$,
+\[
+  b_i\ge(m-\tau_i)\frac{k}{m}(1-m\eps).
+\]
+Equation \eqref{eq:riccati} now gives
+\[
+  y_{i+1}
+  \le\frac{B+(2m/3)\eps}{(m-\tau_i)(1-m\eps)}
+  =\frac{A}{m-\tau_i}.
+\]
+This proves the claim and, in particular, proves that all standard-sequence entries used below are positive.
+
+Using \eqref{eq:taugrowth}, for $2\le i\le t-1$ we have $m-\tau_{i-1}\ge r+t-i$.  Therefore
+\begin{align}
+ u_{t-1}
+ &=u_1\prod_{i=2}^{t-1}(1-y_i)\notag\\
+ &\ge u_1\prod_{s=r+1}^{r+t-2}\left(1-\frac{A}{s}\right)\notag\\
+ &=u_1\frac{r}{r+t-2}
+ \prod_{s=r+1}^{r+t-2}\left(1-\frac{\delta}{s-1}\right)\notag\\
+ &\ge u_1\frac{r}{r+t-2}
+ \left(1-\delta H_{t-2}\right),\label{eq:uproduct}
+\end{align}
+where $H_j=1+1/2+\cdots+1/j$ and $H_0=0$.  The final inequality is the elementary product bound $\prod(1-x_i)\ge1-\sum x_i$.
+
+We next show that the $t$-th sphere contains almost all vertices.  Put
+\begin{equation}\label{eq:qdef}
+  q=\frac{m\eps}{1-m\eps}<1.
+\end{equation}
+For $2\le i\le t$, \eqref{eq:geometricidentities} gives
+\[
+  \frac{k_{i-1}}{k_i}=\frac{c_i}{b_{i-1}}
+  \le\frac{q}{m-\tau_{i-1}}\le q.
+\]
+The remaining first ratio is $k_0/k_1=1/k<\gam<q$; here $q>m\eps\ge2\eps>4\gam$.  Thus the entire left tail has mass at most $k_t q/(1-q)$.
+
+For $t\le i\le d-1$, monotonicity gives $b_i\le b_t\le\eps k$.  Since $m-\tau_i\ge1$, the second identity in \eqref{eq:geometricidentities} implies
+\[
+  \psi_i\ge \frac{k}{m}+1-\eps k>k\left(\frac1m-\eps\right).
+\]
+Consequently
+\[
+  \frac{k_{i+1}}{k_i}=\frac{b_i}{c_{i+1}}
+  \le\frac{\eps k}{\psi_i}\le q,
+\]
+so the right tail also has mass at most $k_t q/(1-q)$.  Hence
+\begin{equation}\label{eq:ktconcentration}
+  \frac{n}{k_t}\le1+\frac{2q}{1-q}=\frac{1+q}{1-q},
+  \qquad
+  k_t\ge(1-2m\eps)n.
+\end{equation}
+
+Since $\psi_{t-1}\ge1$, the second identity in \eqref{eq:geometricidentities} gives $b_{t-1}\le rk/m$.  Combining \eqref{eq:u1bounds}, \eqref{eq:uproduct}, and \eqref{eq:ktconcentration}, we obtain
+\begin{equation}\label{eq:multiplicitycertificate}
+  k_{t-1}u_{t-1}^2
+  \ge\frac{n}{k}FR,
+\end{equation}
+where
+\begin{equation}\label{eq:FR}
+  F=(1-2m\eps)(1-\eps)^2
+  \left(1-\delta H_{t-2}\right)^2,
+  \qquad
+  R=\frac{c_t r(m-1)^2}{m(r+t-2)^2}.
+\end{equation}
+
+We now prove that, outside one endpoint, $R$ provides a uniform gain:
+\begin{equation}\label{eq:Rgain}
+  R\ge\frac{m+1}{m}.
+\end{equation}
+Kivva's argument gives $c_t\ge t-1$.  If $c_t=t-1$, then equality forces
+\[
+  \tau_{t-1}=t-1,\qquad c_t=c_{t-1}.
+\]
+Kivva's Corollary~2.8 and Terwilliger's inequality then give $4\le t\le m-1$.  Thus $r=m-t+1$ and
+\[
+  R=\frac{(t-1)(m-t+1)}{m}\ge\frac{m+1}{m};
+\]
+indeed, the two factors sum to $m$, the first is at least $3$, the second at least $2$, and their product is at least $2(m-2)\ge m+1$.
+
+Suppose next that $c_t\ge t$ and $t<m$.  For fixed $m,t$, the function
+\[
+  f(r)=\frac{r}{(r+t-2)^2}
+\]
+has no interior minimum on $1\le r\le m-t+1$, so it is enough to check the endpoints.  At $r=1$,
+\[
+  R\ge\frac{t(m-1)^2}{m(t-1)^2}\ge\frac{m+1}{m},
+\]
+because $t/(t-1)^2$ decreases with $t$ and
+\[
+  (m-1)^3-(m+1)(m-2)^2=3m-5>0.
+\]
+At $r=m-t+1$,
+\[
+  R\ge\frac{t(m-t+1)}{m}\ge\frac{m+1}{m},
+\]
+since the concave function $t(m+1-t)$ has endpoint minimum $2(m-1)\ge m+1$ on $2\le t\le m-1$.
+
+Finally suppose $t=m$, so $r=1$ and $R=c_t/m$.  If $t<d$, the equality $c_t=t=m$ is impossible.  Indeed, strict growth gives $c_{t-1}\ge t-1=m-1$, while $b_t\ge1$; hence $c_{t-1}-c_t+b_t\ge0$.  Terwilliger's inequality and \eqref{eq:geometricidentities} then give
+\[
+  \frac{k}{m}\ge b_{t-1}
+  \ge c_{t-1}-c_t+b_t+\lambda+2
+  \ge\frac{k}{m}+1,
+\]
+a contradiction.  Hence $c_t\ge m+1$.  If $t=m=d$, then every nonendpoint case also has $c_t\ge m+1$.  This proves \eqref{eq:Rgain} unless
+\begin{equation}\label{eq:endpoint}
+  c_t=t=m=d.
+\end{equation}
+
+It remains to show that the loss factor satisfies
+\begin{equation}\label{eq:Fgain}
+  F>\frac{m}{m+1}.
+\end{equation}
+Let $z=\delta H_{t-2}$.  We use the elementary bound
+\begin{equation}\label{eq:harmoniclinear}
+  H_{d-2}\le\frac d2\qquad(d\ge3).
+\end{equation}
+It holds at $d=3$, and the induction step follows from
+$H_{d-1}=H_{d-2}+1/(d-1)\le d/2+1/2=(d+1)/2$.
+Thus, by~\eqref{eq:Asmall},
+\[
+  0\le z<\frac32d^2\eps<1.
+\]
+Applying $\prod_j(1-x_j)\ge1-\sum_jx_j$ to the five factors defining $F$ gives
+\[
+  F\ge1-\bigl(2m\eps+2\eps+2z\bigr).
+\]
+Since $m\le d$,
+\[
+  2m\eps+2\eps+2z
+  <(3d^2+2d+2)\eps
+  <\frac1{d+1}
+  \le\frac1{m+1}.
+\]
+The middle strict inequality is equivalent to
+\[
+  6d^3-10d^2-8d-5>0;
+\]
+a completely explicit certificate is obtained by writing $d=x+3$:
+\[
+  6d^3-10d^2-8d-5=6x^3+44x^2+94x+43>0.
+\]
+This proves~\eqref{eq:Fgain} without a finite case split.
+
+Outside the endpoint \eqref{eq:endpoint}, equations \eqref{eq:Rgain} and \eqref{eq:Fgain} give $FR>1$.  Hence \eqref{eq:multiplicitycertificate} yields
+\[
+  k_{t-1}u_{t-1}^2>\frac{n}{k}.
+\]
+By Biggs' multiplicity formula, the multiplicity $f_1$ of $\theta$ satisfies $f_1<k$.  Terwilliger's local-eigenvalue theorem, Kivva Theorem~4.1, then puts the eigenvalue
+\[
+  -1-\frac{b_1}{\theta+1}<-1
+\]
+in every neighborhood graph.  This is impossible because each neighborhood graph is a disjoint union of cliques, whose least eigenvalue is $-1$.  Therefore the endpoint \eqref{eq:endpoint} must hold.
+
+At the endpoint, Kivva's endpoint argument (using Lemma~4.2 together with $\tau_d=m=d$) gives $\tau_i=i$ for all $i$, and $c_d=d=\tau_d\psi_{d-1}$ gives $\psi_{d-1}=1$.  If some $\psi_j$ were at least $2$, choose $j$ maximal with that property.  Since $\psi_{d-1}=1$ and every $\psi_i$ is a positive integer, putting $i=j+1$ gives $\psi_{i-1}\ge2$ and $\psi_i=1$ with $2\le i\le d-1$.  Monotonicity of the $c_i$ would give
+\[
+  i+1=c_{i+1}=\tau_{i+1}\psi_i
+  \ge c_i=\tau_i\psi_{i-1}\ge2i,
+\]
+which is impossible.  Hence $\psi_i=1$ for every $i$.  Consequently
+\[
+  c_i=i,
+  \qquad
+  b_i=(d-i)\frac{k}{d},
+\]
+which is the intersection array of $H(d,1+k/d)$.  Egawa's classification gives a Hamming or Doob graph.  A Doob graph occurs only when $1+k/d=4$, whereas $k>12d^3$; hence $X$ is Hamming.
+\end{proof}
+
+\section{Completion of the proof}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose that a nonidentity automorphism $g$ has support density $\rho<\gam$.  Proposition~\ref{prop:structure} makes $X$ Delsarte-geometric with $m\le d$.  Lemma~\ref{lem:transition} rules out a transition, so \eqref{eq:smallbtct} holds; Lemma~\ref{lem:hightheta} gives \eqref{eq:hightheta}.
+
+If $\mu\ge3$, Proposition~\ref{prop:mu3} makes $X$ Johnson.  If $\mu=2$, Proposition~\ref{prop:mu2} makes $X$ Hamming.  If $\mu=1$, Proposition~\ref{prop:mu1} contradicts $\rho<\gam$.  These cases exhaust the positive integer $\mu$.  Therefore every graph outside the Johnson and Hamming families has motion at least $\gam n=n/(12d^3)$.
+\end{proof}
+
+\section{Dependency and audit ledger}
+The proof imports the following published statements.
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.3em]
+\item From Pyber--Skresanov~\cite{PS}: the Delsarte clique bound and geometric integrality (Lemmas~2.2--2.3), $2\lambda\le k+\mu$ (Lemma~2.4), Bang--Koolen geometricity (Proposition~2.5), the full Metsch expression in the proof of Proposition~2.6, the geodesic-load argument and support-sensitive final inequality in Proposition~2.8, Propositions~2.10 and~2.12--2.15, and the Johnson endgames Propositions~2.19--2.20.
+\item From Kivva~\cite{Kivva} (journal numbering): Biggs' formula (Theorem~2.10), the geometric identities and local structure (Lemmas~2.17--2.20), $c_3>c_2$ (Corollary~2.8), Terwilliger's inequality (Theorem~2.6), the induced-quadrangle lemma (Lemma~3.10), the strict $\tau_i$ growth lemma (Lemma~4.2), Terwilliger's local-eigenvalue theorem (Theorem~4.1), and the Hamming/Doob endpoint classification (Theorem~2.25 and the endpoint argument in Theorem~4.7).
+\end{enumerate}
+
+\begin{center}
+\small
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.25\textwidth}p{0.65\textwidth}@{}}
+\toprule
+Interface & Hypotheses checked in the manuscript \\
+\midrule
+Primitive relation bound & Every nontrivial relation of a primitive rank-$(d+1)$ distance scheme is connected and has diameter at most $d$. \\
+Metsch expression & $\lambda^2>4k\mu$ follows from \eqref{eq:threeconstants}; the ceiling term is not discarded. \\
+Bang--Koolen & The clique bound first gives $m<d+1$, and only then is $m^2\mu<\lambda$ invoked. \\
+Babai spectral motion & The common-neighbor maximum is $\lambda$ because $\lambda>\mu$. \\
+Johnson endgame & $d>2$, $\mu\ge3$, connected neighborhoods, $\eps<0.0065$, and $k\ge\max\{m^3,29\}$. \\
+Strict $\tau$ growth & $\mu=2$, $c_t<\eps k$, and $\eps<1/m^2$. \\
+Terwilliger local eigenvalue & Biggs' formula gives the strict inequality $f_1<k$, and $\theta>0$. \\
+Hamming endpoint & The only surviving case is exactly $c_t=t=m=d$; the Doob valency $k=3d$ is excluded. \\
+$\mu=1$ motion & Delsarte geometry, Proposition~\ref{prop:poincare}, $\xi\le k(1-1/d^2)$, and $k>4md^2,m^2$. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}
+The exponent $3$ is intrinsic to the present structural route.  Small support density $\rho$ gives $\mu\lesssim\rho k$, while the clique argument gives $m=O(d)$ and $\lambda\gtrsim k/d$.  The Bang--Koolen condition $m^2\mu<\lambda$ therefore naturally asks for $\rho=O(d^{-3})$.  Improving the exponent appears to require a stronger route to geometricity, not merely better constants in the Hamming endgame.
+\end{remark}
+
+\begin{thebibliography}{9}
+\bibitem{PS}
+L. Pyber and S. V. Skresanov,
+\emph{On the automorphism group of a distance-regular graph},
+J. Combin. Theory Ser. B \textbf{172} (2025), 94--114;
+\href{https://arxiv.org/abs/2312.00383}{arXiv:2312.00383}.
+
+\bibitem{Kivva}
+B. Kivva,
+\emph{A characterization of Johnson and Hamming graphs and proof of Babai's conjecture},
+J. Combin. Theory Ser. B \textbf{151} (2021), 339--374;
+\href{https://arxiv.org/abs/1912.11427}{arXiv:1912.11427}.
+\end{thebibliography}
+
+\end{document}

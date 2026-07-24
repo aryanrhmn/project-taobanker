@@ -1,0 +1,270 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs,array,xcolor}
+\newcommand{\mot}{\operatorname{motion}}
+\newcommand{\dist}{\operatorname{dist}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\gam}{\gamma}
+\title{Hostile Referee Audit\\of ``An explicit $d^{-3}$ motion bound''}
+\author{Adversarial machine review}
+\date{July 23, 2026}
+\begin{document}
+\maketitle
+
+\begin{center}
+\fbox{\parbox{0.91\textwidth}{
+\textbf{Verdict: PROVISIONALLY VALID AFTER MINOR CORRECTIONS.}
+I found no fatal mathematical gap in the theorem
+\[
+\mot(X)\ge \frac{n}{12d^3}
+\]
+outside the Johnson and Hamming families, after independently reconstructing every new implication and checking the imported hypotheses against the cited primary sources.  This is not independent human peer review.  Two mandatory textual repairs and two minor clarifications are listed below.
+}}
+\end{center}
+
+\section{Scope of the audit}
+The audit treated the manuscript as an adversarial-referee target rather than as a proof to be improved.  I attempted to identify the earliest invalid implication, hidden case, source mismatch, factor-of-two error, or reversed strict inequality.  The following were checked independently:
+\begin{enumerate}[leftmargin=2em,itemsep=0.25em]
+\item the exact adjacent-distinguishing identity;
+\item the support-sensitive geodesic boundary estimate, including directed-edge normalization;
+\item the full Metsch clique calculation and the Bang--Koolen interface;
+\item the geodesic Poincar\'e inequality, including both factors of two;
+\item every scalar inequality defining $\gam=1/(12d^3)$ and $\eps=2/(12d^3-1)$;
+\item the hypotheses of the Pyber--Skresanov Johnson and $\mu=1$ endgames;
+\item the entire new $\mu=2$ standard-sequence argument, including positivity, sphere concentration, all branches of the $R$-factor, Biggs' formula, the local-eigenvalue contradiction, and the Hamming/Doob endpoint;
+\item the exact-arithmetic scripts, plus a separately written rational-arithmetic checker not derived from the supplied code.
+\end{enumerate}
+The TeX source also compiles cleanly.  No theorem-level counterexample or uncovered graph-parameter case was found.
+
+\section{Mandatory repairs}
+\subsection{Directed versus undirected boundary notation}
+The original manuscript says that $\delta_X(S)$ is an undirected cut while importing a proof that counts $nk$ ``edges.''  The source argument is using directed relation edges at that point.  This is a real notation defect and an obvious place for a referee to suspect a factor of two.
+
+The claimed bound is nevertheless correct.  For a directed edge $e$, let $P_e$ be the uniform expected geodesic load.  Then
+\[
+ nkP=\sum_{x,y}\dist(x,y)\le dn^2,
+ \qquad P\le \frac{dn}{k}.
+\]
+For the outbound directed cut
+\[
+ \delta^+(S)=\{(u,v):u\in S,\ v\notin S,\ u\sim v\},
+\]
+every geodesic from $x\in S$ to $y\notin S$ uses at least one member of $\delta^+(S)$.  Hence
+\[
+ |S|(n-|S|)\le |\delta^+(S)|P
+\]
+and therefore
+\[
+ |\delta^+(S)|\ge |S|\frac{k}{d}\frac{n-|S|}{n}.
+\]
+Each undirected cut edge contributes exactly one outbound directed edge, so the same numerical bound holds for the ordinary cut size.  The patched manuscript now contains this derivation explicitly.
+
+\subsection{Kivva theorem numbering}
+The original bibliography cites the 2021 journal paper, but several theorem numbers were those of arXiv v1.  The mathematical statements agree, but the claim that every source is identified precisely was literally false.  In the journal version the relevant changes are
+\[
+\text{Lemmas }2.16,2.17,2.19\ \longrightarrow\ 2.17,2.18,2.20,
+\qquad
+\text{Theorem }2.24\ \longrightarrow\ 2.25.
+\]
+The patched manuscript uses the journal numbering.
+
+\section{Minor clarifications}
+\begin{enumerate}[leftmargin=2em,itemsep=0.4em]
+\item In the $\mu=2$ proof, the bound $y_2<A/(m-1)$ does not by itself imply $y_2<1$ when $m=2$.  This is harmless: when $t=2$ the later product is empty and only $u_1>0$ is used; when $t\ge3$, one has $m\ge3$ and hence $y_2<3/5$.  The patched text now splits these cases explicitly.
+\item At the endpoint, the existence of a ``last drop'' in the $\psi_i$ sequence should be justified by taking a maximal $j$ with $\psi_j\ge2$ and using $\psi_{d-1}=1$ and integrality.  The patched text now says this.
+\end{enumerate}
+
+\section{Core mathematical audit}
+\subsection{Adjacent distinguishers and small support}
+For adjacent $u,v$, the balance identity gives
+\[
+ D(1)=n-\frac1k\sum_{i=1}^d k_i a_i
+     =2+\frac2k\sum_{i=2}^d k_i c_i.
+\]
+The standard comparison $c_2\le b_1$ yields $k_2\ge k_1=k$, hence
+\[
+ \sum_{i=2}^d k_i\ge\frac{n-1}{2}.
+\]
+As $c_i\ge c_2=\mu$,
+\[
+ D(1)\ge2+\frac{\mu}{k}(n-1)>\frac{\mu}{k}n.
+\]
+No missing endpoint occurs here.
+
+For an automorphism with support density $\rho\le1/2$, the corrected boundary calculation gives a moved vertex with at least $k(1-\rho)/d$ fixed neighbors.  If $\mu<k(1-\rho)/d$, those common neighbors force $x\sim x^g$.  Every fixed vertex is equidistant from $x$ and $x^g$, so $D(1)\le|\operatorname{supp}(g)|$.  Thus
+\[
+ \lambda\ge\frac{k}{d}(1-\rho),
+ \qquad
+ \mu<\rho k.
+\]
+This conversion is valid and is the key new structural input.
+
+\subsection{Structural reduction}
+The large-$\mu$ branch correctly uses the maximal relation valency and the primitive coherent-configuration distinguishing bound.  In the small-$\mu$ branch, with
+\[
+ \gam=\frac1{12d^3},\qquad \alpha=\frac{1-\gam}{d},
+\]
+the three required inequalities are valid for every $d\ge3$:
+\[
+ \alpha^2>4\gam,
+ \qquad
+ \alpha-\frac{3\gam}{2\alpha}>\frac1{d+1},
+ \qquad
+ (d+1)^2\gam<\alpha.
+\]
+Retaining the full Metsch expression gives a clique of size $L$ with
+\[
+ L-1>\frac{k}{d+1}.
+\]
+Delsarte's clique bound implies $m<d+1$.  Only after this step does the proof invoke
+\[
+ m^2\mu<(d+1)^2\gam k<\alpha k<\lambda,
+\]
+so the Bang--Koolen geometricity criterion is used in the correct order.  Geometric integrality then gives $m\le d$.
+
+\subsection{Geodesic Poincar\'e inequality}
+The new spectral lemma survives a full normalization check.  For directed edge $e$, define
+\[
+ Q_e=\sum_{x,y}\frac{\dist(x,y)}{p(x,y)}
+ \#\{P:P\text{ is an }x\text{--}y\text{ geodesic using }e\}.
+\]
+Coherent-configuration intersection numbers make $Q_e$ independent of $e$.  Summing over the $nk$ directed edges gives
+\[
+ nkQ=\sum_{x,y}\dist(x,y)^2.
+\]
+For a mean-zero function $f$, Cauchy--Schwarz along each geodesic yields
+\[
+ 2n\|f\|_2^2
+ \le Q\sum_{e\text{ directed}}(\nabla_e f)^2
+ =2Q f^T(kI-A)f.
+\]
+Taking a $\theta_1$-eigenvector gives
+\[
+ k-\theta_1\ge \frac{n^2k}{\sum_{x,y}\dist(x,y)^2}\ge\frac{k}{d^2}.
+\]
+Both factors of two and the use of directed edges are correct.  This lemma is essential for the stated constant in the $\mu=1$ branch; the weaker published $k/(8d^2)$ gap does not by itself meet the valency hypothesis of the cited motion theorem at $k>12d^3$.
+
+\subsection{Transition and published endgames}
+The transition lemma correctly replaces the usual $1/d$ loss by applying the exact $D(1)$ formula.  The high-$\theta$ alternative correctly combines
+\[
+ 2\lambda\le k+\mu,
+ \qquad
+ \frac{\eps(1-\gam)}2=\gam,
+\]
+with Babai's spectral motion bound.  In the $\mu\ge3$ branch, the connected/disconnected local-graph split and all hypotheses of the Johnson characterization are satisfied.  In the $\mu=1$ branch, the Poincar\'e gap, $m\le d$, and $k>12d^3$ imply the exact size conditions required by the cited motion proposition.  No sign-convention error was found.
+
+\section{The new $\mu=2$ endgame}
+This is the portion most likely to contain a serious hidden error.  I reconstructed it independently.
+
+\subsection{Geometric parameters and strict growth}
+From $\mu=\tau_2\psi_1=2$ and $\tau_2\ge\psi_1$, one obtains
+\[
+ \tau_2=2,\quad\psi_1=1,\quad
+ b_1=\frac{m-1}{m}k,\quad \lambda=\frac{k}{m}-1.
+\]
+The local graphs are disjoint unions of $m$ cliques.  The induced-quadrangle hypothesis needed for Terwilliger's inequality follows from the cited geometric lemma.  Since $\eps<1/m^2$, strict growth gives
+\[
+ \tau_i<\tau_{i+1}\quad(1\le i\le t-2),
+\]
+and therefore $2\le t\le m$ and
+\[
+ r=m-\tau_{t-1}\in[1,m-t+1].
+\]
+
+\subsection{Relative-drop recurrence}
+For the standard sequence of $\theta$, define
+\[
+ y_i=\frac{u_{i-1}-u_i}{u_{i-1}}.
+\]
+The recurrence is exactly
+\[
+ y_{i+1}
+ =\frac{k-\theta+c_i y_i/(1-y_i)}{b_i}.
+\]
+With the manuscript's constants $A,B,\delta$, the base estimate and induction are valid:
+\[
+ 0\le y_2<\frac{A}{m-1},
+ \qquad
+ 0\le y_{i+1}\le\frac{A}{m-\tau_i}.
+\]
+The denominator is at least $3$ at every genuine induction step, so $y_i<2/5$ there and no circular positivity assumption is made.  Consequently
+\[
+ u_{t-1}\ge u_1\frac{r}{r+t-2}
+ \bigl(1-\delta H_{t-2}\bigr).
+\]
+
+\subsection{Sphere concentration}
+Putting $q=m\eps/(1-m\eps)$, both tails around the $t$-th sphere satisfy geometric ratio bounds.  The first ratio $k_0/k_1$ is separately controlled.  Thus
+\[
+ k_t\ge(1-2m\eps)n.
+\]
+No omitted $t=2$ or $t=d$ case was found.
+
+\subsection{Multiplicity certificate}
+Combining the standard-sequence and sphere estimates gives
+\[
+ k_{t-1}u_{t-1}^2\ge\frac{n}{k}FR,
+\]
+where
+\[
+ F=(1-2m\eps)(1-\eps)^2(1-\delta H_{t-2})^2,
+ \qquad
+ R=\frac{c_t r(m-1)^2}{m(r+t-2)^2}.
+\]
+The proof's case division for $R$ is exhaustive:
+\begin{enumerate}[leftmargin=2em,itemsep=0.25em]
+\item $c_t=t-1$, forcing $4\le t\le m-1$;
+\item $c_t\ge t$ with $t<m$, where the relevant function of $r$ has no interior minimum;
+\item $t=m$, where $c_t=m$ is impossible if $t<d$, and is the unique endpoint if $t=d$.
+\end{enumerate}
+Outside the endpoint,
+\[
+ R\ge\frac{m+1}{m}.
+\]
+The loss estimate is analytic, not computational:
+\[
+ F>\frac{m}{m+1},
+\]
+with the final inequality reduced to
+\[
+ 6d^3-10d^2-8d-5>0
+\]
+for $d\ge3$.  Hence $FR>1$ outside the endpoint.
+
+Biggs' formula then gives $f_1<k$.  Terwilliger's local-eigenvalue theorem forces an eigenvalue strictly below $-1$ in every local graph, contradicting the spectrum of a disjoint union of cliques.  The only remaining case is
+\[
+ c_t=t=m=d.
+\]
+Strict $\tau$ growth forces $\tau_i=i$; the maximal-index argument forces every $\psi_i=1$.  The intersection array is Hamming's.  Egawa's classification leaves Hamming or Doob, and the Doob valency $k=3d$ contradicts $k>12d^3$.
+
+\section{Computational cross-checks}
+The supplied exact and symbolic scripts pass.  I also wrote a separate exact-rational checker from scratch.  It verifies the structural inequalities and every relaxed $F R$ branch through $d=120$ without importing code or intermediate variables from the supplied package.  Its smallest checked product was
+\[
+ FR\approx1.0079777384
+\]
+at the endpoint-excluded relaxed tuple $(d,m,t,r,c_t)=(120,120,120,1,121)$.  The infinite range is covered in the manuscript by explicit polynomial and monotonicity arguments, not by this finite test.
+
+\section{Residual risk and recommendation}
+I found no fatal gap.  The theorem should still be described as unrefereed until a specialist independently checks the new $\mu=2$ proposition and the coherent-configuration load-uniformity argument.  A second model returning ``no error'' is useful adversarial evidence, not certification.
+
+The best external attack order is:
+\begin{enumerate}[leftmargin=2em,itemsep=0.25em]
+\item uniformity and normalization of the directed geodesic loads;
+\item positivity and index ranges in the $y_i$ induction;
+\item exhaustion of the three $R$ branches;
+\item the strict interface from $FR>1$ to $f_1<k$ and the local theorem;
+\item the endpoint deduction $\tau_i=i$, $\psi_i=1$;
+\item exact hypotheses and numbering of every imported proposition.
+\end{enumerate}
+Subject to those external checks, the proof is mathematically coherent and substantially stronger than the cited $d^{-6}$-scale result.
+
+\section*{Primary sources audited}
+\begin{itemize}[leftmargin=2em]
+\item L. Pyber and S. V. Skresanov, \emph{On the automorphism group of a distance-regular graph}, J. Combin. Theory Ser. B 172 (2025), 94--114; arXiv:2312.00383.
+\item B. Kivva, \emph{A characterization of Johnson and Hamming graphs and proof of Babai's conjecture}, J. Combin. Theory Ser. B 151 (2021), 339--374; arXiv:1912.11427.
+\end{itemize}
+\end{document}

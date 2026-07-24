@@ -1,0 +1,94 @@
+--- /mnt/data/babai_motion_d3_complete_proof.tex	2026-07-23 20:09:11.158704231 +0000
++++ /mnt/data/babai_motion_d3_adversarially_patched.tex	2026-07-23 20:21:34.074678203 +0000
+@@ -39,7 +39,7 @@
+ 
+ \begin{center}
+ \fbox{\parbox{0.93\textwidth}{\small
+-\textbf{Verification status.} The proof below is complete as written and no gap was found in a line-by-line source and algebra audit.  Every external input is identified by theorem number, and all new scalar inequalities are checked by an accompanying exact-arithmetic script.  This is nevertheless not independent peer review: the manuscript should not be cited as an established result until a specialist has checked the new $\mu=2$ argument and the source interfaces.}}
++\textbf{Verification status.} The proof below is complete as written and no gap was found in a line-by-line source and algebra audit.  Every external input is identified by theorem number (using the journal numbering), and all new scalar inequalities are checked by an accompanying exact-arithmetic script.  This is nevertheless not independent peer review: the manuscript should not be cited as an established result until a specialist has checked the new $\mu=2$ argument and the source interfaces.}}
+ \end{center}
+ 
+ \section{Statement and parameters}
+@@ -130,11 +130,29 @@
+ \end{lemma}
+ 
+ \begin{proof}
+-Pyber--Skresanov's proof of their Proposition~2.8 gives the stronger, support-sensitive inequality
++We spell out the orientation convention in the support-sensitive form of Pyber--Skresanov's Proposition~2.8.  For a directed edge $e$ of $X$, let
++\[
++ P_e=\sum_{u,v}\frac1{p(u,v)}
++ \#\{L:L\text{ is a }u\text{--}v\text{ geodesic using }e\},
++\]
++where $p(u,v)$ is the number of $u$--$v$ geodesics.  Their coherent-configuration argument shows that $P_e$ is independent of the directed edge; write the common value as $P$.  Summing over the $nk$ directed edges gives
++\[
++ nkP=\sum_{u,v}\dist(u,v)\le dn^2,
++ \qquad\text{so}\qquad P\le\frac{dn}{k}.
++\]
++Let
++\[
++ \delta_X^+(S)=\{(u,v):u\in S,\ v\notin S,\ u\sim v\}.
++\]
++For each ordered pair $(x,y)\in S\times(V(X)\setminus S)$, every $x$--$y$ geodesic uses at least one edge of $\delta_X^+(S)$.  Consequently
++\[
++ |S|(n-|S|)\le |\delta_X^+(S)|P,
++\]
++and hence
+ \begin{equation}\label{eq:boundary}
+-  |\delta_X(S)|\ge |S|\frac{k}{d}\frac{n-|S|}{n}.
++  |\delta_X^+(S)|\ge |S|\frac{k}{d}\frac{n-|S|}{n}.
+ \end{equation}
+-Here $\delta_X(S)$ is the set of undirected edges between $S$ and its complement.  Every such edge has exactly one endpoint in $S$, so averaging over the vertices of $S$ proves \eqref{eq:fixedneighbors}.  Since $S$ is the support of $g$, every neighbor outside $S$ is fixed.
++Each undirected cut edge contributes exactly one directed edge to $\delta_X^+(S)$, so this is also the corresponding undirected cut size.  Averaging the outbound cut degrees over the vertices of $S$ proves \eqref{eq:fixedneighbors}.  Since $S$ is the support of $g$, every neighbor outside $S$ is fixed.
+ 
+ Every fixed neighbor of $x$ is also adjacent to $x^g$.  If $x$ and $x^g$ were nonadjacent, the existence of a common neighbor would put them at distance two, where they have exactly $\mu$ common neighbors.  This contradicts the strict hypothesis.  Thus $x\sim x^g$, and the fixed common neighbors give the lower bound on $\lambda$.
+ 
+@@ -405,20 +423,20 @@
+ \end{proposition}
+ 
+ \begin{proof}
+-The geometric identities of Kivva's Lemma~2.16 are
++The geometric identities of Kivva's Lemma~2.17 are
+ \begin{equation}\label{eq:geometricidentities}
+   c_i=\tau_i\psi_{i-1},
+   \qquad
+   b_i=(m-\tau_i)\left(\frac{k}{m}+1-\psi_i\right).
+ \end{equation}
+-Kivva's Lemma~2.17 gives $\tau_2\ge\psi_1$.  Since $\mu=\tau_2\psi_1=2$, we have
++Kivva's Lemma~2.18 gives $\tau_2\ge\psi_1$.  Since $\mu=\tau_2\psi_1=2$, we have
+ \begin{equation}\label{eq:mu2parameters}
+   \tau_2=2,
+   \qquad \psi_1=1,
+   \qquad b_1=\frac{m-1}{m}k,
+   \qquad \lambda=\frac{k}{m}-1.
+ \end{equation}
+-In particular, every neighborhood graph is a disjoint union of $m$ cliques by Kivva's Lemma~2.19.  Since $X$ is geometric and $\mu=2$, Kivva's Lemma~3.10 also supplies an induced quadrangle; hence Terwilliger's inequality is available wherever it is used below.
++In particular, every neighborhood graph is a disjoint union of $m$ cliques by Kivva's Lemma~2.20.  Since $X$ is geometric and $\mu=2$, Kivva's Lemma~3.10 also supplies an induced quadrangle; hence Terwilliger's inequality is available wherever it is used below.
+ 
+ Since $\eps<1/m^2$, Kivva's Lemma~4.2 gives
+ \begin{equation}\label{eq:taugrowth}
+@@ -497,6 +515,7 @@
+ \begin{equation}\label{eq:y2}
+   0\le y_2<\frac{A}{m-1}.
+ \end{equation}
++If $t=2$, the product below is empty and only the already positive entry $u_1$ is used.  If $t\ge3$, then $m\ge3$, so \eqref{eq:y2} and $A<6/5$ give $y_2<3/5<1$ and hence $u_2>0$.
+ 
+ We claim inductively that
+ \begin{equation}\label{eq:yinduction}
+@@ -659,7 +678,7 @@
+ \]
+ in every neighborhood graph.  This is impossible because each neighborhood graph is a disjoint union of cliques, whose least eigenvalue is $-1$.  Therefore the endpoint \eqref{eq:endpoint} must hold.
+ 
+-At the endpoint, Kivva's endpoint argument (using Lemma~4.2 together with $\tau_d=m=d$) gives $\tau_i=i$ for all $i$, and $c_d=d=\tau_d\psi_{d-1}$ gives $\psi_{d-1}=1$.  If some $\psi_j$ were at least $2$, choose a last drop $\psi_{i-1}\ge2$ and $\psi_i=1$ with $2\le i\le d-1$.  Monotonicity of the $c_i$ would give
++At the endpoint, Kivva's endpoint argument (using Lemma~4.2 together with $\tau_d=m=d$) gives $\tau_i=i$ for all $i$, and $c_d=d=\tau_d\psi_{d-1}$ gives $\psi_{d-1}=1$.  If some $\psi_j$ were at least $2$, choose $j$ maximal with that property.  Since $\psi_{d-1}=1$ and every $\psi_i$ is a positive integer, putting $i=j+1$ gives $\psi_{i-1}\ge2$ and $\psi_i=1$ with $2\le i\le d-1$.  Monotonicity of the $c_i$ would give
+ \[
+   i+1=c_{i+1}=\tau_{i+1}\psi_i
+   \ge c_i=\tau_i\psi_{i-1}\ge2i,
+@@ -684,7 +703,7 @@
+ The proof imports the following published statements.
+ \begin{enumerate}[leftmargin=2.2em,itemsep=0.3em]
+ \item From Pyber--Skresanov~\cite{PS}: the Delsarte clique bound and geometric integrality (Lemmas~2.2--2.3), $2\lambda\le k+\mu$ (Lemma~2.4), Bang--Koolen geometricity (Proposition~2.5), the full Metsch expression in the proof of Proposition~2.6, the geodesic-load argument and support-sensitive final inequality in Proposition~2.8, Propositions~2.10 and~2.12--2.15, and the Johnson endgames Propositions~2.19--2.20.
+-\item From Kivva~\cite{Kivva}: Biggs' formula (Theorem~2.10), the geometric identities and local structure (Lemmas~2.16--2.19), $c_3>c_2$ (Corollary~2.8), Terwilliger's inequality (Theorem~2.6), the induced-quadrangle lemma (Lemma~3.10), the strict $\tau_i$ growth lemma (Lemma~4.2), Terwilliger's local-eigenvalue theorem (Theorem~4.1), and the Hamming/Doob endpoint classification (Theorem~2.24 and the endpoint argument in Theorem~4.7).
++\item From Kivva~\cite{Kivva} (journal numbering): Biggs' formula (Theorem~2.10), the geometric identities and local structure (Lemmas~2.17--2.20), $c_3>c_2$ (Corollary~2.8), Terwilliger's inequality (Theorem~2.6), the induced-quadrangle lemma (Lemma~3.10), the strict $\tau_i$ growth lemma (Lemma~4.2), Terwilliger's local-eigenvalue theorem (Theorem~4.1), and the Hamming/Doob endpoint classification (Theorem~2.25 and the endpoint argument in Theorem~4.7).
+ \end{enumerate}
+ 
+ \begin{center}

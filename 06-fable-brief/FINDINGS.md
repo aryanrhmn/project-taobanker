@@ -53,6 +53,8 @@ The directed-geodesic load Q_e is edge-independent by the same intersection-numb
 
 No trusted extracted `.tex` states or proves n/(12 d^3). The only manuscript-shaped occurrences are inside `_suspect-not-true-file-content/` (mis-extracted chat prose, excluded per instructions). Anyone publicizing this work should quote **n/(14 d^3)** (the strongest fully-written claim in the package) and not 1/12. Note the retraction README's reasoning ("new standard-sequence argument ... not independently verified") is *provenance-based*, not error-based: this review found no error in the successor 1/14 argument, but the retraction of 1/12 as a *claim* stands because no complete 1/12 manuscript exists in the package to audit.
 
+**[Closure, 2026-07-24: fully resolved. The true c12 manuscript surfaced (author-supplied; archived and cross-referenced in `09-first-session-originals/`), was audited twice inside the author's r2 session, and its lineage to the fully validated strengthened manuscript (`08-strengthened-manuscript/`, VALID AS WRITTEN at n/(11.346 d^3)) is byte-verified. The finding above is retained as the historically accurate state of the first public share; the claim ladder has moved on — see VERDICT.md Addendum 2.]**
+
 ## F5. Minor imprecisions in `complete_proof` (non-fatal, worth fixing before circulation)
 
 **Severity: low.**
