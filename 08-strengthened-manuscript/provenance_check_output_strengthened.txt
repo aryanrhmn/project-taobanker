@@ -1,0 +1,4 @@
+Provenance tags: total=330, LLM-containing=284, PS-containing=50, K-containing=62
+PASS: every displayed equation has an immediate \eqprov label.
+PASS: every non-structural prose paragraph has a provenance label.
+NOTE: this checker verifies annotation coverage, not source correctness.

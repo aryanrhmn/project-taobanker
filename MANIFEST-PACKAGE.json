@@ -4,7 +4,7 @@
   "generated": "2026-07-24",
   "generated_by": "Claude Fable 5 referee session (final: strengthened manuscript files added, verdict VALID AS WRITTEN)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
-  "file_count": 147,
+  "file_count": 150,
   "files": [
     {
       "path": ".claude\\settings.local.json",
@@ -558,8 +558,8 @@
     },
     {
       "path": "06-fable-brief\\DEPENDENCY_LEDGER.md",
-      "bytes": 12910,
-      "sha256_16": "12db0163b2cc632f"
+      "bytes": 13938,
+      "sha256_16": "bb2c6ae7ca0047ce"
     },
     {
       "path": "06-fable-brief\\FABLE_LAUNCH_PROMPT.md",
@@ -677,19 +677,34 @@
       "sha256_16": "294a90652d2c3fed"
     },
     {
+      "path": "08-strengthened-manuscript\\provenance_check_output_strengthened.txt",
+      "bytes": 285,
+      "sha256_16": "aa6fbd5ed8f43834"
+    },
+    {
       "path": "08-strengthened-manuscript\\PROVENANCE_INDEX_STRENGTHENED.md",
       "bytes": 2338,
       "sha256_16": "3a8d8c8250f6d49c"
     },
     {
       "path": "08-strengthened-manuscript\\README.md",
-      "bytes": 1649,
-      "sha256_16": "f0a28c136a1ec921"
+      "bytes": 2395,
+      "sha256_16": "84499b3a4b81f76c"
+    },
+    {
+      "path": "08-strengthened-manuscript\\scalar_check_output_strengthened.txt",
+      "bytes": 3180,
+      "sha256_16": "4fce59a4e27ecd8b"
     },
     {
       "path": "08-strengthened-manuscript\\STRENGTHENED_REVISION_NOTES.md",
       "bytes": 3086,
       "sha256_16": "e57f5c9000f03a03"
+    },
+    {
+      "path": "08-strengthened-manuscript\\STRONGER_RESULT_STATUS.md",
+      "bytes": 679,
+      "sha256_16": "7c3d6f6d9968dc61"
     },
     {
       "path": "08-strengthened-manuscript\\verify_provenance_annotations_strengthened.py",
@@ -708,8 +723,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 13520,
-      "sha256_16": "b7dfd308c77f7f2d"
+      "bytes": 15311,
+      "sha256_16": "bd020799ab592677"
     },
     {
       "path": "SOURCE_INDEX.md",

@@ -1,0 +1,55 @@
+PASS chosen coefficient: C0=5673/500, margin over 919/81=13/40500
+PASS identity: closure identity (3)
+PASS d>=3 polynomial: gamma < 1/2 -> 5673*x**3 + 51057*x**2 + 153171*x + 152171
+      denominator: 11346*d**3
+PASS d>=3 polynomial: epsilon < 2/(11 d^3) -> 346*x**3 + 3114*x**2 + 9342*x + 8342
+      denominator: 11*d**3*(5673*d**3 - 500)
+PASS d>=3 polynomial: d epsilon < 1/50 -> 5673*x**3 + 51057*x**2 + 103171*x + 2671
+      denominator: 50*(5673*d**3 - 500)
+PASS d>=3 polynomial: epsilon < 1/2 -> 5673*x**3 + 51057*x**2 + 153171*x + 150671
+      denominator: 2*(5673*d**3 - 500)
+PASS d>=3 polynomial: 2 gamma < epsilon -> 500000
+      denominator: 5673*d**3*(5673*d**3 - 500)
+PASS displayed d=3 value: d epsilon = 3000/152671
+PASS cycle-case numerical domination
+PASS d>=3 polynomial: (17a) alpha^2 > 4 gamma -> 32182929*x**6 + 567946722*x**5 + 4174505415*x**4 + 16351968660*x**3 + 35987781735*x**2 + 42174409482*x + 20551356241
+      denominator: 32182929*d**8
+PASS d>=3 polynomial: (17b) alpha - 3 gamma/(2 alpha) > 1/(d+1) -> 27928179*x**6 + 498452472*x**5 + 3703646415*x**4 + 14658578160*x**3 + 32579726985*x**2 + 38536848232*x + 18943810741
+      denominator: 5673*d**4*(d + 1)*(5673*d**3 - 500)
+PASS d>=3 polynomial: (17c) (d+1)^2 gamma < alpha -> 5173*x**3 + 45557*x**2 + 133171*x + 128671
+      denominator: 5673*d**4
+PASS d>=3 polynomial: b1 scalar lower bound -> 1891*x**3 + 17019*x**2 + 51057*x + 49557
+      denominator: 11346*d**3
+PASS d>=3 polynomial: relation-bound branches exceed gamma -> 5673*x + 15019
+      denominator: 22692*d**3
+PASS monotonicity for y>=4: h'(z+4)=5*z**4 + 44*z**3 + 129*z**2 + 138*z + 36
+PASS Kivva root bracket polynomial value: p(-913/455)=-12841664057813389062001/380289177849714310556640625
+PASS epsilon(d=3) < 3/458: margin=13/69923318
+PASS d>=3 polynomial: epsilon < 1/d^2 -> 5673*x**3 + 50057*x**2 + 147171*x + 143671
+      denominator: d**2*(5673*d**3 - 500)
+PASS d>=3 polynomial: (3/2)d^2 epsilon < 1 -> 5673*x**3 + 49557*x**2 + 144171*x + 139171
+      denominator: 5673*d**3 - 500
+PASS d>=3 polynomial: C0 d^3/6 > d -> 1891*x**3 + 17019*x**2 + 50057*x + 48057
+      denominator: 1000
+PASS d>=3 polynomial: C0 d^3 > 4 d^3 -> 3673*x**3 + 33057*x**2 + 99171*x + 99171
+      denominator: 500
+PASS d>=3 polynomial: C0 d^3 > 3d -> 5673*x**3 + 51057*x**2 + 151671*x + 148671
+      denominator: 500
+PASS valency thresholds for Johnson, mu=1, and Doob exclusion
+PASS A<6/5: derivative=8/(3*(X - 1)**2), endpoint=155/147
+PASS delta<3 d epsilon: endpoint coefficient=400/147
+PASS d>=3 polynomial: epsilon < 1/3 -> 5673*x**3 + 51057*x**2 + 153171*x + 149671
+      denominator: 3*(5673*d**3 - 500)
+PASS identity: A-B identity
+PASS q<1 at worst endpoint: q=1/49
+PASS identity: ab >= 2(a+b-2) decomposition
+PASS 2(m-2) >= m+1 for m>=5
+PASS identity: monotonicity derivative
+PASS identity: r=1 endpoint identity
+PASS r=1 endpoint inequality for m>=3
+PASS opposite endpoint inequality for m>=3
+PASS d>=3 polynomial: (3d^2+2d+2)epsilon < 1/(d+1) -> 2673*x**3 + 19057*x**2 + 38171*x + 12671
+PASS displayed strengthened x=d-3 polynomial certificate
+PASS exact regression sweep for 3 <= d <= 500
+
+All strengthened exact-arithmetic checks passed.
