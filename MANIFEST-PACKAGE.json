@@ -2,9 +2,9 @@
   "project": "project-taobanker",
   "purpose": "Package-wide integrity manifest (every file except this one)",
   "generated": "2026-07-24",
-  "generated_by": "Claude Fable 5 referee session (final consistency sweep: all indexes/READMEs reflect end state)",
+  "generated_by": "Claude Fable 5 referee session (reviewer-facing entry page added)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
-  "file_count": 157,
+  "file_count": 158,
   "files": [
     {
       "path": ".claude\\settings.local.json",
@@ -757,9 +757,14 @@
       "sha256_16": "8044b188c7ccfba9"
     },
     {
+      "path": "FOR_REVIEWERS.md",
+      "bytes": 6720,
+      "sha256_16": "8787acf4b00c044a"
+    },
+    {
       "path": "README.md",
-      "bytes": 15854,
-      "sha256_16": "64b68e1b7327393b"
+      "bytes": 16155,
+      "sha256_16": "e4fcabfeabdd5376"
     },
     {
       "path": "SOURCE_INDEX.md",

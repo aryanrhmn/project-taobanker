@@ -1,3 +1,5 @@
+> **Reviewing the mathematics?** Start at **[FOR_REVIEWERS.md](FOR_REVIEWERS.md)** — a neutral entry page with the manuscript of record, the provenance system, the fastest path to the one genuinely new lemma, and the verification scripts. The document below is the operator's memo to the author.
+
 # MEMO — Adversarial review of your Babai-motion manuscript
 
 | | |
