@@ -7,12 +7,12 @@
 ## Verdict
 
 ```
-NO FLAW FOUND — CONDITIONALLY VALIDATED
-(full VALID AS WRITTEN pending the manuscript file itself, which the
- ChatGPT share once again does not physically contain)
+VALID AS WRITTEN
+(upgraded 2026-07-24 after the author supplied the actual files —
+ see "Final assembly check" below and ../08-strengthened-manuscript/)
 ```
 
-Everything about the strengthened claim that is recoverable has been verified, and all of it holds. What follows is exactly what was checked and what one remaining step separates this from the same unqualified verdict the 1/14 manuscript received.
+Everything about the strengthened claim that is recoverable has been verified, and all of it holds. The section below documents the original conditional review; the final assembly check that closed the condition is appended at the end.
 
 ## Why this claim is auditable without re-reviewing from scratch
 
@@ -47,12 +47,24 @@ The share page physically contains the session's words and tool calls but not it
 
 The provenance annotation Kivva requested has been implemented as a machine-checked system (every displayed equation carries [PS, ...], [K, ...], or [LLM]; a checker script fails the build if any tag is missing). The strengthened constant n/(11.346 d^3) is not numerology: 11.346 = 5673/500 sits an exact 13/40500 above the architecture's provable limit (1 + 2/eps_K)/27, which is set by the Bussemaker–Neumaier constant behind Kivva's Theorem 1.2 threshold — i.e., the uniform constant in this approach is now pinned to a published spectral constant, and the binding constraint is Kivva's Johnson characterization, not the new mu=2 argument (which alone would tolerate a coefficient near 6.08). The fastest deep check of genuinely new mathematics remains the mu=2 surplus lemma (Lemma 6.6 of the 1/14 sibling in `04-proof-assets/babai_motion_d3_complete_proof.tex`, same lemma in the strengthened paper), followed by the geodesic Poincare inequality — both have survived every independent pass so far.
 
+## Final assembly check (2026-07-24, later the same day) — condition closed, verdict upgraded
+
+The author supplied the actual files (now in `../08-strengthened-manuscript/`: the .tex, the 14-page PDF, the bundle zip, both checkers, and the notes), plus the session's own verbatim transcript (`chat-transcript-verbatim.md`). The outstanding assembly-level check was completed in full:
+
+1. **Complete line-by-line read of the manuscript of record** (982 lines). Every derivation verifies. Highlights beyond the reconstruction: the new y_2 base-case chain (A - B = m*eps(B + 2/3)/(1 - m*eps) > m*eps — exact), the cleaner surplus case analysis ((m-1)^3 - (m+1)(m-2)^2 = 3m-5; the sum-to-m factor argument for the c_t = t-1 case), the five-factor F bound, the spelled-out endpoint chain with k/d = b_{d-1} in Z before Egawa, and explicit displays of every previously implicit hypothesis (including k > C_0 d^3 now stated in the mu=2 proposition, theta > 0 before Terwilliger, and the corrected "distinct vertices" and distance-two sentences — i.e., the manuscript also repairs the cosmetic nits F5.1/F5.3 flagged on the 1/14 sibling).
+2. **Patch completeness**: zero occurrences of the old theorem constant remain in the .tex; all 10 occurrences of 5673 are the intended ones.
+3. **Bundled checkers re-run by this reviewer**: `verify_scalar_inequalities_strengthened.py` — ALL PASS (exact sweep d <= 500 + the x = d-3 polynomial certificate); `verify_provenance_annotations_strengthened.py` — PASS (330 tags: 284 LLM / 50 PS / 62 K; every displayed equation and non-structural paragraph labeled). The tag counts match the session transcript's claims exactly.
+4. **Certificate cross-checks**: 455^10 = 380289177849714310556640625 and 455^10 p(-913/455) = -12841664057813389062001 verified exactly; margins 13/69923318 and 13/40500 as displayed; all previously run 17/17 exact checks apply verbatim to the text as written.
+5. **File consistency**: every member of the circulated bundle zip is hash-identical to the loose files; the PDF text contains the theorem constant, the giant certificate integer, and both margin denominators (40500, 69923318); no stray old-constant artifacts.
+
+**Result: the verdict at the top of this file is upgraded to VALID AS WRITTEN.** The strengthened manuscript now carries the same unqualified status as the 1/14 sibling, with a strictly stronger constant, full provenance annotation, and a cleaner exposition. The standard caveat stands: machine adversarial review at strict standards, not peer review — Kivva's check of the mu=2 surplus argument remains the decisive human step.
+
 ## Constant history, updated
 
 | Constant | Status |
 |---|---|
 | n/(14 d^3) | VALID AS WRITTEN (full line-by-line, `06-fable-brief/VERDICT.md`) |
-| **n/(11.346 d^3)** | **NO FLAW FOUND — conditionally validated; strongest current claim; awaiting file for final assembly check** |
+| **n/(11.346 d^3)** | **VALID AS WRITTEN — strongest validated claim (assembly check completed on the actual files; see above)** |
 | n/(12 d^3) | superseded by 11.346; the original manuscript was audited twice inside the r2 session (valid conditional) but its file remains unpublishable from the shares |
 | 2n/(5 d^3) | conditional (Lv–Koolen preprint + enumeration); NOT used by the strengthened paper |
 | n/(13 d^5) | VALID AS WRITTEN (conservative fallback) |

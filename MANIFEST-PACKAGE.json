@@ -2,9 +2,9 @@
   "project": "project-taobanker",
   "purpose": "Package-wide integrity manifest (every file except this one)",
   "generated": "2026-07-24",
-  "generated_by": "Claude Fable 5 referee session (r2 strengthened-revision review added)",
+  "generated_by": "Claude Fable 5 referee session (final: strengthened manuscript files added, verdict VALID AS WRITTEN)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
-  "file_count": 138,
+  "file_count": 147,
   "files": [
     {
       "path": ".claude\\settings.local.json",
@@ -553,8 +553,8 @@
     },
     {
       "path": "06-fable-brief\\CONSTANT_AUDIT.md",
-      "bytes": 7001,
-      "sha256_16": "a3109b9d99df759b"
+      "bytes": 7041,
+      "sha256_16": "b690214f49da61c8"
     },
     {
       "path": "06-fable-brief\\DEPENDENCY_LEDGER.md",
@@ -613,8 +613,13 @@
     },
     {
       "path": "06-fable-brief\\VERDICT.md",
-      "bytes": 7581,
-      "sha256_16": "f816ad135ee70399"
+      "bytes": 8047,
+      "sha256_16": "efa6e7c02ea379f8"
+    },
+    {
+      "path": "07-revision-r2\\chat-transcript-verbatim.md",
+      "bytes": 6214,
+      "sha256_16": "55a932f7cbe6f9c8"
     },
     {
       "path": "07-revision-r2\\CONTEXT.md",
@@ -653,8 +658,48 @@
     },
     {
       "path": "07-revision-r2\\REVIEW-STRENGTHENED.md",
-      "bytes": 7806,
-      "sha256_16": "ba60c3bc36b976d5"
+      "bytes": 10402,
+      "sha256_16": "c0628680ea67c8b3"
+    },
+    {
+      "path": "08-strengthened-manuscript\\babai_motion_d3_source_annotated_strengthened.pdf",
+      "bytes": 472082,
+      "sha256_16": "a4afa7e2794273d2"
+    },
+    {
+      "path": "08-strengthened-manuscript\\babai_motion_d3_source_annotated_strengthened.tex",
+      "bytes": 44021,
+      "sha256_16": "2c01e129284a5c16"
+    },
+    {
+      "path": "08-strengthened-manuscript\\babai_motion_d3_source_annotated_strengthened_bundle.zip",
+      "bytes": 485463,
+      "sha256_16": "294a90652d2c3fed"
+    },
+    {
+      "path": "08-strengthened-manuscript\\PROVENANCE_INDEX_STRENGTHENED.md",
+      "bytes": 2338,
+      "sha256_16": "3a8d8c8250f6d49c"
+    },
+    {
+      "path": "08-strengthened-manuscript\\README.md",
+      "bytes": 1649,
+      "sha256_16": "f0a28c136a1ec921"
+    },
+    {
+      "path": "08-strengthened-manuscript\\STRENGTHENED_REVISION_NOTES.md",
+      "bytes": 3086,
+      "sha256_16": "e57f5c9000f03a03"
+    },
+    {
+      "path": "08-strengthened-manuscript\\verify_provenance_annotations_strengthened.py",
+      "bytes": 4765,
+      "sha256_16": "ac69f5e64b561ce4"
+    },
+    {
+      "path": "08-strengthened-manuscript\\verify_scalar_inequalities_strengthened.py",
+      "bytes": 7663,
+      "sha256_16": "ca1a64e733fba384"
     },
     {
       "path": "CLAUDE.md",
@@ -663,8 +708,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12990,
-      "sha256_16": "1cd6625ab43b2354"
+      "bytes": 13520,
+      "sha256_16": "b7dfd308c77f7f2d"
     },
     {
       "path": "SOURCE_INDEX.md",

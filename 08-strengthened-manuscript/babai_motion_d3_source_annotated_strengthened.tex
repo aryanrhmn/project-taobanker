@@ -1,0 +1,981 @@
+\documentclass[10pt]{amsart}
+\usepackage[letterpaper,margin=0.77in,top=0.72in,bottom=0.72in,includeheadfoot]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage{booktabs,array}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\motion}{motion}
+\DeclareMathOperator{\dist}{dist}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\RR}{\mathbb{R}}
+\definecolor{provgray}{gray}{0.32}
+\newcommand{\prov}[1]{\unskip\, {\normalfont\scriptsize\color{provgray}\textsf{[#1]}}}
+\newcommand{\eqprov}[1]{%
+  \par\nobreak\vspace{-0.68\baselineskip}%
+  \noindent\hfill{\normalfont\scriptsize\color{provgray}\textsf{[#1]}}%
+  \par\vspace{0.20\baselineskip}%
+}
+
+\title[AN EXPLICIT $d^{-3}$ MOTION BOUND]{AN EXPLICIT $d^{-3}$ MOTION BOUND\\ FOR PRIMITIVE DISTANCE-REGULAR GRAPHS}
+\author{MACHINE-ASSISTED PROOF DEVELOPMENT}
+\date{July 23, 2026}
+
+\begin{document}
+\begin{abstract}
+Let $X$ be a primitive distance-regular graph on $n$ vertices, of diameter $d\ge 3$. We prove, subject to the published inputs quoted precisely below, that either $X$ is a Johnson graph or a Hamming graph, or\prov{LLM}
+\[
+\motion(X)\ge \frac{500n}{5673d^3}=\frac{n}{11.346\,d^3}.
+\]
+\eqprov{LLM}
+The published Pyber--Skresanov argument gives a bound on the scale $n/d^6$ in the primitive case.\prov{PS, Theorem 1.4} Four changes remove three powers of $d$ and sharpen the constant: an exact formula for the vertices distinguishing an adjacent pair; use of the support-sensitive form of the geodesic boundary argument; retention of the full Metsch clique expression, which forces the geometric parameter $m$ to satisfy $m\le d$; and a direct geodesic Poincar\'e inequality that improves the spectral gap used in the $\mu=1$ branch by a factor of eight.\prov{LLM} The remaining new step is an analytic sharpening of Kivva's $\mu=2$ multiplicity argument. It uses an exact recurrence for relative drops of the standard sequence and a direct concentration bound for the dominant distance sphere.\prov{LLM} Unlike earlier exploratory versions, the proof uses no finite tuple enumeration and no post-2021 classification theorem.\prov{LLM}
+\end{abstract}
+
+\maketitle
+
+\noindent\textbf{Verification status.}
+The proof below incorporates a line-by-line source-interface and algebra audit. Every external input is identified by theorem number using the journal numbering. Section~9 records the relevant arXiv--journal numbering concordance, and the accompanying file \texttt{verify\_scalar\_inequalities\_strengthened.py} checks the new scalar inequalities appearing below and the displayed polynomial certificates with exact rational arithmetic.\prov{LLM/editorial} This is nevertheless not independent peer review: the manuscript should not be cited as an established result until a specialist has checked the new $\mu=2$ argument and the source interfaces.\prov{LLM/editorial}
+
+\medskip
+\noindent\textbf{Provenance convention.}
+Every mathematical assertion and every displayed equation is followed by a provenance label. \textsf{[PS, ...]} refers to Pyber--Skresanov~\cite{PyberSkresanov}; \textsf{[K, ...]} refers to Kivva~\cite{Kivva}; both use the journal numbering unless explicitly stated otherwise. \textsf{[LLM]} means that the assertion is proved, defined, or algebraically derived in this manuscript rather than copied from an identified source; it is not by itself a claim of conceptual novelty. A combined label, such as \textsf{[PS, Proposition 2.8; LLM weighted modification]}, records both the imported input and the new modification.\prov{LLM/editorial}
+
+\medskip
+\noindent\textbf{Scope of this strengthened audit version.}
+This version makes one numerical change to the source-annotated proof: the coefficient $12$ is replaced by the exact rational constant $C_0=5673/500=11.346$. The change is confined to the parameter definitions, the scalar inequalities derived from them, and the exact Johnson-threshold comparison below; no structural lemma, classification theorem, or source interface is changed.\prov{LLM/editorial; strengthened scalar retuning} The more elaborate diameter-dependent proposals approaching a denominator $4d^3$ are deliberately not included, because their piecewise optimization would make the source audit substantially less readable.\prov{LLM/editorial}
+
+\section{Statement and parameters}
+Let $X$ be a primitive distance-regular graph on $n$ vertices, with valency $k$, diameter $d\ge 3$, intersection numbers $b_i,c_i$, and
+\[
+\lambda=a_1,\qquad \mu=c_2.
+\]
+\eqprov{LLM}
+Write $k_i$ for the size of a distance-$i$ sphere, $\theta$ for the second largest adjacency eigenvalue, and $-m$ for the smallest eigenvalue, so $m>0$.\prov{LLM/notation}
+
+\begin{theorem}\label{thm:main}
+Either $X$ is a Johnson graph or a Hamming graph, or
+\begin{equation}
+\motion(X)\ge \frac{500n}{5673d^3}=\frac{n}{11.346\,d^3}.
+\end{equation}
+\eqprov{LLM; strengthened scalar retuning}
+\end{theorem}
+
+Distance-regular graphs of valency $2$ are cycles.\prov{PS, Section 2.1} If $k=2$, every nonidentity automorphism of a cycle moves at least $n-2$ vertices; since $d\ge3$, this is greater than $500n/(5673d^3)$.\prov{LLM; strengthened scalar retuning} Henceforth we assume
+\[
+k>2.
+\]
+\eqprov{PS, standing assumption after Section 2.1; LLM cycle dispatch}
+
+Set\prov{LLM/definition; strengthened scalar retuning}
+\begin{equation}
+C_0=\frac{5673}{500}=11.346,
+\qquad
+\gamma=\frac{1}{C_0d^3}=\frac{500}{5673d^3},
+\qquad
+\eps=\frac{2}{C_0d^3-1}=\frac{1000}{5673d^3-500}.
+\end{equation}
+\eqprov{LLM; strengthened scalar retuning}
+The parameters satisfy the exact closure identity
+\begin{equation}
+\frac{\eps(1-\gamma)}{2}=\gamma.
+\end{equation}
+\eqprov{LLM; strengthened scalar retuning}
+We shall repeatedly use
+\begin{equation}
+\gamma<\frac12,\qquad \eps<\frac{2}{11d^3},\qquad d\eps<\frac1{50}.
+\end{equation}
+\eqprov{LLM; strengthened scalar retuning}
+The last inequality is strongest at $d=3$, where
+\[
+d\eps=\frac{3000}{152671}<\frac1{50}.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+
+\section{Adjacent distinguishers and automorphism support}
+For vertices $u,v$, put
+\[
+D(u,v)=\{z:\dist(u,z)\ne\dist(v,z)\}.
+\]
+\eqprov{LLM}
+For adjacent $u,v$, the cardinality is constant by distance-regularity; denote it by $D(1)$.\prov{LLM/notation}
+
+\begin{lemma}[Exact adjacent-pair identity]\label{lem:adjacent-identity}
+For every distance-regular graph of diameter at least three,\prov{LLM}
+\begin{equation}
+D(1)=2+\frac{2}{k}\sum_{i=2}^{d}k_i c_i.
+\end{equation}
+\eqprov{LLM}
+Consequently,\prov{LLM}
+\begin{equation}
+D(1)>\frac{\mu}{k}n.
+\end{equation}
+\eqprov{LLM}
+\end{lemma}
+
+\begin{proof}
+For adjacent $u,v$, the number of vertices at distance $i$ from both is $p^1_{i,i}$.\prov{LLM/notation} A double count gives the balance identity
+\[
+kp^1_{i,i}=k_i p^i_{1,i}=k_i a_i,
+\]
+\eqprov{LLM, double count}
+so
+\[
+D(1)=n-\frac1k\sum_{i=1}^{d}k_i a_i.
+\]
+\eqprov{LLM}
+Using $a_i=k-b_i-c_i$ and the standard sphere recurrence $k_i b_i=k_{i+1}c_{i+1}$, together with $b_d=0$ and $k_1c_1=k$, we obtain\prov{PS, Section 2.1; K, Section 2.2, (3\(\prime\))}
+\[
+\sum_{i=1}^{d}k_i a_i=k(n-2)-2\sum_{i=2}^{d}k_i c_i,
+\]
+\eqprov{LLM, telescoping}
+which proves (5).\prov{LLM}
+
+We also use the comparison $c_i\le b_j$ whenever $i+j\le d$. Place vertices $u,w,v$ in this order on a geodesic with $\dist(u,w)=i$ and $\dist(w,v)=j$. Every neighbor $z$ of $w$ with $\dist(u,z)=i-1$ must satisfy $\dist(v,z)=j+1$, so the $c_i$ such neighbors form a subset of the $b_j$ such neighbors.\prov{LLM} In particular $c_2\le b_1$, hence
+\[
+k_2=\frac{kb_1}{c_2}\ge k_1=k.
+\]
+\eqprov{K, Section 2.2, (3\(\prime\)); LLM}
+It follows that $\sum_{i=2}^{d}k_i\ge(n-1)/2$.\prov{LLM} Since $c_i\ge c_2=\mu$ for $i\ge2$,\prov{PS, Section 2.1}
+\[
+D(1)\ge2+\frac{\mu}{k}(n-1)>\frac{\mu}{k}n,
+\]
+\eqprov{LLM}
+where the final inequality uses $\mu\le k$.\prov{PS, Section 2.1; LLM}
+\end{proof}
+
+\begin{lemma}[Support-sensitive adjacent pair]\label{lem:support-adjacent}
+Let $g\in\Aut(X)$ be nonidentity, put $S=\supp(g)$ and $\rho=|S|/n\le1/2$. Some $x\in S$ has at least\prov{PS, proof of Proposition 2.8; LLM support-sensitive form}
+\begin{equation}
+\frac{k}{d}(1-\rho)
+\end{equation}
+\eqprov{PS, proof of Proposition 2.8, final inequality; LLM notation}
+fixed neighbors. If $\mu<k(1-\rho)/d$, then $x\sim x^g$ and\prov{LLM}
+\begin{equation}
+\lambda\ge\frac{k}{d}(1-\rho),\qquad D(1)\le|S|.
+\end{equation}
+\eqprov{LLM}
+\end{lemma}
+
+\begin{proof}
+We spell out the orientation convention in the support-sensitive form of Pyber--Skresanov's Proposition~2.8.\prov{PS, Proposition 2.8; LLM orientation bookkeeping} For a directed edge $e$ of $X$, let
+\[
+P_e=\sum_{u,v}\frac{1}{p(u,v)}\#\{L:L\text{ is a }u\text{--}v\text{ geodesic using }e\},
+\]
+\eqprov{PS, proof of Proposition 2.8}
+where $p(u,v)$ is the number of $u$--$v$ geodesics.\prov{PS, proof of Proposition 2.8} Their coherent-configuration argument shows that $P_e$ is independent of the directed edge; write the common value as $P$.\prov{PS, Lemma 2.7 and proof of Proposition 2.8} Summing over the $nk$ directed edges gives
+\[
+nkP=\sum_{u,v}\dist(u,v)\le dn^2,
+\qquad\text{so}\qquad P\le\frac{dn}{k}.
+\]
+\eqprov{PS, proof of Proposition 2.8}
+Let
+\[
+\delta_X^+(S)=\{(u,v):u\in S,\ v\notin S,\ u\sim v\}.
+\]
+\eqprov{LLM/notation}
+For each ordered pair $(x,y)\in S\times(V(X)\setminus S)$, every $x$--$y$ geodesic uses at least one edge of $\delta_X^+(S)$.\prov{PS, proof of Proposition 2.8} Consequently
+\[
+|S|(n-|S|)\le|\delta_X^+(S)|P,
+\]
+\eqprov{PS, proof of Proposition 2.8}
+and hence\prov{LLM}
+\begin{equation}
+|\delta_X^+(S)|\ge |S|\frac{k}{d}\frac{n-|S|}{n}.
+\end{equation}
+\eqprov{PS, proof of Proposition 2.8, final inequality}
+Each undirected cut edge contributes exactly one directed edge to $\delta_X^+(S)$, so this is also the corresponding undirected cut size. Averaging the outbound cut degrees over the vertices of $S$ proves (7).\prov{LLM, directed/undirected conversion} Since $S$ is the support of $g$, every neighbor outside $S$ is fixed.\prov{LLM}
+
+Every fixed neighbor of $x$ is also adjacent to $x^g$. If $x$ and $x^g$ were nonadjacent, the existence of a common neighbor would put them at distance two, where they have exactly $\mu$ common neighbors. This contradicts the strict hypothesis. Thus $x\sim x^g$, and the fixed common neighbors give the lower bound on $\lambda$.\prov{LLM}
+
+For $z\notin S$,
+\[
+\dist(x,z)=\dist(x^g,z^g)=\dist(x^g,z),
+\]
+\eqprov{LLM}
+so no fixed vertex distinguishes $x$ and $x^g$. Hence $D(1)\le|S|$.\prov{LLM}
+\end{proof}
+
+\section{A direct geodesic Poincar\'e inequality}
+The next proposition is the self-contained spectral improvement used in the $\mu=1$ branch.\prov{LLM}
+
+\begin{proposition}[Geodesic spectral-gap bound]\label{prop:poincare}
+Let $G$ be the graph of a connected symmetric basis relation of valency $k$ in a homogeneous coherent configuration on $n$ points. If $D$ is its diameter and $\theta_1$ its second largest adjacency eigenvalue, then\prov{LLM}
+\begin{equation}
+k-\theta_1\ge \frac{n^2k}{\displaystyle\sum_{x,y\in V(G)}\dist(x,y)^2}\ge\frac{k}{D^2}.
+\end{equation}
+\eqprov{LLM}
+For a distance-regular graph,\prov{LLM}
+\begin{equation}
+k-\theta_1\ge\frac{nk}{\displaystyle\sum_{i=0}^{D}k_i i^2}.
+\end{equation}
+\eqprov{LLM}
+\end{proposition}
+
+\begin{proof}
+For ordered vertices $x,y$, let $p(x,y)$ be the number of geodesics from $x$ to $y$. For a directed edge $e$, define\prov{PS, proof of Proposition 2.8; LLM weighted modification}
+\[
+Q_e=\sum_{x,y}\frac{\dist(x,y)}{p(x,y)}\#\{P:P\text{ is an }x\text{--}y\text{ geodesic containing }e\}.
+\]
+\eqprov{PS, proof of Proposition 2.8; LLM distance weight}
+The intersection-number argument in Pyber--Skresanov's proof of Proposition~2.8 shows that $Q_e$ is independent of $e$. After fixing the three basis relations containing $(x,z)$, $(w,y)$, and $(x,y)$ for $e=(z,w)$, the number of relevant pairs and geodesics is independent of $(z,w)$ by their Lemma~2.7; the extra weight $\dist(x,y)/p(x,y)$ depends only on the basis relation containing $(x,y)$. Write the common value as $Q$.\prov{PS, Lemma 2.7 and proof of Proposition 2.8; LLM weighted modification}
+
+Summing over the $nk$ directed edges gives
+\begin{equation}
+nkQ=\sum_{x,y}\dist(x,y)^2,
+\end{equation}
+\eqprov{LLM, weighted load double count}
+because every geodesic of length $\ell$ contributes $\ell$ at each of its $\ell$ directed edges.\prov{LLM}
+
+Let $f$ have mean zero. Averaging Cauchy--Schwarz along all geodesics from $x$ to $y$ gives\prov{LLM}
+\[
+(f(x)-f(y))^2\le\frac{\dist(x,y)}{p(x,y)}\sum_{P:x\to y}\sum_{e\in P}(\nabla_e f)^2.
+\]
+\eqprov{LLM}
+After summing over ordered pairs and using the constancy of $Q_e$,\prov{PS, Lemma 2.7; LLM}
+\[
+2n\lVert f\rVert_2^2\le Q\sum_{e\text{ directed}}(\nabla_e f)^2
+=2Q f^{\mathsf T}(kI-A)f.
+\]
+\eqprov{LLM}
+Taking $f$ in the $\theta_1$-eigenspace gives $k-\theta_1\ge n/Q$. Equation~(12) proves the first inequality in (10); the bound $\dist(x,y)\le D$ proves the second.\prov{LLM} In a distance-regular graph,
+\[
+\sum_{x,y}\dist(x,y)^2=n\sum_{i=0}^{D}k_i i^2,
+\]
+\eqprov{LLM}
+which proves (11).\prov{LLM}
+\end{proof}
+
+\begin{remark}
+Pyber and Skresanov obtain $k-\theta_1\ge k/(8D^2)$ by passing from their geodesic expansion estimate through Cheeger's inequality.\prov{PS, Proposition 2.9} Proposition~\ref{prop:poincare} applies Cauchy--Schwarz directly to the same uniform geodesic loads and retains the squared path lengths.\prov{LLM} No novelty claim is made for this canonical-path inequality without a broader literature search.\prov{LLM/editorial}
+\end{remark}
+
+\section{Small support forces Delsarte geometry}
+The proof of Pyber--Skresanov's Proposition~2.6 retains the following consequence of Metsch's theorem. If $\lambda^2\ge4k\mu$, then the graph contains a clique of size at least\prov{PS, proof of Proposition 2.6, equations (1)--(2); Metsch}
+\begin{equation}
+\lambda+2-\left(\left\lceil\frac{3k}{2(\lambda+1)}\right\rceil-1\right)(\mu-1).
+\end{equation}
+\eqprov{PS, proof of Proposition 2.6, equation (2)}
+
+\begin{proposition}[Structural reduction]\label{prop:structural}
+Suppose that a nonidentity automorphism has support density $\rho<\gamma$. Then\prov{LLM}
+\begin{equation}
+\mu<\gamma k,\qquad \lambda>\frac{1-\gamma}{d}k,\qquad k>C_0d^3,
+\end{equation}
+\eqprov{LLM}
+and $X$ is Delsarte-geometric with smallest eigenvalue $-m$ satisfying\prov{LLM}
+\begin{equation}
+m\le d.
+\end{equation}
+\eqprov{LLM}
+\end{proposition}
+
+\begin{proof}
+Suppose first that $\mu\ge k/(2d)$. Let $k_i=k_{\max}$ be a largest nontrivial relation valency. Since $k_2\ge k_1$ by Lemma~\ref{lem:adjacent-identity}, we may take $i\ge2$.\prov{LLM} Then
+\[
+\frac{k_i}{k_{i-1}}=\frac{b_{i-1}}{c_i}\le\frac{k}{\mu}\le2d,
+\]
+\eqprov{PS, Section 2.1 sphere recurrence; LLM}
+so $n-k_{\max}\ge k_{i-1}\ge k_{\max}/(2d)$.\prov{LLM} Every nontrivial relation of the primitive distance scheme has diameter at most $d$.\prov{PS, Section 2.2, paragraph before Lemma 2.7} Hence Pyber--Skresanov Propositions~2.10 and~2.12 give
+\[
+\motion(X)\ge\frac{n-k_{\max}}{d}.
+\]
+\eqprov{PS, Propositions 2.10 and 2.12}
+If $k_{\max}\ge n/2$, this is at least $n/(4d^2)$; otherwise it is greater than $n/(2d)$. Both bounds exceed $\gamma n$, contradicting $\rho<\gamma$.\prov{LLM} Therefore
+\begin{equation}
+\mu<\frac{k}{2d}.
+\end{equation}
+\eqprov{LLM}
+
+Since $\rho<\gamma<1/2$, Lemma~\ref{lem:support-adjacent} applies and gives\prov{LLM}
+\[
+\lambda>\frac{1-\gamma}{d}k.
+\]
+\eqprov{LLM}
+Together with Lemma~\ref{lem:adjacent-identity} and $D(1)\le|S|$, it gives\prov{LLM}
+\[
+\mu<\rho k<\gamma k.
+\]
+\eqprov{LLM}
+As $\mu\ge1$, this also implies $k>1/\gamma=C_0d^3$.\prov{LLM; strengthened scalar retuning}
+
+Put $\alpha=(1-\gamma)/d$. We need three elementary inequalities:\prov{LLM}
+\begin{equation}
+\alpha^2>4\gamma,\qquad \alpha-\frac{3\gamma}{2\alpha}>\frac1{d+1},\qquad (d+1)^2\gamma<\alpha.
+\end{equation}
+\eqprov{LLM}
+For the first, $1-\gamma>1/2$ and $C_0d>16$ give\prov{LLM; strengthened scalar retuning}
+\[
+\alpha^2>\frac1{4d^2}>\frac{4}{C_0d^3}=4\gamma.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+For the second,\prov{LLM; strengthened scalar retuning}
+\[
+\begin{aligned}
+d^2\left(\alpha-\frac1{d+1}-\frac{3\gamma}{2\alpha}\right)
+&=\frac{d}{d+1}-\frac1{C_0d^2}-\frac{3}{2C_0(1-\gamma)}\\
+&>\frac34-\frac1{99}-\frac3{11}>0.
+\end{aligned}
+\]
+\eqprov{LLM; strengthened scalar retuning}
+For the third,\prov{LLM; strengthened scalar retuning}
+\[
+d(d+1)^2\gamma=\frac{(d+1)^2}{C_0d^2}
+\le\frac{16}{9C_0}<\frac{16}{99}<\frac12<1-\gamma.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+
+The first inequality and (14) give $\lambda^2>4k\mu$, so the sourced Metsch bound (13) applies. Let $L$ be the resulting clique size. Since $\lceil x\rceil-1<x$ for every real $x$,\prov{PS, proof of Proposition 2.6, equation (2); LLM parameter substitution}
+\[
+\begin{aligned}
+L-1
+&\ge \lambda+1-\left(\left\lceil\frac{3k}{2(\lambda+1)}\right\rceil-1\right)(\mu-1)\\
+&>\alpha k-\frac{3k}{2(\lambda+1)}\mu
+>k\left(\alpha-\frac{3\gamma}{2\alpha}\right)
+>\frac{k}{d+1}.
+\end{aligned}
+\]
+\eqprov{LLM}
+The Delsarte clique bound gives $L\le1+k/m$, and therefore $m<d+1$.\prov{PS, Lemma 2.2; Delsarte} Finally,
+\[
+m^2\mu<(d+1)^2\gamma k<\alpha k<\lambda.
+\]
+\eqprov{LLM}
+By the Bang--Koolen criterion, $X$ is Delsarte-geometric.\prov{PS, Proposition 2.5; Koolen--Bang} In a Delsarte geometry $m$ is the integer number of Delsarte cliques through each vertex, so $m\le d$.\prov{PS, Lemma 2.3; LLM rounding}
+\end{proof}
+
+\section{The transition and spectral branches}
+Assume from now on that a nonidentity automorphism has support density $\rho<\gamma$. Proposition~\ref{prop:structural} is in force.\prov{LLM}
+
+\begin{lemma}[Transition without a diameter loss]\label{lem:transition}
+If
+\[
+b_j\ge\eps k,\qquad c_{j+1}\ge\eps k
+\]
+\eqprov{LLM}
+for some $1\le j\le d-1$, then $|S|>\eps n>\gamma n$.\prov{LLM}
+\end{lemma}
+
+\begin{proof}
+For $i\le j$, monotonicity gives $b_i\ge\eps k$; for $i\ge j+1$, it gives $c_i\ge\eps k$.\prov{PS, Section 2.1} Thus $a_i\le(1-\eps)k$ for every $i\ge1$, and\prov{LLM}
+\[
+D(1)=n-\frac1k\sum_{i=1}^{d}k_i a_i
+\ge n-(1-\eps)(n-1)>\eps n.
+\]
+\eqprov{LLM}
+Now use $D(1)\le|S|$ from Lemma~\ref{lem:support-adjacent}.\prov{LLM}
+\end{proof}
+
+If no transition occurs, let $t$ be the least index with $b_t\le\eps k$, using the convention $b_d=0$.\prov{LLM} The inequality $2\lambda\le k+\mu$ gives\prov{PS, Lemma 2.4}
+\[
+b_1=k-\lambda-1\ge\frac{k-\mu-2}{2}>\frac{1-3\gamma}{2}k>\frac{k}{3},
+\]
+\eqprov{LLM}
+where $1/k<\gamma$ was used. Hence $t\ge2$. Since $b_{t-1}>\eps k$ and no transition occurs,\prov{LLM}
+\begin{equation}
+b_t\le\eps k,\qquad c_t<\eps k.
+\end{equation}
+\eqprov{LLM}
+
+\begin{lemma}[High second eigenvalue]\label{lem:high-theta}
+Under these assumptions,\prov{LLM}
+\begin{equation}
+\theta\ge(1-\eps)b_1.
+\end{equation}
+\eqprov{LLM}
+\end{lemma}
+
+\begin{proof}
+Suppose instead that $\theta<(1-\eps)b_1$. Since $m\le d$, $b_1>k/3$, $k>C_0d^3$, and $\eps<1/2$,\prov{LLM; strengthened scalar retuning}
+\[
+(1-\eps)b_1>\frac{k}{6}>\frac{C_0d^3}{6}>d\ge m.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+Thus the zero-weight spectral radius $\xi=\max\{\theta,m\}$ satisfies $\xi<(1-\eps)b_1$.\prov{PS, paragraph before Proposition 2.13; LLM}
+
+Moreover $\lambda>\mu$, because $(1-\gamma)/d>\gamma$. Two distinct vertices have $\lambda$, $\mu$, or $0$ common neighbors according as their distance is $1$, $2$, or at least $3$; hence the common-neighbor maximum over distinct pairs is $\lambda$.\prov{LLM} Babai's spectral motion bound therefore gives\prov{PS, Proposition 2.13}
+\[
+\begin{aligned}
+\rho&\ge\frac{k-\xi-\lambda}{k}
+>\frac{1+\eps b_1}{k}\\
+&=\frac{1-\eps}{k}+\eps\frac{k-\lambda}{k}
+\ge\frac{1-\eps}{k}+\frac{\eps}{2}\left(1-\frac{\mu}{k}\right)
+>\frac{\eps}{2}(1-\gamma)=\gamma,
+\end{aligned}
+\]
+\eqprov{LLM}
+contradicting $\rho<\gamma$. The last equality is (3).\prov{LLM}
+\end{proof}
+
+\section{The published Johnson and \texorpdfstring{$\mu=1$}{mu=1} endgames}
+\begin{proposition}[The case $\mu\ge3$]\label{prop:johnson}
+Under (18) and (19), if $\mu\ge3$, then $X$ is a Johnson graph.\prov{PS, Proposition 2.20; K, Theorem 1.2 and Proposition 3.6; LLM assembly}
+\end{proposition}
+
+\begin{proof}
+If the neighborhood graphs are disconnected, Pyber--Skresanov Proposition~2.20 gives\prov{PS, Proposition 2.20}
+\[
+\theta+1\le\frac57b_1,
+\]
+\eqprov{PS, Proposition 2.20}
+contradicting (19), since $\eps<2/7$. Hence the neighborhood graphs are connected.\prov{LLM}
+
+Kivva defines the Johnson threshold in Proposition~3.6 as follows. Let\prov{K, Theorem 3.5 and Proposition 3.6}
+\[
+p(x)=x^2(x^2-1)^2(x^2-3)(x^2-4)-1,
+\]
+\eqprov{K, Theorem 3.5; LLM notation}
+let $\vartheta_1<-2$ be its smallest root, and put\prov{K, Theorem 3.5 and Proposition 3.6}
+\[
+\eps_K=\frac{-2-\vartheta_1}{-1-\vartheta_1}.
+\]
+\eqprov{K, Proposition 3.6}
+The threshold has the exact rational lower bound\prov{LLM; strengthened scalar retuning}
+\[
+\eps_K>\frac3{458}.
+\]
+\eqprov{K, Theorem 3.5 and Proposition 3.6; LLM exact root bracket}
+Indeed, writing $y=(2+s)^2\ge4$, the function $y(y-1)^2(y-3)(y-4)-1$ is strictly increasing in $y$, so $p(-2-s)$ is strictly increasing for $s\ge0$.\prov{LLM} Exact evaluation after clearing the positive denominator gives\prov{LLM}
+\[
+455^{10}p\!\left(-\frac{913}{455}\right)
+=-12841664057813389062001<0.
+\]
+\eqprov{LLM exact rational certificate}
+Thus $-2-\vartheta_1>3/455$, which is equivalent to the displayed threshold.\prov{LLM}
+Moreover, since $d\ge3$,\prov{LLM; strengthened scalar retuning}
+\[
+\eps\le\frac{1000}{152671}<\frac3{458}<\eps_K,
+\qquad
+\frac3{458}-\frac{1000}{152671}=\frac{13}{69923318}.
+\]
+\eqprov{LLM exact rational certificate}
+Kivva's Theorem~1.2 states that a Delsarte-geometric distance-regular graph with $\mu\ge2$, a connected neighborhood graph,\prov{K, Theorem 1.2}
+\[
+\theta+1>(1-\eps_K)b_1,
+\qquad k\ge\max\{m^3,29\},
+\]
+\eqprov{K, Theorem 1.2}
+is Johnson.\prov{K, Theorem 1.2} Equation~(19) and $\eps<\eps_K$ give\prov{LLM; strengthened scalar retuning}
+\[
+\theta+1\ge(1-\eps)b_1+1>(1-\eps_K)b_1.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+Also\prov{LLM; strengthened scalar retuning}
+\[
+k>C_0d^3\ge C_0m^3>m^3,
+\qquad
+k>C_0\,3^3>29.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+Thus all hypotheses of Kivva's theorem hold.\prov{LLM, hypothesis check}
+\end{proof}
+
+\begin{proposition}[The case $\mu=1$]\label{prop:mu-one}
+Under Proposition~\ref{prop:structural}, the case $\mu=1$ contradicts $\rho<\gamma$.\prov{PS, Propositions 2.14--2.15; LLM assembly}
+\end{proposition}
+
+\begin{proof}
+Proposition~\ref{prop:poincare} gives\prov{LLM}
+\[
+\theta\le k\left(1-\frac1{d^2}\right).
+\]
+\eqprov{LLM}
+Put $\eta=1/d^2$. Since $d\ge3$, $0<\eta<1/2$. Moreover\prov{LLM}
+\[
+m\le d<k\left(1-\frac1{d^2}\right),
+\]
+\eqprov{LLM}
+because $k>C_0d^3$.\prov{LLM; strengthened scalar retuning} Hence the zero-weight spectral radius satisfies\prov{PS, paragraph before Proposition 2.13; LLM}
+\[
+\xi=\max\{\theta,m\}\le k(1-\eta).
+\]
+\eqprov{LLM}
+If $m\ge3$, then\prov{LLM}
+\[
+k>C_0d^3>4md^2=\frac{4m}{\eta},
+\qquad k>m^2.
+\]
+\eqprov{LLM}
+Pyber--Skresanov Proposition~2.14 therefore yields\prov{PS, Proposition 2.14; LLM hypothesis check}
+\[
+\motion(X)\ge\frac{\eta n}{4}=\frac{n}{4d^2}>\gamma n.
+\]
+\eqprov{PS, Proposition 2.14; LLM substitution}
+
+If $m<3$, geometric integrality gives $m=1$ or $2$.\prov{PS, Lemma 2.3} The case $m=1$ is impossible: every vertex would lie in exactly one Delsarte clique, and connectedness would force the graph to be complete, contrary to $d\ge3$. Thus $m=2$.\prov{LLM} Here $k>C_0d^3>4$, so the remaining valency hypothesis of Pyber--Skresanov Proposition~2.15 is satisfied, and that proposition gives $\motion(X)\ge n/16>\gamma n$.\prov{PS, Proposition 2.15; LLM hypothesis check}
+\end{proof}
+
+\section{An analytic Hamming-stability lemma}
+We now handle the only branch not covered by a published endgame with the desired parameter scale.\prov{LLM}
+
+\begin{proposition}[Sharpened $\mu=2$ endgame]\label{prop:hamming}
+Let $X$ be a Delsarte-geometric distance-regular graph of diameter $d\ge3$, with smallest eigenvalue $-m$, where $m\le d$, and $\mu=2$. Let\prov{LLM}
+\[
+0<\eps=\frac{2}{C_0d^3-1}.
+\]
+\eqprov{LLM}
+Suppose that, for some $2\le t\le d$,\prov{LLM}
+\begin{equation}
+b_t\le\eps k,\qquad c_t<\eps k,\qquad \theta\ge(1-\eps)b_1,
+\qquad k>C_0d^3.
+\end{equation}
+\eqprov{LLM}
+Then $X$ is a Hamming graph.\prov{LLM}
+\end{proposition}
+
+\begin{proof}
+The geometric identities of Kivva's Lemma~2.17 are\prov{K, Lemma 2.17 (journal)}
+\begin{equation}
+c_i=\tau_i\psi_{i-1},
+\qquad
+b_i=(m-\tau_i)\left(\frac{k}{m}+1-\psi_i\right).
+\end{equation}
+\eqprov{K, Lemma 2.17 (journal)}
+Here $\psi_0=1$, so $c_1=1=\tau_1\psi_0$ gives\prov{K, equations (1)--(2) and Lemma 2.17 (journal); LLM}
+\[
+\tau_1=1.
+\]
+\eqprov{LLM}
+Kivva's Lemma~2.18 gives $\tau_2\ge\psi_1$. Since $\mu=\tau_2\psi_1=2$, we have\prov{K, Lemmas 2.17--2.18 (journal); LLM integrality}
+\begin{equation}
+\tau_2=2,\qquad \psi_1=1,\qquad b_1=\frac{m-1}{m}k,
+\qquad \lambda=\frac{k}{m}-1.
+\end{equation}
+\eqprov{K, Lemmas 2.17--2.18 (journal); LLM}
+In particular, every neighborhood graph is a disjoint union of $m$ cliques.\prov{K, Lemma 2.20 (journal)} Since $X$ is geometric and $\mu=2$, an induced quadrangle exists, so Terwilliger's inequality is available wherever it is used below.\prov{K, Lemma 3.10 and Theorem 2.6}
+
+Since
+\[
+\eps=\frac{2}{C_0d^3-1}<\frac1{d^2}\le\frac1{m^2},
+\]
+\eqprov{LLM}
+Kivva's Lemma~4.2 applies and gives\prov{K, Lemma 4.2; LLM hypothesis check}
+\begin{equation}
+\tau_i<\tau_{i+1}\qquad(1\le i\le t-2).
+\end{equation}
+\eqprov{K, Lemma 4.2}
+The parameters are integral, so $\tau_1=1$ and (23) imply $\tau_i\ge i$ for $i\le t-1$.\prov{K, equation (2) defining $\tau_i$; LLM} Put
+\begin{equation}
+r=m-\tau_{t-1}.
+\end{equation}
+\eqprov{LLM}
+Since $b_{t-1}>0$, (21) gives $\tau_{t-1}\le m-1$; together with $\tau_{t-1}\ge t-1$,\prov{K, Lemma 2.17 (journal); LLM}
+\begin{equation}
+1\le r\le m-t+1,\qquad 2\le t\le m.
+\end{equation}
+\eqprov{LLM}
+
+Let $(u_i)_{i=0}^{d}$ be the standard sequence for $\theta$.\prov{K, Definition 2.9} Define the relative drops
+\begin{equation}
+y_i=\frac{u_{i-1}-u_i}{u_{i-1}}
+\end{equation}
+\eqprov{LLM}
+whenever $u_{i-1}>0$.\prov{LLM/definition} The standard-sequence recurrence gives the exact identity\prov{K, Section 2.2 recurrence; LLM algebra}
+\begin{equation}
+y_{i+1}=\frac{k-\theta+c_i y_i/(1-y_i)}{b_i}.
+\end{equation}
+\eqprov{K, Section 2.2 standard-sequence recurrence; LLM change of variables}
+Set\prov{LLM/definition}
+\begin{equation}
+B=1+(m-1)\eps,
+\qquad
+A=\frac{1+(5m/3-1)\eps}{1-m\eps},
+\qquad
+\delta=A-1=\frac{(8m-3)\eps}{3(1-m\eps)}.
+\end{equation}
+\eqprov{LLM}
+From (22) and the eigenvalue hypothesis,\prov{K, Definition 2.9 gives $u_1=\theta/k$; LLM}
+\begin{equation}
+k-\theta\le\frac{k}{m}B,
+\qquad
+u_1=\frac{\theta}{k}\ge(1-\eps)\frac{m-1}{m}=:u_*.
+\end{equation}
+\eqprov{K, Definition 2.9; LLM}
+The small-parameter estimates (4) and $m\le d$ imply\prov{LLM}
+\begin{equation}
+m\eps<\frac1{50},\qquad A<\frac65,
+\qquad \delta<3d\eps.
+\end{equation}
+\eqprov{LLM}
+Indeed, writing $x=m\eps<1/50$,\prov{LLM}
+\[
+A\le\frac{1+5x/3}{1-x}<\frac{155}{147}<\frac65,
+\qquad
+\delta<\frac{8d\eps}{3(1-x)}<\frac{400}{147}d\eps<3d\eps.
+\]
+\eqprov{LLM}
+
+At $i=1$, using $c_1=1$, $b_1=(m-1)k/m$, $1/k<\gamma$, and (29),\prov{K, Lemma 2.17 (journal) and Section 2.2 recurrence; LLM}
+\[
+y_2\le\frac{B}{m-1}+\frac{m\gamma}{m-1}\frac{1-u_*}{u_*}
+\]
+\eqprov{LLM}
+and hence\prov{LLM}
+\begin{equation}
+y_2\le\frac1{m-1}\left(B+\frac{m\gamma B}{(m-1)(1-\eps)}\right).
+\end{equation}
+\eqprov{LLM}
+Since\prov{LLM}
+\[
+\frac{B}{m-1}=\frac1{m-1}+\eps\le1+\eps,
+\]
+\eqprov{LLM}
+while $(1+\eps)/(1-\eps)<2$ and $2\gamma<\eps$, we have\prov{LLM}
+\[
+\frac{\gamma B}{(m-1)(1-\eps)}<\eps.
+\]
+\eqprov{LLM}
+Furthermore\prov{LLM}
+\[
+A-B=\frac{m\eps(B+2/3)}{1-m\eps}>m\eps.
+\]
+\eqprov{LLM}
+Hence\prov{LLM}
+\begin{equation}
+0\le y_2<\frac{A}{m-1}.
+\end{equation}
+\eqprov{LLM}
+If $t=2$, the product below is empty and only the already positive entry $u_1$ is used. If $t\ge3$, then $m\ge3$, so (32) and $A<6/5$ give $y_2<3/5<1$ and hence $u_2>0$.\prov{LLM, edge-case check}
+
+We claim inductively that\prov{LLM}
+\begin{equation}
+0\le y_{i+1}\le\frac{A}{m-\tau_i}
+\qquad(1\le i\le t-2).
+\end{equation}
+\eqprov{LLM}
+The base is (32). Suppose $2\le i\le t-2$ and the preceding bound holds. Strict growth gives\prov{K, Lemma 4.2; LLM}
+\[
+m-\tau_{i-1}\ge r+t-i\ge3,
+\]
+\eqprov{LLM}
+so $y_i\le A/3<2/5$ and therefore $y_i/(1-y_i)<2/3$.\prov{LLM} Also $c_i\le c_t<\eps k$ by monotonicity, and $\psi_i\le c_{i+1}\le c_t$ by (21).\prov{PS, Section 2.1; K, Lemma 2.17 (journal)} Thus
+\[
+b_i\ge(m-\tau_i)\frac{k}{m}(1-m\eps).
+\]
+\eqprov{K, Lemma 2.17 (journal); LLM}
+Equation~(27) now gives\prov{LLM}
+\[
+y_{i+1}\le\frac{B+(2m/3)\eps}{(m-\tau_i)(1-m\eps)}
+=\frac{A}{m-\tau_i}.
+\]
+\eqprov{LLM}
+This proves the claim and, in particular, proves that all standard-sequence entries used below are positive.\prov{LLM}
+
+Using (23), for $2\le i\le t-1$ we have $m-\tau_{i-1}\ge r+t-i$.\prov{K, Lemma 4.2; LLM} Therefore
+\begin{equation}
+\begin{aligned}
+u_{t-1}
+&=u_1\prod_{i=2}^{t-1}(1-y_i)\\
+&\ge u_1\prod_{s=r+1}^{r+t-2}\left(1-\frac{A}{s}\right)\\
+&=u_1\frac{r}{r+t-2}\prod_{s=r+1}^{r+t-2}\left(1-\frac{\delta}{s-1}\right)\\
+&\ge u_1\frac{r}{r+t-2}(1-\delta H_{t-2}).
+\end{aligned}
+\end{equation}
+\eqprov{LLM}
+where $H_j=1+1/2+\cdots+1/j$ and $H_0=0$.\prov{LLM/notation} The final inequality is the elementary product bound $\prod(1-x_i)\ge1-\sum x_i$.\prov{LLM}
+
+We next show that the $t$-th sphere contains almost all vertices.\prov{LLM} Put
+\begin{equation}
+q=\frac{m\eps}{1-m\eps}<1.
+\end{equation}
+\eqprov{LLM}
+For $2\le i\le t$, (21) and the sphere recurrence give\prov{K, Lemma 2.17 (journal); K, Section 2.2, (3\(\prime\))}
+\[
+\frac{k_{i-1}}{k_i}=\frac{c_i}{b_{i-1}}
+\le\frac{q}{m-\tau_{i-1}}\le q.
+\]
+\eqprov{K, Lemma 2.17 (journal) and Section 2.2, (3\(\prime\)); LLM}
+The remaining first ratio is $k_0/k_1=1/k<\gamma<q$; here $q>m\eps\ge2\eps>4\gamma$. Thus the entire left tail has mass at most $k_tq/(1-q)$.\prov{LLM}
+
+For $t\le i\le d-1$, monotonicity gives $b_i\le b_t\le\eps k$.\prov{PS, Section 2.1} Since $m-\tau_i\ge1$, the second identity in (21) implies\prov{K, Lemma 2.17 (journal); LLM}
+\[
+\psi_i\ge\frac{k}{m}+1-\eps k>k\left(\frac1m-\eps\right).
+\]
+\eqprov{K, Lemma 2.17 (journal); LLM}
+Consequently\prov{K, Section 2.2, (3\(\prime\)); LLM}
+\[
+\frac{k_{i+1}}{k_i}=\frac{b_i}{c_{i+1}}\le\frac{\eps k}{\psi_i}\le q,
+\]
+\eqprov{K, Section 2.2, (3\(\prime\)); K, Lemma 2.17 (journal); LLM}
+so the right tail also has mass at most $k_tq/(1-q)$.\prov{LLM} Hence
+\begin{equation}
+\frac{n}{k_t}\le1+\frac{2q}{1-q}=\frac{1+q}{1-q},
+\qquad
+k_t\ge(1-2m\eps)n.
+\end{equation}
+\eqprov{LLM}
+
+Since $\psi_{t-1}\ge1$, the second identity in (21) gives $b_{t-1}\le rk/m$.\prov{K, Lemma 2.17 (journal); LLM} Combining (29), (34), and (36), we obtain\prov{LLM}
+\begin{equation}
+k_{t-1}u_{t-1}^2\ge\frac{n}{k}FR,
+\end{equation}
+\eqprov{LLM}
+where\prov{LLM/definition}
+\begin{equation}
+F=(1-2m\eps)(1-\eps)^2(1-\delta H_{t-2})^2,
+\qquad
+R=\frac{c_t r(m-1)^2}{m(r+t-2)^2}.
+\end{equation}
+\eqprov{LLM}
+
+We now prove that, outside one endpoint, $R$ provides a uniform gain:\prov{LLM}
+\begin{equation}
+R\ge\frac{m+1}{m}.
+\end{equation}
+\eqprov{LLM}
+By monotonicity and (21),\prov{PS, Section 2.1; K, Lemma 2.17 (journal)}
+\[
+c_t\ge c_{t-1}=\tau_{t-1}\psi_{t-2}\ge\tau_{t-1}\ge t-1.
+\]
+\eqprov{PS, Section 2.1; K, Lemmas 2.17 and 4.2 (journal numbering); LLM}
+If $c_t=t-1$, equality throughout forces\prov{LLM}
+\[
+\tau_{t-1}=t-1,
+\qquad c_t=c_{t-1}.
+\]
+\eqprov{LLM}
+Kivva's Corollary~2.8 and Terwilliger's inequality then give $4\le t\le m-1$.\prov{K, Corollary 2.8 and Theorem 2.6; LLM equality analysis} Thus $r=m-t+1$ and
+\[
+R=\frac{(t-1)(m-t+1)}{m}\ge\frac{m+1}{m};
+\]
+\eqprov{LLM}
+indeed, the two factors sum to $m$, the first is at least $3$, the second at least $2$, and their product is at least $2(m-2)\ge m+1$.\prov{LLM}
+
+Suppose next that $c_t\ge t$ and $t<m$. For fixed $m,t$, the function\prov{LLM}
+\[
+f(r)=\frac{r}{(r+t-2)^2}
+\]
+\eqprov{LLM}
+has no interior minimum on $1\le r\le m-t+1$, so it is enough to check the endpoints.\prov{LLM} At $r=1$,\prov{LLM}
+\[
+R\ge\frac{t(m-1)^2}{m(t-1)^2}\ge\frac{m+1}{m},
+\]
+\eqprov{LLM}
+because $t/(t-1)^2$ decreases with $t$ and\prov{LLM}
+\[
+(m-1)^3-(m+1)(m-2)^2=3m-5>0.
+\]
+\eqprov{LLM}
+At $r=m-t+1$,\prov{LLM}
+\[
+R\ge\frac{t(m-t+1)}{m}\ge\frac{m+1}{m},
+\]
+\eqprov{LLM}
+since the concave function $t(m+1-t)$ has endpoint minimum $2(m-1)\ge m+1$ on $2\le t\le m-1$.\prov{LLM}
+
+Finally suppose $t=m$, so $r=1$ and $R=c_t/m$.\prov{LLM} If $t<d$, the equality $c_t=t=m$ is impossible. Strict growth gives $c_{t-1}\ge t-1=m-1$, while $b_t\ge1$; hence $c_{t-1}-c_t+b_t\ge0$.\prov{K, Lemma 4.2; LLM} Terwilliger's inequality and (21) then give\prov{K, Theorem 2.6 and Lemma 2.17 (journal); LLM}
+\[
+\frac{k}{m}\ge b_{t-1}\ge c_{t-1}-c_t+b_t+\lambda+2\ge\frac{k}{m}+1,
+\]
+\eqprov{K, Theorem 2.6 and Lemma 2.17 (journal); LLM}
+a contradiction. Hence $c_t\ge m+1$. If $t=m=d$, then every nonendpoint case also has $c_t\ge m+1$. This proves (39) unless\prov{LLM}
+\begin{equation}
+c_t=t=m=d.
+\end{equation}
+\eqprov{LLM}
+
+It remains to show that the loss factor satisfies\prov{LLM}
+\begin{equation}
+F>\frac{m}{m+1}.
+\end{equation}
+\eqprov{LLM}
+Let $z=\delta H_{t-2}$. We use the elementary bound\prov{LLM}
+\begin{equation}
+H_{d-2}\le\frac{d}{2}\qquad(d\ge3).
+\end{equation}
+\eqprov{LLM}
+It holds at $d=3$, and the induction step follows from\prov{LLM}
+\[
+H_{d-1}=H_{d-2}+\frac1{d-1}\le\frac d2+\frac12=\frac{d+1}{2}.
+\]
+\eqprov{LLM}
+Thus, by (30),\prov{LLM}
+\[
+0\le z<\frac32d^2\eps.
+\]
+\eqprov{LLM}
+Moreover,\prov{LLM}
+\[
+\frac32d^2\eps=\frac{3d^2}{C_0d^3-1}<1\qquad(d\ge3),
+\]
+\eqprov{LLM}
+so $0\le z<1$. Applying $\prod_j(1-x_j)\ge1-\sum_jx_j$ to the five factors defining $F$ gives\prov{LLM}
+\[
+F\ge1-(2m\eps+2\eps+2z).
+\]
+\eqprov{LLM}
+Since $m\le d$,\prov{LLM}
+\[
+2m\eps+2\eps+2z<(3d^2+2d+2)\eps<\frac1{d+1}\le\frac1{m+1}.
+\]
+\eqprov{LLM}
+After multiplying by $500$, the middle strict inequality is equivalent to\prov{LLM; strengthened scalar retuning}
+\[
+2673d^3-5000d^2-4000d-2500>0.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+A completely explicit certificate is obtained by writing $d=x+3$:\prov{LLM}
+\[
+2673d^3-5000d^2-4000d-2500
+=2673x^3+19057x^2+38171x+12671>0.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+This proves (41) without a finite case split.\prov{LLM}
+
+Outside the endpoint (40), equations (39) and (41) give $FR>1$. Hence (37) yields\prov{LLM}
+\[
+k_{t-1}u_{t-1}^2>\frac{n}{k}.
+\]
+\eqprov{LLM}
+By Biggs' multiplicity formula, the multiplicity $f_1$ of $\theta$ satisfies $f_1<k$.\prov{K, Theorem 2.10; LLM one-term bound} From (20), $\theta\ge(1-\eps)b_1>0$, so $\theta+1>0$.\prov{LLM} Terwilliger's local-eigenvalue theorem then puts the eigenvalue\prov{K, Theorem 4.1; LLM hypothesis check}
+\[
+-1-\frac{b_1}{\theta+1}<-1
+\]
+\eqprov{K, Theorem 4.1; LLM strict inequality}
+in every neighborhood graph.\prov{K, Theorem 4.1} This is impossible because a disjoint union of cliques has no eigenvalue below $-1$.\prov{K, Lemma 2.20 (journal); LLM spectral observation} Therefore the endpoint (40) must hold.\prov{LLM}
+
+At the endpoint, $t=m=d$. We have $\tau_1=1$, and (23) gives the strict integer chain\prov{K, Lemma 4.2; LLM}
+\[
+1=\tau_1<\tau_2<\cdots<\tau_{d-1}.
+\]
+\eqprov{LLM}
+For $i<d$, $b_i>0$ and (21) give $\tau_i\le m-1=d-1$, while $\tau_d=m=d$. Hence\prov{K, Lemma 2.17 (journal); LLM integer-chain argument}
+\[
+\tau_i=i\qquad(1\le i\le d).
+\]
+\eqprov{LLM}
+Now $c_d=d=\tau_d\psi_{d-1}$ gives $\psi_{d-1}=1$.\prov{K, Lemma 2.17 (journal); LLM} If some $\psi_j$ were at least $2$, choose $j$ maximal with that property. Since $\psi_{d-1}=1$ and every $\psi_i$ is a positive integer, putting $i=j+1$ gives $\psi_{i-1}\ge2$ and $\psi_i=1$ with $2\le i\le d-1$.\prov{K, definitions of $\psi_i$; LLM} Monotonicity of the $c_i$ would give\prov{PS, Section 2.1; K, Lemma 2.17 (journal)}
+\[
+i+1=c_{i+1}=\tau_{i+1}\psi_i\ge c_i=\tau_i\psi_{i-1}\ge2i,
+\]
+\eqprov{PS, Section 2.1; K, Lemma 2.17 (journal); LLM}
+which is impossible. Hence $\psi_i=1$ for every $i$.\prov{LLM} Consequently
+\[
+c_i=i,
+\qquad
+b_i=(d-i)\frac{k}{d}.
+\]
+\eqprov{K, Lemma 2.17 (journal); LLM endpoint substitution}
+In particular, $k/d=b_{d-1}\in\mathbb{Z}$, so $s=1+k/d$ is an integer with $s\ge2$.\prov{LLM} These are the intersection numbers of $H(d,s)$.\prov{K, Hamming intersection array (journal equation (6)); LLM identification} Egawa's classification gives a Hamming or Doob graph.\prov{K, Theorem 2.25 (journal); Egawa} A Doob graph occurs only when $s=4$, equivalently $k=3d$.\prov{K, proof of Theorem 4.7} Since $k>C_0d^3>3d$, the Doob case is impossible, so $X$ is Hamming.\prov{LLM; strengthened scalar retuning}
+\end{proof}
+
+\section{Completion of the proof}
+\begin{proof}[Proof of Theorem~\ref{thm:main}]
+Suppose that a nonidentity automorphism $g$ has support density $\rho<\gamma$. Proposition~\ref{prop:structural} makes $X$ Delsarte-geometric with $m\le d$. Lemma~\ref{lem:transition} rules out a transition, so (18) holds; Lemma~\ref{lem:high-theta} gives (19).\prov{LLM}
+
+If $\mu\ge3$, Proposition~\ref{prop:johnson} makes $X$ Johnson. If $\mu=2$, Proposition~\ref{prop:hamming} makes $X$ Hamming. If $\mu=1$, Proposition~\ref{prop:mu-one} contradicts $\rho<\gamma$. These cases exhaust the positive integer $\mu$. Therefore every graph outside the Johnson and Hamming families has motion at least
+\[
+\gamma n=\frac{500n}{5673d^3}=\frac{n}{11.346\,d^3}.
+\]
+\eqprov{LLM; strengthened scalar retuning}
+\end{proof}
+
+\section{Dependency and audit ledger}
+The proof imports the following published statements.\prov{LLM/editorial}
+\begin{enumerate}
+\item From Pyber--Skresanov~\cite{PyberSkresanov}: the Delsarte clique bound and geometric integrality (Lemmas~2.2--2.3), $2\lambda\le k+\mu$ (Lemma~2.4), Bang--Koolen geometricity (Proposition~2.5), the full Metsch expression in the proof of Proposition~2.6, the geodesic-load argument and support-sensitive final inequality in Proposition~2.8, Propositions~2.10 and~2.12--2.15, and the disconnected-neighborhood Johnson bound in Proposition~2.20.\prov{PS, cited items}
+\item From Kivva~\cite{Kivva}, using journal numbering: the exact Johnson threshold and connected-neighborhood characterization (Theorem~1.2, Theorem~3.5, and Proposition~3.6), Biggs' formula (Theorem~2.10), the geometric identities and local structure (Lemmas~2.17--2.20), $c_3>c_2$ (Corollary~2.8), Terwilliger's inequality (Theorem~2.6), the induced-quadrangle lemma (Lemma~3.10), the strict $\tau_i$ growth lemma (Lemma~4.2), Terwilliger's local-eigenvalue theorem (Theorem~4.1), and the Hamming/Doob endpoint classification (Theorem~2.25 and the endpoint argument in Theorem~4.7).\prov{K, cited items}
+\end{enumerate}
+The original sources for the principal imported tools are also listed separately: Delsarte~\cite{Delsarte}, Koolen--Bang~\cite{KoolenBang}, Metsch~\cite{Metsch}, Biggs~\cite{Biggs}, Terwilliger~\cite{TerwilligerGirth,TerwilligerFeasibility}, and Egawa~\cite{Egawa}.\prov{LLM/editorial}
+
+\medskip
+\noindent\textbf{Kivva numbering concordance.}
+In arXiv:1912.11427, journal Lemmas~2.17--2.20 appear as Lemmas~2.16--2.19, and journal Theorem~2.25 appears as Theorem~2.24. All citations in the proof use the journal numbering.\prov{LLM/editorial, checked against both versions}
+
+\medskip
+Every row of the following table is an editorial hypothesis check, not a further imported theorem.\prov{LLM/editorial}
+
+\renewcommand{\arraystretch}{1.18}
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.27\textwidth}>{\raggedright\arraybackslash}p{0.65\textwidth}}
+\toprule
+\textbf{Interface} & \textbf{Hypotheses checked in the manuscript}\\
+\midrule
+PS standing assumption (after Section~2.1) & The valency-$2$ cycle case is dispatched immediately after Theorem~1.1.\\
+PS, Proposition~2.10 interface & Every nontrivial relation of a primitive rank-$(d+1)$ distance scheme is connected and has diameter at most $d$.\\
+PS, proof of Proposition~2.6 & $\lambda^2>4k\mu$ follows from (17); the ceiling term is not discarded.\\
+PS, Proposition~2.5 & The clique bound first gives $m<d+1$, and only then is $m^2\mu<\lambda$ invoked.\\
+PS, Proposition~2.13 & The common-neighbor maximum over distinct pairs is $\lambda$ because $\lambda>\mu$.\\
+PS, Proposition~2.20; K, Theorem~1.2 and Proposition~3.6 & The disconnected case has $d>2$ and $\mu\ge3$. In the connected case, the exact certificate gives $\eps<3/458<\eps_K$, and $k>C_0d^3$ gives $k\ge\max\{m^3,29\}$.\\
+K, Lemma~4.2 & $\mu=2$, $c_t<\eps k$, and $\eps<1/d^2\le1/m^2$.\\
+K, Theorem~4.1 & Biggs' formula gives the strict inequality $f_1<k$, and (20) gives $\theta>0$.\\
+K, Theorem~2.25 and proof of Theorem~4.7 & The strict integer chain forces $\tau_i=i$; $k/d=b_{d-1}\in\mathbb Z$; the only surviving case is $c_t=t=m=d$; and the Doob valency $k=3d$ is excluded.\\
+PS, Propositions~2.14--2.15 & Delsarte geometry, Proposition~3.1, $m\le d<k(1-1/d^2)$, $\xi\le k(1-1/d^2)$, $k>4md^2,m^2$, and, for $m=2$, $k>4$.\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{remark}[Numerical margin]
+Kivva's exact threshold permits the limiting uniform coefficient $C_{\mathrm{lim}}=(1+2/\eps_K)/27$.\prov{K, Proposition 3.6; LLM scalar optimization} The rational bracket above gives the exact comparison
+\[
+C_{\mathrm{lim}}<\frac{919}{81}<\frac{5673}{500}=C_0,
+\qquad
+\frac{5673}{500}-\frac{919}{81}=\frac{13}{40500}.
+\]
+\eqprov{LLM exact rational certificate}
+Thus $C_0=11.346$ is admissible with a small explicit margin.\prov{LLM; strengthened scalar retuning} The diameter-dependent $4d^3$ proposal is not used in this manuscript.\prov{LLM/editorial}
+\end{remark}
+
+\begin{remark}
+The exponent $3$ is intrinsic to the present structural route. Small support density $\rho$ gives $\mu\lesssim\rho k$, while the clique argument gives $m=O(d)$ and $\lambda\gtrsim k/d$. The Bang--Koolen condition $m^2\mu<\lambda$ therefore naturally asks for $\rho=O(d^{-3})$. Improving the exponent appears to require a stronger route to geometricity, not merely better constants in the Hamming endgame.\prov{LLM/heuristic}
+\end{remark}
+
+\begin{thebibliography}{99}
+\bibitem{PyberSkresanov}
+L. Pyber and S. V. Skresanov,
+\emph{On the automorphism group of a distance-regular graph},
+J. Combin. Theory Ser. B \textbf{172} (2025), 94--114; arXiv:2312.00383.
+
+\bibitem{Kivva}
+B. Kivva,
+\emph{A characterization of Johnson and Hamming graphs and proof of Babai's conjecture},
+J. Combin. Theory Ser. B \textbf{151} (2021), 339--374; arXiv:1912.11427.
+
+\bibitem{Delsarte}
+P. Delsarte,
+\emph{An algebraic approach to the association schemes of coding theory},
+Philips Res. Rep. Suppl. \textbf{10} (1973), vi+97.
+
+\bibitem{KoolenBang}
+J. H. Koolen and S. Bang,
+\emph{On distance-regular graphs with smallest eigenvalue at least $-m$},
+J. Combin. Theory Ser. B \textbf{100} (2010), 573--584.
+
+\bibitem{Metsch}
+K. Metsch,
+\emph{On a characterization of bilinear forms graphs},
+European J. Combin. \textbf{20} (1999), 293--306.
+
+\bibitem{Biggs}
+N. L. Biggs,
+\emph{Intersection matrices for graphs},
+in \emph{Combinatorial Mathematics and its Applications} (Proc. Conf., Oxford, 1969),
+Academic Press, London, 1971, 15--23.
+
+\bibitem{TerwilligerGirth}
+P. Terwilliger,
+\emph{Distance-regular graphs with girth $3$ or $4$. I},
+J. Combin. Theory Ser. B \textbf{39} (1985), 265--281.
+
+\bibitem{TerwilligerFeasibility}
+P. Terwilliger,
+\emph{A new feasibility condition for distance-regular graphs},
+Discrete Math. \textbf{61} (1986), 311--315.
+
+\bibitem{Egawa}
+Y. Egawa,
+\emph{Characterization of $H(n,q)$ by the parameters},
+J. Combin. Theory Ser. A \textbf{31} (1981), 108--125.
+\end{thebibliography}
+
+\end{document}
