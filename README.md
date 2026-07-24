@@ -74,6 +74,10 @@ If you only mention one thing: **"Fable adversarially reviewed every version of 
 
 ---
 
+## 7. Update (2026-07-24, later) — THE UNIT CONSTANT: motion(X) ≥ n/d³
+
+Your "UNIT CONSTANT" manuscript (`10-unit-coefficient/`) claims coefficient exactly 1 on the d³ scale — past the certified limit of the previous architecture. Fable's verdict, same day: **VALID AS WRITTEN** (`10-unit-coefficient/REVIEW-UNIT-COEFFICIENT.md`). All four new modules verified by hand (the Metsch-to-geometric split, the local-grid Johnson argument that replaces Kivva's spectral threshold, the exact μ=1 factors, the exact-envelope μ=2 certificate), and your absent C++ checker was rebuilt independently from the displayed formulas — it reproduced your 19 exceptional rows, all nineteen β₀ values, your worst margin 1.0000005977102229 to all sixteen digits, and all three tail margins digit-for-digit. **n/d³ is now the validated headline claim.** Send the .tex, the checker files, and the 2n/(3d³) intermediate when convenient (lineage only — the verdict stands on the PDF). The specialists' fastest path: Prop. 4.1 and Prop. 6.1 are the two genuinely new pages.
+
 ## Appendix A — Package map
 
 ```
@@ -95,6 +99,7 @@ project-taobanker/
 ├── 07-revision-r2/                    ← r2 share forensics + review of the strengthened claim
 ├── 08-strengthened-manuscript/        ← THE validated manuscript of record (tex/pdf/bundle/checkers)
 ├── 09-first-session-originals/        ← true c12 files: adversarial patch, self-referee report (chain of custody)
+├── 10-unit-coefficient/               ← THE UNIT RESULT: motion ≥ n/d³ manuscript + review + independent checker
 └── tools/                             ← extraction pipeline used during assembly
 ```
 

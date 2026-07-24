@@ -6,11 +6,15 @@ This page is the entry point for anyone evaluating the mathematics. It assumes n
 
 Let X be a primitive distance-regular graph on n vertices of diameter d >= 3. Then X is a Johnson graph, a Hamming graph, or
 
+    motion(X) >= n/d^3        (unit coefficient; the current manuscript of record)
+
+**Latest manuscript:** [`10-unit-coefficient/babai_motion_d3_unit_coefficient_source_crosswalk.pdf`](10-unit-coefficient/babai_motion_d3_unit_coefficient_source_crosswalk.pdf) (18 pages), reviewed VALID AS WRITTEN in [`10-unit-coefficient/REVIEW-UNIT-COEFFICIENT.md`](10-unit-coefficient/REVIEW-UNIT-COEFFICIENT.md) — its two genuinely new pages are Prop. 4.1 (Metsch-to-geometric split) and Prop. 6.1 (local-grid Johnson argument), and its finite mu=2 certificate was reproduced bit-exactly by an independent implementation ([`fable_unit_checker.py`](10-unit-coefficient/fable_unit_checker.py)). The fully-annotated predecessor below remains a validated fallback with a simpler dependency profile:
+
     motion(X) >= 500n/(5673 d^3) = n/(11.346 d^3).
 
 This sharpens the diameter dependence of Pyber-Skresanov (JCTB 172 (2025), 94-114; motion >= Cn/d^6 outside Johnson/Hamming/crown) in the primitive case, toward Babai's conjecture of a uniform linear bound.
 
-**Manuscript of record:** [`08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.pdf`](08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.pdf) (14 pages; [LaTeX source](08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.tex)). Machine-generated (OpenAI Codex lineage), machine-refereed (Claude Fable 5, adversarial standard), **not yet human-peer-reviewed** — which is where you come in.
+**Predecessor manuscript (fully annotated, validated fallback):** [`08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.pdf`](08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.pdf) (14 pages; [LaTeX source](08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.tex)). Machine-generated (OpenAI Codex lineage), machine-refereed (Claude Fable 5, adversarial standard), **not yet human-peer-reviewed** — which is where you come in.
 
 ## What is new vs. imported
 
@@ -19,6 +23,9 @@ Per the annotation convention requested during correspondence, every displayed e
 An external cross-index of all 34 imports — each published statement, its hypotheses, and the point of use — is in [`06-fable-brief/DEPENDENCY_LEDGER.md`](06-fable-brief/DEPENDENCY_LEDGER.md). Note the Kivva arXiv-vs-journal numbering concordance at its top (the ledger cites arXiv numbering; the manuscript cites journal numbering; the shift is journal Lemmas 2.17-2.20 = arXiv 2.16-2.19 and journal Theorem 2.25 = arXiv 2.24).
 
 ## Where to spend your time (fastest path to a decision)
+
+**For the unit-coefficient manuscript (the current headline):** the two genuinely new pages are Prop. 4.1 (the Metsch-to-geometric split — an integer count of lines through a vertex closes the band d-1 < m <= d via Kivva's clique-geometry criterion) and Prop. 6.1 (the local-grid Johnson argument — trace-averaged singular values plus interlacing force every local graph to be exactly K_m x K_beta, needing only b+ < 13/12 instead of the universal spectral threshold). The mu=2 finite envelope (Lemma 7.2) is machine-checkable; run `python 10-unit-coefficient/fable_unit_checker.py`. The items below refer to the predecessor manuscript and remain relevant as its independent validation record.
+
 
 1. **The one genuinely new lemma — the mu=2 multiplicity surplus** (manuscript Section 7). Everything else is either a published import used within its stated hypotheses or elementary. The new step replaces the surplus 1 + 1/(m^2-1) implicit in Kivva's Proposition 4.6 with the uniform R >= 1 + 1/m (manuscript inequality (39), with a four-case integer analysis over (c_t, t, r)), against the loss factor F > m/(m+1) (inequality (41)). This is what relaxes the dominant-distance smallness parameter from the eps < 1/(6m^4 d) of Kivva's Corollary 4.8 to eps ~ d^-3 with no enumeration.
 2. **The geodesic Poincare inequality** (Section 3): k - theta_1 >= k/D^2 for a connected symmetric basis relation of a homogeneous coherent configuration, via distance-weighted uniform geodesic loads (a canonical-path argument riding on the uniformity in Pyber-Skresanov's Lemma 2.7 / Proposition 2.8). Used only in the mu=1 branch, where it feeds Pyber-Skresanov Proposition 2.14 at eta = 1/d^2.

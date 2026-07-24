@@ -56,3 +56,14 @@ Both re-review triggers fired: Kivva responded (feedback relayed by Babai — re
 **Sub-verdict (final, upgraded 2026-07-24): `VALID AS WRITTEN`.** The author supplied the actual files (`08-strengthened-manuscript/`: .tex, 14-page PDF, bundle zip — all hash-consistent) and the session's verbatim transcript. The full assembly check was completed: complete 982-line read of the manuscript of record (every derivation verifies; it also repairs the F5 cosmetic nits of the 1/14 sibling), zero old-constant remnants, both bundled checkers re-run and passing (330 provenance tags, matching the transcript's claim exactly), and all exact certificates confirmed against the text as written. Details: `07-revision-r2/REVIEW-STRENGTHENED.md`, "Final assembly check".
 
 The 1/14 and 1/13d^5 verdicts above are unaffected. **The validated headline claim of this package is now motion(X) >= 500n/(5673 d^3) = n/(11.346 d^3).**
+
+
+---
+
+## Addendum 3 (2026-07-24): the unit-coefficient manuscript — motion(X) >= n/d^3
+
+The author supplied a new 18-page manuscript (`10-unit-coefficient/`) claiming the unit constant on the d^-3 scale — beyond the previously certified limit of the old architecture. It replaces all three prior bottlenecks with new modules (Metsch-to-geometric split; local-grid Johnson argument in place of Kivva's universal spectral threshold; exact mu=1 dual-spectrum/incidence factors; exact-envelope mu=2 certificate with 19 refined rows plus a d >= 53 analytic tail).
+
+**Sub-verdict: `VALID AS WRITTEN`.** Every new module verified by hand; the absent C++ checker independently re-implemented from the displayed formulas (`10-unit-coefficient/fable_unit_checker.py`) and reproduced bit-exactly: the 19-row exception table, all nineteen beta_0 values, the worst certificate margin 1.0000005977102229 (sixteen digits), and all three exact rational tail margins. All load-bearing imports previously verified verbatim; the two offline-unverifiable citations (KB10 Thm 5.3, BW Thm 1.2) are redundant with verified statements. Full review: `10-unit-coefficient/REVIEW-UNIT-COEFFICIENT.md`.
+
+**The package's validated headline claim is now motion(X) >= n/d^3.** The 11.346, 14, and 13d^-5 results become validated fallbacks. Still outstanding on the author's side: the .tex, the C++ checker files, and the 2n/(3d^3) intermediate draft (lineage only; verdict unaffected).

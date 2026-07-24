@@ -33,3 +33,12 @@ Publicly claim **n/(14 d^3)** (and the bulletproof n/(13 d^5) fallback). Do not 
 | diameter-dependent | motion >= n/(4 d^3) for d >= 9 (with per-diameter table for 3 <= d <= 8) | Sketched in the r2 session only; **deliberately not asserted in any manuscript** ("their piecewise optimization would make the source audit substantially less readable"). Unaudited. | Future work; would need its own review. |
 
 **Updated bottom line:** the defensible ladder is now n/(13d^5) (bulletproof) < n/(14d^3) (fully validated) < n/(11.346d^3) (no flaw found, pending file check). Quote 11.346 with the pending-file caveat, or 14 unconditionally.
+
+
+## Addendum 2 (2026-07-24, later): the unit coefficient
+
+| Label | Claim | Status |
+|---|---|---|
+| **unit** | **motion >= n/d^3** | **VALID AS WRITTEN — new validated headline.** Four new modules replace every prior bottleneck; independent re-implementation of the finite certificate reproduces all displayed constants bit-exactly (19 rows, worst margin 1.0000005977102229 at gen121211, tail margins digit-for-digit). See `10-unit-coefficient/REVIEW-UNIT-COEFFICIENT.md`. Manuscript's own Remark 9.1: coefficient 1 saturates this architecture — going higher needs a new idea in the Bang-Koolen eigenvalue band. |
+
+**Final ladder: n/d^3 (headline) > n/(11.346d^3) > n/(14d^3) > n/(13d^5), all VALID AS WRITTEN; 2n/(5d^3) remains the stronger-but-conditional outlier (Lv-Koolen).**

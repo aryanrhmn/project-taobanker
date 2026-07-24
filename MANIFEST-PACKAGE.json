@@ -2,9 +2,9 @@
   "project": "project-taobanker",
   "purpose": "Package-wide integrity manifest (every file except this one)",
   "generated": "2026-07-24",
-  "generated_by": "Claude Fable 5 referee session (reviewer-facing entry page added)",
+  "generated_by": "Claude Fable 5 referee session (unit-coefficient review: VALID AS WRITTEN, new headline n/d^3)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
-  "file_count": 158,
+  "file_count": 164,
   "files": [
     {
       "path": ".claude\\settings.local.json",
@@ -35,6 +35,11 @@
       "path": "01-x-post\\POST-5-KIVVA-FEEDBACK-R2-2026-07-24.md",
       "bytes": 2958,
       "sha256_16": "62108d332302d056"
+    },
+    {
+      "path": "01-x-post\\POST-6-UNIT-COEFFICIENT-2026-07-24.md",
+      "bytes": 1951,
+      "sha256_16": "6f27fce829730a6f"
     },
     {
       "path": "01-x-post\\POST.md",
@@ -553,8 +558,8 @@
     },
     {
       "path": "06-fable-brief\\CONSTANT_AUDIT.md",
-      "bytes": 7431,
-      "sha256_16": "3a80cb15eff17f67"
+      "bytes": 8262,
+      "sha256_16": "96ea8f2bca9d198d"
     },
     {
       "path": "06-fable-brief\\DEPENDENCY_LEDGER.md",
@@ -613,8 +618,8 @@
     },
     {
       "path": "06-fable-brief\\VERDICT.md",
-      "bytes": 8047,
-      "sha256_16": "efa6e7c02ea379f8"
+      "bytes": 9576,
+      "sha256_16": "6fe3a7bbc633a23c"
     },
     {
       "path": "07-revision-r2\\chat-transcript-verbatim.md",
@@ -752,19 +757,44 @@
       "sha256_16": "9246a432116d46fd"
     },
     {
+      "path": "10-unit-coefficient\\babai_motion_d3_unit_coefficient_source_crosswalk.pdf",
+      "bytes": 592472,
+      "sha256_16": "fdc6529c6aeae816"
+    },
+    {
+      "path": "10-unit-coefficient\\extracted-text.txt",
+      "bytes": 50262,
+      "sha256_16": "6e7869be7ed6e678"
+    },
+    {
+      "path": "10-unit-coefficient\\fable_unit_checker.py",
+      "bytes": 12587,
+      "sha256_16": "0530d8ce77b1a9f9"
+    },
+    {
+      "path": "10-unit-coefficient\\fable_unit_checker_output.txt",
+      "bytes": 4120,
+      "sha256_16": "7c441859e34dbe17"
+    },
+    {
+      "path": "10-unit-coefficient\\REVIEW-UNIT-COEFFICIENT.md",
+      "bytes": 9210,
+      "sha256_16": "a489540954331b5d"
+    },
+    {
       "path": "CLAUDE.md",
       "bytes": 3776,
       "sha256_16": "8044b188c7ccfba9"
     },
     {
       "path": "FOR_REVIEWERS.md",
-      "bytes": 6720,
-      "sha256_16": "8787acf4b00c044a"
+      "bytes": 8300,
+      "sha256_16": "c459d2ff0a8847af"
     },
     {
       "path": "README.md",
-      "bytes": 16155,
-      "sha256_16": "e4fcabfeabdd5376"
+      "bytes": 17354,
+      "sha256_16": "c48bdb428d6c045f"
     },
     {
       "path": "SOURCE_INDEX.md",
@@ -793,8 +823,8 @@
     },
     {
       "path": "VERSION_MATRIX.md",
-      "bytes": 3473,
-      "sha256_16": "832bae2a92102756"
+      "bytes": 3839,
+      "sha256_16": "3e6a4aa7e39fe88b"
     }
   ]
 }

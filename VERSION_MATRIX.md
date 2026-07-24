@@ -45,3 +45,11 @@ The matrix above is the historically accurate pre-review state. Final scoreboard
 | sharpened / twitter fallback | 1/8, 1/15 | Historical iterations; superseded |
 
 Full lineage (every arrow byte-verified): 12-draft -> adversarial patch -> c12 (sent to Babai/Kivva) -> r2 corrections + provenance tags -> strengthened 11.346.
+
+
+### Second update (2026-07-24, later): the unit coefficient
+
+| Label | Claim | Final status |
+|-------|-------|--------------|
+| **unit (crosswalk)** | motion >= n/d^3 | **VALID AS WRITTEN — the validated headline claim** (`10-unit-coefficient/`); supersedes 11.346 |
+| 2n/(3 d^3) | intermediate referenced by the unit draft | not archived; superseded |

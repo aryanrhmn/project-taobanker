@@ -1,0 +1,1646 @@
+=== PAGE 1 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+FOR PRIMITIVE DISTANCE-REGULAR GRAPHS
+MACHINE-ASSISTED PROOF DEVELOPMENT
+Abstract. Let X be a primitive distance-regular graph on n vertices, of diameter d ≥3. Subject to the published
+inputs identified precisely below, we prove that either X is a Johnson graph or a Hamming graph, or [LLM]
+motion(X) ≥n
+d3 .
+[LLM]
+The unit coefficient comes from a Metsch-to-geometric parameter split: either Koolen–Bang applies directly, or
+integer line-counting activates Kivva’s clique-geometry criterion. [Met99, Result 2.1; KB10, Theorem 5.3; K, Theorem 2.12
+and Proposition 2.13 (arXiv numbering); LLM parameter split strengthening Proposition 4.1 of the preceding machine-assisted 2n/(3d3)
+draft] The remaining new modules are a local-grid Johnson argument, exact retention of Kivva’s dual-spectrum and
+incidence factors in the µ = 1 branch, and an exact-envelope strengthening of Kivva Proposition 4.6 in the µ = 2
+branch. The two crosswalks below state the published baseline and exact change for each module, and the same
+pointers are repeated where the estimates are used. [Biggs71, Section 4, theorem on pp. 19–20; K, Theorem 1.2, Lemmas 2.27
+and 5.5, Corollary 5.6, and Proposition 4.6; PS, Propositions 2.14 and 2.19; LLM summary of the explicitly mapped replacements and
+retained constants]
+Verification status. Every imported statement is tagged by a theorem, result, equation, section, or page pointer;
+every new assertion is tagged [LLM]. The accompanying C++ checker and Python wrapper perform the finite and
+scalar checks with exact rational arithmetic.
+[LLM/editorial] The proof is machine-assisted research and is not a substitute
+for specialist peer review. In particular, the Metsch-to-geometric parameter split, local-grid rigidity argument, exact
+dual-spectrum transfer, and finite µ = 2 certificate should be checked independently before the theorem is cited as
+established.
+[LLM/editorial]
+Provenance convention. The label [PS, ...] refers to Pyber–Skresanov [1]; [BW, ...] to Babai–Wilmes [2]; and
+[K, ...] to Kivva [3]. The original-source labels are [Del73] for Delsarte [4], [Met95] and [Met99] for Metsch [6, 7],
+[KB10] for Koolen–Bang [5], [Biggs71] for Biggs [8], [T85] and [T86] for Terwilliger [9, 10], and [Ega81] for Egawa [11].
+Journal numbering is used unless stated otherwise.
+[LLM/editorial]
+[LLM] means that the statement is proved, defined, or algebraically derived here rather than copied from an identified
+source; it does not by itself assert conceptual novelty. A label of the form “[source; LLM retains/sharpens/replaces
+...]” names both the published baseline and the exact change made here. Thus a source pointer is not intentionally
+omitted merely because the final formula is new. Statements marked only [LLM] are independent calculations for
+which no specific published baseline is being claimed.
+[LLM/editorial responding to source-audit request]
+Original-source crosswalk. The exact roles of the older references are as follows; later annotations point back to
+these entries at the place of use.
+[LLM/editorial]
+Date: July 24, 2026.
+1
+
+=== PAGE 2 ===
+2
+MACHINE-ASSISTED PROOF DEVELOPMENT
+Label
+Original pointer
+Role in this proof
+Del73
+Section 3.3.2
+Clique–coclique/Delsarte bound; Kivva Section 2.3
+records the distance-regular form used here.
+Met95/Met99
+Met95 Result 2.2; Met99 Result 2.1
+Parameterized line theorem; Kivva Theorem 2.12 and
+Koolen–Bang Proposition 5.1 are the exact modern
+restatements used here.
+KB10
+Theorem 5.3
+Geometricity from a1 > M 2c2 in a prescribed
+least-eigenvalue interval.
+Biggs71
+Section 4, theorem on pp. 19–20
+Multiplicity formula; Kivva Theorem 2.10 gives the
+distance-regular standard-sequence form.
+T85
+Intersection-number inequalities arising
+from an induced quadrangle
+Exact inequality is restated as Kivva Theorem 2.6.
+T86
+Main theorem
+Local eigenvalue forced when an eigenvalue has
+multiplicity below k; exact form is Kivva Theorem 4.1.
+Ega81
+Main classification, pp. 108–125
+Graphs with Hamming intersection numbers are
+Hamming or Doob; exact form is Kivva Theorem 2.24
+(arXiv)/2.25 (journal).
+Map of every claimed strengthening or replacement. This table records the baseline that each comparison
+label refers to. The same pointer is repeated locally where the strengthened estimate is used.
+[LLM/editorial responding to
+source-audit request]
+New step
+Baseline pointer
+Exact comparison
+Support-sensitive cut
+PS Proposition 2.8, penultimate
+displayed inequality and the following
+weakening
+Retains (n −|S|)/n = 1 −ρ; PS then replaces this
+factor by 1/2.
+Geodesic spectral gap
+PS Proposition 2.9
+Replaces k/(8D2) by
+n2k/ P
+x,y dist(x, y)2 ≥k/D2.
+Unit structural split
+Proposition 4.1 of the preceding
+machine-assisted 2n/(3d3) draft
+Replaces that draft’s coefficient-3/2 scalar split by
+the integer line-count split at m = d −1; this is an
+internal comparison, not an attribution to a
+published source.
+Johnson branch
+K Theorem 1.2 and PS
+Proposition 2.19
+Replaces the universal small-ε criterion by the
+local-grid rigidity argument in Proposition 6.1.
+µ = 1 branch
+K Lemmas 2.27 and 5.5, followed by K
+Corollary 5.6 and PS Proposition 2.14
+Retains the exact dual eigenvalue shift and the
+exact incidence factor β/(β + 1) before the
+published simplifications to 1/2 and the stated
+η/4 motion bound.
+µ = 2 branch
+Biggs71 Section 4; K Theorem 2.10
+and Proposition 4.6
+Uses the same Biggs denominator, replaces
+Kivva’s ε < 1/(6m4d) loss envelope by exact
+rational envelopes at ε = 2/(d3 −1), and on
+nineteen rows retains the additional t- or
+(t −2)-sphere summand.
+Audit changes from the exploratory unit-coefficient draft. Two edge conditions are made explicit. Kivva’s
+strict-growth lemma controls τi only through τt−1; every refined denominator below therefore uses ψt−1 ≤ct, not an
+unsupported inequality τt ≥t. Also, the m = 2 contradiction uses Terwilliger’s induced-quadrangle inequality at
+index i = 2, not at i = 1.
+[K, Lemma 4.2 and Theorem 2.6; T85, induced-quadrangle intersection-number inequalities; LLM correction of the exploratory
+draft]
+1. Statement and parameters
+Let X be a primitive distance-regular graph on n vertices, with valency k, diameter d ≥3, intersection numbers
+bi, ci, and
+λ = a1,
+µ = c2.
+[LLM/notation]
+Write ki for the size of a distance-i sphere, θ for the second largest adjacency eigenvalue, and −m for the smallest
+eigenvalue, so m > 0.
+[LLM/notation]
+
+=== PAGE 3 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+3
+Theorem 1.1. Either X is a Johnson graph or a Hamming graph, or
+(1)
+motion(X) ≥n
+d3 .
+[LLM]
+Distance-regular graphs of valency 2 are cycles.
+[PS, Section 2.1] If k = 2, every nonidentity automorphism of a cycle
+moves at least n −2 vertices, which is greater than n/d3 for d ≥3.
+[LLM] Henceforth assume
+k > 2.
+[PS, standing assumption after Section 2.1; LLM cycle dispatch]
+Set
+(2)
+γ = 1
+d3 ,
+ε =
+2
+d3 −1.
+[LLM/definition]
+Then
+(3)
+ε(1 −γ)
+2
+= γ.
+[LLM]
+We shall repeatedly use
+(4)
+0 < γ < 1
+2,
+0 < ε ≤1
+13 < 1
+2,
+ε < 1
+d2 .
+[LLM]
+The last two bounds are strongest at d = 3; the final one is equivalent to d3 −2d2 −1 > 0.
+[LLM]
+2. Adjacent distinguishers and automorphism support
+For vertices u, v, put
+D(u, v) = {z : dist(u, z) ̸= dist(v, z)}.
+[LLM]
+For adjacent u, v, the cardinality is constant by distance-regularity; denote it by D(1).
+[LLM/notation]
+Lemma 2.1 (Exact adjacent-pair identity). For every distance-regular graph of diameter at least three, [LLM]
+(5)
+D(1) = 2 + 2
+k
+d
+X
+i=2
+kici.
+[LLM]
+Consequently, [LLM]
+(6)
+D(1) > µ
+k n.
+[LLM]
+Proof. For adjacent u, v, the number of vertices at distance i from both is p1
+i,i.
+[LLM/notation] A double count gives the
+balance identity
+kp1
+i,i = kipi
+1,i = kiai,
+[LLM, double count]
+so
+D(1) = n −1
+k
+d
+X
+i=1
+kiai.
+[LLM]
+Using ai = k −bi −ci and the standard sphere recurrence kibi = ki+1ci+1, together with bd = 0 and k1c1 = k, we
+obtain [PS, Section 2.1; K, Section 2.2, (3′)]
+d
+X
+i=1
+kiai = k(n −2) −2
+d
+X
+i=2
+kici,
+[LLM, telescoping]
+which proves (5).
+[LLM]
+We also use the comparison ci ≤bj whenever i + j ≤d. Place vertices u, w, v in this order on a geodesic with
+dist(u, w) = i and dist(w, v) = j. Every neighbor z of w with dist(u, z) = i −1 must satisfy dist(v, z) = j + 1, so the
+ci such neighbors form a subset of the bj such neighbors.
+[LLM] In particular c2 ≤b1, hence
+k2 = kb1
+c2
+≥k1 = k.
+[K, Section 2.2, (3′); LLM]
+
+=== PAGE 4 ===
+4
+MACHINE-ASSISTED PROOF DEVELOPMENT
+It follows that Pd
+i=2 ki ≥(n −1)/2.
+[LLM] Since ci ≥c2 = µ for i ≥2, [PS, Section 2.1]
+D(1) ≥2 + µ
+k (n −1) > µ
+k n,
+[LLM]
+where the final inequality uses µ ≤k.
+[PS, Section 2.1; LLM]
+□
+Lemma 2.2 (Support-sensitive adjacent pair). Let g ∈Aut(X) be nonidentity, put S = supp(g) and ρ = |S|/n ≤1/2.
+Some x ∈S has at least [PS, Proposition 2.8, penultimate inequality; LLM retains PS’s factor (n −|S|)/n = 1 −ρ before PS weakens it to 1/2]
+(7)
+k
+d(1 −ρ)
+[PS, Proposition 2.8, penultimate inequality; LLM rewrites (n −|S|)/n as 1 −ρ]
+fixed neighbors. If µ < k(1 −ρ)/d, then x ∼xg and [LLM]
+(8)
+λ ≥k
+d(1 −ρ),
+D(1) ≤|S|.
+[LLM]
+Proof. We spell out the orientation convention while retaining the sharper penultimate bound in Pyber–Skresanov
+Proposition 2.8, rather than its final replacement of (n −|S|)/n by 1/2.
+[PS, Proposition 2.8, especially the penultimate displayed
+inequality; LLM orientation bookkeeping only] For a directed edge e of X, let
+Pe =
+X
+u,v
+1
+p(u, v)#{L : L is a u–v geodesic using e},
+[PS, proof of Proposition 2.8]
+where p(u, v) is the number of u–v geodesics.
+[PS, proof of Proposition 2.8] Their coherent-configuration argument shows
+that Pe is independent of the directed edge; write the common value as P.
+[PS, Lemma 2.7 and proof of Proposition 2.8] Summing
+over the nk directed edges gives
+nkP =
+X
+u,v
+dist(u, v) ≤dn2,
+so
+P ≤dn
+k .
+[PS, proof of Proposition 2.8]
+Let
+δ+
+X(S) = {(u, v) : u ∈S, v /∈S, u ∼v}.
+[LLM/notation]
+For each ordered pair (x, y) ∈S × (V (X) \ S), every x–y geodesic uses at least one edge of δ+
+X(S).
+[PS, proof of
+Proposition 2.8] Consequently
+|S|(n −|S|) ≤|δ+
+X(S)|P,
+[PS, proof of Proposition 2.8]
+and hence [LLM]
+(9)
+|δ+
+X(S)| ≥|S|k
+d
+n −|S|
+n
+.
+[PS, Proposition 2.8, penultimate displayed inequality; LLM directed-edge notation]
+Each undirected cut edge contributes exactly one directed edge to δ+
+X(S), so this is also the corresponding
+undirected cut size. Averaging the outbound cut degrees over the vertices of S proves (7).
+[LLM, directed/undirected conversion]
+Since S is the support of g, every neighbor outside S is fixed.
+[LLM]
+Every fixed neighbor of x is also adjacent to xg. If x and xg were nonadjacent, the existence of a common neighbor
+would put them at distance two, where they have exactly µ common neighbors. This contradicts the strict hypothesis.
+Thus x ∼xg, and the fixed common neighbors give the lower bound on λ.
+[LLM]
+For z /∈S,
+dist(x, z) = dist(xg, zg) = dist(xg, z),
+[LLM]
+so no fixed vertex distinguishes x and xg. Hence D(1) ≤|S|.
+[LLM]
+□
+
+=== PAGE 5 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+5
+3. A direct geodesic Poincaré inequality
+The next proposition is the self-contained spectral improvement used in the µ = 1 branch.
+[LLM]
+Proposition 3.1 (Geodesic spectral-gap bound). Let G be the graph of a connected symmetric basis relation of
+valency k in a homogeneous coherent configuration on n points. If D is its diameter and θ1 its second largest
+adjacency eigenvalue, then [LLM]
+(10)
+k −θ1 ≥
+n2k
+X
+x,y∈V (G)
+dist(x, y)2 ≥k
+D2 .
+[LLM]
+For a distance-regular graph, [LLM]
+(11)
+k −θ1 ≥
+nk
+D
+X
+i=0
+kii2
+.
+[LLM]
+Proof. For ordered vertices x, y, let p(x, y) be the number of geodesics from x to y. For a directed edge e, define [PS,
+proof of Proposition 2.8, unweighted load Pe; LLM inserts the relation-constant weight dist(x, y)]
+Qe =
+X
+x,y
+dist(x, y)
+p(x, y) #{P : P is an x–y geodesic containing e}.
+[PS, proof of Proposition 2.8, definition of Pe; LLM weighted analogue with one extra factor dist(x, y)]
+The intersection-number argument in Pyber–Skresanov’s proof of Proposition 2.8 shows that Qe is independent of
+e. After fixing the three basis relations containing (x, z), (w, y), and (x, y) for e = (z, w), the number of relevant
+pairs and geodesics is independent of (z, w) by their Lemma 2.7; the extra weight dist(x, y)/p(x, y) depends only on
+the basis relation containing (x, y). Write the common value as Q.
+[PS, Lemma 2.7 and proof of Proposition 2.8; LLM observes that the
+added weight is constant on the relation containing (x, y)]
+Summing over the nk directed edges gives
+(12)
+nkQ =
+X
+x,y
+dist(x, y)2,
+[LLM, weighted load double count]
+because every geodesic of length ℓcontributes ℓat each of its ℓdirected edges.
+[LLM]
+Let f have mean zero. Averaging Cauchy–Schwarz along all geodesics from x to y gives [LLM]
+(f(x) −f(y))2 ≤dist(x, y)
+p(x, y)
+X
+P :x→y
+X
+e∈P
+(∇ef)2.
+[LLM]
+After summing over ordered pairs and using the constancy of Qe, [PS, Lemma 2.7; LLM]
+2n∥f∥2
+2 ≤Q
+X
+e directed
+(∇ef)2 = 2Qf T(kI −A)f.
+[LLM]
+Taking f in the θ1-eigenspace gives k −θ1 ≥n/Q. Equation (12) proves the first inequality in (10); the bound
+dist(x, y) ≤D proves the second.
+[LLM] In a distance-regular graph,
+X
+x,y
+dist(x, y)2 = n
+D
+X
+i=0
+kii2,
+[LLM]
+which proves (11).
+[LLM]
+□
+Remark 3.2. Pyber and Skresanov obtain k −θ1 ≥k/(8D2) by passing from their Proposition 2.8 geodesic-expansion
+estimate through Cheeger’s inequality.
+[PS, Propositions 2.8–2.9] Proposition 3.1 applies Cauchy–Schwarz directly to the
+same uniform loads and proves k −θ1 ≥n2k/ P
+x,y dist(x, y)2 ≥k/D2, improving the displayed PS constant by a
+factor of eight.
+[PS, Proposition 2.9; LLM direct-energy strengthening] No novelty claim is made for this canonical-path inequality
+without a broader literature search.
+[LLM/editorial]
+
+=== PAGE 6 ===
+6
+MACHINE-ASSISTED PROOF DEVELOPMENT
+4. Small support forces Delsarte geometry
+We use Metsch’s theorem in the following exact specialization. If a connected graph has exactly λ common
+neighbors for adjacent pairs, at most µ for nonadjacent pairs, and an integer s ≥1 satisfies
+(13)
+λ > (2s −1)(µ −1) −1,
+k < (s + 1)(λ + 1) −s(s + 1)
+2
+(µ −1),
+[Met99, Result 2.1; Met95, Result 2.2; KB10, Proposition 5.1; K, Theorem 2.12 (arXiv); BW, Theorem 1.2]
+then the maximal cliques of size at least
+λ + 2 −(s −1)(µ −1)
+[Met99, Result 2.1; Met95, Result 2.2; K, Theorem 2.12 (arXiv)]
+form a clique geometry, and every vertex lies on at most s of these cliques.
+[Met99, Result 2.1; Met95, Result 2.2; KB10,
+Proposition 5.1; K, Theorem 2.12 (arXiv)]
+Proposition 4.1 (Metsch-to-geometric structural reduction). Suppose that a nonidentity automorphism has support
+density ρ < γ. Then
+(14)
+µ < γk,
+λ > 1 −γ
+d
+k,
+k > d3,
+[LLM]
+and X is Delsarte-geometric with smallest eigenvalue −m satisfying
+(15)
+m ≤d.
+[LLM]
+Proof. Put
+α = 1 −γ
+d
+.
+[LLM/definition]
+Suppose first that µ ≥αk. Let ki = kmax be a largest nontrivial relation valency. Since k2 ≥k1 by Lemma 2.1,
+we may take i ≥2.
+[LLM] Monotonicity of the ci and the sphere recurrence give
+ki
+ki−1
+= bi−1
+ci
+≤k
+µ ≤1
+α,
+[PS, Section 2.1 sphere recurrence and monotonicity; LLM]
+so n −kmax ≥ki−1 ≥αkmax.
+[LLM] Every nontrivial relation of the primitive distance scheme is connected and has
+diameter at most d; hence
+motion(X) ≥n −kmax
+d
+.
+[PS, paragraph before Lemma 2.7 and Propositions 2.10, 2.12]
+If kmax ≥n/2, this is at least αn/(2d) > γn because d3−2d2−1 > 0. If kmax < n/2, it is greater than n/(2d) > γn.
+Both alternatives contradict ρ < γ.
+[LLM] Therefore
+(16)
+µ < αk.
+[LLM]
+Since ρ < γ < 1/2, equation (16) implies
+µ < 1 −ρ
+d
+k.
+[LLM]
+Lemma 2.2 therefore applies and gives
+λ > αk.
+[LLM]
+Together with Lemma 2.1 and D(1) ≤|S|, it gives
+µ < ρk < γk.
+[LLM]
+Since µ ≥1, we also have k > 1/γ = d3.
+[LLM]
+For d ≥3,
+(17)
+α > (2d −1)γ,
+(d + 1)α −d(d + 1)
+2
+γ > 1.
+[LLM]
+After multiplication by the positive denominators, the two numerators are
+d3 −2d2 + d −1,
+d3 −d2 −2d −2,
+[LLM]
+
+=== PAGE 7 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+7
+and after writing d = x + 3 they become
+x3 + 7x2 + 16x + 11,
+x3 + 8x2 + 19x + 10.
+[LLM exact polynomial certificates]
+Thus Metsch’s theorem applies with s = d. Let C be the resulting special-line geometry. Every vertex belongs to
+at most d lines, and every edge lies in a unique line.
+[Met99, Result 2.1; KB10, Proposition 5.1; K, Theorem 2.12 (arXiv); LLM verifies the
+two hypotheses at (17)]
+Put
+f = α −(d −1)γ = (d −1)(d2 + 1)
+d4
+> 0.
+[LLM]
+Every line C ∈C satisfies
+(18)
+|C| −1 ≥λ + 1 −(d −1)(µ −1) > fk + d > d.
+[Met99, Result 2.1; K, Theorem 2.12 (arXiv); LLM substitutes s = d and the strict support bounds]
+Let qv be the number of lines in C containing v. Since the lines partition the edges incident with v,
+k =
+X
+C∈C
+v∈C
+(|C| −1).
+[K, definition of clique geometry; LLM]
+The Delsarte clique bound gives |C| −1 ≤k/m for every line, so
+qv ≥m.
+[Del73, Section 3.3.2, clique–coclique bound; K, Section 2.3, distance-regular form; LLM sums the line sizes at v]
+Because qv ≤d, this proves m ≤d.
+[LLM]
+Suppose first that m ≤d −1, and put M = ⌈m⌉≤d −1. Then
+−M ≤−m < 1 −M,
+M 2µ ≤(d −1)2γk < αk < λ.
+[LLM; the strict scalar inequality is equivalent to 2d2 −d −1 > 0]
+Koolen–Bang Theorem 5.3 applies with the integer parameter M, so X is Delsarte-geometric (and in particular its
+smallest eigenvalue is −M).
+[KB10, Theorem 5.3; PS, Proposition 2.5 is the reformulation used in the preceding version; LLM supplies M = ⌈m⌉and
+checks the eigenvalue interval]
+It remains to consider d −1 < m ≤d. Since qv is an integer and m ≤qv ≤d, one has qv = d for every vertex.
+[LLM integer rounding] The special lines form a clique geometry, every vertex lies on exactly d lines, and
+k > d3 ≥d2.
+[LLM]
+Kivva’s clique-geometry criterion therefore applies with its integer parameter equal to d: X is geometric and its
+smallest eigenvalue is −d.
+[K, Proposition 2.13 (arXiv numbering); LLM hypothesis check] Since the actual smallest eigenvalue was
+denoted by −m, this also gives m = d.
+[LLM] This proves the proposition.
+[LLM]
+□
+5. The transition and spectral branches
+Assume from now on that a nonidentity automorphism has support density ρ < γ. Proposition 4.1 is in force.
+[LLM]
+Lemma 5.1 (Transition without a diameter loss). If
+bj ≥εk,
+cj+1 ≥εk
+[LLM]
+for some 1 ≤j ≤d −1, then |S| > εn > γn.
+[LLM]
+Proof. For i ≤j, monotonicity gives bi ≥εk; for i ≥j + 1, it gives ci ≥εk.
+[PS, Section 2.1] Thus ai ≤(1 −ε)k for every
+i ≥1, and
+D(1) = n −1
+k
+d
+X
+i=1
+kiai ≥n −(1 −ε)(n −1) > εn.
+[LLM]
+Now use D(1) ≤|S| from Lemma 2.2; also ε > γ follows from (2).
+[LLM]
+□
+
+=== PAGE 8 ===
+8
+MACHINE-ASSISTED PROOF DEVELOPMENT
+If no transition occurs, let t be the least index with bt ≤εk, using bd = 0.
+[LLM] The inequality 2λ ≤k + µ gives
+b1 = k −λ −1 ≥k −µ −2
+2
+> 1 −3γ
+2
+k > k
+3,
+[PS, Lemma 2.4; LLM]
+where 1/k < γ was used. Hence t ≥2. Since bt−1 > εk and no transition occurs,
+(19)
+bt ≤εk,
+ct < εk.
+[LLM]
+Lemma 5.2 (High second eigenvalue). Under these assumptions,
+(20)
+θ ≥(1 −ε)b1.
+[LLM]
+Proof. Suppose instead that θ < (1 −ε)b1. Since m ≤d, b1 > k/3, k > d3, and ε < 1/2,
+(1 −ε)b1 > k
+6 > d3
+6 > d ≥m.
+[LLM]
+Thus the zero-weight spectral radius ξ = max{θ, m} satisfies ξ < (1 −ε)b1.
+[PS, notation before Proposition 2.13; LLM]
+Moreover λ > µ, because (1 −γ)/d > γ. Two distinct vertices have λ, µ, or 0 common neighbors according as
+their distance is 1, 2, or at least 3; the common-neighbor maximum is therefore λ.
+[LLM] Babai’s spectral motion
+bound gives
+ρ ≥k −ξ −λ
+k
+> 1 + εb1
+k
+= 1 −ε
+k
++ εk −λ
+k
+≥1 −ε
+k
++ ε
+2
+
+1 −µ
+k
+
+> ε
+2(1 −γ) = γ,
+[PS, Proposition 2.13; LLM]
+contrary to ρ < γ. The final equality is (3).
+[LLM]
+□
+6. The Johnson and µ = 1 endgames
+Proposition 6.1 (The case µ ≥3). Under (19) and (20), if µ ≥3, then X is a Johnson graph.
+[K, Theorems 3.1, 3.9,
+2.21, Lemma 3.12 and Proposition 3.11; LLM local-grid proof replacing the universal small-ε criterion in K, Theorem 1.2 and PS, Proposition 2.19]
+Proof. If a neighborhood graph is disconnected, Kivva’s Proposition 3.11 gives
+θ + 1 ≤5
+7b1,
+[K, Proposition 3.11]
+contradicting (20), because 1 −ε ≥12/13 > 5/7. Thus all neighborhood graphs are connected.
+[K, Lemma 2.20; LLM]
+Put β = k/m. In a Delsarte geometry, m and β are positive integers.
+[K, Lemma 2.14] Fix v. The m Delsarte cliques
+through v partition X(v) into parts P1, . . . , Pm, each of size β.
+[K, Lemma 2.14 and proof of Lemma 3.8] Put
+r = ψ1 −1.
+[LLM/definition]
+A vertex of Pi has r neighbors in every Pj with j ̸= i; consequently each bipartite graph between two parts is
+r-regular. Connectedness gives r ≥1.
+[K, definition of ψ1, Lemma 2.20 and proof of Lemma 3.8]
+Let
+b+ =
+b1
+θ + 1.
+[K, Theorem 3.1; LLM notation]
+By (20),
+b+ <
+1
+1 −ε ≤13
+12,
+[LLM]
+and Terwilliger’s local bound gives
+λmin(X(v)) ≥−1 −b+.
+[K, Theorem 3.1]
+We claim r = 1. Suppose r ≥2, and let B be the β × β bipartite incidence matrix between two parts. The
+restriction of BBT to 1⊥has trace βr −r2, so a nonprincipal singular value σ satisfies
+σ2 ≥r(β −r)
+β −1 .
+
+=== PAGE 9 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+9
+[LLM, trace averaging]
+Kivva’s inequality τ2 ≥ψ1 gives µ = τ2ψ1 ≥(r + 1)2. Since µ < γmβ and m ≤d,
+β > d2(r + 1)2 > 6r.
+[K, Lemmas 2.17–2.18; LLM]
+Hence
+σ2 > 5r
+6 ≥5
+3 >
+13
+12
+2
+> (b+)2.
+[LLM]
+On vectors orthogonal to the all-ones vector in both parts, the induced two-part adjacency matrix has eigenvalue
+−1 −σ. Interlacing contradicts the local lower bound.
+[LLM, singular-vector construction and interlacing] Thus r = 1, equivalently
+ψ1 = 2.
+[LLM]
+Every bipartite graph between two parts is now a perfect matching. If m = 2, this already gives X(v) ∼= K2□Kβ.
+[LLM] Assume m ≥3 and label each Pi by its matching with P1. If a matching between Pi and Pj is represented by a
+nonidentity permutation, choose a cycle of length ℓ≥2 and a nontrivial ℓth root of unity ζ with Re ζ ≤−1/2.
+[LLM]
+On the corresponding 3ℓvertices, the Fourier mode reduces the adjacency matrix to −I3 + Mζ, where
+Mζ =
+
+
+0
+1
+1
+1
+0
+ζ
+1
+ζ
+0
+
+,
+det(xI −Mζ) = x3 −3x −2 Re ζ.
+[LLM, Fourier decomposition]
+At x = −3/2 this polynomial is positive and it tends to −∞as x →−∞. Thus the induced local subgraph has an
+eigenvalue below −5/2, contradicting
+λmin(X(v)) ≥−1 −b+ > −25
+12 > −5
+2.
+[K, Theorem 3.1; LLM]
+Therefore the matchings are globally consistent, and for every vertex
+X(v) ∼= Km□Kβ = L(Km,β).
+[LLM]
+Since Km,β is triangle-free, Kivva’s Lemma 3.12 supplies an induced Kτ2,2.
+[K, Lemma 3.12] If τ2 ≥3, Theorem 3.9
+applied to an induced K3,2 gives b+ ≥7/5, contrary to b+ < 13/12.
+[K, Theorem 3.9; LLM] Hence τ2 = 2 and
+µ = τ2ψ1 = 4.
+[K, Lemma 2.17; LLM]
+Kivva’s local characterization makes X a Johnson graph or a quotient doubly covered by J(2d, d).
+[K, Theorem 2.21]
+The exceptional alternative is excluded in Kivva’s proof when k ≥m3; here k > d3 ≥m3.
+[K, proof of Theorem 1.2 after
+Lemma 3.12; LLM hypothesis check] Thus X is Johnson.
+[LLM]
+□
+Proposition 6.2 (The case µ = 1). Under Proposition 4.1, the case µ = 1 contradicts ρ < γ.
+[K, Lemmas 2.26–2.27, 5.1
+and 5.5, Proposition 5.13; PS, Proposition 2.14; LLM retains Kivva’s exact dual eigenvalue shift and Lemma 5.5 incidence factor instead of the later 1/2 and η/4
+relaxations]
+Proof. Proposition 3.1 gives
+θ ≤k
+
+1 −1
+d2
+
+.
+[LLM]
+Put η = 1/d2 and β = k/m. Since µ = τ2ψ1 = 1, integrality gives τ2 = ψ1 = 1.
+[K, Lemmas 2.17–2.18; LLM]
+Assume m ≥3, and let e
+X be the dual graph. Kivva’s Lemma 2.26 gives
+ek = (m −1)(β + 1),
+q( e
+X) = m −2,
+[K, Lemma 2.26 and discussion before Theorem 5.2]
+where q is the maximum number of common neighbors of distinct vertices. Since k > d3 ≥m2, Lemma 2.27
+applies.
+[K, Lemma 2.27; LLM hypothesis check] Its exact spectral shift and the preceding gap give
+eξ ≤ek −ηk.
+[K, Lemma 2.27, exact shift eθ = θ −k/m + m −1; LLM combines it with Proposition 3.1’s gap k/d2, rather than PS Proposition 2.14’s abstract η input]
+The positive nonprincipal eigenvalues satisfy this bound directly. The negative side has absolute value at most
+β + 1, and
+(m −2)(β + 1) ≥ηmβ
+[LLM]
+
+=== PAGE 10 ===
+10
+MACHINE-ASSISTED PROOF DEVELOPMENT
+shows β + 1 ≤ek −ηk.
+[LLM]
+Babai’s spectral motion lemma therefore yields
+motion( e
+X)
+|V ( e
+X)|
+≥ηk −(m −2)
+ek
+.
+[K, Lemma 5.1; LLM substitution]
+Kivva’s incidence-transfer Lemma 5.5 gives the exact moved-point factor (s−1)/s with s = β +1, namely β/(β +1);
+Kivva Corollary 5.6 subsequently weakens this to 1/2. Retaining the lemma’s exact factor gives
+(21)
+motion(X)
+n
+≥β
+ mβ/d2 −m + 2
+
+(m −1)(β + 1)2
+.
+[K, Lemma 5.5, exact factor (s −1)/s; K, Corollary 5.6, later 1/2 relaxation; LLM substitutes s = β + 1 without that relaxation]
+Because mβ = k > d3,
+mβ
+d2 −m + 2 = mβ
+d2
+
+1 −(m −2)d2
+mβ
+
+> 2mβ
+d3 .
+[LLM]
+Also β > d3/m ≥d2 ≥9. Therefore (21) gives
+motion(X)
+n
+>
+2m
+m −1
+
+β
+β + 1
+2 1
+d3 >
+81
+50d3 > γ.
+[LLM]
+If m < 3, geometric integrality gives m = 1 or 2.
+[K, Lemma 2.14] The case m = 1 forces X to be complete, contrary
+to d ≥3.
+[LLM] Thus m = 2. Since k > d3 > 4, Kivva’s Proposition 5.13 gives
+motion(X) ≥n
+16 > n
+d3 .
+[K, Proposition 5.13; LLM hypothesis check]
+□
+7. The unit-coefficient Hamming-stability lemma
+The remaining branch is µ = 2. Kivva Proposition 4.6 obtains f1 < k from a single retained term kt−1u2
+t−1 in
+Biggs’ denominator under ε < 1/(6m4d). The proof below preserves that one-term strategy generically, replaces
+its coarse loss estimates by exact rational envelopes at ε = 2/(d3 −1), and on nineteen rows also keeps the t- or
+(t −2)-sphere term.
+[Biggs71, Section 4, theorem on pp. 19–20; K, Theorem 2.10 and Proposition 4.6; LLM strengthens K, Proposition 4.6 by replacing its
+ε < 1/(6m4d) loss envelope and, on the listed rows, retaining additional nonnegative Biggs-denominator terms]
+Proposition 7.1 (The case µ = 2). Let X be Delsarte-geometric of diameter d ≥3, with smallest eigenvalue −m,
+where m ≤d, and suppose µ = 2. If, for some 2 ≤t ≤d,
+(22)
+bt ≤εk,
+ct < εk,
+θ ≥(1 −ε)b1,
+k > d3,
+[LLM]
+then X is a Hamming graph.
+[LLM]
+Proof. Put β = k/m. Kivva’s geometric identities are
+(23)
+ci = τiψi−1,
+bi = (m −τi)(β + 1 −ψi).
+[K, Lemma 2.17 (journal); Lemma 2.16 (arXiv)]
+Here τ1 = 1. Kivva’s inequality τ2 ≥ψ1 and µ = 2 give
+(24)
+τ2 = 2,
+ψ1 = 1,
+b1 = (m −1)β,
+λ = β −1.
+[K, Lemmas 2.17–2.18 (journal); LLM integrality]
+Every neighborhood graph is consequently a disjoint union of m cliques.
+[K, Lemma 2.20 (journal)] Since µ = 2, X
+contains an induced quadrangle, so the Terwilliger inequality
+bi−1 ≥bi + ci−1 −ci + λ + 2
+(1 ≤i ≤d)
+[T85, induced-quadrangle intersection-number inequalities; K, Theorem 2.6, exact restatement]
+is available wherever cited below.
+[K, Lemma 3.10 and Theorem 2.6; T85]
+Because ε < 1/d2 ≤1/m2, Kivva’s Lemma 4.2 gives
+(25)
+τi < τi+1
+(1 ≤i ≤t −2).
+[K, Lemma 4.2; LLM hypothesis check]
+Thus τi ≥i for i ≤t −1. Put
+r = m −τt−1.
+[LLM/definition]
+
+=== PAGE 11 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+11
+Since bt−1 > 0,
+(26)
+1 ≤r ≤m −t + 1,
+2 ≤t ≤m.
+[K, Lemma 2.17; LLM]
+If m = 2, then t = 2 < d. Terwilliger’s inequality at i = 2 gives
+b1 ≥b2 + λ + 2 + c1 −c2 = b2 + b1,
+[T85, induced-quadrangle intersection-number inequality; K, Theorem 2.6, exact restatement; LLM corrects the exploratory draft’s use of i = 1 to the valid index
+i = 2]
+impossible because b2 > 0. Hence m ≥3.
+[LLM]
+Let (ui)d
+i=0 be the standard sequence for θ, and whenever ui−1 > 0 put
+yi = ui−1 −ui
+ui−1
+.
+[LLM/definition]
+The standard-sequence recurrence becomes
+(27)
+yi+1 = k −θ + ciyi/(1 −yi)
+bi
+.
+[K, Definition 2.9 and recurrence; LLM change of variables]
+Set
+(28)
+B = 1 + (m −1)ε,
+u∗= (1 −ε)m −1
+m
+.
+[LLM/definition]
+Then
+k −θ ≤βB,
+u1 = θ
+k ≥u∗.
+[K, Definition 2.9; LLM]
+We record the possible lower bounds on ct. Monotonicity and (25) give
+(29)
+ct ≥ct−1 = τt−1ψt−2 ≥t −1.
+[PS, Section 2.1; K, Lemmas 2.17 and 4.2; LLM]
+If ct = t −1, equality forces
+(30)
+4 ≤t ≤m −1,
+r = m −t + 1.
+[K, Corollary 2.8 and Theorem 2.6; T85, induced-quadrangle inequality; LLM equality analysis]
+If t = m < d, then r = 1, cm−1 ≥m −1, and bm ≥1. Terwilliger’s inequality at index m excludes cm = m. If
+cm = m + 1, then
+bm−1 ≥bm + cm−1 −cm + λ + 2 ≥β,
+[T85, induced-quadrangle inequality; K, Theorem 2.6; LLM strict-case substitution]
+whereas bm−1 = β +1−ψm−1 ≤β. Equality would force ψm−1 = 1, but then cm = τmψm−1 ≤m, again impossible.
+Hence
+(31)
+cm ≥m + 2.
+[T85, induced-quadrangle inequality; K, Theorem 2.6 and Lemma 2.17; LLM strict equality analysis]
+If t = m = d, then cd = mψd−1, so either cd = m or cd ≥2m.
+[K, Lemma 2.17; LLM integrality]
+Lemma 7.2 (Exact finite envelope). For 3 ≤d ≤52, the hypotheses of Proposition 7.1 imply
+k
+d
+X
+i=0
+kiu2
+i > n
+[Biggs71, Section 4, multiplicity denominator; K, Theorem 2.10; LLM finite exact certificate at the larger ε = 2/(d3 −1)]
+unless ct = t = m = d.
+[LLM]
+Proof. All quantities below are rational functions of the integers (d, m, t, r) and, in the refined rows, (ct, β). The
+accompanying checker evaluates them as reduced GMP rationals. It enumerates parameter values, not graphs or
+intersection arrays.
+[LLM/editorial]
+First suppose t = 2. Put
+L2 = 2mγ
+m −1(1 + γ),
+q =
+mε
+1 −mε,
+[LLM/definition]
+and
+Q2 =
+(
+ε/(1 −3ε),
+(d, m) = (3, 3),
+Pd−2
+j=1 qj,
+otherwise.
+[LLM/definition]
+
+=== PAGE 12 ===
+12
+MACHINE-ASSISTED PROOF DEVELOPMENT
+The sphere recurrence and (23) give
+k0 + k1 + Pd
+i=3 ki
+k2
+≤L2 + Q2.
+[K, Section 2.2 sphere recurrence and Lemma 2.17; LLM]
+Since u1 ≥u∗and c2 = 2,
+(32)
+kk1u2
+1
+n
+≥
+2m
+m−1u2
+∗
+1 + L2 + Q2
+.
+[LLM]
+Now assume t ≥3. Retain q = mε/(1 −mε). Put χ = m(t −1)γ in the equality case ct = t −1, and χ = mε
+otherwise. Define
+(33)
+Y1 = B
+m,
+Y2 = B + mγY1/(1 −Y1)
+m −1
+,
+[LLM/definition]
+and, for 2 ≤i ≤t −2,
+(34)
+Yi+1 =
+B + hiYi/(1 −Yi)
+(r + t −1 −i)(1 −χ/(i + 1)),
+h2 = 2mγ,
+hi = χ (i ≥3).
+[LLM/definition]
+The recurrence (27), strict τ-growth, and 1/β = m/k < mγ imply
+0 ≤yi ≤Yi < 1
+(2 ≤i ≤t −1).
+[K, Lemma 4.2; LLM envelope induction]
+The denominator estimate uses τi+1 ≥i + 1 only for i ≤t −2, exactly the range supplied by Kivva’s lemma.
+[K,
+Lemma 4.2; LLM edge-condition check] Therefore
+ut−1 ≥U := u∗
+t−1
+Y
+i=2
+(1 −Yi).
+[LLM]
+Define
+(35)
+ℓ1 = γ,
+ℓ2 = 2mγ
+m −1,
+ℓi =
+χ
+(r + t −i)(1 −χ/i) (3 ≤i < t),
+ℓt =
+χ
+r(1 −χ),
+[LLM/definition]
+and
+L =
+t
+X
+j=1
+tY
+i=j
+ℓi,
+Q =
+d−t
+X
+j=1
+qj.
+[LLM/definition]
+For the final ratio, only ψt−1 ≤ct is used; no lower bound on τt is assumed.
+[K, Lemma 2.17; LLM correction relative to the
+exploratory draft: uses ψt−1 ≤ct only] The sphere recurrence gives n/kt ≤1 + L + Q, and bt−1 ≤rβ gives
+(36)
+kkt−1u2
+t−1
+n
+≥M :=
+mc0U 2
+r(1 + L + Q),
+[LLM]
+where
+c0 =
+
+
+
+
+
+
+
+
+
+t −1,
+ct = t −1,
+t,
+t < m, ct ≥t,
+m + 2,
+t = m < d,
+2m,
+t = m = d, ct ̸= m.
+[LLM, using (29)–(31)]
+An exact scan of every permitted tuple with 3 ≤d ≤52 proves that (32) or (36) is greater than 1, except for the
+following nineteen rows:
+case
+exceptional parameters
+t = 2
+(d, m) = (3, 3)
+ct = t −1
+(d, m, t, r) = (5, 5, 4, 2), (6, 5, 4, 2), (6, 6, 5, 2)
+generic
+(3, 3, 3, 1), (4, 4, 4, 1), (5, 4, 4, 1), (6, 5, 5, 1), (6, 6, 5, 1), (7, 6, 6, 1); and (d, d, d −1, 1)
+for 7 ≤d ≤15
+
+=== PAGE 13 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+13
+[LLM exact rational audit; verify_unit_coefficient.cpp] Every Yi in the complete coarse scan is positive with 1 −Yi > 0.388.
+[LLM exact rational audit]
+For completeness, we now state the certificates that strengthen the coarse one-sphere bound (36) on those rows.
+Their published baseline is the one-term estimate in Kivva Proposition 4.6; the new feature is exact parameter
+retention and, when indicated, an additional nonnegative Biggs-denominator term. Fix the minimal admissible value
+c = ct in the relevant row and let β0 be the least integer satisfying
+(37)
+mβ0 > d3,
+c < εmβ0.
+[LLM/definition]
+For fixed β ≥β0, define bY1 = B/m,
+bY2 = B + bY1/[β(1 −bY1)]
+m −1
+,
+[LLM/definition]
+and for 2 ≤i ≤t −2,
+(38)
+bYi+1 =
+B + (c∗
+i /β)bYi/(1 −bYi)
+(r + t −1 −i)
+ 1 + 1/β −c/((i + 1)β)
+,
+c∗
+2 = 2,
+c∗
+i = c (i ≥3).
+[LLM/definition]
+Put
+bUj = u∗
+jY
+i=2
+(1 −bYi).
+[LLM/definition]
+For t ≥3, define
+(39)
+bℓ1 =
+1
+mβ ,
+bℓ2 =
+2
+(m −1)β ,
+bℓi =
+c
+(r + t −i)(β + 1 −c/i) (3 ≤i < t),
+bℓt =
+c
+r(β + 1 −c).
+[LLM/definition]
+The last denominator follows from ψt−1 ≤ct = c.
+[K, Lemma 2.17; LLM correction relative to the exploratory draft: replaces the
+unsupported τt ≥t step by the source-valid bound ψt−1 ≤ct] Let
+bLβ =
+t
+X
+j=1
+tY
+i=j
+bℓi,
+qβ =
+εmβ
+β + 1 −εmβ ,
+bQβ =
+d−t
+X
+j=1
+qj
+β.
+[LLM/definition]
+The corresponding exact denominator is Dβ = 1 + bLβ + bQβ.
+[LLM] The bounds above follow directly from
+ci ≤c,
+ψi ≤ci+1
+τi+1
+≤
+c
+i + 1,
+m −τi ≥r + t −1 −i,
+[K, Lemmas 2.17 and 4.2; LLM]
+together with the standard-sequence and sphere recurrences. Thus every bYi is an upper bound for yi, every bℓi is
+an upper bound for ki−1/ki, and Dβ is an upper bound for n/kt.
+[LLM]
+The principal refined contribution is
+(40)
+Mt−1(β) = mc
+r
+bU 2
+t−1
+Dβ
+.
+[Biggs71, Section 4; K, Theorem 2.10 and Proposition 4.6, one-term kt−1u2
+t−1 baseline; LLM exact one-sphere refinement]
+When needed, the checker also retains
+(41)
+Mt(β) = mβ bU 2
+t
+Dβ
+,
+Mt−2(β) =
+mc(t −1)
+r(m −t + 2)β
+bU 2
+t−2
+Dβ
+.
+[Biggs71, Section 4; K, Theorem 2.10; LLM strengthens the one-term Kivva Proposition 4.6 certificate by retaining the nonnegative t- or (t −2)-sphere summand]
+Here bUt is obtained from (27) using the lower bound bt−1 ≥r(β +1−c). The coefficient in Mt−2 uses ct−1 ≥t−1,
+bt−2 ≤(m −t + 2)β, and bt−1 ≤rβ.
+[K, Lemmas 2.17 and 4.2; Biggs71, Section 4; LLM exact recurrence used to retain an extra Biggs-denominator
+term]
+For fixed c, the bYi decrease and the bUi increase with β; here c ≥t −1 ≥i + 1 makes every denominator in (38)
+nondecreasing. Also bLβ decreases, while qβ increases to q∞= mε/(1 −mε). Thus a certificate evaluated at a cutoff
+β = B0 with bQβ replaced by P qj
+∞is valid for every β ≥B0.
+[LLM monotonicity] The exact certificates are summarized
+below; “one” uses (40), “t” adds Mt, and “bridge” checks Mt−1 + Mt−2 for β0 ≤β < B0 and then uses the one-term
+cutoff certificate.
+
+=== PAGE 14 ===
+14
+MACHINE-ASSISTED PROOF DEVELOPMENT
+row
+(d, m, t, r, c)
+β0
+certificate
+cutoff
+t2
+(3, 3, 2, 2, 2)
+10
+t
+–
+ep3
+(3, 3, 3, 1, 6)
+27
+bridge
+41
+ep4
+(4, 4, 4, 1, 8)
+64
+one
+–
+int54
+(5, 4, 4, 1, 6)
+94
+one
+–
+eq554
+(5, 5, 4, 2, 3)
+38
+t
+–
+eq654
+(6, 5, 4, 2, 3)
+65
+one
+–
+int655
+(6, 5, 5, 1, 7)
+151
+one
+–
+gen665
+(6, 6, 5, 1, 5)
+90
+one
+–
+eq665
+(6, 6, 5, 2, 4)
+72
+one
+–
+int766
+(7, 6, 6, 1, 8)
+229
+one
+–
+gen776
+(7, 7, 6, 1, 6)
+147
+bridge
+180
+gen887
+(8, 8, 7, 1, 7)
+224
+bridge
+306
+gen998
+(9, 9, 8, 1, 8)
+324
+bridge
+456
+gen10109
+(10, 10, 9, 1, 9)
+450
+bridge
+619
+gen111110
+(11, 11, 10, 1, 10)
+605
+bridge
+787
+gen121211
+(12, 12, 11, 1, 11)
+792
+bridge
+958
+gen131312
+(13, 13, 12, 1, 12)
+1014
+bridge
+1130
+gen141413
+(14, 14, 13, 1, 13)
+1274
+bridge
+1303
+gen151514
+(15, 15, 14, 1, 14)
+1575
+one
+–
+[LLM exact rational audit] The smallest exact certified value is
+1.0000005977102229 . . . > 1,
+[LLM decimal display of exact positive rational; verify_unit_coefficient.out]
+and occurs in the cutoff certificate for gen121211.
+[LLM exact rational audit] For each generic row, the checker also
+verifies that every larger admissible ct is already covered by the coarse envelope; at t = m = d, the next value is
+ct = 3m because cd = mψd−1.
+[K, Lemma 2.17; LLM exact audit] Hence all nineteen rows are covered, proving the lemma.
+[LLM]
+□
+We now treat d ≥53 without parameter enumeration. Put
+(42)
+A = 1 + (5m/3 −1)ε
+1 −mε
+,
+δ = A −1 = (8m −3)ε
+3(1 −mε).
+[LLM/definition]
+Then mε < 1/50 and A < 6/5.
+[LLM] We claim
+0 ≤yi+1 ≤
+A
+m −τi
+(1 ≤i ≤t −2).
+[LLM]
+For the base step, y1 ≤B/m and (27) give
+y2 ≤B + (1/β)(B/m)/(1 −B/m)
+m −1
+< B + mγB/(m −B)
+m −1
+<
+A
+m −1.
+[LLM]
+Here B < 51/50 < m −B, γ < ε, and
+A −B = mε(B + 2/3)
+1 −mε
+> mε.
+[LLM]
+For the induction step 2 ≤i ≤t −2, strict growth and the preceding bound give
+m −τi−1 ≥r + t −i ≥3,
+0 ≤yi ≤A/3 < 2/5,
+[K, Lemma 4.2; LLM]
+so yi/(1 −yi) < 2/3. Also ψi < εk and (23) gives bi ≥(m −τi)β(1 −mε); substitution in (27) gives the claimed
+bound.
+[K, Lemma 2.17; LLM] Telescoping yields
+(43)
+ut−1 ≥u1
+r
+r + t −2 (1 −δHt−2) ,
+[LLM]
+where Hj = Pj
+i=1 1/i and H0 = 0. Every left- and right-tail sphere ratio is at most q = mε/(1 −mε), apart from
+the smaller first ratio 1/k < γ < q.
+[K, Lemma 2.17 and sphere recurrence; LLM] Hence
+(44)
+kt ≥(1 −2mε)n.
+[LLM]
+
+=== PAGE 15 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+15
+Combining (28), (43), (44), and bt−1 ≤rβ gives
+(45)
+kt−1u2
+t−1 ≥n
+k FR,
+[LLM]
+where
+(46)
+F = (1 −2mε)(1 −ε)2(1 −δHt−2)2,
+R = ctr(m −1)2
+m(r + t −2)2 .
+[LLM/definition]
+Outside the endpoint ct = t = m = d,
+(47)
+R ≥m + 1
+m
+.
+[LLM]
+For ct = t −1, use (30). If ct ≥t and t < m, the function r/(r + t −2)2 has no interior minimum, and its two
+endpoint values give the result. If t = m < d, use (31); if t = m = d but ct ̸= m, use ct ≥2m.
+[LLM case analysis]
+It remains to prove
+(48)
+F >
+m
+m + 1.
+[LLM]
+Define
+(49)
+∆d = 2dε + 2ε + 2(8d −3)ε
+3(1 −dε) Hd−2.
+[LLM/definition]
+The exact checker proves
+∆d <
+1
+d + 1
+(53 ≤d ≤63).
+[LLM exact rational audit]
+The smallest margin occurs at d = 53 and equals
+2465298954227032982505949
+141425508012555648280913514000 > 0.
+[LLM exact rational certificate]
+For d ≥64,
+(50)
+Hd−2 ≤3
+5
+√
+d.
+[LLM]
+The base case is H62 < 24/5; the exact margin is
+17262497921202896432747309
+197044480683803711251893600 > 0.
+[LLM exact rational certificate]
+For the induction step, 10
+√
+d + 1 ≤3(d −1) follows from 9d2 −118d −91 > 0, and therefore
+1
+d −1 ≤3
+5(
+√
+d + 1 −
+√
+d).
+[LLM]
+Also
+ε <
+65
+32d3 ,
+dε <
+1
+2000.
+[LLM]
+Consequently
+d∆d < 65
+16d +
+65
+16d2 + 13
+2
+√
+d
+2000
+1999
+≤
+65
+1024 +
+65
+65536 + 1625
+1999 < 64
+65 ≤
+d
+d + 1.
+[LLM]
+The penultimate strict margin is
+913198321
+8515420160 > 0.
+[LLM exact rational certificate]
+Thus (49) is less than 1/(d + 1) for every d ≥53.
+[LLM]
+Applying Q(1 −xi) ≥1 −P xi to the five factors in F gives
+F ≥1 −(2mε + 2ε + 2δHt−2) ≥1 −∆d >
+d
+d + 1 ≥
+m
+m + 1.
+[LLM]
+
+=== PAGE 16 ===
+16
+MACHINE-ASSISTED PROOF DEVELOPMENT
+This proves (48). Outside the endpoint, (45), (47), and (48) give
+kt−1u2
+t−1 > n
+k .
+[LLM]
+Together with Lemma 7.2, this conclusion holds for every d ≥3.
+[LLM]
+Biggs’ multiplicity formula is
+f1 =
+n
+Pd
+i=0 kiu2
+i
+.
+[Biggs71, Section 4, theorem on pp. 19–20; K, Theorem 2.10, distance-regular standard-sequence form]
+The strict denominator estimate above therefore gives f1 < k.
+[Biggs71; K, Theorem 2.10; LLM substitution of the certified
+denominator bound] Since (22) gives θ > 0, Terwilliger’s local-eigenvalue theorem puts
+−1 −
+b1
+θ + 1 < −1
+[T86, main theorem; K, Theorem 4.1, exact local-eigenvalue form; LLM checks f1 < k and θ > 0]
+in every neighborhood graph. This contradicts the fact that a disjoint union of cliques has no eigenvalue below
+−1.
+[K, Lemma 2.20; LLM] Therefore
+(51)
+ct = t = m = d.
+[LLM]
+At the endpoint, (25), τd = m = d, and τi ≤d −1 for i < d force
+τi = i
+(1 ≤i ≤d).
+[K, Lemma 4.2 and Corollary 4.3; LLM integer-chain argument]
+Then cd = d = τdψd−1 gives ψd−1 = 1. If some ψj ≥2, choose j maximal and put i = j + 1. Monotonicity gives
+i + 1 = ci+1 = τi+1ψi ≥ci = τiψi−1 ≥2i,
+[PS, Section 2.1; K, Lemma 2.17; LLM]
+impossible. Thus ψi = 1 for every i, and
+ci = i,
+bi = (d −i)k
+d.
+[K, Lemma 2.17; LLM endpoint substitution]
+Since k/d = bd−1 ∈Z, these are the Hamming intersection numbers.
+[LLM] Egawa’s classification gives a Hamming
+or Doob graph.
+[Ega81, main classification, pp. 108–125; K, Theorem 2.25 (journal)/2.24 (arXiv), exact restatement] A Doob graph has k = 3d,
+contrary to k > d3, so X is Hamming.
+[K, proof of Theorem 4.7; LLM]
+□
+8. Completion of the proof
+Proof of Theorem 1.1. Suppose a nonidentity automorphism has support density ρ < γ. Proposition 4.1 makes X
+Delsarte-geometric with m ≤d. Lemma 5.1 rules out a transition, and Lemma 5.2 gives (20).
+[LLM]
+If µ ≥3, Proposition 6.1 makes X Johnson. If µ = 2, Proposition 7.1 makes X Hamming. If µ = 1, Proposition 6.2
+contradicts ρ < γ. These cases exhaust the positive integer µ. Therefore every graph outside the Johnson and
+Hamming families satisfies
+motion(X) ≥γn = n
+d3 .
+[LLM]
+□
+9. Dependency and audit ledger
+The proof imports the following published statements.
+[LLM/editorial]
+(1) From Pyber–Skresanov [1]: the primitive-relation and distinguishing-number bounds (Propositions 2.10
+and 2.12), the geodesic-load argument (Proposition 2.8), Babai’s spectral motion bound (Proposition 2.13),
+2λ ≤k + µ (Lemma 2.4), and Bang–Koolen geometricity (Proposition 2.5).
+[PS, cited items]
+(2) From Kivva [3]: Metsch’s theorem and the clique-geometry criterion (Theorem 2.12 and Proposition 2.13 in
+the arXiv numbering), the Delsarte bound and geometric identities (Section 2.3 and Lemmas 2.14, 2.17–2.20
+in journal numbering), Biggs’ formula (Theorem 2.10), Terwilliger’s inequality and local eigenvalue theorem
+(Theorems 2.6 and 4.1), the Johnson local tools (Theorems 3.1, 3.9, 2.21, Lemma 3.12, Proposition 3.11),
+strict τ-growth (Lemma 4.2), the dual-graph spectrum and incidence transfer (Lemmas 2.26–2.27, 5.1, 5.5),
+the m = 2, µ = 1 motion result (Proposition 5.13), and the Hamming/Doob endpoint classification.
+[K, cited
+items]
+
+=== PAGE 17 ===
+A UNIT-COEFFICIENT d−3 MOTION BOUND
+17
+(3) From Babai–Wilmes [2]: an equivalent parameterized statement of Metsch’s theorem (Theorem 1.2).
+[BW,
+Theorem 1.2]
+Original-source use map. Unlike the earlier draft, the annotations at the actual points of use now cite the older
+papers directly:
+[LLM/editorial responding to source-audit request]
+(1) Delsarte [4], Section 3.3.2, is pointed to at the clique bound used to prove qv ≥m; Kivva Section 2.3 supplies
+the exact distance-regular formulation.
+[Del73, Section 3.3.2; K, Section 2.3]
+(2) Metsch [6, 7], Result 2.2 (1995) and Result 2.1 (1999), is pointed to at (13) and (18); the modern exact
+restatements are Koolen–Bang Proposition 5.1 and Kivva Theorem 2.12.
+[Met95, Result 2.2; Met99, Result 2.1; KB10,
+Proposition 5.1; K, Theorem 2.12]
+(3) Koolen–Bang [5], Theorem 5.3, is invoked directly with M = ⌈m⌉in the branch m ≤d −1; Pyber–Skresanov
+Proposition 2.5 is its convenient reformulation.
+[KB10, Theorem 5.3; PS, Proposition 2.5]
+(4) Biggs [8], Section 4, theorem on pp. 19–20, is cited both at the multiplicity formula and at the refined t-
+and (t −2)-sphere certificates; Kivva Theorem 2.10 is the standard-sequence restatement.
+[Biggs71, Section 4; K,
+Theorem 2.10]
+(5) Terwilliger [9], the induced-quadrangle intersection-number inequalities, is cited wherever Kivva Theorem 2.6
+is used; Terwilliger [10], the main theorem, is cited at the local-eigenvalue contradiction restated as Kivva
+Theorem 4.1.
+[T85; K, Theorem 2.6; T86; K, Theorem 4.1]
+(6) Egawa [11], the classification on pp. 108–125, is cited at the Hamming/Doob endpoint, alongside Kivva
+Theorem 2.24/2.25.
+[Ega81; K, Theorem 2.24 (arXiv)/2.25 (journal)]
+Kivva numbering concordance. The arXiv and journal versions differ by one in several places: arXiv Lemmas 2.16–
+2.19 correspond to journal Lemmas 2.17–2.20, and arXiv Theorem 2.24 corresponds to journal Theorem 2.25. The
+exact Metsch statement is Theorem 2.12 in the arXiv version.
+[LLM/editorial, checked against both versions]
+Every row below records a hypothesis check rather than an additional theorem.
+[LLM/editorial]
+Interface
+Hypotheses checked here
+PS standing assumption
+The valency-2 cycle case is dispatched after Theorem 1.1.
+PS primitive-relation bound
+Every nontrivial relation in a primitive distance scheme is connected and has
+diameter at most d.
+Metsch
+Applied with integer parameter s = d; both strict inequalities appear in (17).
+Koolen–Bang
+Used only in the branch m ≤d −1, with M = ⌈m⌉≤d −1,
+−M ≤−m < 1 −M, and M 2µ < λ all displayed before Theorem 5.3 is invoked.
+Clique-geometry criterion
+In the branch d −1 < m ≤d, integer rounding gives exactly d lines through
+every vertex and k > d3 ≥d2, so Kivva Proposition 2.13 (arXiv) applies.
+Kivva local tools
+The local graph is connected; b+ < 13/12; every interlacing contradiction is
+strict; k > d3 ≥m3.
+Kivva dual spectrum
+k > d3 ≥m2; both the positive and negative sides of the dual zero-weight
+spectral radius are bounded.
+Strict τ growth
+µ = 2, ct < εk, and ε < 1/d2 ≤1/m2; no conclusion about τt is used in the
+refined endpoint denominator.
+Finite exact envelope
+Every integer (d, m, t, r) with 3 ≤d ≤52 is scanned; all nineteen coarse
+exceptions are covered by the displayed rational certificates.
+Terwilliger local eigenvalue
+Biggs’ formula gives the strict inequality f1 < k, and θ > 0.
+Hamming endpoint
+The surviving case is exactly ct = t = m = d; k/d = bd−1 is integral; Doob
+valency 3d is excluded.
+Remark 9.1 (Barrier of the present uniform structural split). The integer clique-count completion of the Metsch
+reduction removes the former coefficient-3/2 bottleneck and makes coefficient 1 possible. For a hypothetical support
+threshold γ = a/d3, however, the branch m ≤d −1 would still require
+a
+ d(d −1)2 + 1
+
+< d3
+[LLM]
+from the Bang–Koolen inequality. The right-hand ratio tends to 1 as d →∞. Thus a uniform coefficient strictly
+larger than 1 requires another idea for the band of smallest eigenvalues just below d, not merely tighter scalar
+estimates in the µ = 2 branch.
+[LLM/heuristic]
+
+=== PAGE 18 ===
+18
+MACHINE-ASSISTED PROOF DEVELOPMENT
+Remark 9.2. The exponent 3 remains natural for this exact-geometricity strategy: small support gives µ ≲ρk, while
+m = O(d) and λ ≳k/d make the Bang–Koolen condition m2µ < λ operate at scale ρ = O(d−3).
+[LLM/heuristic]
+References
+[1] L. Pyber and S. V. Skresanov, On the automorphism group of a distance-regular graph, J. Combin. Theory Ser. B 172 (2025),
+94–114; arXiv:2312.00383.
+[2] L. Babai and J. Wilmes, Asymptotic Delsarte cliques in distance-regular graphs, J. Algebraic Combin. 43 (2016), 771–782;
+arXiv:1503.02746.
+[3] B. Kivva, A characterization of Johnson and Hamming graphs and proof of Babai’s conjecture, J. Combin. Theory Ser. B 151
+(2021), 339–374; arXiv:1912.11427.
+[4] P. Delsarte, An algebraic approach to the association schemes of coding theory, Philips Res. Rep. Suppl. 10 (1973), vi+97.
+[5] J. H. Koolen and S. Bang, On distance-regular graphs with smallest eigenvalue at least −m, J. Combin. Theory Ser. B 100 (2010),
+573–584.
+[6] K. Metsch, A characterization of Grassmann graphs, European J. Combin. 16 (1995), 639–644.
+[7] K. Metsch, On a characterization of bilinear forms graphs, European J. Combin. 20 (1999), 293–306.
+[8] N. L. Biggs, Intersection matrices for graphs, in Combinatorial Mathematics and its Applications (Oxford, 1969), Academic Press,
+London, 1971, 15–23.
+[9] P. Terwilliger, Distance-regular graphs with girth 3 or 4. I, J. Combin. Theory Ser. B 39 (1985), 265–281.
+[10] P. Terwilliger, A new feasibility condition for distance-regular graphs, Discrete Math. 61 (1986), 311–315.
+[11] Y. Egawa, Characterization of H(n, q) by the parameters, J. Combin. Theory Ser. A 31 (1981), 108–125.

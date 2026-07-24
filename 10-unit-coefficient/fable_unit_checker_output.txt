@@ -1,0 +1,78 @@
+======================================================================
+PART 1: coarse scan 3 <= d <= 52
+exceptional tuples found: 19
+   ('t2', 3, 3, 2, None)
+   ('gen', 3, 3, 3, 1)
+   ('gen', 4, 4, 4, 1)
+   ('gen', 5, 4, 4, 1)
+   ('eq', 5, 5, 4, 2)
+   ('eq', 6, 5, 4, 2)
+   ('gen', 6, 5, 5, 1)
+   ('eq', 6, 6, 5, 2)
+   ('gen', 6, 6, 5, 1)
+   ('gen', 7, 6, 6, 1)
+   ('gen', 7, 7, 6, 1)
+   ('gen', 8, 8, 7, 1)
+   ('gen', 9, 9, 8, 1)
+   ('gen', 10, 10, 9, 1)
+   ('gen', 11, 11, 10, 1)
+   ('gen', 12, 12, 11, 1)
+   ('gen', 13, 13, 12, 1)
+   ('gen', 14, 14, 13, 1)
+   ('gen', 15, 15, 14, 1)
+min (1 - Y_i) over scan: 0.388355  (claim: > 0.388)
+
+======================================================================
+PART 2: refined certificates for the 19 rows
+t2         beta0=10 (claim 10 OK) cert=t  value=2.052485945 PASS
+ep3        beta0=27 (claim 27 OK) cert=bridge[27,41) min=1.096490897 cutoff=1.0049490764199505 PASS
+ep4        beta0=64 (claim 64 OK) cert=one value=1.079642533 PASS
+int54      beta0=94 (claim 94 OK) cert=one value=1.043335514 PASS
+eq554      beta0=38 (claim 38 OK) cert=t   value=4.812473255 PASS
+eq654      beta0=65 (claim 65 OK) cert=one value=1.014797429 PASS
+int655     beta0=151 (claim 151 OK) cert=one value=1.006390328 PASS
+gen665     beta0=90 (claim 90 OK) cert=one value=1.009780649 PASS
+eq665      beta0=72 (claim 72 OK) cert=one value=1.053328567 PASS
+int766     beta0=229 (claim 229 OK) cert=one value=1.013545812 PASS
+gen776     beta0=147 (claim 147 OK) cert=bridge[147,180) min=1.029260260 cutoff=1.0003896295348103 PASS
+gen887     beta0=224 (claim 224 OK) cert=bridge[224,306) min=1.013561068 cutoff=1.0000585416905616 PASS
+gen998     beta0=324 (claim 324 OK) cert=bridge[324,456) min=1.008889569 cutoff=1.0000807806213452 PASS
+gen10109   beta0=450 (claim 450 OK) cert=bridge[450,619) min=1.008145237 cutoff=1.0000639828905977 PASS
+gen111110  beta0=605 (claim 605 OK) cert=bridge[605,787) min=1.008827986 cutoff=1.0000019615459732 PASS
+gen121211  beta0=792 (claim 792 OK) cert=bridge[792,958) min=1.009962741 cutoff=1.0000005977102229 PASS
+gen131312  beta0=1014 (claim 1014 OK) cert=bridge[1014,1130) min=1.011154797 cutoff=1.0000076116459211 PASS
+gen141413  beta0=1274 (claim 1274 OK) cert=bridge[1274,1303) min=1.012248549 cutoff=1.0000204093064136 PASS
+gen151514  beta0=1575 (claim 1575 OK) cert=one value=1.001870157 PASS
+WORST refined value: 1.0000005977102229 at gen121211-cutoff  (claim: 1.0000005977102229... at gen121211 cutoff)
+
+======================================================================
+PART 3: larger-c_t coverage for the 19 tuples (coarse with next admissible c)
+ep3        next c=9: coarse value=1.155509 PASS
+ep4        next c=12: coarse value=1.305888 PASS
+int54      next c=7: coarse value=1.114604 PASS
+int655     next c=8: coarse value=1.104829 PASS
+gen665     next c=6: coarse value=1.148170 PASS
+int766     next c=9: coarse value=1.112290 PASS
+gen776     next c=7: coarse value=1.103637 PASS
+gen887     next c=8: coarse value=1.088800 PASS
+gen998     next c=9: coarse value=1.082481 PASS
+gen10109   next c=10: coarse value=1.079044 PASS
+gen111110  next c=11: coarse value=1.076643 PASS
+gen121211  next c=12: coarse value=1.074615 PASS
+gen131312  next c=13: coarse value=1.072720 PASS
+gen141413  next c=14: coarse value=1.070874 PASS
+gen151514  next c=15: coarse value=1.069053 PASS
+larger-c coverage: ALL PASS
+
+======================================================================
+PART 4: d >= 53 analytic tail
+Delta_d < 1/(d+1) for 53<=d<=63: PASS
+margin at d=53: 2465298954227032982505949/141425508012555648280913514000
+  claim: 2465298954227032982505949/141425508012555648280913514000 -> MATCH
+H_62 < 24/5: PASS, margin 17262497921202896432747309/197044480683803711251893600
+  claim: 17262497921202896432747309/197044480683803711251893600 -> MATCH
+9d^2-118d-91 at d=64: 29221 > 0: True
+final chain margin 64/65 - sum = 913198321/8515420160
+  claim: 913198321/8515420160 -> MATCH
+eps < 65/(32 d^3) at d=64: True | d*eps < 1/2000 at d=64: True
+m*eps < 1/50 at d=53: True
