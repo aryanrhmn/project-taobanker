@@ -22,7 +22,7 @@ The author fed that email into a new Codex/ChatGPT session together with the ori
 ## What is and is not recoverable from the share (same glitch as before)
 
 - **Recoverable and archived here:** all conversation prose (both audit reports in full), every sandbox tool call including the complete `apply_strengthening.py` patch script (whose old-string assertions quote the manuscript verbatim at every changed site), the exact certificates, the provenance-checker scripts, and the constant-optimization script.
-- **NOT recoverable:** the actual bytes of any `.tex`/`.pdf`/`.zip` output (sandbox links only — the persistent ChatGPT-share limitation). The strengthened manuscript itself must be obtained from the author (he has the PDF and the bundle zip).
+- **NOT recoverable:** the actual bytes of any `.tex`/`.pdf`/`.zip` output (sandbox links only — the persistent ChatGPT-share limitation). The strengthened manuscript was subsequently obtained from the author and is archived in `../08-strengthened-manuscript/` (closing the review's final condition); the original c12 files are in `../09-first-session-originals/`.
 - The share page also leaks a number of unrelated ChatGPT system/advert prompts (blocks 4-6, 13-14, 16-19, 21, 27 of `conversation-prose.md`); these are share-format noise, not part of the math session.
 
 ## Files here

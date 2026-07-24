@@ -27,3 +27,21 @@ In `CONSTANT_AUDIT.md`, fill a row for each label above with:
 - **Supported by its own manuscript?** (yes / no / partial)  
 - **Earliest failure (if any)**  
 - **Relation to public \(n/(12d^3)\) claim**
+
+
+---
+
+## Update (2026-07-24) — final state after the full review cycle
+
+The matrix above is the historically accurate pre-review state. Final scoreboard after the Fable review, Kivva's feedback round, and the file recoveries:
+
+| Label | Claim | Final status |
+|-------|-------|--------------|
+| strengthened (r2) | motion >= 500n/(5673 d^3) = n/(11.346 d^3) | **VALID AS WRITTEN — the validated headline claim.** Manuscript of record in `08-strengthened-manuscript/`; review in `07-revision-r2/REVIEW-STRENGTHENED.md` |
+| complete_proof | motion >= n/(14 d^3) | VALID AS WRITTEN (validated fallback) |
+| d5 conservative | motion >= n/(13 d^5) | VALID AS WRITTEN (bulletproof fallback) |
+| c12 / share narrative | motion >= n/(12 d^3) | Manuscript recovered from the author (`09-first-session-originals/`), audited twice in the r2 session, chain of custody verified; superseded by 11.346 |
+| final_candidate | motion >= 2n/(5 d^3) | Still conditional (unpublished Lv-Koolen preprint + enumeration); the open upgrade path |
+| sharpened / twitter fallback | 1/8, 1/15 | Historical iterations; superseded |
+
+Full lineage (every arrow byte-verified): 12-draft -> adversarial patch -> c12 (sent to Babai/Kivva) -> r2 corrections + provenance tags -> strengthened 11.346.

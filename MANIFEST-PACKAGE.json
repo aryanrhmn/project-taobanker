@@ -2,7 +2,7 @@
   "project": "project-taobanker",
   "purpose": "Package-wide integrity manifest (every file except this one)",
   "generated": "2026-07-24",
-  "generated_by": "Claude Fable 5 referee session (chain of custody closed: first-session originals archived + cross-referenced)",
+  "generated_by": "Claude Fable 5 referee session (final consistency sweep: all indexes/READMEs reflect end state)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
   "file_count": 157,
   "files": [
@@ -588,8 +588,8 @@
     },
     {
       "path": "06-fable-brief\\OUTPUTS_INDEX.md",
-      "bytes": 886,
-      "sha256_16": "0ecdfe18bf2cb92e"
+      "bytes": 1121,
+      "sha256_16": "ca51f31bf94974a2"
     },
     {
       "path": "06-fable-brief\\runs\\archive\\README.md",
@@ -623,8 +623,8 @@
     },
     {
       "path": "07-revision-r2\\CONTEXT.md",
-      "bytes": 4587,
-      "sha256_16": "64191b3070fd6631"
+      "bytes": 4708,
+      "sha256_16": "527b398fcb90d89a"
     },
     {
       "path": "07-revision-r2\\conversation-prose.md",
@@ -658,8 +658,8 @@
     },
     {
       "path": "07-revision-r2\\REVIEW-STRENGTHENED.md",
-      "bytes": 10402,
-      "sha256_16": "c0628680ea67c8b3"
+      "bytes": 10542,
+      "sha256_16": "db357488d2bf8e9d"
     },
     {
       "path": "08-strengthened-manuscript\\babai_motion_d3_source_annotated_strengthened.pdf",
@@ -688,8 +688,8 @@
     },
     {
       "path": "08-strengthened-manuscript\\README.md",
-      "bytes": 2395,
-      "sha256_16": "84499b3a4b81f76c"
+      "bytes": 2431,
+      "sha256_16": "2af0172f02d3b7ee"
     },
     {
       "path": "08-strengthened-manuscript\\scalar_check_output_strengthened.txt",
@@ -753,18 +753,18 @@
     },
     {
       "path": "CLAUDE.md",
-      "bytes": 3003,
-      "sha256_16": "7654e5e586a8edc8"
+      "bytes": 3776,
+      "sha256_16": "8044b188c7ccfba9"
     },
     {
       "path": "README.md",
-      "bytes": 15311,
-      "sha256_16": "bd020799ab592677"
+      "bytes": 15854,
+      "sha256_16": "64b68e1b7327393b"
     },
     {
       "path": "SOURCE_INDEX.md",
-      "bytes": 5363,
-      "sha256_16": "e2b97194d80b605d"
+      "bytes": 6491,
+      "sha256_16": "6bc7663d31f457c3"
     },
     {
       "path": "tools\\_extract_assets.py",
@@ -788,8 +788,8 @@
     },
     {
       "path": "VERSION_MATRIX.md",
-      "bytes": 2156,
-      "sha256_16": "67f2c0c9fc48e212"
+      "bytes": 3473,
+      "sha256_16": "832bae2a92102756"
     }
   ]
 }

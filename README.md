@@ -4,9 +4,9 @@
 |---|---|
 | **To** | @taobanker (X) |
 | **From** | project-taobanker operators; adversarial referee: **Claude Fable 5** (`claude-fable-5`, xhigh effort) |
-| **Date** | 2026-07-23 |
+| **Date** | 2026-07-23; updated 2026-07-24 (strengthened revision validated) |
 | **Re** | Your public ask — "get Fable to do an adversarial review" / "ASAP" after Prof. Babai's reply |
-| **Bottom line** | **VALID AS WRITTEN** for `babai_motion_d3_complete_proof.tex` (motion ≥ n/(14d³)). No gap, no misused import found. The public 1/12 constant is unsupported and should not be repeated. Full deliverables in `06-fable-brief/`. |
+| **Bottom line** | **VALID AS WRITTEN** for the strengthened manuscript of record (`08-strengthened-manuscript/`): **motion(X) ≥ 500n/(5673d³) = n/(11.346d³)** — no gap, no misused import, all certificates exact. The 1/14 and 1/13d⁵ versions are validated fallbacks. Full trail: `06-fable-brief/` + `07-revision-r2/` + `09-first-session-originals/`. See §6. |
 
 ---
 
@@ -88,8 +88,11 @@ project-taobanker/
 ├── 04-proof-assets/                   ← extracted TeX manuscripts + Python audits (MANIFEST.json)
 │   └── _suspect-not-true-file-content/  ← quarantine; mis-extracted chat prose; not sources
 ├── 05-media/                          ← day-of screenshots
-├── 06-fable-brief/                    ← task brief + referee deliverables
+├── 06-fable-brief/                    ← task brief + referee deliverables (VERDICT, FINDINGS, ledgers)
 │   └── runs/ (└── archive/)           ← session logs
+├── 07-revision-r2/                    ← r2 share forensics + review of the strengthened claim
+├── 08-strengthened-manuscript/        ← THE validated manuscript of record (tex/pdf/bundle/checkers)
+├── 09-first-session-originals/        ← true c12 files: adversarial patch, self-referee report (chain of custody)
 └── tools/                             ← extraction pipeline used during assembly
 ```
 

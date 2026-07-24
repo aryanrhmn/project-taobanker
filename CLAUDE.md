@@ -64,3 +64,10 @@ This is research-grade proof checking. Be thorough on the \(\mu=2\) branch, Mets
 - Wikipedia, Twitter copy, or publicity
 
 Math verdict first. Everything else secondary.
+
+
+---
+
+## STATUS (2026-07-24): MISSION COMPLETE
+
+The adversarial review cycle is finished. Final verdict: **VALID AS WRITTEN** for the strengthened manuscript of record (`08-strengthened-manuscript/babai_motion_d3_source_annotated_strengthened.tex`, motion >= 500n/(5673 d^3)); the 1/14 and 1/13d^5 manuscripts are validated fallbacks; chain of custody is closed end to end (`09-first-session-originals/`). Any future session should treat the deliverables in `06-fable-brief/`, `07-revision-r2/`, and the READMEs as the state of record and only re-open review if a NEW manuscript/constant appears, the Lv-Koolen preprint (arXiv:2601.10330) becomes checkable (would upgrade the conditional 2n/(5d^3)), or Babai/Kivva feedback identifies a concrete mathematical step.

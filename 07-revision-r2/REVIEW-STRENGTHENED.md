@@ -37,7 +37,7 @@ The underlying architecture is therefore the one that has now been adversarially
 4. **The mu=1 branch hypotheses at C0**: k > C0 d^3 > 4md^2 = 4m/eta with eta = 1/d^2 (PS Prop. 2.14; this needs only C0 > 4), motion floor n/(4d^2) > gamma n, k > m^2, k > 4 for the m=2 case, and the Doob exclusion k > 3d.
 5. **Johnson branch valency checks**: k > C0 d^3 >= C0 m^3 > m^3 and C0*27 = 306.3 > 29.
 
-## The one remaining step
+## The one remaining step [historical — closed the same day; see Final assembly check below]
 
 The share page physically contains the session's words and tool calls but not its output files (the same ChatGPT-share limitation that affected the 1/12 manuscript — the author's diagnosis of a share glitch is confirmed: the strengthened .tex/.pdf/.zip exist only as dead sandbox links). So this review verified: the architecture (three independent passes), the patch (verbatim), and the numbers (17/17 exact). It could not lay eyes on the final assembled document, so a final check for assembly-level slips (a mis-pasted formula, a compile artifact) is still outstanding.
 

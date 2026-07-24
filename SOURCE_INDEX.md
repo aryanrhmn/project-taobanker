@@ -61,3 +61,15 @@ All paths relative to `<package-root>` (this folder).
 - `babai_motion_d5_audit_package.zip`  
 - True bodies of `fable_hostile_referee_prompt_d3_c12.txt`, `fable_hostile_referee_prompt_d5.txt`  
 - Various intermediate `.tex` only referenced by path (not heredoc-inlined)
+
+
+## Additions after the first review cycle (2026-07-24)
+
+| Path | Type | Provenance | Notes |
+|------|------|------------|-------|
+| `03-source-papers/extracted-text/*.txt` | text | Fable PDF extraction | Referee text extractions of the four source PDFs |
+| `07-revision-r2/` | mixed | Second ChatGPT share `6a62ce8c-...` (curl capture) + Fable review | r2 forensics, session audits, exact-arithmetic audit, REVIEW-STRENGTHENED.md, verbatim session transcript |
+| `08-strengthened-manuscript/` | tex/pdf/zip/py/md | Author-supplied (sandbox links were dead in the share) | **Manuscript of record**, n/(11.346 d^3); bundle hash-consistent; checkers re-run |
+| `09-first-session-originals/` | tex/pdf/diff/py | Author-supplied | True bytes of the quarantined filenames: c12 manuscript, adversarial patch, self-referee report, checker — all cross-referenced |
+| `01-x-post/POST-4-*.md`, `POST-5-*.md` | markdown | Grok live sweep / operator DM relay | Post-freeze freshness sweep; Kivva-feedback event record |
+| `MANIFEST-PACKAGE.json` | json | Fable | Package-wide sha256 fingerprints, refreshed at every commit |
