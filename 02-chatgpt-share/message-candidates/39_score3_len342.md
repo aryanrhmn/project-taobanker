@@ -1,0 +1,1 @@
+{"search_query":[{"q":"Pyber Skresanov On the automorphism group of a distance-regular graph PDF Proposition 2.8 2025"},{"q":"Kivva characterization Johnson Hamming graphs proof Babai conjecture PDF Lemma 4.2 Theorem 4.1"},{"q":"Babai Wilmes automorphism groups distance regular graphs Metsch clique geometry PDF"}],"response_length":"short"}

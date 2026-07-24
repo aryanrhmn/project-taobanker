@@ -1,0 +1,152 @@
+{
+  "project": "project-taobanker",
+  "purpose": "Offline adversarial-review package for taobanker Babai-motion claim",
+  "assembled_for": "Claude Fable 5 (no X required)",
+  "proof_assets": [
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\adversarial_independent_check.py",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_adversarial_referee_report.tex",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_adversarial_patch.diff",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_adversarially_patched.tex",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_audit.py",
+      "bytes": 7853,
+      "sha256_16": "68ed6c7b37110299"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_audited.tex",
+      "bytes": 12373,
+      "sha256_16": "9dfb83e88623ac55"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_audited_pre_hostile.tex",
+      "bytes": 12373,
+      "sha256_16": "9dfb83e88623ac55"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_c12_audit.py",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_c12_symbolic_audit.py",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_candidate_note.tex",
+      "bytes": 7438,
+      "sha256_16": "74be56b8a36fb5fa"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_revised_candidate.tex",
+      "bytes": 7853,
+      "sha256_16": "68ed6c7b37110299"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_strengthened_audit.py",
+      "bytes": 10546,
+      "sha256_16": "301924e71378efdb"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_strengthened_candidate.tex",
+      "bytes": 10546,
+      "sha256_16": "301924e71378efdb"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d5_scalar_audit.py",
+      "bytes": 5652,
+      "sha256_16": "3348276ecd630f37"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\fable_hostile_referee_prompt_d3_c12.txt",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\fable_hostile_referee_prompt_d5.txt",
+      "bytes": 5652,
+      "sha256_16": "3348276ecd630f37"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\research_note_motion_d4.tex",
+      "bytes": 5497,
+      "sha256_16": "cdcb0830926f2a18"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_audited_scalar_check.py",
+      "bytes": 5581,
+      "sha256_16": "bf00eb6d22edec78"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_complete_audit.py",
+      "bytes": 6784,
+      "sha256_16": "8af91f7dda1457be"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_complete_proof.tex",
+      "bytes": 28126,
+      "sha256_16": "9d991802e6cb8b88"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_final_audit.py",
+      "bytes": 8794,
+      "sha256_16": "84c46bf7feaeaa5d"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_final_candidate.tex",
+      "bytes": 29442,
+      "sha256_16": "5cdcc6eb5ff9dbf0"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_README.txt",
+      "bytes": 887,
+      "sha256_16": "28045f08efc2426f"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_sharpened_audit.py",
+      "bytes": 6968,
+      "sha256_16": "4576ad1d3d74a7b9"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d5_source_audited.tex",
+      "bytes": 16264,
+      "sha256_16": "b780d20f0f2cf3d2"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_twitter_thread.txt",
+      "bytes": 2344,
+      "sha256_16": "6cdb40158f339917"
+    },
+    {
+      "path": "04-proof-assets\\MANIFEST.json",
+      "bytes": 2901,
+      "sha256_16": "e7620ffb4d47c5cc"
+    },
+    {
+      "path": "04-proof-assets\\motion_d4_sanity_checks.py",
+      "bytes": 2552,
+      "sha256_16": "a498042089a5ec2e"
+    },
+    {
+      "path": "04-proof-assets\\README_babai_motion_d5_audit.md",
+      "bytes": 1719,
+      "sha256_16": "b3bef34fc2ab2f20"
+    }
+  ]
+}

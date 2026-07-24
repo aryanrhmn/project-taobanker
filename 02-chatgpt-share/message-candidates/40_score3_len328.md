@@ -1,0 +1,1 @@
+{"search_query":[{"q":"arXiv 2312.00383 Pyber Skresanov automorphism group distance-regular graph motion d^6"},{"q":"arXiv 1912.11427 Kivva characterization Johnson Hamming graphs proof Babai conjecture"},{"q":"Journal Combinatorial Theory Series B Pyber Skresanov 2025 distance-regular graph motion"}],"response_length":"long"}

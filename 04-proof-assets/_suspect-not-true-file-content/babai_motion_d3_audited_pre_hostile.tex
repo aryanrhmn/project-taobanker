@@ -1,0 +1,280 @@
+bash -lc cp /mnt/data/babai_motion_d3_audited.tex /mnt/data/babai_motion_d3_audited_pre_hostile.tex && python - <<'PY'
+from pathlib import Path
+p=Path('/mnt/data/babai_motion_d3_audited.tex')
+s=p.read_text()
+s=s.replace('We give a proof, conditional only on explicitly cited published results, that either $X$ is a Johnson graph or a Hamming graph, or',
+            'We present a source-level candidate proof, conditional only on explicitly cited published results, that either $X$ is a Johnson graph or a Hamming graph, or')
+s=s.replace('The present coefficient $1/12$ is chosen so that the proof is fully analytic and uses only the published papers of Kivva and of Pyber--Skresanov.  This manuscript has not been independently refereed; it should be checked by a specialist before citation.',
+            'The present coefficient $1/12$ is chosen so that every new numerical estimate is proved uniformly and the only external inputs are published results of Kivva and of Pyber--Skresanov.  This is still an author-side proof audit, not independent verification; the theorem should not be cited as established until a specialist has checked the argument.')
+old=r'''\begin{proof}
+For ordered vertices $x,y$, let $p(x,y)$ be the number of geodesics from $x$ to $y$.  For a directed edge $e$, define
+\[
+ Q_e=\sum_{x,y}\frac{\dist(x,y)}{p(x,y)}
+ \#\{P:P\text{ is an }x\text{-}y\text{ geodesic containing }e\}.
+\]
+The coherent-configuration counting argument in the proof of \cite[Proposition 2.8]{PS} shows that the geodesic load at each fixed distance is independent of $e$; multiplying the distance-$i$ contribution by $i$ preserves this uniformity.  Hence $Q_e=Q$ is constant.  Summing over all $nk$ directed edges gives
+\[
+ nkQ=\sum_{x,y}\dist(x,y)^2.
+\]
+
+Let $f$ have mean zero.  Cauchy--Schwarz along each geodesic, followed by averaging over all geodesics from $x$ to $y$, gives
+\[
+ (f(x)-f(y))^2\le
+ \frac{\dist(x,y)}{p(x,y)}
+ \sum_{P:x\to y}\sum_{e\in P}(\nabla_e f)^2.
+\]
+Summing over ordered pairs and then over directed edges yields
+\[
+ 2n\|f\|_2^2\le Q\sum_{e\text{ directed}}(\nabla_e f)^2
+ =2Q f^{\mathsf T}(kI-A)f.
+\]
+Taking $f$ in the $\theta_1$-eigenspace gives $k-\theta_1\ge n/Q$, which is the first inequality.  The second follows from $\dist(x,y)\le d$.
+\end{proof}'''
+new=r'''\begin{proof}
+We regard the symmetric basis relation as a set of directed edges, so it has exactly $nk$ elements.  For ordered vertices $x,y$, let $p(x,y)$ be the number of directed geodesics from $x$ to $y$.  For a directed edge $e=(z,w)$ and a basis relation $T$, put
+\[
+ Q_e(T)=\sum_{(x,y)\in T}\frac{\dist(x,y)}{p(x,y)}
+ \#\{P:P\text{ is an }x\text{-}y\text{ geodesic containing }e\}.
+\]
+Both $p(x,y)$ and $\dist(x,y)$ are constant on $T$.  For fixed basis relations $R,S,T$, the number of pairs $(x,y)$ satisfying
+\[
+ (x,z)\in R,\qquad (w,y)\in S,\qquad (x,y)\in T
+\]
+is independent of the chosen $e=(z,w)$ in the edge relation, by the intersection-number axiom.  Decomposing the geodesics according to $R,S,T$ is exactly the counting argument in \cite[Proposition 2.8]{PS}; it proves that each $Q_e(T)$, and therefore
+\[
+ Q_e=\sum_T Q_e(T),
+\]
+is independent of $e$.  Write its common value as $Q$.
+
+On summing over all $nk$ directed edges, an $x$--$y$ geodesic of length
+$\ell=\dist(x,y)$ contributes its $\ell$ directed edges, in addition to the prefactor $\ell$.  Hence
+\[
+ nkQ=\sum_{x,y}\dist(x,y)^2.
+\]
+
+Let $f$ have mean zero.  For each directed geodesic $P$ from $x$ to $y$, Cauchy--Schwarz gives
+\[
+ (f(x)-f(y))^2\le
+ \dist(x,y)\sum_{e\in P}(\nabla_e f)^2.
+\]
+Average this inequality over the $p(x,y)$ geodesics and sum over all ordered pairs.  Since
+\[
+ \sum_{x,y}(f(x)-f(y))^2=2n\|f\|_2^2
+\]
+and every directed edge has load $Q$, we obtain
+\[
+ 2n\|f\|_2^2\le Q\sum_{e\text{ directed}}(\nabla_e f)^2
+ =2Q f^{\mathsf T}(kI-A)f.
+\]
+Taking $f$ in the $\theta_1$-eigenspace gives $k-\theta_1\ge n/Q$, which is the first inequality.  Finally,
+$\sum_{x,y}\dist(x,y)^2\le n^2d^2$, proving the second inequality.
+\end{proof}'''
+if old not in s:
+    raise SystemExit('poincare block not found')
+s=s.replace(old,new)
+old_mu1=r'''\begin{proposition}[The case $\mu=1$]\label{prop:mu1}
+Under the preceding hypotheses, $\mu=1$ contradicts $\rho<\gam$.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:poincare} gives
+\[
+ \theta\le k\left(1-\frac1{d^2}\right).
+\]
+Suppose first that $m\ge3$, and let $\widetilde X$ be the dual graph on the Delsarte cliques.  Its degree is
+\[
+ \widetilde k=(m-1)\left(1+\frac{k}{m}\right)
+ =k-\frac{k}{m}+m-1.
+\]
+Since $k>12d^3>m^2$, Kivva's spectral transfer lemma \cite[Lemma 2.27]{Kivva} applies.  It yields
+\[
+ \widetilde\theta_1\le\widetilde k-\frac{k}{d^2}
+ \le\widetilde k\left(1-\frac1{d^2}\right).
+\]
+The magnitude of the most negative transferred eigenvalue is at most
+\[
+ \frac{k}{m}+1=\frac{\widetilde k}{m-1}
+ \le\widetilde k\left(1-\frac1{d^2}\right).
+\]
+Thus the zero-weight spectral radius of $\widetilde X$ is at most
+$\widetilde k(1-d^{-2})$.
+
+Every pair of distinct vertices of $\widetilde X$ has at most
+$q=\max\{m-2,1\}=m-2$ common neighbors \cite[Section 5.1]{Kivva}, and
+\[
+ \frac{q}{\widetilde k}<\frac{m}{k}\le\frac{d}{k}
+ <d\gam=\frac1{12d^2}.
+\]
+Babai's bound therefore gives
+\[
+ \frac{\mot(\widetilde X)}{|V(\widetilde X)|}
+ >\frac{11}{12d^2}.
+\]
+Kivva's motion-transfer Corollary 5.6 loses a factor two, so
+\[
+ \mot(X)>\frac{11n}{24d^2}>\frac{n}{12d^3}.
+\]
+If $m=2$, Kivva's Proposition 5.13 gives $\mot(X)\ge n/16>\gam n$.
+\end{proof}'''
+new_mu1=r'''\begin{proposition}[The case $\mu=1$]\label{prop:mu1}
+Under the preceding hypotheses, $\mu=1$ contradicts $\rho<\gam$.
+\end{proposition}
+
+\begin{proof}
+Proposition \ref{prop:poincare} gives
+\[
+ \theta\le k\left(1-\frac1{d^2}\right).
+\]
+Since $m\le d$ and $k>12d^3$, one also has
+\[
+ m<k\left(1-\frac1{d^2}\right).
+\]
+Thus the zero-weight spectral radius satisfies
+\[
+ \xi=\max\{\theta,m\}\le k(1-\eta),
+ \qquad \eta=\frac1{d^2}<\frac12.
+\]
+If $m\ge3$, then
+\[
+ k>12d^3>\max\{4md^2,m^2\}
+ =\max\{4m/\eta,m^2\}.
+\]
+All hypotheses of \cite[Proposition 2.14]{PS} are therefore satisfied, and
+\[
+ \mot(X)\ge\frac{\eta n}{4}=\frac{n}{4d^2}
+ >\frac{n}{12d^3}.
+\]
+If $m=2$, then $k>4$ and \cite[Proposition 2.15]{PS} gives
+$\mot(X)\ge n/16>n/(12d^3)$.
+\end{proof}'''
+if old_mu1 not in s:
+    raise SystemExit('mu1 block not found')
+s=s.replace(old_mu1,new_mu1)
+# Strengthen logic before FR
+old_fr=r'''\begin{proof}
+Let $H=H_{t-2}$.  Lemmas \ref{lem:standard} and \ref{lem:spheres}, together with
+$b_{t-1}\le rk/m$ and \eqref{eq:thetaB}, give
+\begin{equation}\label{eq:FR}
+ k_{t-1}u_{t-1}^2\ge\frac{n}{k}FR,
+\end{equation}
+where
+\[
+ F=(1-2m\eps)(1-\eps)^2(1-\delta H)^2
+\]
+and $R$ is as in Lemma \ref{lem:R}.
+
+We prove $F>m/(m+1)$ uniformly.  First,
+\[
+ H_{d-2}\le\frac d2\qquad(d\ge3),
+\]
+by induction.  Also
+\[
+ \delta=\frac{(8m-3)\eps}{3(1-m\eps)}
+ <\frac{6}{11d^2}.
+\]'''
+new_fr=r'''\begin{proof}
+Let $H=H_{t-2}$.  First,
+\[
+ H\le H_{d-2}\le\frac d2\qquad(d\ge3),
+\]
+by induction.  Also
+\[
+ \delta=\frac{(8m-3)\eps}{3(1-m\eps)}
+ <\frac{6}{11d^2}.
+\]
+Indeed, $\eps<1/(5d^3)$ and $m\eps\le1/45$, so
+\[
+ \delta<\frac{8d}{3}\frac1{5d^3}\frac{45}{44}
+ =\frac6{11d^2}.
+\]
+In particular,
+\[
+ 0<\delta H<\frac{3}{11d}<1.
+\]
+Thus the lower bound for $u_{t-1}$ in Lemma \ref{lem:standard} is positive and may be squared.  Lemmas \ref{lem:standard} and \ref{lem:spheres}, together with
+$b_{t-1}\le rk/m$ and \eqref{eq:thetaB}, now give
+\begin{equation}\label{eq:FR}
+ k_{t-1}u_{t-1}^2\ge\frac{n}{k}FR,
+\end{equation}
+where
+\[
+ F=(1-2m\eps)(1-\eps)^2(1-\delta H)^2
+\]
+and $R$ is as in Lemma \ref{lem:R}.
+
+We prove $F>m/(m+1)$ uniformly.  All five losses
+$2m\eps,\eps,\eps,\delta H,\delta H$ lie in $[0,1)$, so the elementary product inequality applies.  It gives
+\[
+ F\ge1-2(m+1)\eps-2\delta H.
+\]'''
+if old_fr not in s:
+    raise SystemExit('FR start not found')
+s=s.replace(old_fr,new_fr)
+# remove duplicated Indeed + using product lines from old continuation
+old_dup=r'''Indeed, $\eps<1/(5d^3)$ and $m\eps\le1/45$, so
+\[
+ \delta<\frac{8d}{3}\frac1{5d^3}\frac{45}{44}
+ =\frac6{11d^2}.
+\]
+Using $\prod(1-z_i)\ge1-\sum z_i$,
+\begin{align*}
+ F
+ &\ge1-2(m+1)\eps-2\delta H\\
+ &>1-\frac{2(d+1)}{5d^3}-\frac6{11d}.
+\end{align*}'''
+new_dup=r'''Consequently,
+\[
+ F>1-\frac{2(d+1)}{5d^3}-\frac6{11d}.
+\]'''
+if old_dup not in s:
+    raise SystemExit('FR duplicate not found')
+s=s.replace(old_dup,new_dup)
+# Add explicit lambda>mu in high theta
+s=s.replace('Moreover $\lambda>\mu$.  Babai\'s spectral motion bound,',
+            'Moreover $\lambda>\mu$, since $(1-\gam)/d>\gam$.  Babai\'s spectral motion bound,')
+# replace dependency ledger
+start=s.index('\\section{Dependency ledger and audit targets}')
+end=s.index('\\begin{thebibliography}{9}')
+new_ledger=r'''\section{Dependency ledger and hostile-audit checklist}
+The proof imports only the following published statements.
+\begin{enumerate}[leftmargin=2.2em,itemsep=0.35em]
+\item From Pyber--Skresanov: the support-sensitive final inequality in Proposition 2.8; Propositions 2.10, 2.12, 2.13, 2.14, and 2.15; the full Metsch expression displayed in the proof of Proposition 2.6; the Bang--Koolen criterion in Proposition 2.5; and Propositions 2.19--2.20.
+\item From Kivva: the geometric identities in Lemma 2.16, the inequality $\tau_2\ge\psi_1$ in Lemma 2.17, the local-graph description in Lemma 2.19, Lemma 4.2, Biggs' multiplicity formula, Theorem 4.1, and the case split and endpoint analysis in Proposition 4.6--Theorem 4.7.
+\end{enumerate}
+
+For ease of independent checking, here are the nonautomatic hypothesis matches.
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.20\textwidth}p{0.72\textwidth}@{}}
+\toprule
+Imported result & Hypotheses verified in this manuscript \\
+\midrule
+PS Proposition 2.8 & $S$ is a support set with $|S|/n<\gam<1/2$; the boundary is the outgoing directed-edge boundary used in the relation proof. \\
+PS Propositions 2.10, 2.12 & Primitivity is assumed; every nontrivial relation of the distance scheme has diameter at most $d$. \\
+Metsch expression & $\lambda^2>4k\mu$ is established from $\alpha^2>4\gam$. \\
+Bang--Koolen & $\lambda>m^2\mu$ follows after the clique bound gives $m<d+1$. \\
+PS Proposition 2.13 & A pair has at most $q=\max\{\lambda,\mu\}=\lambda$ common neighbors; $\lambda>\mu$ is explicit. \\
+PS Propositions 2.14--2.15 & In the $\mu=1$ case, $\xi\le k(1-d^{-2})$ and $k>\max\{4md^2,m^2\}$. \\
+PS Propositions 2.19--2.20 & In the $\mu\ge3$ case, $\eps<0.0065$, $k>\max\{m^3,29\}$, and the local graph is separated according to $\psi_1=1$ or $\psi_1\ge2$. \\
+Kivva Lemma 4.2 & In the $\mu=2$ case, $c_t<\eps k$ and $\eps<1/m^2$. \\
+Biggs--Terwilliger & The factor $1-\delta H$ is proved positive before squaring; $FR>1$ gives $f_1<k$, while the local graph is a disjoint union of cliques. \\
+Kivva endpoint & The only unexcluded endpoint is $c_t=t=m=d$; its intersection array is Hamming, and $k>12d^3$ rules out the Doob alternative. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The highest-value independent attack is the new $\mu=2$ chain: the Riccati induction in Lemma \ref{lem:standard}, the sphere-tail estimate in Lemma \ref{lem:spheres}, and the exact endpoint alternatives in Lemma \ref{lem:R}.  The geodesic Poincare inequality is self-contained once the weighted uniform-load count is checked relation by relation.
+
+\begin{remark}
+This document records a source-level hostile audit by the same system that generated the argument.  It can establish internal consistency and expose gaps, but it is not independent verification.  Agreement from another model is useful adversarial evidence; a specialist referee or formalization is the appropriate standard for calling Theorem \ref{thm:main} established.
+\end{remark}
+
+'''
+s=s[:start]+new_ledger+s[end:]
+p.write_text(s)
+print('edited', p, 'lines', len(s.splitlines()))
+PY
+# Show edited critical sections
+grep -n "case \\\$\\mu=1\|weighted\|delta H\|Dependency ledger\|lambda>\\mu" /mnt/data/babai_motion_d3_audited.tex | head -30
+sed -n '225,390p' /mnt/data/babai_motion_d3_audited.tex
+sed -n '555,700p' /mnt/data/babai_motion_d3_audited.tex

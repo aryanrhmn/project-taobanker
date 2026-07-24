@@ -1,0 +1,1 @@
+Permission allow rule (.claude\settings.local.json): Write(06-fable-brief/**) is not matched by file permission checks ΓÇö only Edit(path) rules are. Use Edit(06-fable-brief/**) instead (Edit rules cover all file-editing tools).

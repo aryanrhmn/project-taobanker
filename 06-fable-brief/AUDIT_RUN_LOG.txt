@@ -1,0 +1,129 @@
+AUDIT RUN LOG - exact-arithmetic supporting scripts
+Referee: Claude Fable 5, 2026-07-23
+Environment: Windows 11, CPython 3.13 (fractions, sympy available)
+Scope reminder (from the scripts themselves): these verify scalar/integer
+inequalities only; they do NOT verify imported graph-theoretic theorems.
+They were given no evidential weight for graph theory in this review.
+
+=====================================================================
+1) babai_motion_d3_final_audit.py  (2/(5 d^3) candidate)  -- PASSED
+=====================================================================
+$ python babai_motion_d3_final_audit.py
+
+All exact-arithmetic checks for the 2/(5 d^3) candidate passed.
+
+Finite multiplicity minima (3 <= d <= 16):
+  d= 3: M=1.156836231245 at (m,t,r,c_t)=(3,2,2,2)
+  d= 4: M=1.149849860672 at (m,t,r,c_t)=(3,3,1,4)
+  d= 5: M=1.030907838744 at (m,t,r,c_t)=(4,4,1,5)
+  d= 6: M=1.009811357966 at (m,t,r,c_t)=(5,5,1,6)
+  d= 7: M=1.007179713595 at (m,t,r,c_t)=(6,6,1,7)
+  d= 8: M=1.008799280498 at (m,t,r,c_t)=(7,7,1,8)
+  d= 9: M=1.011241556471 at (m,t,r,c_t)=(8,8,1,9)
+  d=10: M=1.013543355229 at (m,t,r,c_t)=(9,9,1,10)
+  d=11: M=1.015457792602 at (m,t,r,c_t)=(10,10,1,11)
+  d=12: M=1.016963744925 at (m,t,r,c_t)=(11,11,1,12)
+  d=13: M=1.018108188016 at (m,t,r,c_t)=(12,12,1,13)
+  d=14: M=1.018952570078 at (m,t,r,c_t)=(13,13,1,14)
+  d=15: M=1.019554891561 at (m,t,r,c_t)=(14,14,1,15)
+  d=16: M=1.019964612740 at (m,t,r,c_t)=(15,15,1,16)
+
+Global finite minimum:
+  M = 116108034801868413182297308409682258079489/115280354870777504601657083769030760079250
+    = 1.007179713595
+  margin M-1 = 0.717971%
+
+Robustness boundary of the same finite relaxation:
+  coefficient 5/12: min M=1.000829988423 at d=7
+  coefficient 1/2 : min M=0.964974047435 at d=6 (fails)
+
+Analytic tail certificate checked for 17 <= d <= 10000.
+Imported graph-theoretic hypotheses still require expert review.
+
+NOTE: output reproduces the manuscript's Section 7.1 table and eq. (worstM)
+exactly, including the exact rational global minimum and the 5/12 / 1/2
+robustness boundary quoted in the twitter thread (8/10).
+
+=====================================================================
+2) babai_motion_d3_sharpened_audit.py  (intermediate 1/(8 d^3))  -- PASSED
+=====================================================================
+$ python babai_motion_d3_sharpened_audit.py
+
+Auditing candidate n/(8 d^3) motion theorem...
+  structural, Metsch, geometricity, and low-spectrum constants passed
+  sharpened standard-sequence recurrence endpoint passed
+  smallest high-precision Hamming margin: d=10000, margin=0.00009981939332532990647511812853908173262477174665882844515886482571855735679041
+  exact Hamming-stability constants passed
+  full abstract R-factor domain passed for 2 <= m <= 300
+  exact mu=1 dual-transfer inequalities passed for 3 <= d <= 500
+  d=3 local Fourier-mode check passed for cycle lengths <= 1000
+  imprimitive reduction constants passed for 3 <= d <= 10000
+All supplementary audit checks passed.
+
+=====================================================================
+3) babai_motion_d3_complete_audit.py  (n/(14 d^3))  -- SHIPPED SCRIPT
+   DEFECTIVE (cosmetic); FAITHFUL RE-IMPLEMENTATION PASSED
+=====================================================================
+$ python babai_motion_d3_complete_audit.py
+Traceback (most recent call last):
+  ...
+  File "...\babai_motion_d3_complete_audit.py", line 84, in check_scalar_range
+    require(loss < Fraction(1, d+1), f"exact Hamming loss failed at d={d}: {loss}")
+  File "C:\Python313\Lib\fractions.py", line 451, in _format_general
+ValueError: Exceeds the limit (4300 digits) for integer string conversion;
+use sys.set_int_max_str_digits() to increase the limit
+
+DIAGNOSIS: the f-string failure message is built eagerly on every call and
+formats an exact Fraction whose terms exceed CPython 3.13's default 4300-digit
+int-to-str limit. This is a crash while formatting a message for a check that
+was NOT failing -- a script bug, not a mathematical failure. The script also
+recomputes an O(d) harmonic sum per d up to d=100000 (O(d^2) Fraction work),
+making it impractically slow even with the limit raised.
+
+FAITHFUL RE-IMPLEMENTATION (same inequalities, incremental harmonic sum,
+integer comparisons; ranges trimmed to d<=300 / m<=500..2000; the polynomial
+certificates below cover ALL d>=3 analytically):
+
+polynomial certificates (d=x+3 shift, all coeffs >=0, const>0): PASS ->
+ {'alpha^2>4gamma': [128521, 262332, 222768, 100772, 25620, 3472, 196],
+  'Metsch>k/(d+1)': [120586, 244378, 205947, 92414, 23296, 3129, 175],
+  'BangKoolen':     [329, 338, 115, 13],
+  'HammingLoss':    [169, 118, 26, 2]}
+scalar range 3<=d<=300: PASS (exact Fractions, worst-case m=d, exact H_(d-2))
+R-factor cases m<=500: PASS; min R/(1+1/m) = 1 ~ 1.000000 at (3, 2, 2, 2, 'c>=t')
+endpoint inequalities m<=2000: PASS
+ALL complete_proof (n/14d^3) scalar/integer checks PASS
+(trimmed ranges; polynomial certificates cover all d>=3)
+
+NOTE: the shifted-coefficient lists match the manuscript's Appendix A
+(Scalar certificates) exactly. R/(1+1/m) attains 1 (equality in Lemma 6.6)
+at (m,t,r,c_t)=(3,2,2,2), consistent with ">=" in the lemma.
+
+=====================================================================
+4) babai_motion_d3_audited_scalar_check.py  (withdrawn 1/(12 d^3))
+   -- SHIPPED SCRIPT TOO SLOW (same O(d^2) pattern); TRIMMED RUN PASSED
+=====================================================================
+$ python (trimmed driver importing the module)
+
+audited_scalar_check (1/12): symbolic_factor_checks PASS
+audited_scalar_check (1/12): exact checks 3<=d<=300 PASS
+audited_scalar_check (1/12): endpoint_integer_audit m<=300 PASS
+
+NOTE: passing scalars for 1/12 do NOT constitute support for the withdrawn
+1/12 claim: no trusted manuscript of record exists for it (see
+CONSTANT_AUDIT.md). Logged for completeness only.
+
+=====================================================================
+5) motion_d4_sanity_checks.py  (research_note_motion_d4 side note)
+   -- SHIPPED SCRIPT TOO SLOW; TRIMMED RUN PASSED
+=====================================================================
+motion_d4_sanity: e_gap + retuned constants PASS  (m<=1000 / d<=2000)
+motion_d4_sanity: arithmetic gap m<=500 PASS
+motion_d4_sanity: coefficient grid (trimmed denominators <=128) PASS
+
+=====================================================================
+Not run
+=====================================================================
+- Everything under 04-proof-assets/_suspect-not-true-file-content/ :
+  excluded per instructions (mis-extracted chat prose; MANIFEST.json shows
+  byte-identical duplicates across differently-named "files").

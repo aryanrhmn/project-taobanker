@@ -1,0 +1,2301 @@
+=== PAGE 1 ===
+Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+Contents lists available at ScienceDirect
+Journal of Combinatorial Theory, 
+Series B
+www.elsevier.com/locate/jctb
+On the spectral gap and the automorphism group 
+of distance-regular graphs
+Bohdan Kivva
+University of Chicago, United States of America
+a r t i c l e 
+i n f o
+a b s t r a c t
+Article history:
+Received 3 February 2020
+Available online xxxx
+Keywords:
+Distance-regular graph
+Automorphism group
+Spectral gap
+Motion
+We prove that a distance-regular graph with a dominant 
+distance is a spectral expander. The key ingredient of the 
+proof is a new inequality on the intersection numbers. We 
+use the spectral gap bound to study the structure of the 
+automorphism group.
+The minimal degree of a permutation group G is the 
+minimum number of points not ﬁxed by non-identity elements 
+of G. Lower bounds on the minimal degree have strong 
+structural consequences on G. In 2014 Babai proved that 
+the automorphism group of a strongly regular graph with 
+n vertices has minimal degree ≥cn, with known exceptions. 
+Strongly regular graphs correspond to distance-regular graphs 
+of diameter 2. Babai conjectured that Hamming and Johnson 
+graphs are the only primitive distance-regular graphs of 
+diameter d ≥3 whose automorphism group has sublinear 
+minimal degree. We conﬁrm this conjecture for non-geometric 
+primitive distance-regular graphs of bounded diameter. We 
+also show if the primitivity assumption is removed, then only 
+one additional family of exceptions arises, the crown graphs. 
+We settle the geometric case in a companion paper.
+© 2021 Elsevier Inc. All rights reserved.
+E-mail address: bkivva@uchicago.edu.
+https://doi.org/10.1016/j.jctb.2021.02.003
+0095-8956/© 2021 Elsevier Inc. All rights reserved.
+
+=== PAGE 2 ===
+162
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+1. Introduction
+In this paper we prove a tradeoﬀ between combinatorial and spectral parameters of 
+distance-regular graphs and apply the result to the structure of the automorphism group.
+1.1. Main results: spectral expansion of distance-regular graphs
+We say that a k-regular graph is a spectral η-expander for η > 0, if every non-principal 
+eigenvalue ξi of its adjacency matrix satisﬁes |ξi| ≤k(1 −η). We say that a graph on n
+vertices has (1 −ε)-dominant distance t, if among the 
+n
+2
+
+pairs of distinct vertices at 
+least (1 −ε)
+n
+2
+
+are at distance t.
+In our main result on spectral expansion we show that distance-regular graphs of 
+bounded diameter are spectral expanders if they have (1 −ε)-dominant distance for 
+suﬃciently small ε > 0, depending only on the diameter.
+Theorem 1.1. For every d ≥2 there exist ϵ = ϵ(d) > 0 and η = η(d) > 0 such that 
+the following holds. If a distance-regular graph X of diameter d has a (1 −ϵ)-dominant 
+distance, then X is a spectral η-expander.
+We prove this theorem in equivalent formulation as Theorem 3.15, and its slightly 
+modiﬁed variant stated as Theorem 3.13 is the heart of the proof of our main result on 
+the minimal degree of the automorphism group (Theorem 1.7).
+The key ingredient of our proof of the spectral expansion is the following (we believe 
+new) inequality for the intersection numbers of a distance-regular graph. This inequality 
+provides a tradeoﬀ between bj+1 and cj+2, if there are (signiﬁcantly) more vertices at 
+distance j + 1 from a vertex v, than vertices at distance j from v. In particular, this 
+inequality implies that if bj is large and cj+1 is small, then cj+2 and bj+1 cannot be small 
+simultaneously.
+Theorem 1.2 (Growth-induced tradeoﬀ). Let X be a distance-regular graph of diameter 
+d ≥2. Let 0 ≤j ≤d −2. Assume bj > cj+1 and let C = bj/cj+1. Then for any 
+1 ≤s ≤j + 1 we have
+bj+1
+ s
+
+t=1
+1
+bt−1
++
+j+2−s
+
+t=1
+1
+bt−1
+
++ cj+2
+j+1
+
+t=1
+1
+bt−1
+≥1 −
+4
+C −1.
+(1)
+Further comments on this result are in Remark 3.4. The proof appears in Section 3.2
+(see Theorem 3.3).
+In a distance-regular graph denote by λ and μ the number of common neighbors of a 
+pair of adjacent vertices and a pair of vertices at distance 2, respectively. We mention, 
+that a result of Terwilliger [28], as strengthened in [10, Theorem 4.3.3], shows that any 
+non-principal eigenvalue of a k-regular distance-regular graph X has absolute value at 
+
+=== PAGE 3 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+163
+most k −λ if μ > 1 and X is not the icosahedron. This result assures that X is a 
+spectral η-expander, if λ ≥ηk. We note that while both our result and Terwilliger’s 
+result provide simple suﬃcient combinatorial conditions for being spectral expanders, 
+they are incomparable. In fact, our primary motivation for a spectral gap bound is an 
+application of Lemma 1.16, where Terwilliger’s gap is not suﬃcient.
+Additionally, we note that we do not exclude the elusive case μ = 1, for which almost 
+no classiﬁcation results are known, and which is known to be a diﬃcult case in various 
+circumstances. A remarkable example is the Bannai-Ito conjecture, where the case μ = 1
+was the only obstacle for 30 years, and was resolved only recently in the breakthrough 
+paper by Bang, Dubickas, Koolen and Moulton [5].
+1.2. Main results: minimal degree of the automorphism group
+Let σ be a permutation of a set Ω. The number of points not ﬁxed by σ is called the 
+degree of the permutation σ. Let G be a permutation group on the set Ω. The minimum 
+of the degrees of non-identity elements in G is called the minimal degree of G. We denote 
+this quantity by mindeg(G). In particular, if G is a trivial permutation group on a set Ω
+of size n, then mindeg(G) = n (the inﬁmum of the empty set is the maximum possible 
+value).
+The study of the minimal degree goes back to Jordan [15] and Bochert [9] in the 19th 
+century. Lower bounds on the minimal degree have strong structural consequences on G. 
+In 1934 Wielandt [31] showed that a linear lower bound on the minimal degree implies 
+a logarithmic upper bound on the thickness of the group, deﬁned in [2] as the greatest 
+t for which the alternating group At is involved as a quotient group of a subgroup of G. 
+Liebeck and Saxl used the Classiﬁcation of Finite Simple Groups (CFSG) to characterize 
+all primitive permutation groups acting on a set of n elements with minimal degree less 
+than n/3 [18,19].
+Switching from the theory of permutation groups to automorphisms of combinatorial 
+structures, we use the following terminology [25].
+Deﬁnition 1.3 (Russell, Sundaram). For a graph X we use term motion for the minimal 
+degree of the automorphism group Aut(X),
+motion(X) := mindeg(Aut(X)).
+(2)
+In 2014 Babai [2,3] proved that the motion of a strongly regular graph is linear in the 
+number of vertices, with known exceptions.
+Theorem 1.4 (Babai). Let X be a strongly regular graph on n ≥29 vertices. Then either
+motion(X) ≥n/8,
+
+=== PAGE 4 ===
+164
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+or X or its complement is a Johnson graph J(s, 2), a Hamming graph H(2, s), or a union 
+of cliques.
+The connected non-complete strongly regular graphs are precisely the distance-regular 
+graphs of diameter two. For distance-regular graphs of diameter d ≥3, Babai made the 
+following conjecture.
+Conjecture 1.5 (Babai). For any d ≥3 there exists γd > 0, such that for any primitive 
+distance-regular graph X of diameter d with n vertices either
+motion(X) ≥γdn,
+or X is the Hamming graph H(d, s) or the Johnson graph J(s, d).
+Remark 1.6. For distance-transitive graphs Conjecture 1.5 follows from the characteri-
+zation of primitive permutation groups given by Liebeck and Saxl [19].
+We conﬁrm this conjecture in a pair of papers. In the present paper we cover the case 
+when X is not geometric. Moreover, we prove an eigenvalue lower bound, which will 
+be one of the main ingredients in the analysis of the remaining cases in the companion 
+paper [16].
+Theorem 1.7. For any d ≥3 there exist γd > 0 and a positive integer md, such that for 
+any primitive distance-regular graph X of diameter d with n vertices either
+motion(X) ≥γdn,
+or X is geometric with smallest eigenvalue at least −md.
+We conﬁrm Conjecture 1.5 for the cases not covered by the theorem above, i.e., for 
+geometric distance-regular graphs with bounded smallest eigenvalue, in [16].
+Remark 1.8. The proof of the conjecture is split between two papers due to the diﬀerent 
+nature of techniques and results obtained. In particular, in [16] we obtain a classiﬁcation 
+of geometric distance-regular graphs with bounded smallest eigenvalue under certain 
+combinatorial and spectral assumptions, but with no assumption on the motion.
+In Section 5 we analyze imprimitive distance-regular graphs and show that if the prim-
+itivity assumption in Conjecture 1.5 is removed then only one new family of exceptions 
+arises. More precisely, we show that any imprimitive distance-regular graph with sub-
+linear motion is antipodal and its (primitive) folded graph has sublinear motion as well. 
+Note that all antipodal covers of the Hamming graphs and Johnson graphs are known 
+[29] (see Theorem 5.15 below). Thus we prove that Conjecture 1.5 will automatically 
+extend to the imprimitive case as follows.
+
+=== PAGE 5 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+165
+Theorem 1.9. Assume Conjecture 1.5 is true. Then for any d ≥3 there exists γd > 0, 
+such that for any distance-regular graph X of diameter d on n vertices either
+motion(X) ≥γdn,
+or X is a Johnson graph J(s, d), or a Hamming graph H(d, s), or a crown graph.
+Deﬁnition 1.10. A graph X is called a crown graph if it is obtained from a regular 
+complete bipartite graph by deleting a perfect matching.
+Remark 1.11. We shall complete the proof of Conjecture 1.5 in [16], so the theorem above 
+will turn into an unconditional result.
+1.3. Graphs with bounded smallest eigenvalue
+In Theorem 1.7 we show that the exceptions with sublinear motion have bounded 
+smallest eigenvalue. A number of classiﬁcation results is known under the assumption of 
+bounded smallest eigenvalue.
+For strongly regular graphs, Neumaier [21] showed in 1979 that if the smallest eigen-
+value is −m (for m ≥2), then it is a Latin square graph LSm(n), a Steiner graph Sm(n), 
+a complete multipartite graph, or one of ﬁnitely many other graphs. A classiﬁcation of 
+the strongly regular graphs with smallest eigenvalue −2 was known earlier (Seidel [26]) 
+(1968). Moreover, in 1976 [12] Cameron, Goethals, Seidel and Shult gave a complete 
+classiﬁcation of all graphs with smallest eigenvalue −2. They proved that all but ﬁnitely 
+many of such graphs have rich geometric structure (they are generalized line graphs).
+Bang and Koolen [17] proved that all but ﬁnitely many distance-regular graphs with 
+smallest eigenvalue −m and μ ≥2 are geometric. For geometric distance-regular graphs 
+with smallest eigenvalue ≥−3 and μ ≥2 Bang [4] and Bang, Koolen [7] gave a complete 
+classiﬁcation. Moreover, they conjectured [17, Conjecture 7.4] that for any integer m all 
+but ﬁnitely many geometric distance-regular graphs with smallest eigenvalue −m and 
+μ ≥2 are known.
+Conjecture 1.12 (Bang, Koolen). For a ﬁxed integer m ≥2, any geometric distance-
+regular graph with smallest eigenvalue −m, diameter ≥3 and μ ≥2 is either a Johnson 
+graph, or a Hamming graph, or a Grassmann graph, or a bilinear forms graph, or the 
+number of vertices is bounded above by a function of m.
+In [16] we conﬁrm the above conjecture in the very special case, when the second 
+largest eigenvalue is suﬃciently close to b1, and some distance i is dominant. We note 
+that all families mentioned in Conjecture 1.12 have dominant distance d. Among these 
+families, only the Hamming and the Johnson graphs satisfy the assumption that the 
+second largest eigenvalue is close to b1.
+
+=== PAGE 6 ===
+166
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+1.4. The main tools to bound motion
+To obtain lower bounds on motion we follow the approach proposed by Babai in [2]. 
+In that paper he used a combination of an old combinatorial tool [1] and a new spectral 
+tool. We combine his tools with a structural theorem of Metsch.
+1.4.1. Combinatorial tool
+Deﬁnition 1.13 (Babai [1]). A pair of vertices u and v is distinguished by a vertex x in a 
+graph X if the distances dist(x, u) and dist(x, v) in X are distinct.
+Deﬁnition 1.14. In any graph deﬁne D(u, v) to be the number of vertices that distinguish 
+u and v. Deﬁne the minimal distinguishing number Dmin(X) of the graph X to be
+Dmin(X) = min
+u̸=v∈V D(u, v).
+A simple observation shows that the minimal distinguishing number gives a lower 
+bound on the motion of a graph.
+Lemma 1.15 (Babai [2]). Let X be a graph with n vertices. If each pair of distinct vertices 
+u, v of X is distinguished by at least m vertices, then motion(X) ≥m.
+Proof. Indeed, let σ ∈Aut(X) be any non-trivial automorphism of X. Let u be a vertex 
+not ﬁxed by σ. No ﬁxed point of σ distinguishes u and σ(u), so the degree of σ is ≥m.
+
+1.4.2. Spectral tool
+For a k-regular graph X let k = ξ1 ≥ξ2 ≥... ≥ξn denote the eigenvalues of the 
+adjacency matrix of X. Following [2], we call ξ = ξ(X) = max{|ξi| : 2 ≤i ≤n} the 
+zero-weight spectral radius of X. We refer to the quantity (k −ξ) as the spectral gap of 
+X. Note that ξ(X) ≤(1 −η)k if and only if X is a spectral η-expander.
+The next lemma gives a lower bound on the motion of a regular graph X in terms 
+of the zero-weight spectral radius and the maximum number of common neighbors for a 
+pair of distinct vertices in X.
+Lemma 1.16 (Babai, [2, Proposition 12]). Let X be a regular graph of degree k on n
+vertices with zero-weight spectral radius ξ. Suppose every pair of distinct vertices in X
+has at most q common neighbors. Then
+motion(X) ≥n · (k −ξ −q)
+k
+.
+Note that for bipartite graphs the zero-weight spectral radius equals k, the degree of 
+a vertex. So Lemma 1.16 cannot be applied. We prove a bipartite analog in Section 5.1.
+
+=== PAGE 7 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+167
+1.4.3. Structural tool
+Together with the two tools mentioned, an important ingredient of our proofs is 
+Metsch’s geometricity criteria (see Theorem 2.7). Intuitively, Metsch’s criteria state that 
+if the number λ of common neighbors of a pair of adjacent vertices is much greater than 
+the number μ of common neighbors of a pair of vertices at distance 2, then the graph 
+admits a clique geometry (see Deﬁnition 2.5).
+1.4.4. How do we apply these tools?
+We show that if a distance-regular graph X is primitive and not a spectral expander, 
+then the minimal distinguishing number is linear in the number of vertices. Thus we can 
+apply the Combinatorial tool.
+Hence, we may assume that the graph X is a spectral expander. If λ and μ are small, 
+a linear lower bound on motion follows from the Spectral tool. If μ is large, we again 
+show that the minimal distinguishing number is linear in the number of vertices.
+Finally, in the remaining case when λ is large and μ is small, we use the Metsch 
+criteria to deduce geometricity of X.
+1.5. Organization of the paper
+Basic concepts and deﬁnitions are given in Section 2. In Section 3 we prove the spec-
+tral gap bound for distance-regular graphs with dominant distance. More speciﬁcally, 
+in Section 3.1 we use the perturbation theory of matrices to show that under modest 
+assumptions on the intersection numbers, the spectrum of a graph can be approximated 
+by the intersection numbers ai. In Section 3.2 we prove a growth-induced tradeoﬀ for 
+the intersection numbers (Theorem 1.2). In Section 3.3 we use this inequality to derive 
+our main result on spectral expansion (Theorem 1.1).
+In Section 4 we analyze the motion of distance-regular graphs and prove our main 
+result about automorphism groups (Theorem 1.7).
+Finally, in Section 5 we prove a bipartite analog of the Spectral tool and show that 
+this is suﬃcient to prove Conjecture 1.5 to obtain a similar classiﬁcation for imprimitive 
+graphs (Theorem 1.9).
+2. Preliminaries
+In this section we introduce concepts and notation that will be used throughout the 
+paper. For more about distance-regular graphs we refer the reader to the monograph 
+[10] and the survey article [30].
+2.1. Basic concepts and notation for graphs
+Let X be a graph with the set of vertices V (X). We will always denote by n the 
+number of vertices of X, and if X is regular we denote by k its degree. For a graph 
+
+=== PAGE 8 ===
+168
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+X denote by dist(x, y) the distance between vertices x and y in X. We will denote the 
+diameter of X by d. If the graph is disconnected, then its diameter is deﬁned to be ∞.
+Let N(v) be the set of neighbors of vertex v in X and Ni(v) = {w ∈X| dist(v, w) = i}
+be the set of vertices at distance i from v in the graph X.
+Denote by λ = λ(X) the minimum number of common neighbors for pairs of adjacent 
+vertices in X. Denote by μ = μ(X) the maximum number of common neighbors for pairs 
+of vertices at distance 2. Denote by q(X) the maximum number of common neighbors 
+of two distinct vertices in X.
+Let A be the adjacency matrix of X. Suppose that X is k-regular. Then the all-ones 
+vector is an eigenvector of A with eigenvalue k. We will call them the trivial (principal) 
+eigenvector and the trivial (principal) eigenvalue. All other eigenvalues of A have absolute 
+value not greater than k. We call them non-trivial (non-principal) eigenvalues.
+2.2. Distance-regular graphs
+Deﬁnition 2.1. A connected graph X of diameter d is called distance-regular if for any 
+0 ≤i ≤d there exist constants ai, bi, ci such that for any v ∈X and any w ∈Ni(v) the 
+number of edges between w and Ni(v) is ai, between w and Ni+1(v) is bi, and between 
+w and Ni−1(v) is ci. The sequence
+ι(X) = {b0, b1, . . . , bd−1; c1, c2, . . . , cd}
+is called the intersection array of X.
+Note, that for a distance-regular graph bd = c0 = 0, b0 = k, c1 = 1, λ = a1 and 
+μ = c2. By edge counting, the following straightforward properties of the parameters of 
+a distance-regular graph hold.
+(E1) ai + bi + ci = k for every 0 ≤i ≤d,
+(E2) |Ni(v)| ·bi = |Ni+1(v)| ·ci+1, 
+⇒
+ki := |Ni(v)| does not depend on vertex v ∈X.
+(E3) bi+1 ≤bi and ci+1 ≥ci for 0 ≤i ≤d −1.
+For a graph X deﬁne its distance-i constituent Xi to be the graph on the same vertex 
+set V (X) in which a pair of vertices is adjacent if and only if it is at distance i in X. 
+Deﬁne Ai to be the adjacency matrix of Ai. So, (Ai)u,v = 1 if and only if dist(u, v) = i
+in X. For a distance-regular graph these matrices satisfy the relations
+A0 = I,
+A1 =: A,
+d
+
+i=0
+Ai = J,
+(3)
+AiA = AAi = ci+1Ai+1 + aiAi + bi−1Ai−1
+for 0 ≤i ≤d,
+(4)
+where cd+1 = b−1 = 0 and A−1 = Ad+1 = 0. Clearly, Eq. (4) implies that for every 
+0 ≤i ≤d there exists a polynomial νi of degree exactly i, such that Ai = νi(A). 
+
+=== PAGE 9 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+169
+Moreover, the minimal polynomial of A has degree exactly d + 1. Hence, since A is 
+symmetric, A has exactly d + 1 distinct real eigenvalues. Additionally, we conclude that 
+for all 0 ≤i, j, s ≤d there exist intersection numbers ps
+i,j, such that
+AiAj =
+d
+
+s=0
+ps
+i,jAs.
+The deﬁnition of Ai implies that for any u, v ∈X with dist(u, v) = s there exist exactly 
+ps
+i,j vertices at distance i from u and distance j from v, i.e., |Ni(u) ∩Nj(v)| = ps
+i,j.
+Note, that
+pi−1
+1,i = bi−1,
+pi
+1,i = ai,
+pi+1
+1,i = ci+1.
+Deﬁnition 2.2. A distance-regular graph X of diameter d is called primitive if for each 
+i ∈[d] the distance-i graph Xi of X is connected.
+Let η be an eigenvalue of A, then Eq. (4) implies that
+ηνi(η) = ci+1νi+1(η) + aiνi(η) + bi−1νi−1(η),
+(5)
+so, using property (E2),
+ηui(η) = ciui−1(η) + aiui(η) + biui+1(η),
+(6)
+where ui(η) = νi(η)/ki. Therefore, the eigenvalues of A are precisely the eigenvalues of 
+tridiagonal (d + 1) × (d + 1) intersection matrix
+T(X) =
+⎛
+⎜
+⎜
+⎜
+⎜
+⎝
+a0
+b0
+0
+0
+...
+c1
+a1
+b1
+0
+...
+0
+c2
+a2
+b2
+...
+...
+...
+...
+...
+0
+cd
+ad
+⎞
+⎟
+⎟
+⎟
+⎟
+⎠
+.
+2.3. Johnson and Hamming graphs
+In this section we deﬁne families of graphs with huge automorphism groups. In par-
+ticular, for certain range of parameters they have motion sublinear in the number of 
+vertices.
+Deﬁnition 2.3. Let d ≥2 and Ω be a set of m ≥2d points. The Johnson graph J(m, d) is 
+a graph on the set V (J(m, d)) =
+Ω
+d
+
+of n =
+m
+d
+
+vertices, where two vertices are adjacent 
+if and only if the corresponding subsets U1, U2 ⊆Ω diﬀer by exactly one element, i.e., 
+|U1 \ U2| = |U2 \ U1| = 1.
+
+=== PAGE 10 ===
+170
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+It is not hard to check that J(m, d) is a distance-regular graph of diameter d with 
+intersection numbers
+bi = (d −i)(m −d −i)
+and
+ci+1 = (i + 1)2,
+for 0 ≤i < d.
+In particular, J(m, d) is regular of degree k = d(m −d) with λ = m −2 and μ = 4. The 
+eigenvalues of J(m, d) are
+ξj = (d −j)(m −d −j) −j
+with multiplicity
+m
+j
+
+−
+ m
+j −1
+
+, for 0 ≤j ≤d.
+For m ≥2d + 1, the automorphism group of J(m, d) is the induced symmetric group 
+S(d)
+m , which acts on 
+Ω
+d
+
+via the induced action of Sm on Ω. Indeed, it is clear, that 
+S(d)
+m
+≤Aut(J(m, d)). The opposite inclusion can be derived from the Erdős-Ko-Rado 
+theorem.
+Thus, for a ﬁxed d and m ≥2d + 1, we get that the order is | Aut(J(m, d)| = m! =
+Ω(exp(n1/d)), the thickness satisﬁes θ(Aut(J(m, d))) = m = Ω(n1/d) and
+motion(J(m, d)) = O(n1−1/d).
+(7)
+Deﬁnition 2.4. Let Ω be a set of m ≥2 points. The Hamming graph H(d, m) is a graph 
+on the set V (H(d, m)) = Ωd of n = md vertices, where a pair of vertices is adjacent 
+if and only if the corresponding d-tuples v1, v2 diﬀer in precisely one position. In other 
+words, if the Hamming distance dH(v1, v2) for the corresponding tuples equals 1.
+Again, it is not hard to check that H(d, m) is a distance-regular graph of diameter d
+with intersection numbers
+bi = (d −i)(m −1)
+and
+ci+1 = i + 1,
+for 0 ≤i ≤d −1.
+In particular, H(d, m) is regular of degree k = d(m −1) with λ = m −2 and μ = 2. The 
+eigenvalues of H(d, m) are
+ξj = d(m −1) −jm
+with multiplicity
+d
+j
+
+(m −1)j, for 0 ≤j ≤d.
+The automorphism group of H(d, m) is isomorphic to the wreath product Sm ≀Sd. 
+Hence, its order is | Aut(H(d, m))| = (m!)dd!, the thickness satisﬁes θ(H(d, m)) ≥m =
+n1/d and
+motion(H(d, m)) ≤2md−1 = 2n1−1/d.
+(8)
+
+=== PAGE 11 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+171
+2.4. Geometric distance-regular graphs
+In this section we discuss geometric distance-regular graphs. More on geometric 
+distance-regular graphs can be found in [30] and [6].
+Let X be a distance-regular graph, and θmin be its smallest eigenvalue. Delsarte proved 
+in [13] that any clique C in X satisﬁes |C| ≤1 −k/θmin. A clique in X of size 1 −k/θmin
+is called a Delsarte clique.
+Deﬁnition 2.5. A clique geometry C0 for a graph X is a set of maximal cliques of X such 
+that every edge of X is contained in exactly one member of C0.
+Deﬁnition 2.6. A distance-regular graph X is called geometric if it admits a clique ge-
+ometry consisting of Delsarte cliques.
+Metsch proved that a graph X under simple assumptions admits a clique geometry.
+Theorem 2.7 (Metsch [20, Result 2.2]). Let μ, λ(1), λ(2) and m be positive integers. As-
+sume that X is a connected graph with the following properties.
+1. Every pair of adjacent vertices has at least λ(1) and at most λ(2) common neighbors.
+2. Every pair of distinct non-adjacent vertices has at most μ common neighbors.
+3.
+2λ(1) −λ(2) > (2m −1)(μ −1) −1.
+4. Every vertex has fewer than (m + 1)(λ(1) + 1) −1
+2m(m + 1)(μ −1) neighbors.
+Deﬁne a line to be a maximal clique C satisfying |C| ≥λ(1) +2 −(m −1)(μ −1). Then 
+every vertex is on at most m lines, and every pair of adjacent vertices lies on a unique 
+line. Therefore, the lines form a clique geometry for X.
+Remark 2.8. Suppose that X satisﬁes the conditions of the previous theorem. Then the 
+smallest eigenvalue of X is at least −m.
+Proof. Let C be the collection of lines of X. Consider |V | × |C| vertex-clique incidence 
+matrix N. That is, (N)v,C = 1 if and only if v ∈C for v ∈X and C ∈C. Since every 
+edge belongs to exactly one line, we get NN T = A +D, where A is the adjacency matrix 
+of X and D is a diagonal matrix. Moreover, (D)v,v equals to the number of lines that 
+contain v. By the previous theorem, Dv,v ≤m for every v ∈X. Thus,
+A + mI = NN T + (mI −D)
+is positive semideﬁnite, so all eigenvalues of A are at least −m.
+
+We will use the following suﬃcient conditions of geometricity.
+
+=== PAGE 12 ===
+172
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+Proposition 2.9 ([30, Proposition 9.8]). Let X be a distance-regular graph of diameter d. 
+Assume there exist a positive integer m and a clique geometry C of X such that every 
+vertex is contained in exactly m cliques of C. If |C| < |V (X)| = n, then X is geometric 
+with smallest eigenvalue −m. Moreover, |C| < n holds if min{|C| : C ∈C} > m.
+Corollary 2.10 ([30, Proposition 9.9]). Let m ≥2 be an integer, and let X be a distance-
+regular graph with (m −1)(λ +1) < k ≤m(λ +1) and diameter d ≥2. If λ ≥1
+2m(m +1)μ, 
+then X is geometric with smallest eigenvalue −m.
+Proof. Directly follows from Theorem 2.7 and Proposition 2.9.
+
+2.5. Imprimitive distance-regular graphs
+Here we shortly describe some basic properties of imprimitive distance-regular graphs 
+that we will need later. Recall that a distance-regular graph X is imprimitive if for some 
+1 ≤i ≤d the distance-i graph Xi is disconnected. Smith’s theorem states that there are 
+only two types of imprimitive distance-regular graphs.
+Deﬁnition 2.11. A distance-regular graph X of diameter d is called antipodal if being at 
+distance d in X is an equivalence relation, namely if Xd is a disjoint union of cliques.
+Theorem 2.12 (D. H. Smith [27]). An imprimitive distance-regular graph of degree k > 2
+is bipartite or antipodal (or both).
+If X is a bipartite graph, then the distance-2 constituent X2 has two connected com-
+ponents, X+ and X−, which are called the halved graphs of X and are denoted 1
+2X.
+For an antipodal graph X of diameter d, deﬁne the graph 
+X which has the equivalence 
+classes of Xd as vertices and two equivalence classes are adjacent if there is an edge 
+between them. The graph 
+X is called the folded graph of X.
+In the next proposition we list some information about the intersection numbers of 
+halved and folded graphs, which we will need later.
+Proposition 2.13 (Biggs, Gardiner [8], see [10, Proposition 4.2.2]). Let X be a distance-
+regular graph with intersection array ι(X) = {b0, b1, . . . , bd−1; c1, c2, . . . , cd} and diameter 
+d ∈{2t, 2t + 1}.
+1. The graph X is bipartite if and only if bi + ci = k for i = 0, 1, . . . , d. In this case 
+halved graphs are distance-regular of diameter t with intersection array
+ι(X±) =
+b0b1
+μ , b2b3
+μ , . . . , b2t−2b2t−1
+μ
+; c1c2
+μ , c3c4
+μ , . . . , c2t−1c2t
+μ
+
+.
+
+=== PAGE 13 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+173
+2. The graph X is antipodal if and only if bi = cd−i for i ̸= t. In this case X is an 
+antipodal r-cover of its folded graph 
+X, where r = 1 + bt/cd−t. If d > 2, then 
+X is 
+distance-regular of diameter t with intersection array
+ι( 
+X) = {b0, b1, . . . bt−1; c1, c2, . . . , ct−1, γct},
+where γ = r, if d = 2t; and γ = 1, if d = 2t + 1.
+It is not hard to show that given a distance-regular graph of degree k > 2 one may 
+obtain a primitive distance-regular graph after halving at most once and folding at most 
+once. More precisely, the following is true.
+Proposition 2.14 (see [10, Sec. 4.2.A]). Let X be a distance-regular graph of degree k > 2.
+1. If X is a bipartite graph, then its halved graph is not bipartite.
+2. If X is bipartite and either has odd diameter or is not antipodal, then its halved graph 
+is primitive.
+3. If X is antipodal and either has odd diameter or is not bipartite, then its folded graph 
+is primitive.
+4. If X has even diameter and is both antipodal and bipartite, then the halved graphs 
+1
+2X are antipodal, the folded graph 
+X is bipartite and the graphs 
+1
+2X ∼=
+1
+2 
+X are 
+primitive.
+2.6. Approximation tool
+In Sections 3 we use the fact that eigenvalues of a matrix do not diﬀer much from the 
+eigenvalues of its small perturbation.
+Theorem 2.15 (Ostrowski [22, Appendix K]). Let A, B ∈Mn(C). Let λ1, λ2, ..., λn be the 
+roots of the characteristic polynomial of A and μ1, μ2, ..., μn be the roots of the charac-
+teristic polynomial of B. Consider
+M = max{|(A)ij|, |(B)ij| : 1 ≤i, j ≤n},
+δ =
+1
+nM
+n
+
+i=1
+n
+
+j=1
+|(A)ij −(B)ij|.
+Then, there exists a permutation σ ∈Sn such that
+|λi −μσ(i)| ≤2(n + 1)2Mδ1/n,
+for all 1 ≤i ≤n.
+
+=== PAGE 14 ===
+174
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+3. Spectral gap of a distance-regular graph
+In this section we give a bound on the spectral gap of a distance-regular graph in 
+terms of its intersection numbers. The spectral gap bound will be used in Sections 4
+and 5 to achieve motion lower bounds through Lemma 1.16 (the Spectral tool).
+3.1. Approximation of the spectrum by the intersection numbers
+Note, that if bi and ci are simultaneously small, then by monotonicity, bj for j ≥i
+and ct for t ≤i are small. Hence, the intersection matrix T(X) is a small perturbation 
+of a block diagonal matrix N, where one block is upper triangular and the other block 
+is lower triangular. So the eigenvalues of N are just the diagonal entries.
+Lemma 3.1. Let X be a distance-regular graph of diameter d. Denote by θ0 > θ1 > . . . >
+θd all distinct eigenvalues of X. Suppose that bi ≤εk and ci ≤εk for some i ≤d and 
+ε > 0. Then
+|θi −ai| ≤2(d + 2)2ε
+1
+d+1 k.
+In particular, if furthermore bi−1 ≥αk and ci+1 ≥αk, for some α > 0 (here we 
+deﬁne cd+1 = k), then the zero-weight spectral radius ξ of X satisﬁes
+ξ ≤k(1 −α + 2(d + 2)2ε
+1
+d+1 ).
+(9)
+Proof. Consider the matrix
+T = T(X) =
+⎛
+⎜
+⎜
+⎜
+⎜
+⎝
+a0
+b0
+0
+0
+...
+c1
+a1
+b1
+0
+...
+0
+c2
+a2
+b2
+...
+...
+...
+...
+...
+0
+cd
+ad
+⎞
+⎟
+⎟
+⎟
+⎟
+⎠
+Let N be a matrix obtained from T by replacing all bs and ct with 0 for s ≥i and t ≤i. 
+As in Theorem 2.15, consider
+M = max{|(T)sj|, |(N)sj| : 1 ≤s, j ≤d} = k,
+δ =
+1
+(d + 1)M
+d+1
+
+s=1
+d+1
+
+j=1
+|(T)sj −(N)sj| ≤(d + 1)εk
+(d + 1)M = ε.
+Observe, that the diagonal entry ai is the only non-zero entry in the i-th row of N. 
+Furthermore, the upper-left i × i submatrix is upper triangular and (d −i) × (d −i)
+lower-right submatrix is lower triangular. Then the eigenvalues of N are equal to aj for 
+0 ≤j ≤d. Thus, the ﬁrst part of the statement follows from Theorem 2.15.
+
+=== PAGE 15 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+175
+The inequalities bi−1 ≥αk and ci+1 ≥αk imply that aj ≤k(1 −α) for j ̸= i, while 
+ai ≥(1 −2ε)k. Hence, since k is an eigenvalue of multiplicity 1 of X, the zero-weight 
+spectral radius of X satisﬁes Eq. (9).
+
+3.2. A growth-induced tradeoﬀ for the intersection numbers
+Observation 3.2. Let X be a graph. Denote by deg(v) the degree of a vertex v in X, and 
+denote by N(u, v) the set of common neighbors of vertices u and v in X. Then for any 
+vertices u, v, w we have
+|N(u, v)| + |N(u, w)| ≤deg(u) + |N(v, w)|.
+Proof. The inequality above follows from the two obvious inclusions below
+N(u, v) ∪N(u, w) ⊆N(u),
+N(u, v) ∩N(u, w) ⊆N(v, w).
+
+Next, we prove the growth-induced tradeoﬀ for the intersection numbers. Essentially, 
+the theorem below claims that, if for some j, bj is large (and therefore, by monotonicity, 
+so are bi for i ≤j) and cj+1 is small, then bj+1 and cj+2 cannot be small simultaneously.
+Theorem 3.3 (Growth-induced tradeoﬀ). Let X be a distance-regular graph of diameter 
+d ≥2. Let 0 ≤j ≤d −2. Assume bj > cj+1 and let C = bj/cj+1. Then for any 
+1 ≤s ≤j + 1 we have
+bj+1
+ s
+
+t=1
+1
+bt−1
++
+j+2−s
+
+t=1
+1
+bt−1
+
++ cj+2
+j+1
+
+t=1
+1
+bt−1
+≥1 −
+4
+C −1.
+(10)
+Remark 3.4. In applications we require the right-hand side to be bounded away from 
+zero, i.e., C to be greater than some constant > 5. In the case when bj ≥αk for some 
+constant α > 0, each reciprocal 1/bt for t ≤j is at most 1/(αk). Thus, if the RHS is 
+bounded away from zero and d is bounded, we get a lower bound on bj+1 or cj+2 that 
+is linear in k. We also note that bj/cj+1 = kj+1/kj, where kj is the size of the sphere of 
+radius j in X. So the assumption says that signiﬁcant growth occurs from radius j to 
+radius j + 1.
+Remark 3.5. Graphs for which the lemma above gives a trivial bound, i.e., when the 
+fraction bj/cj+1 is bounded from above by a (small) constant, were studied in [23]. In 
+particular, in this case one can prove upper bounds for the diameter of a graph.
+Proof of Theorem 3.3. Consider the graph Y with the set of vertices V (Y ) = V (X), 
+where a pair of distinct vertices u, v is adjacent if they are at distance dist(u, v) ≤j + 1
+in X. We want to ﬁnd the restriction on the parameters of X implied by Observation 3.2
+applied to graph Y and vertices w, v at distance j + 2 in X. Let λY
+i denote the number 
+
+=== PAGE 16 ===
+176
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+of common neighbors in Y for a pair of vertices u, v at distance i in X for i ≤j + 1. Let 
+μY
+j+2 denote the number of common neighbors in Y for a pair of vertices u, v at distance 
+j + 2 in X. The monotonicity of sequences (bi) and (ci) implies ki+1 ≥Cki for i ≤j. 
+Thus, the degree of every vertex in Y satisﬁes
+kY =
+j+1
+
+i=1
+ki ≤kj+1
+j
+
+i=0
+C−i ≤kj+1
+C
+C −1.
+Note, that 
+d
+
+t=0
+pi
+s,t = ks. Hence, we have
+μY
+j+2 =
+
+1≤s,t≤j+1
+pj+2
+s,t ≤2
+j
+
+i=1
+ki + pj+2
+j+1,j+1 ≤
+2
+C −1kj+1 + pj+2
+j+1,j+1,
+λY
+i =
+
+1≤s,r≤j+1
+pi
+r,s ≥
+
+1≤s≤j+1
+pi
+j+1,s = kj+1 −
+
+j+2≤s≤d
+pi
+j+1,s −pi
+j+1,0.
+Now we are going to get some bounds on 
+
+j+2≤s≤d
+pi
+j+1,s. We use the following observation. 
+Suppose, that x, y are two vertices at distance i. Then there are exactly 
+i
+t=1
+ct paths of 
+length i between x and y. Thus, 
+ i
+t=1
+ct
+
+d
+
+s=j+2
+pj+1
+i,s equals the number of paths of length 
+i starting at v and ending at distance at least j+2 from u and at distance i from v, where 
+dist(u, v) = j + 1 in X. We count such paths by considering possible choices of edges for 
+a path at every step. At step t every such path should go from Nt−1(v) to Nt(v), hence 
+there are at most bt−1 possible choices for a path at step t for 1 ≤t ≤i. Moreover, since 
+path should end up at distance at least j +2 from u, then for some 1 ≤t ≤i path should 
+go from Nj+1(u) to Nj+2(u). Therefore, the number of paths that go from Nj+1(u) to 
+Nj+2(u) at step t is at most 
+ i
+s=1
+bs−1
+
+bj+1
+bt−1
+. Hence,
+d
+
+s=j+2
+pi
+j+1,s = kj+1
+ki
+d
+
+s=j+2
+pj+1
+i,s
+≤kj+1
+ki
+i
+
+t=1
+ i
+s=1
+bs−1
+
+bj+1
+bt−1
+ i
+t=1
+ct
+−1
+= kj+1
+i
+
+t=1
+bj+1
+bt−1
+.
+Thus, in particular,
+λY
+i ≥kj+1
+
+1 −
+i
+
+t=1
+bj+1
+bt−1
+
+−pi
+j+1,0.
+(11)
+Similarly,
+
+=== PAGE 17 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+177
+pj+2
+j+1,j+1 ≤kj+1
+j+1
+
+t=1
+cj+2
+bt−1
+.
+Hence,
+μY
+j+2 ≤kj+1
+
+2
+C −1 +
+j+1
+
+t=1
+cj+2
+bt−1
+
+.
+(12)
+By applying Observation 3.2 to vertices u, v, and w in Y , that satisfy dist(v, w) = j + 2, 
+dist(u, v) = s and dist(w, u) = j + 2 −s in X, we get
+kj+1 + μY
+j+2 ≥λY
+s + λY
+j+2−s.
+(13)
+The desired inequality (10) follows from Eq. (11), (12) and (13), as pi
+j+1,0 ≤1 ≤
+kj+1/C.
+
+3.3. Spectral gap bound
+In this section we prove a bound on the spectral gap of distance-regular graphs of 
+ﬁxed diameter d with a dominant distance. We prove Theorem 1.1 in the equivalent 
+formulation as Theorem 3.15.
+Our key tool is the growth-induced tradeoﬀ proven in the previous section, which will 
+be applied in the following setup. Assume we know lower bounds for the intersection 
+numbers bi of the form bi ≥αik. Our goal is to get a lower bound of the similar form 
+either for bj+1, or for cj+2. We will argue, that if either cj+2 ≤εk, or bj+1 ≤εk, for a 
+suﬃciently small ε > 0, then either second or ﬁrst summand of the LHS in inequality (10)
+is at most a δ-fraction of the LHS. Hence, the other summand is at least (1 −δ)-fraction 
+of the LHS and we get a linear in k lower bound on either bj+1, or cj+2. The two 
+sequences we deﬁne below are the coeﬃcients in front of k in the bounds we get from 
+inequality (10).
+Deﬁnition 3.6. Let 0 ≤δ < 1. We say that (αi)∞
+i=0 is the FE(δ) sequence, if α0 = 1 and 
+for j ≥1 the element αj is deﬁned by the recurrence
+αj+1 = (1 −δ)
+⎛
+⎜
+⎝
+
+j+2
+2
+
+
+t=1
+1
+αt−1
++
+
+j+2
+2
+
+
+t=1
+1
+αt−1
+⎞
+⎟
+⎠
+−1
+.
+(14)
+Let α = (αi)s
+i=0 be a sequence. We say that β = (βi)s+2
+i=2 is the BE(δ, α) sequence, if 
+for j ≥2 the element βj is deﬁned as
+βj = (1 −δ)
+j−2
+
+t=0
+1
+αt
+−1
+.
+(15)
+
+=== PAGE 18 ===
+178
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+If additionally, α is a preﬁx of FE(δ) sequence, then we will say that β is the BE(δ)
+sequence.
+Remark 3.7. FE stands for “forward expansion” and BE stands for “backward expan-
+sion”.
+Now we specify how small we expect ε to be in the argument above, so that one of 
+the summands in the LHS of (10) is at most a δ-fraction of the LHS.
+Deﬁnition 3.8. Let α = (α)s
+i=0 be a decreasing sequence of positive real numbers with 
+α0 = 1. Let 0 < δ < 1, and β = (βi)s+2
+i=2 be the corresponding BE(δ, α) sequence. We 
+say that ε > 0 is (δ, j, α, d)-compatible for j ≤s ≤d −2, if ε satisﬁes
+
+αj −5ε
+αj −ε −2ε
+j+1
+
+t=1
+1
+αt−1
+
+> (1 −δ)
+and
+2(d + 2)2ε
+1
+d+1 ≤βj+2δ.
+(16)
+Note that if ε is (δ, j, α, d)-compatible for j ≥1, then it is (δ, (j −1), α, d)-compatible 
+as well. Note also that the second condition on ε implies that δ > ε and βj+2 > ε, αj > ε.
+Deﬁnition 3.9. We say that ε > 0 is (δ, d)-compatible, if it is (δ, d −2, α, d)-compatible 
+for FE(δ) sequence α. We introduce notation
+EPSδ(d) = sup{ε | ε is (δ, d)-compatible}.
+In the proposition below we provide a formal version of the discussion at the beginning 
+of this subsection.
+Proposition 3.10. Let X be a distance-regular graph of diameter d ≥2. Fix any 0 < δ < 1. 
+Let 0 ≤j ≤d −2 and α = (αi)j
+i=0 be a decreasing sequence of positive real numbers. 
+Consider corresponding BE(δ, α) sequence β and (δ, j, α, d)-compatible ε > 0. Assume 
+that the intersection numbers of X satisfy cj+1 ≤εk and bi ≥αik for all 0 ≤i ≤j. 
+Then one of the following is true.
+1. bj+1 ≥εk and cj+2 ≥εk.
+2. The zero-weight spectral radius ξ of X satisﬁes
+ξ ≤k(1 −(1 −δ)βj+2),
+and
+cj+2 ≥εk.
+3. Let αj+1 = (1 −δ)
+⎛
+⎜
+⎝
+
+j+2
+2
+
+
+t=1
+1
+αt−1
++
+
+j+2
+2
+
+
+t=1
+1
+αt−1
+⎞
+⎟
+⎠
+−1
+, then bj+1 ≥αj+1k and cj+2 ≤εk.
+
+=== PAGE 19 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+179
+Proof. Case 1. Assume that cj+2 ≥βj+2k.
+If bj+1 ≥εk, then statement 1 holds. Thus, suppose that bj+1 ≤εk. Then we fall into 
+the assumptions of Lemma 3.1 with i = j + 1. Hence, the zero-weight spectral radius ξ
+of X satisﬁes
+ξ ≤k(1 −min(αj, βj+2) + 2(d + 2)2ε
+1
+d+1 ) ≤k(1 −(1 −δ)βj+2).
+Note, that by deﬁnition, βj+2 < αj, so min(αj, βj+2) = βj+2.
+Case 2. Assume εk ≤cj+2 ≤βj+2k. Then, by Eq. (15) and Eq. (16),
+βj+2 ≤
+αj −5ε
+αj −ε
+ j+1
+
+t=1
+1
+αt−1
+−1
+−2ε.
+Then, by Lemma 3.3 for C = αj/ε, we get bj+1 ≥εk.
+Case 3. Finally, assume that cj+2 ≤εk. Then, since by Eq. (16),
+0 < αj+1 ≤
+
+αj −5ε
+αj −ε −ε
+j+1
+
+t=1
+1
+αt−1
+ ⎛
+⎜
+⎝
+
+j+2
+2
+
+
+t=1
+1
+αt−1
++
+
+j+2
+2
+
+
+t=1
+1
+αt−1
+⎞
+⎟
+⎠
+−1
+,
+Lemma 3.3 for C ≥αj/ε implies bj+1 ≥αj+1k.
+
+As an immediate corollary we get a lower bound on bi for i ≤t if ct ≤εk is small. In 
+the Appendix (Appendix A) we give explicit lower bounds for elements of BE(δ) and 
+FE(δ) sequences. Another corollary states that we can bound each eigenvalue of X if cd
+is small.
+Corollary 3.11. Let X be a distance-regular graph of diameter d ≥2. Fix any 0 < δ < 1. 
+Let α = (αi)∞
+i=0 be the FE(δ) sequence and ε be (δ, d)-compatible.
+Assume that ct ≤εk for some t ≤d, then bi ≥αik for any 0 ≤i ≤t −1.
+Corollary 3.12. Fix any 0 < δ < 1. Let X be a distance-regular graph of diameter d ≥2. 
+Denote by θ0 > θ1 > . . . > θd all distinct eigenvalues of X. Let α = (αi)∞
+i=0 be the FE(δ)
+sequence and ε be (δ, d)-compatible.
+Assume that cd ≤εk, then θi ≤(1 −(1 −δ)αd−i)k for any 1 ≤i ≤d.
+Proof. Follows from Corollary 3.11 and Lemma 3.1.
+
+The next theorem is the key ingredient of the proof of our main result on the motion 
+of distance-regular graphs (Theorem 1.7). It says that for a primitive distance-regular 
+graph either the minimal distinguishing number is linear, or the spectral gap is large.
+
+=== PAGE 20 ===
+180
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+Theorem 3.13. For every d ≥2 there exist ε = ε(d) > 0 and η = η(d) > 0 such that for 
+any distance-regular graph X of diameter d one of the following is true.
+1. For some 0 ≤i ≤d −1, we have bi ≥εk and ci+1 ≥εk.
+2. The zero-weight spectral radius of X satisﬁes ξ ≤k(1 −η).
+Proof. Fix δ ∈(0, 1). Let α = (αi)∞
+i=0 be the FE(δ) sequence and β = (βi)∞
+i=2 be the 
+BE(δ) sequence and ε be (δ, d)-compatible. Set η = (1 −δ) min(αd−1, βd).
+Deﬁne cd+1 = k. Let i be the unique index such that ci+1 > εk, while ci ≤εk. If 
+bi ≥εk, then ﬁrst statement is true. So assume that bi ≤εk. By Corollary 3.11, for every 
+j ≤i −1 we have bj ≥αjk. Thus, by Proposition 3.10, if i ≤d −1, then
+ξ ≤k(1 −(1 −δ)βi+1) ≤k (1 −(1 −δ)βd) ≤k(1 −η).
+If i = d, using that bj ≥αjk ≥αd−1k for j ≤d −1, we get
+ξ ≤k(1 −(1 −δ)αd−1) ≤k(1 −η).
+
+Remark 3.14. In the theorem above one can set
+η = 1
+4d−(1+log2 d)
+and
+ε = 200−(d+1)d−(d+1)(log2(d)+3).
+Proof. The proof is based on the explicit bound on the elements of FE(δ), BE(δ) and 
+EPSδ sequences given in the Appendix (Lemmas A.1 and A.2). Note that in Theo-
+rem 3.13 η is chosen as η = (1 −δ) min(αd−1, βd). Fix δ = 1/9. Using Lemma A.1 we 
+get
+αd−1 ≥(1 −δ)2
+2
+(d −1)−log2(d−1)
+and
+βd ≥(1 −δ)3
+2(d −1)(d −2)−log2(d−2).
+Hence, we obtain η ≥1
+4d−(1+log2 d). Moreover, by Lemma A.2, ε = 200−(d+1)d−(d+1)(log2(d)+3)
+is (δ, d)-compatible.
+
+Finally, we prove our main theorem on spectral expansion.
+Theorem 3.15. For every d ≥2 there exist ϵ = ϵ(d) > 0 and η = η(d) > 0 such that the 
+following holds. Let X be a distance-regular graph of diameter d. If kt ≥(1 −ϵ)n for 
+some t ∈[d], then the zero-weight spectral radius of X satisﬁes ξ ≤k(1 −η).
+Proof. Let ε = ε(d) and η = η(d) be constants provided by Theorem 3.13. Assume 
+that for some i we have bi ≥εk and ci+1 ≥εk. Let j be the smallest index for which 
+cj+1 ≥εk, then by monotonicity bj ≥εk.
+
+=== PAGE 21 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+181
+If t ≤j −1, then kt+1 =
+bt
+ct+1
+kt ≥bj−1
+cj
+kt > εk
+εk kt = kt. Therefore, if ks is maximal, 
+then s ≥j. Observe that kj+1 ≥bjkj/cj+1 ≥εkkj/k = εkj. Moreover, if t ≥j, then
+kt+1 =
+bt
+ct+1
+kt ≤k
+εk kt = kt
+ε .
+(17)
+Let ks be the maximal distance degree. Note that j < d as bj ≥εk. Thus, if s = j, then 
+ks+1 ≥εks, else s > j and ks−1 ≥εks, by Eq. (17). Deﬁne ϵ = ϵ(d) = ε/(1 + ε). Hence,
+ks = n −
+
+t̸=s
+kt < n −εks
+⇒
+ks <
+
+1 −
+ε
+1 + ε
+
+n = (1 −ϵ)n.
+Therefore, if ks ≥(1 −ϵ)n for some s, then there is no i such that bi ≥εk and ci+1 ≥εk. 
+Hence, by Theorem 3.13, ξ ≤k(1 −η).
+
+Remark 3.16. Note that the conclusion of the theorem above is that X is a spectral 
+η-expander. Recall that a combinatorial edge expansion of a graph is measured by the 
+Cheeger constant, which for a graph X = (V, E) is deﬁned as
+h(X) = min
+E(S, V \ S)
+|S|
+| for S ⊂V, 2|S| ≤|V |
+
+,
+where E(S, T) denotes the number of edges between the sets of vertices S and T in X.
+For a k-regular graph the Cheeger inequality shows that the Cheeger constant is 
+controlled by the second largest eigenvalue
+(k −ξ2)/2 ≤h(X) ≤
+
+2k(k −ξ2).
+Thus, if X is a spectral η-expander, then h(X) ≥ηk, and so X is a good edge expander.
+Note also that in the case when the diﬀerence (k −ξ2) is o(k) the lower and upper 
+bound given by the Cheeger inequality asymptotically diﬀer by more than a constant. 
+Recently, Koolen, Markowsky and Qiao [24] conjectured that for distance-regular graphs 
+the lower bound is always tight up to a constant. More precisely, they conjectured that
+(k −ξ2)/2 ≤h(X) ≤(k −ξ2)
+for all distance-regular graphs. They veriﬁed this claim for the known inﬁnite families of 
+distance-regular graphs, for strongly regular graphs and many other special cases.
+4. Motion of primitive non-geometric distance-regular graphs
+Prior to proving our main result on motion of distance-regular graphs (Theorem 1.7) 
+in Section 4.3, we study the minimal distinguishing number of distance-regular graphs. 
+
+=== PAGE 22 ===
+182
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+In the cases, when either there is no dominant distance (Proposition 4.7), or when the 
+degree of a vertex is linear in the number of vertices (Proposition 4.4), we show a lower 
+bound on the minimal distinguishing number that is linear in the number of vertices.
+4.1. Case of a large vertex degree
+In this section we study distance-regular graphs with a large vertex degree.
+Lemma 4.1. Let X be a distance-regular graph of diameter d ≥2.
+1. The parameters of X satisfy k −μ ≤2(k −λ).
+2. If a2 ̸= 0, then they also satisfy k −λ ≤2(k −μ).
+Proof. The ﬁrst statement follows from Observation 3.2 applied to vertices v and w at 
+distance 2 in X and their common neighbor u.
+Suppose, that a2 ̸= 0, then for a vertex u there exist two adjacent vertices v and w
+at distance 2 from u. So, the second statement follows from Observation 3.2 as well.
+
+Any pair of distinct vertices in a distance-regular graph has λ, or μ, or 0 common 
+neighbors, if distance between them is 1, 2, or at least 3, correspondingly. Therefore, 
+any pair of distinct vertices in a distance-regular graph is distinguished by at least 
+2(k −max(λ, μ)) vertices. Combining this with the previous lemma we get the following 
+bound.
+Lemma 4.2. Let X be a distance-regular graph of diameter d ≥2. Then any pair of 
+distinct vertices is distinguished by at least k −μ vertices.
+Proof. Any two vertices u, v ∈X are distinguished by at least |N(u) △N(v)| = 2(k −
+|N(u) ∩N(v)|) vertices. Thus, by Lemma 4.1, we get 2(k −max(λ, μ)) ≥k −μ.
+
+Next, we bound μ and λ away from k. The following bound was pointed out by an 
+anonymous referee. The original claim was weaker and the argument was more technical.
+Lemma 4.3 (Brouwer, Koolen [11, Lemmas 3.1, 3.14]). Let X be a distance-regular graph 
+of diameter d ≥3. Then λ ≤2k/3. Additionally, if X is primitive or d ≥4, then μ ≤k
+2.
+Proposition 4.4. Let X be a distance-regular graph of diameter d ≥3. Suppose k > nγ >
+2 for some γ > 0. If X is not a bipartite graph, then motion(X) is at least γn/3.
+Proof. Suppose, that X is primitive or d ≥4. Then, by Lemma 4.3, μ ≤k/2, and the 
+result follows from Lemma 4.2. If d = 3 and X is antipodal not bipartite, then a2 ̸= 0
+(see e.g. [10, p. 431], so the result follows from Lemma 4.1 and Lemma 4.3.
+
+
+=== PAGE 23 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+183
+Finally, we show that if k is small compared to n, then μ is small compared to k.
+Lemma 4.5. The parameters of a distance-regular graph of diameter d ≥2 satisfy
+μ < k · max
+
+d −1
+r −1,
+d
+r
+
+1
+d−1 
+,
+where r = n −1
+k
+.
+Proof. Recall that the sequences (bi) and (ci) are monotone, so bi ≤b1 = k −λ −1 and 
+ci+1 ≥μ for 1 ≤i ≤d −1. Thus, ki+1 ≤ki
+k −λ −1
+μ
+. Hence,
+n =
+d
+
+i=0
+ki ≤1 +
+d−1
+
+i=0
+k
+k −λ −1
+μ
+i
+.
+If k −λ −1 ≤μ, then n ≤1 + k + (d −1)k k −λ −1
+μ
+, so μ < d −1
+r −1k.
+Otherwise, we have n ≤1 + dk
+k −λ −1
+μ
+d−1
+, so μ <
+d
+r
+
+1
+d−1
+k.
+
+4.2. Motion of primitive distance-regular graphs
+Recall that a distance-regular graph X is primitive if the distance-i graph Xi is con-
+nected for every 1 ≤i ≤d. Recall also that by Deﬁnition 1.14,
+Dmin(X) = min
+u̸=v∈V D(u, v),
+where D(u, v) denotes the number of vertices that distinguish u and v.
+It is easy to see, that for a distance-regular graph, the number D(u, v) depends only 
+on the distance i between u and v, so one can deﬁne D(i) = D(u, v). We will need the 
+following special case of the inequality between the distinguishing numbers shown by 
+Babai [1].
+Lemma 4.6 (Babai [1, Proposition 6.4]). Let X be a primitive distance-regular graph of 
+diameter d. Then for any distances 1 ≤i, j ≤d the inequality D(j) ≤d · D(i) holds.
+Proof. Since the distance-i graph Xi is connected, statement follows from the triangle 
+inequality D(u, v) ≤D(u, w) + D(w, v) for any vertices u, v, w of X.
+
+Proposition 4.7. Let X be a primitive distance-regular graph of diameter d ≥2 on n
+vertices. Fix some positive real number α > 0. Suppose that for some 1 ≤j ≤d −1
+inequalities bj ≥αk and cj+1 ≥αk hold. Then
+
+=== PAGE 24 ===
+184
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+Dmin(X) ≥α
+d n.
+Proof. Since the sequence (bi) is non-increasing, if t ≤j, then at = k−bt −ct ≤(1 −α)k. 
+Similarly, the sequence (ci) is non-decreasing, so if t > j, then at = k−bt −ct ≤(1 −α)k.
+Consider any pair of adjacent vertices u, v ∈X. If vertex x does not distinguish u and 
+v, then dist(u, x) = dist(v, x) = t for some 1 ≤t ≤d. Note, that for a given t there are 
+p1
+t,t such vertices x and
+p1
+t,t = pt
+t,1
+kt
+k = kt
+at
+k ≤(1 −α)kt.
+Clearly, 
+d
+i=1
+ki = n −1. Hence, any pair of adjacent vertices is distinguished by at least
+n −
+d
+
+t=1
+(1 −α)kt ≥n −(1 −α)n = αn
+vertices. Finally, the result follows from Lemma 4.6.
+
+4.3. Reduction to the geometric graphs
+In the theorem below we prove our main result on the motion of distance-regular 
+graphs.
+Theorem 4.8. For any d ≥3 there exist γd > 0 and a positive integer md, such that for 
+any primitive distance-regular graph X of diameter d with n vertices either
+motion(X) ≥γdn,
+or X is geometric with smallest eigenvalue at least −md.
+Furthermore, one can set md =
+
+5dlog2 d+1
+.
+Proof. By Theorem 3.13, there exist constants ε > 0 and η > 0, which depend only on 
+d, such that
+• either bi ≥εk and ci+1 ≥εk,
+• or the zero-weight spectral radius of X satisﬁes ξ ≤k(1 −η).
+In the ﬁrst case, by Proposition 4.7, we obtain
+motion(X) ≥ε
+dn.
+Hence, assume that ξ ≤k(1 −η). For convenience, we additionally assume η ≤1/7.
+
+=== PAGE 25 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+185
+Case 1. Suppose that μ > η3k. Then, by Lemma 4.5, n ≤max
+
+d, 2
+
+η−3d
+d−1
+k + 1. 
+Therefore, by Proposition 4.4,
+motion(X) ≥1
+7
+
+η3d−1d−1 n.
+Case 2. Suppose that λ < 9
+10ηk and μ ≤η3k. Then any pair of distinct vertices in X
+has at most q(X) = max(λ, μ) ≤9ηk/10 common neighbors. Therefore, by Lemma 1.16,
+motion(X) ≥η
+10n.
+Case 3. Suppose that λ ≥9
+10ηk and μ ≤η3k. Let m be the integer that satisﬁes
+(m −1)(λ + 1) < k ≤m(λ + 1).
+The assumption on λ implies m −1 ≤10
+9 η−1. We additionally assumed η ≤1/7, so
+1
+2m(m + 1)μ ≤1
+2
+10
+9 η−1 + 1
+ 10
+9 η−1 + 2
+
+μ ≤9
+10η−2μ ≤9
+10ηk ≤λ.
+Thus, by Corollary 2.10, the graph X is a geometric distance-regular graph with smallest 
+eigenvalue −m.
+Finally, we note that we can take md =
+10
+9 η−1 + 1
+ 
+and
+γd = min
+ε
+d, 1
+7
+
+η3d−1d−1 , η
+10
+
+.
+Furthermore, by Remark 3.14, md can be taken as md =
+
+5dlog2 d+1
+.
+Remark 4.9. A bit more careful computations show that one can in fact set
+md = ⌈max
+
+2(d −1)(d −2)log2(d−2), 2(d −1)log2(d−1)
+⌉.
+In particular, for d = 3 this estimate gives upper bound md ≤4.
+
+5. Imprimitive case
+In this section we analyze the motion of imprimitive distance-regular graphs. We start 
+by establishing a version of the Spectral tool in the bipartite case. Later we show that 
+the motion of the antipodal graphs is controlled by the motion of their folded graphs. 
+After that we prove motion lower bounds for bipartite graphs and for imprimitive graphs 
+of diameter 3 and 4. A separate analysis for an imprimitive graph of diameter 3 and 4 
+
+=== PAGE 26 ===
+186
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+is needed due to the fact that its folded or halved graph may be a complete graph, and 
+in this case diﬀerent arguments are required.
+5.1. Spectral tool for bipartite graphs
+To prove an analog of the Spectral tool (Lemma 1.16) for the case of bipartite graphs 
+we need a version of the Expander Mixing Lemma for regular bipartite graphs.
+Theorem 5.1 (Expander Mixing Lemma: bipartite version, Haemers [14, Theorem 5.1]). 
+Let X be a biregular bipartite graph with parts U and W of sizes nU and nW . Denote, 
+by dU and dW the degrees of the vertices in parts U and W, respectively. Let λ2 be the 
+second largest eigenvalue of the adjacency matrix A of X. Then for any S ⊆U, T ⊆W
+
+E(S, T)nU
+|S| −|T|dW
+ 
+E(S, T)nW
+|T| −|S|dU
+
+≤λ2
+2(nU −|S|)(nW −|T|),
+which, using dUnU = dW nW = E(U, W), implies
+!!!!|E(S, T)| −dW |S||T|
+nU
+!!!! ≤|λ2|
+
+|S||T|,
+where E(S, T) is the set of edges between S and T in X.
+Next lemma is an analog of Lemma 1.16 for bipartite graphs.
+Lemma 5.2. Let X be a k-regular bipartite graph with parts U and W of size n/2 each. 
+Let λ2 be the second largest eigenvalue of A. Moreover, suppose that any pair of distinct 
+vertices in X have at most q common neighbors. Then
+motion(X) ≥k −|λ2| −q
+2k
+n.
+Proof. Take any non-trivial automorphism σ of X. Consider S1 ⊆U and S2 ⊆W, such 
+that S1∪S2 = supp(σ) = {x ∈X|xσ ̸= x} be the support of σ. Without lost of generality, 
+we may assume that |S1| ≥|S2|. Denote S = S1 and let T ⊂W be a set which satisﬁes 
+S2 ⊆T and |T| = |S|. By the Expander Mixing Lemma we get
+|E(S, T)|
+|S|
+≤|λ2| + k 2|S|
+n .
+Hence, there exists a vertex x in S which has at most |λ2| + k 2|S|
+n
+neighbors in T. 
+Thus, x has at least k −
+
+|λ2| + k 2|S|
+n
+
+neighbors in W \ T, and they all are ﬁxed by 
+σ. Therefore, they all are common neighbors of x and xσ ̸= x. We get the inequality 
+
+=== PAGE 27 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+187
+q ≥k −
+
+|λ2| + k 2|S|
+n
+
+, which is equivalent to 
+|λ2| + q
+k
+ n
+2 ≥n
+2 −|S|. By the deﬁni-
+tion of S and T the number of ﬁxed points of σ is at most
+n −|S1| −|S2| ≤n −|S| ≤
+1
+2 + |λ2| + q
+2k
+
+n.
+
+5.2. Reduction results
+We show that the motion of an imprimitive distance-regular graph is controlled by 
+the motion of its folded or halved graph.
+Proposition 5.3. Let X be an antipodal distance-regular graph of diameter d ≥3 on 
+n vertices and 
+X be its folded graph on n vertices. Suppose motion( 
+X) ≥αn. Then 
+motion(X) ≥αn.
+Proof. Assume that X is an r-cover of 
+X and let φ : X →
+X be a cover map. Let σ be an 
+automorphism of X. Note that by the deﬁnition of antipodal and folded graphs, vertices 
+of 
+X are maximal cliques (connected components) of Xd. Since σ is an automorphism of 
+X, it preserves the relation of being at distance d, so σ respects preimages of φ. Hence, 
+it induces an automorphism σ of 
+X deﬁned as σ(x) = φ(σ(φ−1(x))).
+If σ is non-identity, then by the assumptions of the lemma, the degree of σ is at least 
+αn. Suppose that x ∈V ( 
+X) is not ﬁxed by σ, then φ−1(x) is disjoint from σ(φ−1(x)). 
+Thus, all vertices in φ−1(x) are not ﬁxed by σ. Therefore, the degree of σ is at least 
+r · αn = αn.
+Assume that σ is the identity map. Suppose that σ is a non-identity map. Let x be 
+a vertex such that σ(x) ̸= x and let y be adjacent to x. Note that σ(x) is at distance d
+from x as σ is the identity map. Thus σ(y) ̸= y, as otherwise y is adjacent to σ(x) and 
+we get a contradiction with the assumption d ≥3. Therefore, any vertex of X which is 
+adjacent to a vertex not ﬁxed by σ is itself not ﬁxed by σ. Since X is connected, we get 
+that the degree of σ is n in this case.
+
+Remark 5.4. If X is antipodal of diameter d = 2, then X is a complete multipartite 
+graph and its folded graph is a complete graph. The motion of X is 2 in this case, so 
+statement of the proposition above does not hold.
+Deﬁnition 5.5. A pair of distinct vertices u and v in a graph X is called twins if the 
+transposition (u, v) is an automorphism of X, i.e., N(u) ∪{u, v} = N(v) ∪{u, v}.
+Lemma 5.6. Let X be a distance-regular graph. Assume that X is not a complete graph 
+or a complete multipartite graph. Then X has no twins.
+Proof. Assume that u and v are twins in X. Then dist(u, v) ≤2. If u and v are adjacent, 
+then λ = k−1, so X is a complete graph. If u and v are not adjacent, then N(u) = N(v), 
+
+=== PAGE 28 ===
+188
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+so we obtain μ = k. Thus, the diameter of X is 2 and any pair of distinct vertices at 
+distance 2 are twins. This implies that X is complete multipartite.
+
+Proposition 5.7. Let X be a bipartite distance-regular graph of diameter d ≥3. Let X+
+and X−be the halved graphs of X. Then
+motion(X) ≥motion(X+) + motion(X−).
+Proof. Let σ be an automorphism of X. If σ(X+) = X−, then the degree of σ is |V (X)| =
+n. Otherwise, σ induces σ+ ∈Aut(X+) and σ−∈Aut(X−).
+Assume, that σ+ is trivial, while σ−is non-trivial. And let σ(v) = u ̸= v, for u, v ∈
+X−. All neighbors of u and v are in X+, and X+ is ﬁxed, so u and v are twins. We get 
+a contradiction with Lemma 5.6.
+Therefore, if σ is non-trivial, then both σ+ and σ−are non-trivial. Hence, the state-
+ment of the proposition follows.
+
+5.3. Bipartite graphs of diameter at least 4
+Theorem 5.8. Let X be a bipartite graph of diameter d ≥4 on n vertices. If a halved 
+graph of X is primitive, then
+motion(X) ≥γ′
+dn,
+where γ′
+d = (2d)−2d−5.
+Proof. Let ι(X) = {b0, b1, . . . , bd−1; c1, c2, . . . , cd} be the intersection array of X. Denote 
+by Y a halved graph of X. By Proposition 2.13, the intersection array of Y is
+ι(Y ) =
+b0b1
+μ , b2b3
+μ , . . . , b2t−2b2t−1
+μ
+; c1c2
+μ , c3c4
+μ , . . . , c2t−1c2t
+μ
+
+,
+where d ∈{2t, 2t + 1}. Note that since X is bipartite, bi + ci = k, so in particular the 
+degree of Y is equal to
+k = b0b1
+μ
+= k(k −c1)
+μ
+= k(k −1)
+μ
+.
+For convenience, deﬁne ci = k for any i > d. Take 1 ≤j ≤t such that c2j−1 ≤εk and 
+c2j+1 ≥εk, where ε = (2d)−d−2. Then for any i ≤j
+c2i−1c2i
+μ
+≤c2j−1c2j
+μ
+≤2εk
+and
+b2i−2b2i−1
+μ
+≥b2
+2j−1
+μ
+= (k −c2t−1)2
+μ
+≥(1 −ε)2k.
+(18)
+Case 1. Assume that j = 1 and b2j+1 ≤εk. Then
+λ(Y ) = k −b2b3
+μ
+−1 ≥k −2εk.
+
+=== PAGE 29 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+189
+By Lemma 4.1 we obtain that μ(Y ) ≥k −4εk > k/2. By Lemma 4.5, we get |V (Y )| <
+t2tk. Therefore, as halved graph is not bipartite, by Proposition 4.4, we obtain
+motion(Y ) ≥
+1
+3t2t |V (Y )|.
+Case 2. Assume that j ≥2 and b2j+1 ≤εk. Then, for any i ≥j + 1
+c2i−1c2i
+μ
+≥c2
+2j+1
+μ
+= (k −b2j+1)2
+μ
+≥(1 −ε)2k.
+(19)
+Hence, combining Eq. (18) and Eq. (19), by Lemma 3.1, the zero-weight spectral 
+radius of Y satisﬁes
+ξ(Y ) ≤
+
+1 −(1 −ε)2 + 2(t + 2)2ε
+1
+t+1
+
+k.
+Since j ≥2, using Eq. (18), we can estimate
+λ(Y ) ≤k −b2b3
+μ
+≤k −(1 −ε)2k ≤2εk
+and
+μ(Y ) = c3c4
+μ
+≤2εk.
+Therefore, by Lemma 1.16 and the choice of ε,
+motion(Y ) ≥
+
+(1 −ε)2 −2(t + 2)2ε
+1
+t+1 −2ε
+
+|V (Y )| ≥1
+3|V (Y )|.
+Case 3. Assume that b2j+1 > εk. Then
+c2j+1c2j+2
+μ
+≥c2
+2j+1
+μ
+≥ε2k
+and
+b2jb2j+1
+μ
+≥b2
+2j+1
+μ
+≥ε2k.
+Since Y is primitive, by Proposition 4.7,
+motion(Y ) ≥ε2
+t |V (Y )|.
+Finally, since |V (Y )| = n/2, the inequality motion(X) ≥γn follows from Proposi-
+tion 5.7 for γ = min
+ 1
+3t2t , 1
+3, (2d)−2d−4
+t
+
+≥(2d)−2d−5.
+
+5.4. Bipartite antipodal graphs of diameter 4
+Fact 5.9 ([10], p. 425). Let X be a bipartite antipodal distance-regular graph of diameter 
+d = 4. Then there exist μ and m such that the number of vertices is n = 2m2μ, the 
+degree is k = mμ, and the intersection array is
+ι(X) = {mμ, mμ −1, (m −1)μ, 1; 1, μ, mμ −1, mμ}.
+
+=== PAGE 30 ===
+190
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+Moreover, the spectrum of X consists of k and −k of multiplicity 1, 
+√
+k and −
+√
+k of 
+multiplicity (m −1)k, and 0 of multiplicity (2k −2).
+Proposition 5.10. Let X be a bipartite antipodal distance-regular graph of diameter d = 4
+on n vertices. Then
+motion(X) ≥0.15n.
+Proof. Consider a pair of distinct vertices u, v of X. If dist(u, v) > 2, then they are 
+distinguished by at least D(u, v) ≥2k vertices. Since X is bipartite, if dist(u, v) = 1, 
+then D(u, v) ≥2k as well. Clearly, for u, v at distance 2, we have D(u, v) ≥2(k −μ). 
+Thus Dmin(X) ≥2(k −μ).
+By Fact 5.9, k = mμ and n = 2m2μ for some integer m ≥2. Therefore, by 
+Lemma 1.15,
+motion(X) ≥Dmin(X) ≥m −1
+m2
+n.
+(20)
+At the same time, by Fact 5.9, we know that the second largest eigenvalue of X equals 
+√
+k. Then, by Lemma 5.2,
+motion(X) ≥k −
+√
+k −μ
+2k
+n = mμ −√mμ −μ
+2mμ
+n ≥m −√m −1
+2m
+n.
+(21)
+Using the bound given by Eq. (20) for m ≤4, and the bound given by Eq. (21) for 
+m > 4, we get the desired inequality.
+
+5.5. Bipartite graphs of diameter 3
+Fact 5.11 ([10], p. 432). Let X be a bipartite distance-regular graph of diameter 3. Then 
+the number of vertices of X is n = 2 + 2k(k −1)/μ and X has the intersection array
+ι(X) = {k, k −1, k −μ; 1, μ, k}.
+The eigenvalues of X are k, −k with multiplicity 1, and ±√k −μ with multiplicity n
+2 −1.
+Proposition 5.12. Let X be a bipartite distance-regular graph of diameter 3. If X is not 
+a crown graph, then
+motion(X) ≥1
+6n.
+Proof. Denote the parts of the bipartite graph X by U and W. Let Y = X3 be a 
+distance-3 graph of X. We consider 2 cases.
+
+=== PAGE 31 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+191
+Case 1. Suppose that Y is disconnected. Then there exists a pair of vertices u, v in 
+one of the parts, so that u and v lie in diﬀerent connected components of Y . Clearly, 
+dist(u, v) = 2, so p2
+3,3 = 0. Hence, k3 = 1, and the pairs of vertices at distance 3 form 
+a perfect matching. Therefore, X is a regular complete bipartite graph with one perfect 
+matching deleted.
+Case 2. Y is connected and so is itself a distance-regular graph of diameter 3. Note, 
+that k + k3 = n/2, so if necessary, by passing to Y , we may assume that the degree of 
+X satisﬁes k ≤n/4. Fact 5.11 implies μ ≤k/2. The graph X is bipartite, so λ = 0 and 
+by Lemma 1.15,
+motion(X) ≥Dmin(X) ≥2(k −μ) ≥k.
+(22)
+If μ ≥k/3, then by Fact 5.11, n ≤6k, so motion(X) ≥n/6. If k/4 ≤μ < k/3, then 
+n ≤8k, and Eq. (22) implies
+motion(X) ≥2(k −μ) ≥4
+3k ≥n
+6 .
+Finally, assume μ < k/4. By Fact 5.11, the second largest eigenvalue is λ2 = √k −μ. 
+Using that k > 4μ ≥4 and the function x −√x is increasing for x ≥1, by Lemma 5.2,
+motion(X) ≥k −μ −√k −μ
+2k
+n ≥3k −2
+√
+3k
+8k
+n ≥15 −2
+√
+15
+40
+n ≥n
+6 .
+
+5.6. Antipodal graphs of diameter 3
+Fact 5.13 (see [10, p. 431]). Let X be an antipodal distance-regular graph of diameter 
+d = 3 on n vertices. There exist integers m ≥2, r ≥2 and t ≥1 such that the following 
+holds.
+• If λ ̸= μ, then n = r(k + 1), k = mt, μ = (m −1)(t + 1)/r, λ = μ + t −m. 
+Moreover, the distinct eigenvalues of X are k, t, −1 and −m, with multiplicities 1, 
+m(r −1)(k + 1)/(m + t), k, t(r −1)(k + 1)/(m + t), respectively.
+• If λ = μ, then n = r(k + 1), k = rμ + 1. The distinct eigenvalues of X are k, 
+√
+k, 
+−1 and −
+√
+k.
+Proposition 5.14. Let X be an antipodal distance-regular graph of diameter d = 3 on n
+vertices. If X is not a crown graph, then
+motion(X) ≥1
+13n.
+Proof. Case 1. Suppose that λ ̸= μ and t > m. Then λ > μ and so
+k −q(X) −ξ(X) = tm −(m −1)(t + 1)
+r
+−t + m −t ≥t
+
+m −2 −m −1
+r
+
+.
+
+=== PAGE 32 ===
+192
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+If m ≥3 and r ≥3, then
+k −q(X) −ξ(X) ≥t
+
+m −2 −m −1
+3
+
+= t
+2
+3m −5
+3
+
+≥1
+9tm = k
+9.
+If r = 2 and m ≥4, then
+k −q(X) −ξ(X) ≥t
+
+m −2 −m −1
+2
+
+= t
+1
+2m −3
+2
+
+≥1
+8tm = k
+8.
+Therefore, in both of these situations, by Lemma 1.16,
+motion(X) ≥n
+9 .
+If r = 2 and m = 3, then n = 6t + 2, k = 3t, μ = t + 1 and λ = 2t −2. Note that by 
+Lemma 1.15, in this case
+motion(X) ≥Dmin(X) ≥min(2(k −λ), 2(k −μ)) = 2(t + 2) ≥n
+3 .
+Finally, if m = 2, then k = 2t, μ = (t + 1)/r is integer, and the multiplicity of t as an 
+eigenvalue is an integer number equal to 2(r −1)(2t + 1)/(t + 2). Thus we may conclude 
+that
+(t + 2) | 2(r −1)(2t + 4 −3)
+⇒
+(t + 2) | 6(r −1)
+⇒
+⇒
+(t + 2) | 6
+t + 1
+μ
+−1
+
+⇒
+(t + 2) | 6(t + 1 −μ)
+⇒
+(t + 2) | 6(μ + 1).
+Hence, in particular,
+(t + 2) ≤6
+t + 1
+r
++ 1
+
+,
+so
+(t −4)r ≤6t + 6.
+If t ≥10, we get r ≤11. If t < 10, then r = (t + 1)/μ ≤t + 1 < 11. Therefore, by 
+Lemma 1.15,
+motion(X) ≥Dmin(X) ≥2(k −λ) = 2
+
+t + 2 −t + 1
+r
+
+≥r −1
+r2
+n ≥n
+13.
+Case 2. Suppose that λ ̸= μ and m > t. Then λ < μ and so
+k −q(X) −ξ(X) = tm −(m −1)(t + 1)
+r
+−m ≥m
+
+t −1 −t + 1
+r
+
+.
+If r ≥4 and t ≥2, we get
+
+=== PAGE 33 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+193
+k −q(X) −ξ(X) ≥m
+
+t −1 −t + 1
+4
+
+= m
+3
+4t −5
+4
+
+≥1
+8mt = k
+8.
+Therefore, by Lemma 1.16,
+motion(X) ≥n
+8 .
+If r ≤4 and t ≥2, then n ≤4(k + 1), and by Lemma 1.15,
+motion(X) ≥Dmin(X) ≥min(2(k −λ), 2(k −μ)) ≥
+≥2
+
+mt −(m −1)(t + 1)
+2
+
+≥2
+
+mt −m(t + 1)
+2
+
+≥2
+
+mt −3mt
+4
+
+= k
+2 ≥n
+12.
+Finally, if t = 1, then λ ≥0 implies r = 2. Hence, we obtain n = 2(k + 1), μ = k −1 and 
+λ = 0. It follows that X is a crown graph in this case.
+Case 3. Assume λ = μ. Then by Fact 5.13, n = r(k + 1), k = rμ + 1 and ξ(X) =
+√
+k. By 
+Lemma 1.16, for r ≥4
+motion(X) ≥k −μ −
+√
+k
+k
+n ≥(r −1)μ + 1 −μ√r + 1
+rμ + 1
+n ≥r −√r + 1 −1
+r
+n ≥n
+6 .
+At the same time, since λ = μ, for 2 ≤r ≤3, by Lemma 1.15,
+motion(X) ≥Dmin(X) ≥2(k −μ) ≥r −1
+r
+k ≥2(r −1)
+3r2
+n ≥4
+27n.
+
+5.7. Collecting together the analysis for imprimitive graphs
+In this section we collect analysis of the imprimitive case into Theorem 5.16. In 
+the proof we use the following result about antipodal covers proved by Van Bon and 
+Brouwer [29].
+Theorem 5.15 (Van Bon, Brouwer).
+1. The Hamming graph H(d, s) has no distance-regular antipodal covers, except for 
+H(2, 2), the quadrangle, which is covered by the octagon.
+2. The Johnson graph J(s, d) has no distance-regular antipodal covers for d ≥2.
+3. The complement J(s, 2) has no distance-regular antipodal covers for s ≥8.
+4. The complement H(2, s) has no distance-regular antipodal covers for s ≥4.
+Theorem 5.16. Assume Conjecture 1.5 is true. Then for any d ≥3 there exists γd > 0, 
+such that for any distance-regular graph X of diameter d on n vertices either
+motion(X) ≥γdn,
+
+=== PAGE 34 ===
+194
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+or X is a Johnson graph J(s, d), or a Hamming graph H(d, s), or a crown graph.
+Proof. Assume that Conjecture 1.5 is true and γd > 0 is a constant provided by the 
+conjecture. If X is primitive, then there is nothing to prove. If X is bipartite and not 
+antipodal of diameter d ≥4, then by Theorem 5.8 motion(X) ≥γ′
+dn. If X is bipartite 
+(possibly antipodal) graph of diameter d = 3, then by Theorem 5.12, X is either a crown 
+graph, or motion(X) ≥n/6.
+If X is bipartite and antipodal of even diameter d ≥6, then by Proposition 2.14, 
+folded graph 
+X is bipartite (and not antipodal) of diameter d/2. So
+motion( 
+X) ≥min
+
+γ′
+d/2, 1
+6
+
+|V ( 
+X)|
+(we use that crown graph is antipodal). Therefore, by Proposition 5.3,
+motion(X) ≥min
+
+γ′
+d/2, 1
+6
+
+n.
+In the case when X is bipartite and antipodal of diameter d = 4, by Proposition 5.10,
+motion(X) ≥0.15n.
+We still need to analyze the cases when X is antipodal, but not bipartite, or when 
+X is antipodal of odd diameter. By Proposition 2.14, in these cases, folded graph of 
+X is primitive. If diameter of X is 3, then by Proposition 5.14, motion(X) ≥n/13. 
+If diameter of X is d ≥4, then by Proposition 2.14, folded graph 
+X is primitive of 
+diameter d = ⌊d/2⌋≥2. Since 
+X is primitive, 
+X is not the complement to a disjoint 
+union of cliques. If 
+X has at least 29 vertices, and X is not a Johnson graph J(s, d), the 
+Hamming graph H(d, s), or the complement of J(s, 2) or H(2, s), then by Theorem 1.4
+and the assumption that Conjecture 1.5 is true,
+motion( 
+X) ≥min
+
+γ d, 1
+8
+
+|V ( 
+X)|.
+Therefore, in this case, by Theorem 5.3,
+motion(X) ≥min
+
+γ d, 1
+8
+
+n.
+Finally we note, that by Theorem 5.15, if Y is the Johnson graph J(s, d), the Hamming 
+graph H(d, s), or the complement of J(s, 2) or H(2, s) and Y has at least 29 vertices, 
+then Y has no antipodal covers. In the case when Y has at most 28 vertex, motion(Y ) ≥
+|Y |/14. So by Proposition 5.3, if the graph X on n vertices is a distance-regular antipodal 
+cover of such Y , then motion(X) ≥n/14.
+Taking γ = min
+
+γd, γ′
+d, γ′
+d/2, γ⌊d/2⌋, 1
+14
+
+we get the desired statement.
+
+
+=== PAGE 35 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+195
+Acknowledgments
+The author is grateful to Professor László Babai for introducing him to the problems 
+discussed in the paper and suggesting possible ways of approaching them, his invaluable 
+assistance in framing the results, and constant support and encouragement. The author 
+is also grateful to anonymous referees for several literature pointers, which in particular 
+allowed to simplify some proofs in Section 4.1, and for other comments that helped to 
+improve the quality of the paper.
+Appendix A. Explicit bounds for F E(δ) and BE(δ)
+In this section we compute explicit lower bounds for BE(δ), FE(δ) and EPSδ se-
+quences.
+Lemma A.1. Fix 0 < δ ≤1
+9. Let (αi)∞
+i=0 be the FE(δ) sequence and the corresponding 
+BE(δ) sequence (βi)∞
+i=2. Then for j ≥1
+αj ≥(1 −δ)2
+2
+j−log2(j)
+and
+βj+2 ≥(1 −δ)3
+2(j + 1)j−log2(j).
+Proof. We prove the statement of the lemma by induction. Indeed, for j = 1, 2 we have 
+α1 = 1−δ
+2
+and α2 ≥(1−δ)2
+4
+, so the inequality is true. For j ≥2, we have
+αj+1 = (1 −δ)
+⎛
+⎝
+⌈j+2
+2 ⌉
+
+t=1
+1
+αt−1
++
+⌊j+2
+2 ⌋
+
+t=1
+1
+αt−1
+⎞
+⎠
+−1
+≥(1 −δ)
+j + 2 α⌈j
+2 ⌉≥
+≥(1 −δ)3
+2(j + 2)
+j + 1
+2
+−log2
+
+j+1
+2
+
+= (1 −δ)32
+log2
+
+j+1
+2
+
+2(j + 2)
+(j + 1)−log2(j+1)+1 =
+= (1 −δ)(j + 1)2
+2(j + 2)
+(1 −δ)2
+2
+(j + 1)−log2(j+1) ≥(1 −δ)2
+2
+(j + 1)−log2(j+1).
+Thus,
+βj+2 = (1 −δ)
+ j
+
+t=0
+1
+αt
+−1
+≥1 −δ
+j + 1αj ≥(1 −δ)3
+2(j + 1)j−log2(j).
+
+Lemma A.2. Let 0 < δ ≤1/9 and d ≥3. Then
+EPSδ(d) ≥
+ δ
+22
+(d+1)
+d−(d+1)(3+log2 d).
+
+=== PAGE 36 ===
+196
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+Proof. Note that for the inequality 2(d + 2)2ε
+1
+d+1 ≤βd+2δ to be satisﬁed it is enough to 
+have
+ε ≤
+
+27δd−log2 d
+93(d + 1)(d + 2)2
+d+1
+≤
+
+δβd+2
+2(d + 2)2
+d+1
+.
+In particular, this is true if
+0 < ε ≤
+ δ
+22
+(d+1)
+d−(d+1)(3+log2 d).
+To check that the other condition on ε is satisﬁed, note that such choice of ε satisﬁes 
+ε < αd−2/2. Thus we have
+
+αd−2 −5ε
+αd−2 −ε −2ε
+d−1
+
+t=1
+1
+αt−1
+
+≥1 −10α−1
+d−2ε −2dα−1
+d−2ε ≥
+≥1 −
+2ε
+(1 −δ)2 (2d + 10)dlog2 d ≥1 −22d1+log2 dε > (1 −δ).
+
+References
+[1] László Babai, On the order of uniprimitive permutation groups, Ann. Math. 113 (3) (1981) 553.
+[2] László Babai, On the automorphism groups of strongly regular graphs I, in: Proc. 5th Conf. on 
+Innovations in Theor. Comp. Science, 2014, pp. 359–368.
+[3] László Babai, On the automorphism groups of strongly regular graphs II, J. Algebra 421 (2015) 
+359–368.
+[4] Sejeong Bang, Geometric distance-regular graphs without 4-claws, Linear Algebra Appl. 438 (1) 
+(2013) 37–46.
+[5] Sejeong Bang, Arturas Dubickas, Jack H. Koolen, Vincent Moulton, There are only ﬁnitely many 
+distance-regular graphs of ﬁxed valency greater than two, Adv. Math. 269 (2015) 1–55.
+[6] Sejeong Bang, Akira Hiraki, Jack H. Koolen, Delsarte clique graphs, Eur. J. Comb. 28 (2) (2007) 
+501–516.
+[7] Sejeong Bang, Jack H. Koolen, On geometric distance-regular graphs with diameter three, Eur. J. 
+Comb. 36 (2014) 331–341.
+[8] Norman L. Biggs, Anthony Gardiner, The classiﬁcation of distance transitive graphs, 1974.
+[9] Alfred Bochert, Ueber die Classe der transitiven Substitutionengruppen, Math. Ann. 40 (2) (1892) 
+176–193.
+[10] Andries E. Brouwer, Arjeh M. Cohen, Arnold Neumaier, Distance-Regular Graphs, Springer, 1989.
+[11] Andries E. Brouwer, Jack H. Koolen, The vertex-connectivity of a distance-regular graph, Eur. J. 
+Comb. 30 (3) (2009) 668–673.
+[12] Peter J. Cameron, Jean-Marie Goethals, Johan Jacob Seidel, Ernest E. Shult, Line graphs, root 
+systems, and elliptic geometry, J. Algebra (1991) 208–230.
+[13] Philippe Delsarte, An algebraic approach to the association schemes of coding theory, Philips Res. 
+Rep., Suppl. 10 (1973), vi+–97.
+[14] Willem H. Haemers, Interlacing eigenvalues and graphs, Linear Algebra Appl. 226–228 (228) (1995) 
+593–616.
+[15] Camille Jordan, Theoremes sur les groupes primitifs, J. Math. Pures Appl. 17 (1871) 351–367.
+[16] Bohdan Kivva, A characterization of Johnson and Hamming graphs and proof of Babai’s conjecture, 
+arXiv :1912 .11427, 2019.
+[17] Jack H. Koolen, Sejeong Bang, On distance-regular graphs with smallest eigenvalue at least −m, J. 
+Comb. Theory, Ser. B 100 (6) (2010) 573–584.
+
+=== PAGE 37 ===
+B. Kivva / Journal of Combinatorial Theory, Series B 149 (2021) 161–197
+197
+[18] Martin W. Liebeck, On minimal degrees and base sizes of primitive permutation groups, Arch. 
+Math. 43 (1) (1984) 11–15.
+[19] Martin W. Liebeck, Jan Saxl, Minimal degrees of primitive permutation groups, with an application 
+to monodromy groups of covers of Riemann surfaces, Proc. Lond. Math. Soc. s3-63 (2) (1991) 
+266–314.
+[20] Klaus Metsch, A characterization of Grassmann graphs, Eur. J. Comb. 16 (6) (1995) 639–644.
+[21] Arnold Neumaier, Strongly regular graphs with smallest eigenvalue −m, Arch. Math. 33 (1) (1979) 
+392–400.
+[22] Alexander M. Ostrowski, Solution of Equations and Systems of Equations, Pure and Applied Math-
+ematics, vol. 21, Elsevier, 1967.
+[23] Jongyook Park, Jack H. Koolen, Greg Markowsky, There are only ﬁnitely many distance-regular 
+graphs with valency k at least three, ﬁxed ratio k2/k and large diameter, J. Comb. Theory, Ser. B 
+103 (6) (2013) 733–741.
+[24] Zhi Qiao, Jack H. Koolen, Greg Markowsky, On the Cheeger constant for distance-regular graphs, 
+J. Comb. Theory, Ser. A 173 (2020) 105227.
+[25] Alexander Russell, Ravi Sundaram, A note on the asymptotics and computational complexity of 
+graph distinguishability, Electron. J. Comb. 5 (1) (1998) 23–30.
+[26] Johan Jacob Seidel, Strongly regular graphs with (−1, 1, 0) adjacency matrix having eigenvalue 3, 
+Geom. Comb. (1991) 26–43.
+[27] Derek H. Smith, Primitive and imprimitive graphs, Quart. J. Math. 22 (4) (1971) 551–557.
+[28] Paul Terwilliger, A new feasibility condition for distance-regular graphs, Discrete Math. 61 (2–3) 
+(1986) 311–315.
+[29] John van Bon, Andries E. Brouwer, The distance-regular antipodal covers of classical distance-
+regular graphs, in: Colloq. Math. Soc. János Bolyai, vol. 1988, in: Proc. Eger, 1987, 1988, 
+pp. 141–166.
+[30] Edwin R. van Dam, Jack H. Koolen, Hajime Tanaka, Distance-regular graphs, Electron. J. Comb. 
+DS22 (2016).
+[31] Helmut Wielandt, Abschätzungen für den Grad einer Permutationsgruppe von vorgeschriebenem 
+Transitivitätsgrad, Dissertation, Berlin, 1934.

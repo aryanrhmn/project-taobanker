@@ -1,0 +1,1 @@
+bash -lc grep -nE '^\\section|^\\subsection|^\\begin\{(lemma|proposition|theorem|candidate)\}' /mnt/data/babai_motion_d3_final_candidate.tex | sed -n '1,240p'; printf '\n--- key terms ---\n'; grep -nE 'Riccati|relative|sphere|admissible|multiplicity|mu=2|Hamming|certificate|epsilon|eps' /mnt/data/babai_motion_d3_final_candidate.tex | sed -n '1,260p'

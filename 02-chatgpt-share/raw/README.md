@@ -1,0 +1,1 @@
+Raw forensic dumps of the ChatGPT share (page HTML, RSC stream payloads, intermediate extraction outputs). Nothing here is curated evidence — use the .md files one level up. Kept verbatim for provenance/re-extraction; the `tools/_extract_*.py` scripts read from and write to this folder.

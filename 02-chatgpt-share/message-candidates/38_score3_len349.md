@@ -1,0 +1,1 @@
+{"search_query":[{"q":"site:arxiv.org/abs/2312.00383 Pyber Skresanov automorphism distance-regular graph motion d^6"},{"q":"site:arxiv.org/abs/1912.11427 Kivva characterization Johnson Hamming graph Babai conjecture"},{"q":"site:arxiv.org/abs/2601.10330 Lv Koolen geometric distance-regular graphs Theorem 32 psi_1 tau_2"}],"response_length":"long"}

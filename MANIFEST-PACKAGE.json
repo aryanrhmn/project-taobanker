@@ -1,0 +1,655 @@
+{
+  "project": "project-taobanker",
+  "purpose": "Package-wide integrity manifest (every file except this one)",
+  "generated": "2026-07-24",
+  "generated_by": "Claude Fable 5 referee session (post-scrub refresh; absolute paths genericized)",
+  "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
+  "file_count": 129,
+  "files": [
+    {
+      "path": ".claude\\settings.local.json",
+      "bytes": 537,
+      "sha256_16": "33b07b0da8513b60"
+    },
+    {
+      "path": "01-x-post\\POST-0-CODEX-SPURTS.md",
+      "bytes": 3425,
+      "sha256_16": "2dfa8ce804cb4abc"
+    },
+    {
+      "path": "01-x-post\\POST-2-BABAI-REPLY.md",
+      "bytes": 2486,
+      "sha256_16": "9890e27052af26ef"
+    },
+    {
+      "path": "01-x-post\\POST-3-GROK-REVIEW.md",
+      "bytes": 1807,
+      "sha256_16": "31807352662ef4c1"
+    },
+    {
+      "path": "01-x-post\\POST-4-FRESHNESS-SWEEP-2026-07-24.md",
+      "bytes": 4010,
+      "sha256_16": "fc5efe71803f29cb"
+    },
+    {
+      "path": "01-x-post\\POST.md",
+      "bytes": 2702,
+      "sha256_16": "b59a04386ba5a08a"
+    },
+    {
+      "path": "01-x-post\\X-CROSSREF-2026-07-23.md",
+      "bytes": 7466,
+      "sha256_16": "f765b20008d7880f"
+    },
+    {
+      "path": "02-chatgpt-share\\conversation-prose.md",
+      "bytes": 90393,
+      "sha256_16": "2469e8c1f77c4244"
+    },
+    {
+      "path": "02-chatgpt-share\\conversation-stitched.md",
+      "bytes": 196578,
+      "sha256_16": "f44c6ec64cb855eb"
+    },
+    {
+      "path": "02-chatgpt-share\\CONVERSATION_SUMMARY.md",
+      "bytes": 3230,
+      "sha256_16": "d4f366da44101134"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\01_score10_len9805.md",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\02_score9_len8029.md",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\03_score9_len5487.md",
+      "bytes": 5652,
+      "sha256_16": "3348276ecd630f37"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\04_score8_len29144.md",
+      "bytes": 29867,
+      "sha256_16": "c14f64dcb4349881"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\05_score8_len10073.md",
+      "bytes": 10546,
+      "sha256_16": "301924e71378efdb"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\06_score8_len9838.md",
+      "bytes": 10225,
+      "sha256_16": "eeb067047a5d6fc3"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\07_score7_len27788.md",
+      "bytes": 28531,
+      "sha256_16": "f6b0ba0052471804"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\08_score7_len16363.md",
+      "bytes": 16751,
+      "sha256_16": "eef385b0d7632fc3"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\09_score7_len11964.md",
+      "bytes": 12321,
+      "sha256_16": "f99d8cc9ed46343d"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\10_score7_len7526.md",
+      "bytes": 7853,
+      "sha256_16": "68ed6c7b37110299"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\11_score7_len7173.md",
+      "bytes": 7438,
+      "sha256_16": "74be56b8a36fb5fa"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\12_score6_len2181.md",
+      "bytes": 2241,
+      "sha256_16": "fa5735f7c7300ac0"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\13_score5_len12094.md",
+      "bytes": 12373,
+      "sha256_16": "9dfb83e88623ac55"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\14_score5_len7128.md",
+      "bytes": 7431,
+      "sha256_16": "eb28fbe990b6403b"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\15_score5_len921.md",
+      "bytes": 929,
+      "sha256_16": "9a3a2cb670e8cd2b"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\16_score4_len6945.md",
+      "bytes": 7146,
+      "sha256_16": "487c251c1044277e"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\17_score4_len6788.md",
+      "bytes": 6959,
+      "sha256_16": "f51d47175facc092"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\18_score4_len5430.md",
+      "bytes": 5497,
+      "sha256_16": "cdcb0830926f2a18"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\19_score4_len2612.md",
+      "bytes": 2784,
+      "sha256_16": "18044453f054abd0"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\20_score4_len2138.md",
+      "bytes": 2182,
+      "sha256_16": "216bd2fe37090b1e"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\21_score4_len463.md",
+      "bytes": 463,
+      "sha256_16": "3a90d81f78cdb404"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\22_score4_len435.md",
+      "bytes": 435,
+      "sha256_16": "dc7ad0bae56656f2"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\23_score4_len422.md",
+      "bytes": 422,
+      "sha256_16": "605d89a967aa9237"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\24_score4_len418.md",
+      "bytes": 418,
+      "sha256_16": "669346ecbe135127"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\25_score3_len5638.md",
+      "bytes": 5774,
+      "sha256_16": "9ef791727e948ef1"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\26_score3_len3118.md",
+      "bytes": 3203,
+      "sha256_16": "7551786b2462fe99"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\27_score3_len2965.md",
+      "bytes": 3012,
+      "sha256_16": "c68b3fc78c67aab7"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\28_score3_len2396.md",
+      "bytes": 2456,
+      "sha256_16": "55df0dddba72d56a"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\29_score3_len1971.md",
+      "bytes": 1992,
+      "sha256_16": "4530223a98397f1c"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\30_score3_len1353.md",
+      "bytes": 1382,
+      "sha256_16": "d6fdc9e2d3023f1b"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\31_score3_len477.md",
+      "bytes": 477,
+      "sha256_16": "9f58c03bb165bb5b"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\32_score3_len438.md",
+      "bytes": 438,
+      "sha256_16": "76c46bc458d36ca9"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\33_score3_len417.md",
+      "bytes": 417,
+      "sha256_16": "1d372a9ee2465c5e"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\34_score3_len415.md",
+      "bytes": 415,
+      "sha256_16": "4d9e887972c81046"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\35_score3_len413.md",
+      "bytes": 413,
+      "sha256_16": "79083201be75e1dc"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\36_score3_len395.md",
+      "bytes": 395,
+      "sha256_16": "2c77e0a038c1a2ee"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\37_score3_len351.md",
+      "bytes": 351,
+      "sha256_16": "40983fb8e76844a2"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\38_score3_len349.md",
+      "bytes": 349,
+      "sha256_16": "807b0839629d9a39"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\39_score3_len342.md",
+      "bytes": 342,
+      "sha256_16": "9f94b762e140f960"
+    },
+    {
+      "path": "02-chatgpt-share\\message-candidates\\40_score3_len328.md",
+      "bytes": 328,
+      "sha256_16": "2ee8619261e42a91"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\filename-hits.txt",
+      "bytes": 13571,
+      "sha256_16": "fb73c9ed7d7bf573"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\page-text-dump.txt",
+      "bytes": 549,
+      "sha256_16": "f5b73110ea9cef4f"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\raw-share-page.html",
+      "bytes": 4292348,
+      "sha256_16": "9d24da53af57adc8"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\README.md",
+      "bytes": 290,
+      "sha256_16": "8fba0e2b6103c8e8"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\role-contexts.txt",
+      "bytes": 0,
+      "sha256_16": "e3b0c44298fc1c14"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\share-state.json",
+      "bytes": 575019,
+      "sha256_16": "3d52c83e941f247e"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\stream-payloads-unescaped.txt",
+      "bytes": 3317421,
+      "sha256_16": "60db2888e0c42f7f"
+    },
+    {
+      "path": "02-chatgpt-share\\raw\\stream-script.js",
+      "bytes": 3684815,
+      "sha256_16": "918752e2891eeca2"
+    },
+    {
+      "path": "02-chatgpt-share\\stream-key-snippets.txt",
+      "bytes": 602,
+      "sha256_16": "f726822954fdfcbf"
+    },
+    {
+      "path": "03-source-papers\\arxiv-abs-1912.11427.html",
+      "bytes": 41007,
+      "sha256_16": "bab8164590615086"
+    },
+    {
+      "path": "03-source-papers\\arxiv-abs-2312.00383.html",
+      "bytes": 40583,
+      "sha256_16": "455f8d51fde447b6"
+    },
+    {
+      "path": "03-source-papers\\extracted-text\\kivva-1912.11427.txt",
+      "bytes": 78892,
+      "sha256_16": "b8bc06dd1a320c8b"
+    },
+    {
+      "path": "03-source-papers\\extracted-text\\kivva-clique-geom-mindeg.txt",
+      "bytes": 86958,
+      "sha256_16": "a85addf63b727de7"
+    },
+    {
+      "path": "03-source-papers\\extracted-text\\kivva-drg-spectral-gap.txt",
+      "bytes": 80029,
+      "sha256_16": "feadb3e7b4a30259"
+    },
+    {
+      "path": "03-source-papers\\extracted-text\\pyber-skresanov-2312.00383.txt",
+      "bytes": 44680,
+      "sha256_16": "3b91f2a118e7513b"
+    },
+    {
+      "path": "03-source-papers\\kivva-1912.11427.pdf",
+      "bytes": 361805,
+      "sha256_16": "ca1a5ebaeee1f5bd"
+    },
+    {
+      "path": "03-source-papers\\kivva-clique-geom-mindeg.pdf",
+      "bytes": 633465,
+      "sha256_16": "f984de669aa47e8e"
+    },
+    {
+      "path": "03-source-papers\\kivva-drg-spectral-gap.pdf",
+      "bytes": 599286,
+      "sha256_16": "739997d8def393e7"
+    },
+    {
+      "path": "03-source-papers\\kivva-thesis.pdf",
+      "bytes": 992677,
+      "sha256_16": "8e382ada91c7ffc1"
+    },
+    {
+      "path": "03-source-papers\\pyber-skresanov-2312.00383.pdf",
+      "bytes": 238567,
+      "sha256_16": "d9bfeba7f1fcf383"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\adversarial_independent_check.py",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_adversarial_referee_report.tex",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_adversarial_patch.diff",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_adversarially_patched.tex",
+      "bytes": 10231,
+      "sha256_16": "bdfc30d4afd8387b"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_audit.py",
+      "bytes": 7853,
+      "sha256_16": "68ed6c7b37110299"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_audited.tex",
+      "bytes": 12373,
+      "sha256_16": "9dfb83e88623ac55"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_audited_pre_hostile.tex",
+      "bytes": 12373,
+      "sha256_16": "9dfb83e88623ac55"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_c12_audit.py",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_c12_symbolic_audit.py",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_candidate_note.tex",
+      "bytes": 7438,
+      "sha256_16": "74be56b8a36fb5fa"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_revised_candidate.tex",
+      "bytes": 7853,
+      "sha256_16": "68ed6c7b37110299"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_strengthened_audit.py",
+      "bytes": 10546,
+      "sha256_16": "301924e71378efdb"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d3_strengthened_candidate.tex",
+      "bytes": 10546,
+      "sha256_16": "301924e71378efdb"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\babai_motion_d5_scalar_audit.py",
+      "bytes": 5652,
+      "sha256_16": "3348276ecd630f37"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\fable_hostile_referee_prompt_d3_c12.txt",
+      "bytes": 8405,
+      "sha256_16": "4f1d8ee0e3f173d1"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\fable_hostile_referee_prompt_d5.txt",
+      "bytes": 5652,
+      "sha256_16": "3348276ecd630f37"
+    },
+    {
+      "path": "04-proof-assets\\_suspect-not-true-file-content\\research_note_motion_d4.tex",
+      "bytes": 5497,
+      "sha256_16": "cdcb0830926f2a18"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_audited_scalar_check.py",
+      "bytes": 5581,
+      "sha256_16": "bf00eb6d22edec78"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_complete_audit.py",
+      "bytes": 6784,
+      "sha256_16": "8af91f7dda1457be"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_complete_proof.tex",
+      "bytes": 28126,
+      "sha256_16": "9d991802e6cb8b88"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_final_audit.py",
+      "bytes": 8794,
+      "sha256_16": "84c46bf7feaeaa5d"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_final_candidate.tex",
+      "bytes": 29442,
+      "sha256_16": "5cdcc6eb5ff9dbf0"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_README.txt",
+      "bytes": 887,
+      "sha256_16": "28045f08efc2426f"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d3_sharpened_audit.py",
+      "bytes": 6968,
+      "sha256_16": "4576ad1d3d74a7b9"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_d5_source_audited.tex",
+      "bytes": 16264,
+      "sha256_16": "b780d20f0f2cf3d2"
+    },
+    {
+      "path": "04-proof-assets\\babai_motion_twitter_thread.txt",
+      "bytes": 2344,
+      "sha256_16": "6cdb40158f339917"
+    },
+    {
+      "path": "04-proof-assets\\MANIFEST.json",
+      "bytes": 4962,
+      "sha256_16": "8daf6b3ead3c219d"
+    },
+    {
+      "path": "04-proof-assets\\motion_d4_sanity_checks.py",
+      "bytes": 2552,
+      "sha256_16": "a498042089a5ec2e"
+    },
+    {
+      "path": "04-proof-assets\\README_babai_motion_d5_audit.md",
+      "bytes": 1719,
+      "sha256_16": "b3bef34fc2ab2f20"
+    },
+    {
+      "path": "05-media\\x-codex-spurts-HN6jNLPXEAAAHNp.png",
+      "bytes": 43710,
+      "sha256_16": "e07bcf34fb66075e"
+    },
+    {
+      "path": "05-media\\x-fable-limits-HN7-5FpXcAAn1kJ.jpg",
+      "bytes": 48647,
+      "sha256_16": "1cf806e8a85ea775"
+    },
+    {
+      "path": "05-media\\x-grok-review-1-HN82fFnWsAAuRjk.png",
+      "bytes": 124871,
+      "sha256_16": "376fdcb9382a4a4b"
+    },
+    {
+      "path": "05-media\\x-grok-review-2-HN82rZTXIAAE13y.png",
+      "bytes": 139154,
+      "sha256_16": "616d1c078b403d67"
+    },
+    {
+      "path": "05-media\\x-no-claude-credit-HN8FU7cWwAAsI8S.jpg",
+      "bytes": 58962,
+      "sha256_16": "2a8aee7fee566f9f"
+    },
+    {
+      "path": "05-media\\x-post-babai-email-HN8k20DXkAAhV0b.png",
+      "bytes": 15611,
+      "sha256_16": "9da4be9ce4764cfb"
+    },
+    {
+      "path": "05-media\\x-post-photo-HN8LGIPWMAE_Kj1.jpg",
+      "bytes": 159774,
+      "sha256_16": "68f271ee146aa077"
+    },
+    {
+      "path": "05-media\\x-waiting-claude-HN79ANpWAAAtAmI.jpg",
+      "bytes": 109612,
+      "sha256_16": "c3d6b781ba2c90e4"
+    },
+    {
+      "path": "06-fable-brief\\AUDIT_RUN_LOG.txt",
+      "bytes": 6665,
+      "sha256_16": "57bd0db794a19556"
+    },
+    {
+      "path": "06-fable-brief\\CONSTANT_AUDIT.md",
+      "bytes": 5268,
+      "sha256_16": "67de573cf8e0c893"
+    },
+    {
+      "path": "06-fable-brief\\DEPENDENCY_LEDGER.md",
+      "bytes": 11276,
+      "sha256_16": "54f9f2f2365e625f"
+    },
+    {
+      "path": "06-fable-brief\\FABLE_LAUNCH_PROMPT.md",
+      "bytes": 1569,
+      "sha256_16": "691c4c2b9ee8827b"
+    },
+    {
+      "path": "06-fable-brief\\FABLE_TASK.md",
+      "bytes": 8116,
+      "sha256_16": "16ae6c177fd3934f"
+    },
+    {
+      "path": "06-fable-brief\\FINDINGS.md",
+      "bytes": 12895,
+      "sha256_16": "365972f5f3ac9a5f"
+    },
+    {
+      "path": "06-fable-brief\\HOSTILE_REFEREE_PROMPT.md",
+      "bytes": 3349,
+      "sha256_16": "8a3a052f306db30d"
+    },
+    {
+      "path": "06-fable-brief\\Launch-Fable5.ps1",
+      "bytes": 2274,
+      "sha256_16": "601557559c50da3b"
+    },
+    {
+      "path": "06-fable-brief\\OUTPUTS_INDEX.md",
+      "bytes": 886,
+      "sha256_16": "0ecdfe18bf2cb92e"
+    },
+    {
+      "path": "06-fable-brief\\runs\\archive\\README.md",
+      "bytes": 116,
+      "sha256_16": "69af2b6c73624f58"
+    },
+    {
+      "path": "06-fable-brief\\runs\\fable5-20260723-200708.log",
+      "bytes": 233,
+      "sha256_16": "bdb3ff26d549b904"
+    },
+    {
+      "path": "06-fable-brief\\runs\\fable5-20260723-200708.status.txt",
+      "bytes": 39,
+      "sha256_16": "dec46b23823be93d"
+    },
+    {
+      "path": "06-fable-brief\\SETUP_STATUS.md",
+      "bytes": 1274,
+      "sha256_16": "8c19460e456573fc"
+    },
+    {
+      "path": "06-fable-brief\\VERDICT.md",
+      "bytes": 5816,
+      "sha256_16": "a70f188ec80e2411"
+    },
+    {
+      "path": "CLAUDE.md",
+      "bytes": 3003,
+      "sha256_16": "7654e5e586a8edc8"
+    },
+    {
+      "path": "README.md",
+      "bytes": 11544,
+      "sha256_16": "caf730c81e1d3df5"
+    },
+    {
+      "path": "SOURCE_INDEX.md",
+      "bytes": 5363,
+      "sha256_16": "e2b97194d80b605d"
+    },
+    {
+      "path": "tools\\_extract_assets.py",
+      "bytes": 5170,
+      "sha256_16": "7322e65d0e4bd582"
+    },
+    {
+      "path": "tools\\_extract_assets_v2.py",
+      "bytes": 8019,
+      "sha256_16": "45a4e08ea6c377bb"
+    },
+    {
+      "path": "tools\\_extract_rsc.py",
+      "bytes": 9532,
+      "sha256_16": "1b1d4d3b221f8e84"
+    },
+    {
+      "path": "tools\\_extract_share.py",
+      "bytes": 8605,
+      "sha256_16": "ef27d3e4a576f459"
+    },
+    {
+      "path": "VERSION_MATRIX.md",
+      "bytes": 2156,
+      "sha256_16": "67f2c0c9fc48e212"
+    }
+  ]
+}

@@ -1,0 +1,892 @@
+=== PAGE 1 ===
+arXiv:2312.00383v1  [math.CO]  1 Dec 2023
+ON THE AUTOMORPHISM GROUP OF A
+DISTANCE-REGULAR GRAPH
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+Abstract. The motion of a graph is the minimal degree of its full automor-
+phism group. Babai conjectured that the motion of a primitive distance-regular
+graph on n vertices of diameter greater than two is at least n/C for some uni-
+versal constant C > 0, unless the graph is a Johnson or Hamming graph. We
+prove that the motion of a distance-regular graph of diameter d ≥3 on n ver-
+tices is at least Cn/(log n)6 for some universal constant C > 0, unless it is a
+Johnson, a Hamming or a crown graph. This follows using an improvement of
+an earlier result by Kivva who gave a lower bound on motion of the form n/cd,
+where cd depends exponentially on d. As a corollary we derive a quasipolyno-
+mial upper bound for the automorphism group of a primitive distance-regular
+graph acting edge-transitively on the graph and on its distance-2 graph. The
+proofs use elementary combinatorial arguments and do not depend on the
+classiﬁcation of ﬁnite simple groups.
+1. Introduction
+The degree of a permutation g of the set V is the number of points of V not ﬁxed
+by g. Given a permutation group H on V , let the minimal degree mindeg(H) be
+the minimum of degrees of all nonidentity elements of H. Describing ﬁnite primi-
+tive permutation groups with small minimal degree is a classical problem in ﬁnite
+group theory which goes back to the works of Jordan and Bochert. In [15] Bochert
+proved that a doubly transitive permutation group of degree n has minimal degree
+at least n/4 −1 with known exceptions. Using the classiﬁcation of ﬁnite simple
+groups (CFSG), Liebeck and Saxl [25] classiﬁed primitive permutation groups of
+degree n with minimal degree less than n/3, and Guralnick and Magaard [20] fur-
+ther strengthened this result to a description of primitive permutation groups with
+minimal degree at most n/2.
+Given a combinatorial object G (a graph or a coherent conﬁguration) let the
+motion of G be motion(G) = mindeg(Aut(G)). As an attempt to generalize the
+above results to a combinatorial setting, Babai proved the following result on motion
+of distance-regular graphs of diameter two, that is, strongly-regular graphs:
+Key words and phrases. distance-regular graph, motion, diameter, automorphism group.
+This work on the project leading to this application has received funding from the European
+Research Council (ERC) under the European Union’s Horizon 2020 research and innovation pro-
+gramme (grant agreement No. 741420).
+The ﬁrst named author was partly supported by the
+National Research, Development and Innovation Oﬃce (NKFIH) Grant No. K138596. The re-
+search of the second named author was carried out within the framework of the Sobolev Institute
+of Mathematics state contract (project FWNF-2022-0002).
+1
+
+=== PAGE 2 ===
+2
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+Proposition 1.1 ([2, 3]). Let G be a strongly-regular graph on n ≥29 vertices.
+Then either
+motion(G) ≥n
+8 ,
+or G or its complement is a Johnson graph, a Hamming graph or a disjoint union
+of cliques of the same size.
+Furthermore, Babai proposed a conjecture, which gives a natural generalization
+of the above result to distance-regular graphs of arbitrary diameter:
+Conjecture. (Babai, [22, Conjecture 6.6]) There exists γ > 0 such that for any
+primitive distance-regular graph G of diameter greater than two on n vertices either
+motion(G) ≥γn,
+or G is a Johnson or a Hamming graph.
+The ﬁrst step to settling the conjecture was made by Kivva, who proved it for
+distance-regular graphs of bounded diameter, i.e. in his result the constant γ is
+allowed to depend on the diameter of the graph. In fact, he was able to establish
+his result both for primitive and imprimitive distance-regular graphs. Recall that
+a crown graph is a graph obtained from a regular complete bipartite graph by
+removing a perfect matching.
+Proposition 1.2 ([22, Theorem 1.12]). For any d ≥3 there exists γd > 0 such
+that for any distance-regular graph G of diameter d on n vertices either
+motion(G) ≥γdn
+or G is a Johnson graph, a Hamming graph or a crown graph.
+Bounds on motion(G) have strong structural consequences for the structure of
+the automorphism group of G. The thickness θ(H) of a group H is the largest
+degree of an alternating section of H. It follows from a result of Wielandt [29] (see
+Proposition 4.3), that if mindeg(H) ≥αn, where n is the degree of H and α > 0,
+then θ(H) ≤
+3
+α log n.
+In particular, Kivva’s result has the following immediate
+consequence.
+Corollary 1.3 ([22, Theorem 6.3]). For any d ≥3 there exists αd > 0 such that
+for any distance-regular graph G of diameter d on n vertices either
+θ(G) ≤αd log n
+or G is a Johnson graph, a Hamming graph or a crown graph.
+One shortcoming of Kivva’s result is that, in the notation of Proposition 1.2,
+the constant 1/γd grows exponentially in d, see [23, Remark 4.9]. In particular,
+even though it follows from a result of Pyber [27] (see Proposition 2.1) that the
+diameter d of a distance-regular graph on n vertices of valency at least 3 is bounded
+above by 5 log n, we cannot obtain a polylogarithmic bound on the thickness of the
+automorphism group from Proposition 1.2. Our main result is an improvement of
+Kivva’s theorem, namely, we show that 1/γd can be taken to be a polynomial in d.
+Theorem 1.4. Let G be a distance-regular graph on n points of diameter d ≥3.
+Then either G is a Johnson, Hamming or crown graph, or
+motion(G) ≥C n
+d6
+for some universal constant C > 0.
+
+=== PAGE 3 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+3
+As mentioned earlier, d ≤5 log n if G has valency at least 3, hence in this case
+the motion is bounded below by Cn/(5 log n)6. Now using Wielandt’s bound for
+thickness, we immediately obtain the following polylogarithmic estimate.
+Corollary 1.5. Let G be a distance-regular graph on n points of diameter d ≥3.
+Then either G is a Johnson, Hamming or crown graph, or
+θ(G) ≤C(log n)7
+for some universal constant C > 0.
+It follows from CFSG and a result of Babai, Cameron and P´alfy [7] that the order
+of a primitive permutation group H is bounded above in terms of its degree and
+thickness by nθ(H)c for some universal constant c > 0. In particular, this implies
+a quasipolynomial bound for a primitive group of automorphisms of a distance-
+regular graph, which is not a Johnson, Hamming or a crown graph. Our second
+main result is an improvement to this observation, which does not require CFSG.
+For a connected graph G on V let G2 denote the distance 2 graph, i.e.
+G2 = {{x, y} ⊆V | d(x, y) = 2}.
+It turns out that instead of assuming that the group of automorphisms is primitive,
+it suﬃces to assume that the group acts edge-transitively on G and G2.
+Theorem 1.6. Let G be a primitive distance-regular graph on n points of diameter
+greater than two, which is not a Johnson or a Hamming graph. Assume that its
+full automorphism group H acts edge-transitively on G and G2. Then H has a
+base of size at most C(log n)9 for some universal constant C > 0, in particular,
+|H| ≤nC(log n)9.
+It is desirable to prove a similar bound for arbitrary groups of automorphisms
+of distance-regular graphs, i.e. without necessarily assuming edge-transitivity on
+G or G2. Note that Babai [3] conjectures that such a result holds for strongly-
+regular graphs. This conjecture ultimately aims at obtaining an elementary, that
+is, CFSG-free, proof of Cameron’s theorem [16, Theorem 6.1] on the orders of
+primitive permutation groups, and our Theorem 1.6 is a step in this direction.
+The main novelty of our proof lies in the following improvement of [23, Theo-
+rem 1.7].
+Theorem 1.7. Let G be a primitive distance-regular graph on n vertices with di-
+ameter d ≥3. Then either motion(G) ≥n/(40d5) or G is Delsarte-geometric with
+the smallest eigenvalue at least −5d.
+The original result of Kivva [23] relies on a series of elaborate inequalities, in-
+volving Ostrowski’s theorem on matrix eigenvalues and the “growth-induced trade-
+oﬀ” [23, Theorem 1.2]. Our proof oﬀers both a signiﬁcant simpliﬁcation of the argu-
+ment and a better bound on the motion. The main tools for us are the Bang-Koolen
+theorem [10], Metsch theorem [26] and a generalization of Babai-Szegedy’s [8] edge
+expansion bound to coherent conﬁgurations. Namely, in Proposition 2.8 we prove
+that edge expansion of a connected symmetric relation of a homogeneous coher-
+ent conﬁguration is bounded below by k/(2d), where k is the degree and d is the
+diameter of the relation. As an application of that bound, in Proposition 2.9 we
+show that the second largest eigenvalue θ of a distance-regular graph of degree k
+and diameter d satisﬁes θ ≤k(1 −1/(8d2)), which may be of independent interest.
+
+=== PAGE 4 ===
+4
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+We believe that extending other results on vertex- and edge-transitive graphs to
+coherent conﬁgurations may be an interesting area of research.
+In the proof of Theorem 1.4 we use Theorem 1.7 together with deep results of
+Kivva on characterizations of Johnson and Hamming graphs [22].
+The proof of Theorem 1.6 relies on a small combinatorial trick (Lemma 4.4)
+and, surprisingly, on the argument of the ﬁrst author showing that the orders of
+doubly transitive permutation groups not containing the alternating group have
+quasipolynomial size [28].
+We mention that, similarly to distance-regular graphs, Babai conjectured that
+the motion of a primitive coherent conﬁguration of degree n should be at least γn
+for some universal constant γ > 0, unless the conﬁguration is a so-called Cameron
+scheme, see [22, Conjecture 6.5] and [1, Conjecture 12.1]. If true, this would give a
+combinatorial analogue of Liebeck and Saxl’s description of primitive permutation
+groups of small minimal degree. The case of rank 3 coherent conﬁgurations was
+settled by Babai in [2, 3] and the case of rank 4 by Kivva in [24]. Yet, recently
+this conjecture was refuted by Eberhard [19] who proposed a new construction of
+primitive coherent conﬁgurations with small motion. The motion conjecture for
+distance-regular graphs therefore stands as an important open case.
+The structure of the paper is as follows. In Section 2 we provide preliminary
+results and notation for distance-regular graphs (Subsection 2.1), coherent con-
+ﬁgurations (Subsection 2.2), and recall Kivva’s characterizations of Johnson and
+Hamming graphs (Subsection 2.3). In Section 3 we prove Theorems 1.4 and 1.7,
+and in Section 4 we establish Theorem 1.6.
+2. Preliminaries
+2.1. Distance-regular graphs. Let G be a connected graph on n points, and
+let V denote the set of vertices. For two vertices x, y ∈V let d(x, y) denote the
+distance between x and y, and let Γi(x) be the set of y with d(x, y) = i.
+For vertices x and y at distance j write cj(x, y) = |Γj−1(x) ∩Γ1(y)|, aj(x, y) =
+|Γj(x) ∩Γ1(y)| and bj(x, y) = |Γj+1(x) ∩Γ1(y)|. The graph G is called distance-
+regular, if these numbers depend only on the distance j between x and y. In this
+case we will simply write cj, aj and bj. If k is the valency of G, then for all j we
+have aj = k −bj −cj.
+If d is the diameter of G, then we have the following inequalities
+k = b0 > b1 ≥b2 ≥· · · ≥bd−1 ≥1,
+1 = c1 ≤c2 ≤· · · ≤cd ≤k.
+As distance-regular graphs of valency 2 are cycles, we will assume that k > 2.
+The numbers ki = |Γi(x)|, i = 1, . . . , d, do not depend on the vertex x ∈V and
+satisfy
+k
+c2
+= b0
+c2
+> b1
+c2
+= k2
+k1
+≥· · · ≥
+kd
+kd−1
+.
+We may also always assume that k1 ≤k2 [14, Proposition 5.1.1].
+In the following log n is a logarithm in base 2.
+Proposition 2.1 ([27]). The diameter of a distance-regular graph on n vertices
+and valency greater than two is at most 5 log n.
+
+=== PAGE 5 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+5
+In [11, Theorem 1.5] this bound was improved to 8
+3 log n, but in our proof the
+multiplicative constant will not play a signiﬁcant role.
+The adjacency matrix of a distance-regular graph has precisely d + 1 distinct
+eigenvalues. All of them are real, the largest being k. Let θ denote the second
+largest eigenvalue, and let m be the smallest eigenvalue. We have m < 0.
+Lemma 2.2 (Delsarte bound [18], [21, p. 276]). In a distance-regular graph the
+size of every clique is bounded above by 1 −k/m.
+A clique of order 1 −k/m is called a Delsarte clique. A clique geometry on G
+is a set of maximal cliques such that every edge of G is contained in exactly one
+clique from the set. A graph is called Delsarte-geometric if it has a clique geometry
+consisting of Delsarte cliques.
+Lemma 2.3 ([22, Lemma 2.15]). Let G be a Delsarte-geometric distance-regular
+graph of diameter at least 2 with smallest eigenvalue m. Let C be a clique geometry
+on G consisting of Delsarte cliques. Then m is an integer and every vertex in G
+belongs to precisely −m cliques from C.
+A graph G is called sub-amply regular with parameters (n, k, λ, µ) if it is a regular
+graph on n vertices of degree k and every two adjacent vertices have exactly λ
+neighbors in common while every two vertices at distance 2 from each other have
+at most µ neighbors in common. A distance-regular graph is sub-amply regular for
+λ = a1 and µ = c2.
+Lemma 2.4 ([22, Lemma 2.5]). For a distance-regular graph of diameter at least 2
+one has 2λ ≤k + µ.
+The following theorem by Bang and Koolen gives a suﬃcient condition for a
+distance-regular graph to be Delsarte-geometric.
+Proposition 2.5 ([10]). If λ > m2µ for a distance-regular graph G, then G is
+Delsarte-geometric.
+A result of Metsch [26] gives constraints on parameters of sub-amply regular
+graphs which guarantee the existence of a certain clique geometry.
+Babai and
+Wilmes [9, Theorem 3] gave an asymptoric version of Metsch’s theorem with a
+simpler proof, which states that a sub-amply regular graph with kµ = o(λ2) with
+respect to n →∞has a maximal clique of order approximately λ. It will be more
+convenient for our applications to have an explicit version, which we derive from
+Metsch’s theorem directly.
+Proposition 2.6. Let G be a sub-amply regular graph with parameters (n, k, λ, µ)
+such that λ2 ≥4kµ. Then G contains a clique of size at least λ/2.
+Proof. A corollary from the result of Metsch [26, Result 2.1], see also [9, Corol-
+lary 1], implies that if
+(1)
+(λ + 1)2 > (3k + λ + 1)(µ −1)
+then G contains a clique of size at least
+(2)
+λ + 2 −(⌈(3/2)k/(λ + 1)⌉−1)(µ −1).
+Since λ ≤k −1, we have 3k + λ + 1 ≤4k. Hence inequality λ2 ≥4kµ implies
+inequality (1) from Metsch’s theorem, and we have a clique of size at least (2). We
+claim that
+λ + 2 −(⌈(3/2)k/(λ + 1)⌉−1)(µ −1) ≥λ/2 + 2.
+
+=== PAGE 6 ===
+6
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+Indeed, this inequality is follows from a stronger one
+λ
+2 ≥
+3k
+2(λ + 1)(µ −1),
+which is implied by our assumption λ2 ≥4kµ.
+□
+2.2. Coherent conﬁgurations and motion. Let X = (V, X) be a tuple, where
+V is a set and X is a partition of V × V . We say that X is a homogeneous coherent
+conﬁguration if the following holds [17, Deﬁnitions 2.1.1 and 2.1.3]:
+• The diagonal {(v, v) | v ∈V } lies in X;
+• For every relation R ∈X its transpose {(v, u) | (u, v) ∈R} lies in X;
+• For any relations R, S, T ∈X and any (u, v) ∈R, the number
+cR
+ST = |{w ∈V | (u, w) ∈S, (w, v) ∈T }|
+does not depend on the choice of (u, v) ∈R.
+The size of X is called the rank. The conﬁguration is called primitive if all its
+nondiagonal relations are connected.
+If G is a distance-regular graph of diameter d, then the relations
+Xi = {(x, y) ∈V × V | d(x, y) = i}, i = 0, . . . , d,
+form a coherent conﬁguration of rank d+1 on V . A distance-regular graph is called
+primitive if all its “at distance i“ relations Xi, i = 1, . . . , d, are connected. The
+corresponding coherent conﬁguration is also primitive.
+In a primitive coherent conﬁguration diameters of nondiagonal relations are less
+than its rank [5, Exercise 8.4], so for a primitive distance-regular graph diameters
+of Xi, i = 1, . . . , d, are at most d.
+The following fact is well-known.
+Lemma 2.7 ([17, Exercise 2.7.25], [5, Exercise 2.2]). Let X = (V, X) be a homoge-
+neous coherent conﬁguration, and let R, R1, . . . , Rm−1 ∈X, m ≥2 and (u, w) ∈R.
+Then the number of tuples (v1, . . . , vm) ∈V m such that (v1, vm) = (u, w) and
+(vi, vi+1) ∈Ri, i = 1, . . . , m −1 does not depend on the choice of (u, w) ∈R.
+For a subset S ⊆V and a graph G on V let δG(S) denote the set of edges joining
+S with V \S in G. Recall that a relation G of a coherent conﬁguration is symmetric
+if it coincides with its transpose, i.e. for every (u, v) ∈G we also have (v, u) ∈G.
+We can view such a relation as a regular undirected graph on V .
+We need a generalization of a result for edge-transitive graphs from [8, Corol-
+lary 2.6]. The proof rests on essentially the same argument as in [8].
+Proposition 2.8. Let X = (V, X) be a homogeneous coherent conﬁguration, and
+let G ∈X be a connected symmetric relation of degree k and diameter d. Then for
+every nonempty S ⊆V with |S| ≤|V |/2 we have
+|δG(S)|
+|S|
+≥k
+2d.
+Proof. Let d(x, y) denote the distance between vertices x, y ∈V in the graph G.
+A path x0, x1, . . . , xm in G will be called a geodesic if m = d(x0, xm). Note that
+xm, . . . , x1, x0 is a diﬀerent geodesic.
+By [17, Theorem 2.6.7] the distance-i graph {(u, v) ∈V × V | d(u, v) = i} is a
+union of some relations from X, in particular, the distance between points x and y
+depends only on the relation where (x, y) lies.
+
+=== PAGE 7 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+7
+Let p(x, y) denote the number of geodesics between x and y. If e is some edge
+of G, we claim that the number
+P =
+X
+x,y∈V
+1
+p(x, y)|{L | L is a geodesic from x to y passing through e}|
+does not depend on the choice of e ∈G. Indeed, by Lemma 2.7, the number p(x, y)
+depends only on the relation where (x, y) lies. The number of geodesics from x to
+y passing through e = (z, w) can be expressed as
+N(z,w)(x, y) =
+(
+p(x, z) · p(w, y),
+if d(x, z) + d(w, y) = d(x, y) −1,
+0,
+otherwise.
+Thus, by the paragraph above, this number depends only on the relations where
+(x, z), (w, y) and (x, y) lie (recall that (z, w) lies in G). We now have the following
+formula for P:
+P =
+X
+R,S,T ∈X
+X
+x,y∈V,
+(x,z)∈R,(w,y)∈S,(x,y)∈T
+1
+p(x, y)N(z,w)(x, y).
+By Lemma 2.7, the number of tuples (x, y) such that (x, z) ∈R, (w, y) ∈S,
+(x, y) ∈T does not depend on the choice of (z, w) ∈G, hence P does not depend
+on the choice of e ∈G as well.
+Set n = |V |. We now claim that
+nk · P =
+X
+x,y∈V
+d(x, y).
+The number of edges in G is exactly nk, and since P does not depend on the choice
+of e ∈G we have
+nk · P =
+X
+e∈G
+X
+x,y∈V
+1
+p(x, y)|{L | L is a geodesic from x to y passing through e}|
+=
+X
+x,y∈V
+1
+p(x, y)
+X
+e∈G
+|{L | L is a geodesic from x to y passing through e}|.
+Since each geodesic from x to y passes through d(x, y) edges (exactly once through
+each edge) and there are p(x, y) such geodesics, we have
+X
+x,y∈V
+1
+p(x, y)
+X
+e∈G
+|{L | L is a geodesic from x to y passing through e}|
+=
+X
+x,y∈V
+1
+p(x, y) · d(x, y)p(x, y) =
+X
+x,y∈V
+d(x, y),
+which proves the claim.
+Now we are ready to prove the main result. Choose some nonempty S ⊆V with
+|S| ≤n/2. Note that for x ∈S, y ∈V \S a geodesic from x to y must pass through
+an edge in δG(S), therefore:
+|S| · |V \ S| =
+X
+x∈S
+X
+y∈V \S
+1
+p(x, y)|{L | L is a geodesic from x to y through δG(S)}|.
+
+=== PAGE 8 ===
+8
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+We extend summation to the whole of V and derive
+|S| · |V \ S| ≤
+X
+x,y∈V
+1
+p(x, y)|{L | L is a geodesic from x to y through δG(S)}|
+≤
+X
+x,y∈V
+1
+p(x, y)
+X
+e∈δG(S)
+|{L | L is a geodesic from x to y through e}|
+=
+X
+e∈δG(S)
+X
+x,y∈V
+1
+p(x, y)|{L | L is a geodesic from x to y through e}|
+=
+X
+e∈δG(S)
+P = |δG(S)| · P = |δG(S)|
+nk
+X
+x,y∈V
+d(x, y) ≤dn
+k · |δG(S)|.
+Finally,
+|δG(S)| ≥|S| · k
+d · n −|S|
+n
+≥|S| · k
+2d.
+The proposition is proved.
+□
+Note that the proposition above applies to distance-regular graphs.
+Proposition 2.9. Let G be a distance-regular graph of degree k and diameter d.
+Then the second largest eigenvalue satisﬁes θ ≤k(1 −
+1
+8d2 ).
+Proof. By Proposition 2.8 the edge expansion h of G is bounded below by k/(2d).
+The result follows from the Cheeger inequality h ≤
+p
+2k(k −θ).
+□
+Given a coherent conﬁguration X = (V, X) and x, y ∈V let r(x, y) denote the
+unique relation in X containing the pair (x, y). For x, y ∈V set D(x, y) = {z ∈V |
+r(x, z) ̸= r(y, z)}. Deﬁne Dmin(X) = minx̸=y |D(x, y)|.
+The following result is implicit in [4, 5].
+Proposition 2.10. Let X be a primitive coherent conﬁguration on n points with
+maximal valency kmax. If all nondiagonal relations of X have diameter at most d,
+then Dmin(X) ≥(n −kmax)/d.
+Proof. Follows from [5, Lemma 8.9] and [5, Corollary 8.12].
+□
+Next result gives a lower bound on Dmin for a conﬁguration corresponding to a
+distance-regular graph in terms of its parameters.
+Proposition 2.11 ([23, Proposition 4.7]). Let G be a primitive distance-regular
+graph on n vertices of diameter d ≥2 and valency k, and let X be the associated
+coherent conﬁguration. Let ǫ > 0. Suppose that for some j ∈{1, . . ., d −1} the
+inequalities bj ≥ǫk and cj+1 ≥ǫk hold. Then Dmin(X) ≥ǫn/d.
+Given a permutation g ∈Sym(V ) deﬁne supp(g) = {x ∈V | xg ̸= x}. The min-
+imal degree of a permutation group H ≤Sym(V ) is the minimum over nonidentity
+g ∈H of | supp(g)|, i.e. it is the minimal number of points moved by a nonidentity
+permutation of H.
+For a graph G (a coherent conﬁguration X) the motion is the minimal degree of
+the full automorphism group of G (or X, respectively). We denote it by motion(G)
+or motion(X). If G is distance-regular, then the full automorphism groups of G
+and the associated coherent conﬁguration X coincide, so motion(G) = motion(X)
+in this case.
+
+=== PAGE 9 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+9
+Proposition 2.12 ([5, Exercise 9.5]). For a coherent conﬁguration X one has
+motion(X) ≥Dmin(X).
+Given a regular graph G of valency k, let k = ξ1 ≥· · · ≥ξm be its eigenvalues.
+The zero-weight spectral radius of G is ξ = maxi=2,...,m |ξi|. For a distance-regular
+graph, ξ = max{θ, −m}.
+Proposition 2.13 ([2, Proposition 12]). Let G be a regular graph of valency k on
+n vertices with the zero-weight spectral radius ξ. If every pair of vertices has at
+most q common neighbors in G, then motion(G) ≥n(k −ξ −q)/k.
+The next result is a slight modiﬁcation of [22, Theorem 5.7], but the proof
+stays essentially the same. The only diﬀerence is that we use a stronger condition
+ξ ≤k(1 −η) instead of assuming that cj ≤ǫk, bj ≤ǫk for some j ∈{1, . . ., d −1}.
+Proposition 2.14 ([22, Theorem 5.7]). Let G be a Delsarte-geometric distance-
+regular graph of diameter d ≥2 on n vertices. Suppose µ = 1 and the smallest
+eigenvalue of G is m, where −m ≥3. Let 0 < η < 1/2 be some constant such that
+the zero-weight spectral radius satisﬁes ξ ≤k(1 −η) and k ≥max{4(−m)/η, m2}.
+Then motion(G) ≥nη/4.
+Next proposition covers the case when µ = 1 and m > −3.
+Proposition 2.15 ([22, Proposition 5.13]). Let G be a Delsarte-geometric distance
+regular graph of diameter at least 2. Suppose that µ = 1, k > 4 and the smallest
+eigenvalue of G is −2. Then motion(G) ≥n/16.
+If a distance-regular graph G with diameter d ≥2 on n vertices is bipartite (and
+thus necessarily imprimitive), then its distance-2 graph G2 has two components,
+and the graphs induced on these components by G2 are called its halved graphs.
+The halved graphs are distance-regular with diameter ⌊d/2⌋on n/2 vertices [14,
+Proposition 4.2.2].
+Proposition 2.16 ([23, Proposition 5.7]). Let G be a bipartite distance-regular
+graph of diameter d ≥3.
+Let G+ and G−be the halved graphs of G.
+Then
+motion(G) ≥motion(G+) + motion(G−).
+If the distance-d graph Gd of a distance-regular graph G of diameter d ≥2 is
+a union of cliques, then G is called an antipodal graph. A folded graph of G is
+a graph whose vertices are the cliques of Gd and two vertices are adjacent in the
+folded graph if the corresponding cliques have vertices adjacent in G. The folded
+graph is distance-regular of diameter ⌊d/2⌋[14, Proposition 4.2.2].
+Proposition 2.17 ([23, Proposition 5.3]). Let G be an antipodal distance-regular
+graph of diameter d ≥3 on n vertices. Let eG be its folded graph on en vertices. If
+motion( eG) ≥αen for some α > 0, then motion(G) ≥αn.
+It is known that an imprimitive distance-regular graph of valency greater than
+two is bipartite or antipodal (or both) [14, Theorem 4.2.1], but we will require a
+more detailed description.
+Proposition 2.18 ([23, Proposition 2.14], see also [14, Section 4.2.A]). Let G be
+a distance-regular graph of valency greater than two. Then:
+(1) If G is a bipartite graph, then its halved graphs are not bipartite;
+
+=== PAGE 10 ===
+10
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+(2) If G is bipartite and either has odd diameter or is not antipodal, then its
+halved graph is primitive;
+(3) If G is antipodal and either has odd diameter or is not bipartite, then its
+folded graph is primitive;
+(4) If G has even diameter and is both antipodal and bipartite, then its halved
+graphs
+1
+2G are antipodal, the folded graph eG is bipartite and the graphs
+f
+1
+2G ≃1
+2 eG are primitive.
+2.3. Characterizations of Johnson and Hamming graphs. For d ≥2 and
+s ≥2d the Johnson graph J(s, d) is deﬁned as the graph having all d-element
+subsets of {1, . . . , s} as a vertex set, where two vertices are adjacent if and only
+if the corresponding subsets diﬀer in exactly one element. This graph is distance-
+regular of diameter d and valency d(s −d).
+Given a vertex v of the graph G, let G(v) denote the neighborhood graph, i.e.
+the graph induced by G on the neighbors of v.
+Proposition 2.19 ([22, Theorem 1.2]). There exists an absolute constant ǫ >
+0.0065 such that the following is true.
+Let G be a Delsarte-geometric distance-
+regular graph of diameter d ≥2 with the smallest eigenvalue m.
+Suppose that
+µ ≥2 and θ + 1 > (1 −ǫ)b1. If the valency satisﬁes k ≥max{|m|3, 29} and the
+neighborhood graph G(v) is connected for some vertex v, then G is a Johnson graph
+J(s, d) with s = (k/d) + d.
+In a Delsarte-geometric distance-regular graph the neighborhood graphs are ei-
+ther all connected or all disconnected [12, Theorem 5.3].
+Proposition 2.20 ([22, Proposition 3.11]). Let G be a Delsarte-geometric distance-
+regular graph of diameter greater than two and with µ ≥3. If the neighborhood
+graphs of G are disconnected, then θ + 1 ≤5b1/7.
+For d, s ≥2 the Hamming graph has {1, . . . , s}d as the vertex set, and two vertices
+are adjacent if and only if the corresponding d-tuples diﬀer in one coordinate only.
+This graph is distance-regular with diameter d and valency d(s −1).
+Proposition 2.21 ([22, Corollary 4.8]). Let G be a Delsarte-geometric distance-
+regular graph of diameter d ≥2.
+Suppose that G has µ = 2 and the smallest
+eigenvalue m. Take 0 < ǫ < 1/(6m4d). If θ ≥(1 −ǫ)b1 and ci ≤ǫk, bi ≤ǫk for
+some i ∈{1, . . ., d}, then G is a Hamming graph H(d, s) for s = (k/d) + 1.
+3. Proof of Theorems 1.4 and 1.7
+We will prove both theorems from the title simultaneously. Theorem 1.7 will be
+an intermediate step in the proof of Theorem 1.4.
+Let G be a primitive distance-regular graph of valency k on n points, where n
+is large enough (we may assume that by choosing the constant C appropriately).
+Since cycle graphs have large motion, we may assume that k ≥3. Let d ≥3 denote
+the diameter of G. We ﬁrst consider the case when G is primitive.
+Assume that c2 > k/(20d4). Then
+20d4 > k
+c2
+= b0
+c2
+> b1
+c2
+= k2
+k1
+≥· · · ≥
+kd
+kd−1
+.
+If X is a coherent conﬁguration associated with G, then the valencies of its nondi-
+agonal relations are k1, . . . , kd. If kmax = ki, i ∈{2, . . ., d}, is the maximal valency,
+
+=== PAGE 11 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+11
+then ki < ki−1 · 20d4 and hence kmax/(20d4) < n −kmax. By Proposition 2.10, we
+have Dmin ≥kmax/(20d5).
+If kmax ≥n/2, then Dmin ≥n/(40d5) and we have a bound on motion by
+Proposition 2.12. If kmax < n/2, then Dmin ≥(n −kmax)/d > n/(2d) and we again
+have a similar bound. From now one we assume that c2 ≤k/(20d4). In particular,
+k ≥20d4.
+If motion(G) > n/2 then we are done, so let g be a nonidentity automorphism
+of g with | supp(g)| ≤n/2. For S = supp(g) Proposition 2.8 gives |δG(S)|
+|S|
+≥
+k
+2d, so
+there exists a vertex x ∈S with at least k/(2d) neighbors in V \ S. Vertices x and
+xg are distinct and have at least k/(2d) common neighbors. If x and xg are not
+adjacent, then c2 ≥k/(2d) which contradicts our assumption. Therefore they are
+adjacent and thus λ = a1 ≥k/(2d).
+The graph G is sub-amply regular with µ = c2 ≤k/(20d4). Then kµ ≤k2/(20d4)
+while λ2 ≥k2/(4d2). Therefore
+λ2 ≥k2
+4d2 ≥4k2
+20d4 ≥4kµ
+and by Proposition 2.6 the graph G contains a clique of size at least λ/2. By the
+Delsarte bound, λ/2 ≤1 + k/(−m), thus
+−m ≤
+k
+λ/2 −1 ≤
+k
+k
+4d −1 < 5d.
+Then m2µ ≤25d2
+k
+20d4 <
+k
+2d ≤λ, and by Proposition 2.5 the graph G is Delsarte-
+geometric. Note that µ < λ.
+At this point of the proof we have established Theorem 1.7. Now we proceed with
+the proof of Theorem 1.4. We roughly follow the argument in [22, Theorem 5.16].
+Recall that 1 ≤µ ≤k/(20d4), so 20d4 ≤k and d is bounded in terms of k. For
+a graph of diameter d and valency k we have n ≤1 + kd, hence n is bounded in
+terms of k. In particular, by choosing n large enough, we may assume that k is
+larger than any ﬁxed absolute constant (we note that this holds in general for any
+distance-regular graph by the positive solution of the Bannai-Ito conjecture in [13],
+but we need not use this deep result in our argument).
+We use the following positive parameter throughout the proof:
+ǫ =
+1
+6 · (5d)4 · d.
+By Proposition 2.11, if bj ≥ǫk and cj+1 ≥ǫk for some j ∈{1, . . ., d −1}, then
+motion(G) ≥ǫn
+d ≥C · n
+d6
+for some universal constant C > 0. If for all j the inequalities for bj and cj+1 do
+not hold, then since bj are nonincreasing and cj are nondecreasing, we can ﬁnd
+some j ∈{1, . . . , d} with bj ≤ǫk and cj ≤ǫk.
+Now we consider several cases.
+Case θ < (1 −ǫ)b1.
+The zero-weight spectral radius of G is equal to ξ =
+max{θ, −m}, consequently, ξ ≤max{(1 −ǫ)b1, −m}. By Lemma 2.4, 2λ ≤k + µ
+hence
+b1 = k −1 −λ ≥k −µ −2
+2
+.
+
+=== PAGE 12 ===
+12
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+As µ ≤k/(20d4), we have 2µ + 4 < k, therefore
+b1 ≥k −µ −2
+2
+> k
+4 ,
+and (1 −ǫ)b1 > (1 −ǫ)k/4. Since −m < 5d < k/4(1 −ǫ), as k ≥20d4, we obtain
+ξ ≤(1 −ǫ)b1.
+Every pair of vertices of G has at most max{λ, µ} common neighbors. Since
+this maximum is equal to λ, Proposition 2.13 implies
+motion(G) ≥nk −ξ −λ
+k
+≥nk −(1 −ǫ)b1 −λ
+k
+.
+Now (1 −ǫ)b1 + λ ≤k −ǫb1 ≤(1 −ǫ/4)k, thus motion(G) ≥nǫ/4 ≥C · n/d5 for
+some universal constant C > 0.
+Case θ ≥(1 −ǫ)b1 and µ ≥3. We claim that for n suﬃciently large we have
+max{|m|3, 29} ≤k. Since |m|3 < (5d)3 and k ≥20d4, this holds for d ≥7. If
+d < 7, then this holds as k > (5 · 6)3 for n large enough.
+Suppose that the neighborhood graphs of G are disconnected, then by Proposi-
+tion 2.20, we have θ + 1 ≤5b1/7. Then 5b1/7 > (1 −ǫ)b1 implying ǫ > 2/7, which
+is a contradiction. We may assume that ǫ < 0.0065, therefore the neighborhood
+graphs of G are connected and Proposition 2.19 shows that G is a Johnson graph.
+Case θ ≥(1 −ǫ)b1 and µ = 2.
+Since bj ≤ǫk and cj ≤ǫk for some j ∈
+{1, . . ., d −1}, and ǫ < 1/(6m4d), Proposition 2.21 implies that G is a Hamming
+graph.
+Case µ = 1. Assume that −m ≥3. By Proposition 2.9, θ ≤k(1 −1/(8d2)). As
+−m ≤5d and k ≥20d4, we have a bound on the zero-weight spectral radius:
+ξ = max{θ, −m} ≤k
+
+1 −
+1
+8d2
+
+.
+Set η = 1/(8d2), so ξ ≤k(1 −η). Clearly k > m2 and k > 4m/η = 32(−m)d2.
+Proposition 2.14 implies motion(G) ≥nη/4 = n/(32d2) as wanted.
+If −m < 3, then by Lemma 2.3, m is an integer and every vertex lies in precisely
+−m cliques from our geometry, hence m = −2. Then by Proposition 2.15 we have
+motion(G) ≥n/16. This ﬁnishes the proof of the primitive case of Theorem 1.4,
+namely, we established the following.
+Proposition 3.1. Let G be a primitive distance-regular graph on n points of di-
+ameter d ≥3. Then either G is a Johnson or a Hamming graph, or
+motion(G) ≥γdn
+where γd = C/d6 for some universal constant C > 0.
+We now assume that G is an imprimitive distance-regular graph. We need the
+following lemma, which is an improvement of [23, Theorem 5.8] but with a better
+constant.
+Lemma 3.2. Let G be a distance-regular bipartite graph of diameter d ≥4 on n
+vertices. If a halved graph of G is primitive, then
+motion(G) ≥γ′
+dn
+for γ′
+d = γ⌊d/2⌋/2, where γd is a function from Proposition 3.1.
+
+=== PAGE 13 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+13
+Proof. Let G′ be a primitive halved graph of G. By Proposition 2.16, motion(G) ≥
+motion(G′), and since G′ has diameter ⌊d/2⌋and n/2 vertices, the claim follows
+from Proposition 3.1.
+□
+The rest of the argument closely follows [23, Theorem 5.16], but uses better
+constants. We mention that “Conjecture 1.5” in [23] corresponds to our Proposi-
+tion 3.1.
+Recall that an imprimitive distance-regular graph is bipartite or antipodal, or
+both. If G is bipartite but not antipodal and d ≥4, then by Proposition 2.18 (2)
+its halved graph is primitive and hence motion(G) ≥γ′
+dn by Lemma 3.2. If G is
+bipartite of diameter d = 3, then by [23, Theorem 5.12] the graph G is either a
+crown graph or motion(G) ≥n/6.
+If G is bipartite and antipodal of even diameter d ≥6, then by Proposi-
+tion 2.18 (4) its folded graph eG is bipartite (and not antipodal) of diameter d/2. A
+crown graph is antipodal, hence the previous paragraph implies
+motion( eG) ≥min(γ′
+d, 1/6)en,
+where en is the number of vertices in eG. Then by Proposition 2.17
+motion(G) ≥min(γ′
+d, 1/6)n.
+If G is bipartite and antipodal of diameter d = 4, then by [23, Proposition 5.10],
+motion(G) ≥0.15n.
+We are left with cases when G is antipodal but not bipartite, and when G is
+antipodal of odd diameter. By Proposition 2.18 (3), the folded graph eG is primitive.
+If d = 3, then motion(G) ≥n/13 by [23, Proposition 5.14]. If d ≥4 and eG is not
+a Johnson graph, a Hamming graph or a complement to J(s, 2) or H(2, s), and eG
+has at least 29 vertices, then Proposition 3.1 and Proposition 1.1 imply
+motion( eG) ≥min(γ⌊d/2⌋, 1/8)en,
+where en is the number of vertices in eG. Then by Proposition 2.17
+motion(G) ≥min(γ⌊d/2⌋, 1/8)n.
+Finally, it is easy to see that if eG has at most 28 vertices, then motion(G) ≥n/14,
+and it follows from [23, Theorem 5.15] that a Johnson graph, a Hamming graph,
+and complements to J(s, 2) or H(2, s) have no antipodal covers (taking into account
+our bound on the number of vertices). Hence we proved that motion(G) ≥γn for
+γ = min
+
+γd, γ′
+d, γ′
+⌊d/2⌋, γ⌊d/2⌋, 1
+14
+
+.
+For an appropriate universal constant C > 0 we have γ ≥C/d6, so the proof of
+Theorem 1.4 is ﬁnished.
+4. Proof of Theorem 1.6
+For a permutation group H on V and a subset Σ ⊆V let HΣ denote the pointwise
+stabilizer of Σ. Given a graph G with vertex set V , we say that Σ ⊆V splits an
+edge e with respect to H, if the two endvertices of e lie in diﬀerent HΣ-orbits on V .
+
+=== PAGE 14 ===
+14
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+Proposition 4.1 ([6, Splitting Lemma 3.1]). Let G be a graph on V having q edges.
+Assume that a permutation group H acts edge-transitively on G. If Σ ⊆V splits at
+least cq, 0 < c < 1, edges with respect to H, then there exists ∆⊆V which splits
+every edge of G with respect to H and |∆| ≤|Σ| · ⌈−log q
+log(1−c)⌉.
+Given a permutation group H on V , we say that Σ ⊆V is a halving set if HΣ
+has no orbits of size greater than |V |/2. Recall that the thickness θ(H) of a group
+H is the largest degree of an alternating section of H.
+Proposition 4.2 ([28, Lemma 3]). Let H be a permutation group on V , and sup-
+pose that θ(H) < k for some k ≥12. Then there is a halving set Σ ⊆V for H with
+|Σ| ≤4k.
+We will require the following corollary of Wielandt’s bound for thickness [29].
+Proposition 4.3 ([22, Corollary 6.2]). Let H be a permutation group of degree n
+with minimal degree at least αn. Then θ(H) ≤3
+α log n.
+The following lemma is key to our proof.
+Recall that {x, y} is an edge of a
+distance 2 graph G2 if and only if d(x, y) = 2.
+Lemma 4.4. Let G be a connected graph on V and let H be its group of automor-
+phisms. If a nonempty Σ ⊆V splits all edges of G and G2, then HΣ is trivial.
+Proof. Let ∆⊆V be the set of points stabilized by HΣ; it suﬃces show that ∆= V .
+Clearly Σ ⊆∆, hence ∆is nonempty. Suppose that ∆is a proper subset of V ,
+then by connectivity of G there exists some vertex x ∈V \ ∆connected by an edge
+with some y ∈∆. By the deﬁnition of ∆, the vertex x is not stabilized by H, thus
+for some h ∈H the vertex x′ = xh lies in V \ ∆and is adjacent to y. There is a
+path x, y, x′ in G, so d(x, x′) ≤2. By our assumptions, x and x′ must lie in diﬀerent
+H-orbits, which is a contradiction with the deﬁnition of x′. Therefore ∆= V and
+we are done.
+□
+Proof of Theorem 1.6.
+Let G be a distance-regular graph on V , where |V | =
+n, of diameter greater than two.
+Let H be its full automorphism group.
+By
+Theorem 1.4 and Proposition 2.1, the minimal degree of H is at least Cn/(log n)6
+for some universal constant C > 0. By Wielandt’s bound, θ(H) ≤
+3
+C (log n)7 and
+by Proposition 4.2, there exists a halving set Σ ⊆V with |Σ| ≤C′(log n)7 for some
+universal constant C′ > 0.
+Let S ⊆V be some orbit of HΣ on V . Clearly |S| ≤n/2 and by Proposition 2.8,
+we have |δG(S)|/|S| ≥k/(2d), where k is the valency of G and d is the diameter.
+This implies that at least k|S|/(2d) edges of G with an endpoint in S are split by Σ.
+Summing by all orbits of H and recalling that we may count the same edge twice,
+we get that at least kn/(4d) edges of G are split by Σ. If q = kn/2 is the number
+of edges of G, then Σ splits at least q/(2d) edges of G.
+Since G is primitive, the distance 2 graph G2 is also connected and its diameter
+is bounded by d, hence the same reasoning applies and Σ splits at least q2/(2d)
+edges of G2, where q2 is the number of edges in G2. By Proposition 4.1, there
+are sets ∆and ∆2 of size at most 4|Σ|d log n which split every edge of the graphs
+G and G2, respectively. By taking Σ′ = ∆∪∆2 and recalling that d ≤5 log n
+by Proposition 2.1, we obtain that |Σ′| ≤C′′(log n)9 for some universal constant
+C′′ > 0, and Σ′ splits all edges of G and G2. Lemma 4.4 shows that Σ′ is a base
+for H, which ﬁnishes the proof.
+□
+
+=== PAGE 15 ===
+ON THE AUTOMORPHISM GROUP OF A DISTANCE-REGULAR GRAPH
+15
+5. Acknowledgement
+The authors would like to thank B. Kivva for the remarks which improved the
+exposition of this paper.
+References
+[1] L. Babai, Group, graphs, algorithms: the graph isomorphism problem, Proc. Int. Cong. of
+Math. (2018), Rio de Janeiro, Vol. 3, 3303–3320.
+[2] L. Babai, On the automorphism groups of strongly regular graphs I. In Proc. 5th Conf. on
+Innov. in Th. Comp. Sc. (ITCS’14) (2014), 359–368.
+[3] L. Babai, On the automorphism groups of strongly regular graphs II. J. Algebra 421 (2015),
+560–578..
+[4] L. Babai, On the order of uniprimitive permutation groups, Annals of Math. 113 (1981),
+553–568.
+[5] L. Babai, Primitive coherent conﬁgurations and the order of uniprimitive permutation groups,
+https://people.cs.uchicago.edu/~laci/papers/uni-update.pdf.
+[6] L. Babai, On the order of doubly transitive permutation groups, Invent. math. 65 (1982),
+473–484.
+[7] L. Babai, P.J. Cameron, P.P P´alfy, On the orders of primitive groups with restricted nonabelian
+composition factors, J. Algebra 79 (1) (1982), 161–168.
+[8] L. Babai, M. Szegedy, Local expansion of symmetrical graphs, Combinatorics, Probability and
+Computing 1 (1992), 1–11.
+[9] L. Babai, J. Wilmes, Asymptotic Delsarte cliques in distance-regular graphs, J. Algebr. Comb.
+43 (2016), 771–782.
+[10] S. Bang, J.H. Koolen, On distance-regular graphs with smallest eigenvalue at least m, J.
+Combin. Theory Ser. B 100 no. 6, (2010), 573–584.
+[11] S. Bang, A. Hiraki, J.H. Koolen, Improving diameter bounds for distance-regular graphs,
+European J. Combin. 27 (1) (2006), 79–89.
+[12] S. Bang, A. Hiraki, J.H. Koolen, Delsarte clique graphs, European J. Combin. 28 (2) (2007),
+501–516.
+[13] S. Bang, A. Dubickas, J.H. Koolen, V. Moulton, There are only ﬁnitely many distance-regular
+graphs of ﬁxed valency greater than two, Adv. Math. 269 (2015), 1–55.
+[14] A.E. Brouwer, A.M. Cohen, A. Neumaier, Distance-Regular Graphs, Springer-Verlag, Berlin,
+1989.
+[15] A. Bochert, Ueber die Classe der transitiven Substitutionengruppen, Math. Ann. 40 (2)
+(1892), 176–193.
+[16] P.J. Cameron, Finite permutation groups and ﬁnite simple groups, Bull. London Math. Soc.
+13 (1981), 1–22.
+[17] G. Chen, I. Ponomarenko, Lectures on coherent conﬁgurations, Central China Normal Univ
+Press, Wuhan, 2019.
+[18] P. Delsarte, An algebraic approach to the association schemes of coding theory, Philips J.
+Res., no. 10 (1973), vi+97.
+[19] S. Eberhard, Hamming sandwiches, Combinatorica 43 (2023), 233–256.
+[20] R. Guralnick, K. Magaard, On the minimal degree of a primitive permutation group, J.
+Algebra 207 JA987451 (1998), 127–145.
+[21] C.D. Godsil, Algebraic combinatorics, Chapman & Hall, New York, 1993.
+[22] B. Kivva, A characterization of Johnson and Hamming graphs and proof of Babai’s conjec-
+ture, J. Comb. Theory, Ser. B, 151 (2021), 339–374.
+[23] B. Kivva, On the spectral gap and the automorphism group of distance-regular graphs, J.
+Comb. Theory, Ser. B, 149 (2021), 161–197.
+[24] B. Kivva, On the automorphism groups of rank-4 primitive coherent conﬁgurations, J. Comb.
+Theory, Ser. B, 164 (2024), 245–298.
+[25] M.W. Liebeck, J. Saxl, Minimal degrees of primitive permutation groups, with an application
+to monodromy groups of covers of Riemann surfaces, Proc. Lond. Math. Soc. s3-63 (2) (1991),
+266–314.
+[26] K. Metsch, On a characterization of bilinear forms graphs, Eur. J. Comb. 20 (4), (1999),
+293–306.
+
+=== PAGE 16 ===
+16
+L´ASZL ´O PYBER AND SAVELIY V. SKRESANOV
+[27] L. Pyber, A bound for the diameter of distance-regular graphs, Combinatorica 19 (4), (1999),
+549–553.
+[28] L. Pyber, On the orders of doubly transitive permutation groups, elementary estimates, J.
+Comb. Theory, Ser. A, 62 (1993), 361–366.
+[29] H. Wielandt, Absch¨atzungen f¨ur von vorgeschriebenem Transitivit¨atsgrad, Berlin, 1934, Hel-
+mut Wielandt: Mathematical Works, Vol. 1, Group theory (ed. B. Huppert and H. Schneider,
+de Gruyter, Berlin, 1994), 23–47.
+HUN-REN Alfr´ed R´enyi Institute of Mathematics, Realtanoda utca 13-15, H-1053,
+Budapest, Hungary
+Email address: pyber.laszlo@renyi.hu
+Sobolev Institute of Mathematics, 4 Acad. Koptyug avenue, Novosibirsk, Russia
+Email address: skresan@math.nsc.ru

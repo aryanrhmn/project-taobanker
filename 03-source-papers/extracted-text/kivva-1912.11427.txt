@@ -1,0 +1,1817 @@
+=== PAGE 1 ===
+arXiv:1912.11427v1  [math.CO]  24 Dec 2019
+A characterization of Johnson and Hamming graphs
+and proof of Babai’s conjecture
+Bohdan Kivva∗
+December 25, 2019
+Abstract
+One of the central results in the representation theory of distance-regular graphs
+classiﬁes distance-regular graphs with µ ≥2 and second largest eigenvalue θ1 = b1−1.
+In this paper we give a classiﬁcation under the (weaker) approximate eigenvalue con-
+straint θ1 ≥(1 −ε)b1 for the class of geometric distance-regular graphs. As an ap-
+plication, we conﬁrm Babai’s conjecture on the minimal degree of the automorphism
+group of distance-regular graphs.
+1
+Introduction
+In this paper we characterize Johnson and Hamming graphs as geometric distance-regular
+graphs satisfying certain relaxed spectral constraints.
+Classical characterization results
+of Hamming graphs H(d, q) assume equality constraints on certain parameters such as
+the assumption θ1 = b1 −1 on the second largest eigenvalue (Theorem 1.1 below) or the
+assumption n = (λ + 2)d on the number of vertices (Enomoto [17] and Egawa [16]). The
+principal novelty of our result is that we make no such tight assumptions. We apply our
+characterization to conﬁrm Babai’s conjecture on the minimal degree of the automorphism
+group of distance-regular graphs.
+1.1
+Characterization of Johnson and Hamming graphs
+A result of Terwilliger [34] (see [9, Theorem 4.4.3]) implies that the icosahedron is the
+only distance-regular graph, for which the second largest eigenvalue θ1 (of the adjacency
+matrix) satisﬁes θ1 > b1 −1 and a pair of vertices at distance 2 has µ ≥2 common
+neighbors. Another classical result gives the classiﬁcation of distance-regular graphs with
+µ ≥2 and θ1 = b1 −1.
+Theorem 1.1 ( [9, Theorem 4.4.11]). Let X be a distance-regular graph of diameter d ≥3
+with second largest eigenvalue θ1 = b1 −1. Assume µ ≥2. Then one of the following holds:
+∗University of Chicago, e-mail: bkivva@uchicago.edu
+1
+
+=== PAGE 2 ===
+1. µ = 2 and X is a Hamming graph, a Doob graph, or a locally Petersen graph (and
+all such graphs are known).
+2. µ = 4 and X is a Johnson graph.
+3. µ = 6 and X is a half cube.
+4. µ = 10 and X is a Gosset graph E7(1).
+In this paper we consider the case θ1 ≥(1 −ε)b1 for suﬃciently small ε > 0. The
+relaxation of the assumption on the second largest eigenvalue comes at the cost of re-
+quiring additional structural constraints. Our main structural assumption is that X is a
+geometric distance-regular graph, meaning that there exists a collection of Delsarte cliques
+(see Sec. 2.3) C such that every edge of X belongs to a unique clique in C. Additional
+technical structural assumptions depend on whether the neighborhood graphs of X are
+connected. We note that for a geometric distance-regular graph X either the neighbor-
+hood graph X(v) is connected for every vertex v, or X(v) is disconnected for every vertex
+v (see Lemma 2.19). We give the following two characterizations.
+Theorem 1.2. Let X be a geometric distance-regular graph of diameter d ≥2 with smallest
+eigenvalue −m. Suppose that µ ≥2 and θ1 + 1 > (1 −ε∗)b1 for an absolute constant
+0 < ε∗≈0.0065. Moreover, assume that the vertex degree satisﬁes k ≥max(m3, 29) and
+the neighborhood graph X(v) is connected for some vertex v of X.
+Then X is a Johnson graph J(s, d) for s = (k/d) + d ≥2d + 1.
+Remark 1.3. We give the exact deﬁnition of ε∗in Proposition 3.6 (see also Def. 3.3 and
+Theorem 3.5). We note that ε∗can be set to be as large as 2/7, if we additionally assume
+k to be suﬃciently large (see Remark 3.13).
+Theorem 1.4. Let X be a geometric distance-regular graph of diameter d ≥2 with smallest
+eigenvalue −m.
+Suppose that µ ≥2 and θ1 ≥(1 −ε)b1, where 0 < ε < 1/(6m4d).
+Moreover, assume ct ≤εk and bt ≤εk for some t ≤d, and the neighborhood graph X(v)
+is disconnected for some vertex v of X.
+Then X is a Hamming graph H(d, s), for s = 1 + k/d.
+Remark 1.5. If s > 6d5 + 1, then the Hamming graph H(d, s) satisﬁes the assumptions
+of this theorem with 1/(s −1) ≤ε < 1/(6d5) and t = d.
+The assumption that a distance-regular graph is geometric excludes only ﬁnitely many
+graphs with µ ≥2, if the smallest eigenvalue of the graph is assumed to be bounded, as
+proved by Bang and Koolen [25] in 2010.
+Theorem 1.6 (Koolen, Bang). Fix an integer m ≥2. There are only ﬁnitely many non-
+geometric distance-regular graphs of diameter ≥3 with µ ≥2 and smallest eigenvalue at
+least −m.
+2
+
+=== PAGE 3 ===
+Moreover, they conjecture the following classiﬁcation of geometric distance-regular
+graphs with ﬁxed smallest eigenvalue −m and µ ≥2.
+Conjecture 1.7 (Koolen, Bang). For a ﬁxed integer m ≥2, any geometric distance-
+regular graph with smallest eigenvalue −m, diameter ≥3 and µ ≥2 is a Johnson graph,
+or a Hamming graph, or a Grassmann graph, or a bilinear forms graph, or the number of
+vertices is bounded by a function of m.
+Our characterizations conﬁrm this conjecture in rather special cases.
+Theorem 1.4 is one of the main technical contributions of the paper. Even though the
+assumptions of Theorem 1.2 seem weaker (for instance, ε is absolute), we believe that,
+in comparison with known results, Theorem 1.4 brings more novelty. The known charac-
+terization of Johnson graphs in terms of the local structure (Theorem 2.21) seems to be
+more easily applicable than the known characterizations of Hamming graphs. All char-
+acterizations of Hamming graphs known to the author, in terms of intersection numbers,
+eigenvalues or local structure, make strong equality constraints either on the number of
+vertices, or on the eigenvalues. In contrast, Theorem 1.4 makes no assumptions of such
+ﬂavor and therefore might be more broadly applicable.
+1.2
+Motion: Minimal degree of the automorphism group
+For a permutation σ of a set Ωthe number of points not ﬁxed by σ is called the degree of
+the permutation σ. Let G be a permutation group on a set Ω. The minimum of the degrees
+of non-identity elements of G is called the minimal degree of G. We denote this quantity
+by mindeg(G). Lower bounds on the minimal degree of a group have strong constraints
+on the structure of the group. A result of Wielandt [37] implies that a linear lower bound
+on mindeg(G) provides a logarithmic upper bound on the degree of an alternating group
+involved in G as a quotient of a subgroup. The study of the minimal degree goes back to
+19th century (Jordan [22], Bochert [7]). We brieﬂy indicate some of the history and the
+motivation of this classical concept in the Outlook section (Sec. 6).
+Deﬁnition 1.8 (Motion). Following [31], for a combinatorial structure X we use term
+motion for the minimal degree of the automorphism group Aut(X ),
+motion(X ) := mindeg(Aut(X )).
+In 2014 Babai [3], [4] classiﬁed the strongly regular graphs with sublinear motion.
+Theorem 1.9 (Babai). Let X be a strongly regular graph on n vertices. Then either
+motion(X) ≥n
+8 ,
+or X, or its complement is the Johnson graph J(s, 2), the Hamming graph H(2, s) or a
+disjoint union of cliques of the same size.
+3
+
+=== PAGE 4 ===
+Non-trivial strongly regular graphs are primitive distance-regular graphs of diameter 2.
+Babai conjectured that a similar classiﬁcation should be true for primitive distance-regular
+graphs of ﬁxed diameter.
+Conjecture 1.10 (Babai). For any d ≥3 there exists γd > 0, such that for any primitive
+distance-regular graph X of diameter d on n vertices either
+motion(X) ≥γdn,
+or X is the Johnson graph or the Hamming graph.
+Using our characterizations of Johnson and Hamming graphs, we conﬁrm the conjecture
+in the stronger form dropping the primitivity assumption. (The imprimitive case admits
+one more class of exceptions, the cocktail-party graphs). A large portion of the proof relies
+on the results we prove in [23].
+Theorem 1.11. For any d ≥3 there exists γd > 0, such that for any distance-regular
+graph X of diameter d on n vertices either
+motion(X) ≥γdn,
+or X is a Johnson graph, or a Hamming graph, or a cocktail-party graph.
+In [23] we reduced the case of imprimitive distance-regular graphs to conﬁrming the
+conjecture for primitive graphs. Moreover, in one of the main results of [23] we show that it
+is suﬃcient to study geometric distance-regular graphs with bounded smallest eigenvalue,
+which is the case we settle in this paper.
+Theorem 1.12 ( [23, Theorem 1.6]). For any d ≥3 there exist γ′
+d > 0 and a positive integer
+md, such that for any primitive distance-regular graph X of diameter d on n vertices either
+motion(X) ≥γ′
+dn,
+or X is geometric with smallest eigenvalue at least −md.
+Remark 1.13. The reason we split the proof of Theorem 1.11 between two papers is
+the diﬀerent nature of techniques and results obtained. In particular, in [23] we prove a
+spectral gap bound for distance-regular graphs which have a dominant distance. We use
+it as one of the ingredients in the analysis of µ = 1 case in this paper (see Theorem 5.2).
+1.3
+A few words on the proof of the characterization theorems
+The proof of Theorem 1.1 has two crucial ingredients. The ﬁrst ingredient is Terwilliger’s
+1 + b1/(θ1 + 1) lower bound on the smallest eigenvalue of the neighborhood graphs. In the
+case when θ1 = b1 −1 this bound implies that the smallest eigenvalue of each neighborhood
+graph is at least −2 and all such graphs are classiﬁed by Cameron, Goethals, Seidel and
+4
+
+=== PAGE 5 ===
+Shult [11] (note that the neighborhood graphs are regular). In particular, if a neighborhood
+graph has no induced quadrangle, then the neighborhood graph is a clique, the pentagon
+or the Peterson graph. The second ingredient is the existence of a root representation (an
+integral aﬃne (2, 4)-representation) for a distance-regular graph with θ1 = b1−1 and which
+contains a quadrangle. The classiﬁcation of the amply regular graphs with µ ≥2, which
+have a root representation, is known (see [9, Theorems 3.15.1-3.15.4]).
+We note that in the case of geometric distance-regular graphs the condition µ ≥2
+implies the existence of an induced quadrangle. The argument that shows the existence of
+the root representation heavily depends on the equality constraint θ1 = b1 −1 and does not
+survive when this condition is relaxed to θ1 ≥(1 −ε)b1. However, under our assumptions,
+we are still able to make use of the ﬁrst ingredient. Indeed, results of Hoﬀman [21] and
+Bussemaker, Neumaier [10] imply that no graph has the smallest eigenvalue in the range
+(−2 −δ, −2) for some constant δ > 0. This will be suﬃcient to prove Theorem 1.2 (see
+Section 3).
+The proof of Theorem 1.4 requires a diﬀerent approach. A distance-regular graph is
+geometric with disconnected neighborhood graphs if and only if each of its neighborhood
+graphs is a disjoint union of cliques. We prove that if X satisﬁes the assumptions of The-
+orem 1.4 and is not a Hamming graph, then the second largest eigenvalue has multiplicity
+less than the vertex degree of X. Terwilliger [34] proved that this implies that each neigh-
+borhood graph has an eigenvalue less than −1. This leads to a contradiction, as the least
+eigenvalue of a disjoint union of cliques is −1. We prove Theorem 1.4 in Section 4.
+Acknowledgments
+The author is grateful to Professor L´aszl´o Babai for introducing him to the problems dis-
+cussed in the paper, for his invaluable assistance in framing the results, which signiﬁcantly
+improved the presentation of the paper, and for his constant support and encouragement.
+2
+Preliminaries
+In this section we give deﬁnitions and basic properties for the objects and notions that
+are used in the paper. For more about distance-regular graphs we refer the reader to the
+monograph [9] and the survey article [14].
+2.1
+Basic concepts and notation for graphs
+Let X be a graph. We always denote by n the number of vertices of X and for a regular
+graph X we denote by k its degree. We denote the diameter of X by d. If the graph is
+disconnected, then its diameter is deﬁned to be ∞.
+Deﬁnition 2.1. A regular graph is called edge-regular if every pair of adjacent vertices
+has the same number λ of common neighbors.
+5
+
+=== PAGE 6 ===
+Deﬁnition 2.2. A regular graph is called amply regular if every pair of vertices at distance
+2 has the same number µ of common neighbors.
+Let N(v) be the set of neighbors of a vertex v in X and Ni(v) = {w ∈X| dist(v, w) = i}
+be the set of vertices at distance i from v in the graph X.
+By X(v) we denote the
+neighborhood graph of v in X, namely, the graph induced by X on N(v).
+Deﬁnition 2.3. Let X be a graph. Denote by V (X) and E(X) the set of vertices and the
+set of edges of X. The line graph of X is the graph L(X) with the set of vertices E(X),
+in which distinct e1, e2 ∈E(X) are adjacent if they (as edges of X) share a vertex.
+By eigenvalues of a graph we mean the eigenvalues of its adjacency matrix.
+2.2
+Distance-regular graphs
+Deﬁnition 2.4. A connected graph X of diameter d is called distance-regular if for every
+0 ≤i ≤d there exist constants ai, bi, ci such that for any v ∈X and any w ∈Ni(v) the
+number of edges between w and Ni(v) is ai, between w and Ni−1(v) is ci, and between w
+and Ni+1(v) is bi. The sequence
+ι(X) = {b0, b1, . . . , bd−1; c1, c2, . . . , cd}
+is called the intersection array of X.
+Note that every distance-regular graph is edge-regular and amply regular with λ = a1
+and µ = c2.
+By simple counting, the following properties of the parameters of distance-regular
+graphs hold.
+1. ai + bi + ci = k for every 0 ≤i ≤d,
+2. bi+1 ≤bi and ci+1 ≥ci for 0 ≤i ≤d −1.
+3. |Ni(v)|bi = |Ni+1(v)|ci+1, for 0 ≤i ≤d −1 and any vertex v.
+Thus, the numbers ki = |Ni(v)| do not depend on a vertex v ∈X, and we can rewrite the
+last property as
+3’. kibi = ki+1ci+1, for 0 ≤i ≤d −1.
+From the deﬁnition of a distance-regular graph it can be deduced that there are param-
+eters ps
+i,j such that for any u, v ∈X with dist(u, v) = s there exist precisely ps
+i,j vertices at
+distance i from u and distance j from v, i.e., |Ni(u) ∩Nj(v)| = ps
+i,j. The parameters ps
+i,j
+are called intersection numbers.
+Lemma 2.5. Let X be a distance-regular graph of diameter d ≥2. Then 2λ ≤k + µ.
+6
+
+=== PAGE 7 ===
+Proof. Denote N(x, y) = N(x) ∩N(y) for vertices x and y of X. The inequality above
+follows from the two obvious inclusions below applied for v and w at distance 2 and their
+common neighbor v
+N(u, v) ∪N(u, w) ⊆N(u),
+N(u, v) ∩N(u, w) ⊆N(v, w).
+In Section 4 we will need the following inequality proved by Terwilliger [33].
+Theorem 2.6 (Terwilliger [33], see [9, Theorem 5.2.1]). Let X be a distance-regular graph.
+If X contains an induced quadrangle, then
+ci −bi ≥ci−1 −bi−1 + λ + 2,
+for i = 1, 2, . . . , d.
+We also need the following result regarding the increase ci −ci−1.
+Theorem 2.7 ( [9, Theorem 5.4.1]). Let X be a distance-regular graph of diameter d ≥3.
+If µ ≥2, then either c3 ≥3µ/2, or c3 ≥µ + b2 and d = 3.
+Corollary 2.8. Let X be a distance-regular graph of diameter d ≥3. If µ ≥2, then
+c3 > µ.
+A distance-regular graph X of diameter d has precisely d + 1 distinct eigenvalues.
+Denote these eigenvalues by θ0 = k > θ1 > . . . > θd. They are the eigenvalues of the
+tridiagonal intersection matrix below.
+L1 =
+
+
+
+
+
+
+
+a0
+b0
+0
+0
+...
+c1
+a1
+b1
+0
+...
+0
+c2
+a2
+b2
+...
+...
+...
+...
+...
+0
+cd
+ad
+
+
+
+
+
+
+
+.
+For an eigenvalue θ, consider the sequence (ui(θ))d
+i=0 deﬁned by the relations
+u0(θ) = 1,
+u1(θ) = θ
+k,
+ciui−1(θ) + aiui(θ) + biui+1(θ) = θui(θ),
+for i = 1, 2, ..., d −1,
+cdud−1(θ) + adud(θ) = θud(θ).
+The vector u = (u0(θ), u1(θ), ..., ud(θ))T is an eigenvector of L1 corresponding to θ.
+Deﬁnition 2.9. The sequence (ui(θ))d
+i=0 is called the standard sequence of X corresponding
+to the eigenvalue θ.
+We denote by fi the multiplicity of the eigenvalue θi of X. Since X is a connected
+graph, f0 = 1. In general, the multiplicities fi can be computed using the Biggs formula.
+Theorem 2.10 (Biggs [6], see [9, Theorem 4.1.4]). The multiplicity of an eigenvalue θ of
+a distance-regular graph X can be expressed as
+f(θ) =
+n
+dP
+i=0
+kiui(θ)2
+.
+7
+
+=== PAGE 8 ===
+2.3
+Geometric distance-regular graphs
+Let X be a distance-regular graph, and θmin be its smallest eigenvalue. Delsarte proved
+in [15] that any clique C in X satisﬁes |C| ≤1 −
+k
+θmin
+. A clique in X of size 1 −
+k
+θmin
+is
+called a Delsarte clique.
+Deﬁnition 2.11. A distance-regular graph X is called geometric if there exists a collection
+C of Delsarte cliques such that every edge of X lies in exactly one clique of C.
+More generally, we say that a graph contains a clique geometry, if there exists a col-
+lection C0 of maximal cliques, such that every edge is contained in exactly one clique of
+C0. Metsch proved that a graph satisfying rather modest assumptions contains a clique
+geometry.
+Theorem 2.12 (Metsch [28, Result 2.2]). Let µ ≥1, λ(1), λ(2) and m be integers. Assume
+that X is a connected graph with the following properties.
+1. Each pair of adjacent vertices has at least λ(1) and at most λ(2) common neighbors.
+2. Each pair of non-adjacent vertices has at most µ common neighbors.
+3.
+2λ(1) −λ(2) > (2m −1)(µ −1) −1.
+4. Every vertex has fewer than (m + 1)(λ(1) + 1) −1
+2m(m + 1)(µ −1) neighbors.
+Deﬁne a line to be a maximal clique C satisfying |C| ≥λ(1) + 2 −(m −1)(µ −1). Then
+every vertex is on at most m lines, and every pair of adjacent vertices lies in a unique line.
+The following suﬃcient condition for being geometric is a slightly reformulated version
+of a result from [14].
+Proposition 2.13 ( [14, Proposition 9.8]). Let X be a distance-regular graph of diameter
+d ≥2. Assume there exist a positive integer m and a clique geometry C of X such that
+every vertex u is contained in exactly m cliques of C. If k ≥m2, then X is geometric with
+smallest eigenvalue −m.
+The converse holds without the k ≥m2 assumption.
+Lemma 2.14. Let X be a geometric distance-regular graph of diameter d ≥2 with smallest
+eigenvalue −m. Let C be a Delsarte clique geometry. Then m is an integer and every vertex
+belongs to precisely m Delsarte cliques in C.
+Proof. By the deﬁnition of a Delsarte clique, its size is 1 + k/m. Let C1, C2, . . . , Ct be the
+cliques in C which contain a vertex v. Since C is a clique geometry, any distinct Ci and
+Cj for i, j ∈[t] have only v in their intersection, and every vertex adjacent to v belongs to
+one of the cliques C1, C2, . . . , Ct. Therefore, k = t(|Ci| −1) = tk/m.
+8
+
+=== PAGE 9 ===
+In the case, when the smallest eigenvalue of a geometric distance-regular graph is −2,
+we can deduce that the graph is a line graph.
+Lemma 2.15. Let X be a geometric distance-regular graph with smallest eigenvalue −2.
+Then X is the line graph L(Y ) for some graph Y .
+Proof. Let C be a Delsarte clique geometry of X. Deﬁne the graph Y with the set of
+vertices V (Y ) = C, in which a pair of distinct vertices C1, C2 ∈C in Y is adjacent if and
+only if C1 ∩C2 ̸= ∅. We claim that L(Y ) ∼= X. Indeed, since every edge of X is in exactly
+one clique from C, |C1 ∩C2| ≤1 for any distinct C1, C2 ∈C. So there is a well-deﬁned map
+f : E(Y ) →V (X). Moreover, by Lemma 2.14, every vertex of X is in exactly two cliques
+from C, so f is bijective. Additionally, a pair of edges in Y share a vertex if and only if
+there is an edge between the corresponding vertices in X. Hence, L(Y ) ∼= X.
+Suppose that X is a geometric distance-regular graph with a Delsarte clique geometry
+C. Consider a Delsarte clique C ∈C. Assume x ∈X satisﬁes dist(x, C) = i. Deﬁne
+ψi(C, x) := |{y ∈C | d(x, y) = i}|.
+(1)
+By [5], numbers ψi(C, x) do not depend on C and x, but only on the distance dist(x, C) = i.
+Thus, we may deﬁne ψi := ψ(C, x).
+For x, y ∈X with dist(x, y) = i deﬁne
+τi(x, y; C) = |{C ∈C | x ∈C, d(y, C) = i −1}|.
+(2)
+Again, in [5] it is shown that for a geometric distance-regular graph X the number τi(x, y; C)
+does not depend on the pair x, y, but only on the distance dist(x, y) = i. Therefore, we
+may deﬁne τi := τi(x, y; C).
+Lemma 2.16 (Bang, Hiraki, Koolen [5, Proposition 4.2]). Let X be a geometric distance-
+regular graph of diameter d, with smallest eigenvalue −m. Then
+1. ci = τiψi−1, for 1 ≤i ≤d;
+2. bi = (m −τi)
+ k
+m + 1 −ψi
+
+, for 1 ≤i ≤d −1.
+Lemma 2.17. Let X be a geometric distance-regular graph of diameter d ≥2.
+Then
+τ2 ≥ψ1.
+Proof. Let C ∈C be a Delsarte clique of X and let v be a vertex with dist(v, C) = 1. Since
+C is a maximal clique, there exists a vertex y ∈C non-adjacent to v. Then dist(v, y) = 2.
+Let u1, u2, . . . , uψ1 be the neighbors of v in C. Denote by Ci ∈C a Delsarte clique that
+contains v and ui for i ∈[ψ1]. Note that since C intersects each of Ci in at most one vertex,
+all Ci are distinct. Moreover, dist(y, Ci) = 1, while dist(v, y) = 2. Therefore, τ2 ≥ψ1.
+Corollary 2.18. Let X be a geometric distance-regular graph of diameter d ≥2, with
+smallest eigenvalue −m. Then µ ≤m2.
+9
+
+=== PAGE 10 ===
+Proof. µ = τ2ψ1 ≤τ 2
+2 ≤m2.
+Lemma 2.19. Let X be a geometric distance-regular graph of diameter d ≥2.
+1. If ψ1 = 1, then for each vertex v ∈X its neighborhood graph X(v) is a disjoint union
+of m cliques, where −m is the smallest eigenvalue of X.
+2. If ψ1 ≥2, then for each vertex v ∈X its neighborhood graph X(v) is connected.
+Thus, in particular, either each neighborhood graph of X is connected, or each neighborhood
+graph of X is disconnected.
+Proof. Fix a Delsarte clique geometry C of X. Let C1, C2, . . . , Cm ∈C be the cliques which
+contain v. Take w ∈N(v) and let Ci be the clique which contains w. If ψ1 = 1, then v is
+the only neighbor of w in Cj for j ̸= i. Thus X(v) is a disjoint union of m cliques, where
+by Lemma 2.14, −m is the smallest eigenvalue of X. If ψ1 ≥2, then w is adjacent with at
+least one vertex in Cj distinct from u for every j ̸= i. Thus X(v) is a connected graph in
+this case.
+2.4
+Johnson graphs and Hamming graphs
+2.4.1
+Johnson graphs
+Deﬁnition 2.20. Let d ≥2 and Ωbe a set of s ≥2d points. The Johnson graph J(s, d) is
+a graph on the set V (J(s, d)) =
+ Ω
+d
+
+of n =
+ s
+d
+
+vertices, for which two vertices are adjacent
+if and only if the corresponding subsets U1, U2 ⊆Ωdiﬀer by exactly one element, i.e.,
+|U1 \ U2| = |U2 \ U1| = 1.
+It is not hard to check that J(s, d) is a distance-regular graph of diameter d with
+intersection numbers
+bi = (d −i)(s −d −i)
+and
+ci+1 = (i + 1)2,
+for 0 ≤i < d.
+(3)
+In particular, J(s, d) is regular of degree k = d(s −d) with λ = s −2 and µ = 4. The
+eigenvalues of J(s, d) are
+ξj = (d −j)(s −d −j) −j
+with multiplicity
+s
+j
+
+−
+
+s
+j −1
+
+, for 0 ≤j ≤d.
+(4)
+Using Lemma 2.16 it is easy to see that for the Johnson graph J(s, d)
+τi = i
+and
+ψi−1 = i,
+for 1 ≤i ≤d.
+For s ≥2d + 1, the automorphism group of J(s, d) is the induced symmetric group
+S(d)
+s , which acts on
+ Ω
+d
+
+via the induced action of Ss on Ω. Indeed, it is clear, that S(d)
+s
+≤
+Aut(J(s, d)). The opposite inclusion can be derived from the Erd˝os-Ko-Rado theorem.
+Thus, for a ﬁxed d and s ≥2d + 1, the order is | Aut(J(s, d)| = s! = Ω(exp(n1/d)), the
+thickness satisﬁes θ(Aut(J(s, d))) = s = Ω(n1/d) and
+motion(J(s, t)) = O(n1−1/d).
+(5)
+10
+
+=== PAGE 11 ===
+Theorem 2.21 ( [9, Theorem 9.1.3]). Let X be a connected graph such that
+1. for each vertex v of X the graph X(v) is the line graph of Ks,t;
+2. if dist(x, y) = 2, then x and y have at most 4 common neighbors.
+Then X is a Johnson graph or is doubly covered by a Johnson graph. More precisely, in
+the latter case X is the quotient of the Johnson graph J(2d, d) by an automorphism of the
+form τω, where τ is the automorphism sending each d-set to its complement, and ω is an
+element of order at most 2 in Sym(X) with at least 8 ﬁxed points.
+2.4.2
+Hamming graphs
+Deﬁnition 2.22. Let Ωbe a set of s ≥2 points. The Hamming graph H(d, s) is a graph
+on the set V (H(d, s)) = Ωd of n = sd vertices, for which a pair of vertices is adjacent if and
+only if the corresponding d-tuples v1, v2 diﬀer in precisely one position. In other words, if
+the Hamming distance dH(v1, v2) for the corresponding tuples equals 1.
+Again, it is not hard to check that H(d, s) is a distance-regular graph of diameter d
+with intersection numbers
+bi = (d −i)(s −1)
+and
+ci+1 = i + 1
+for 0 ≤i ≤d −1.
+(6)
+In particular, H(d, s) is regular of degree k = d(s −1) with λ = s −2 and µ = 2. The
+eigenvalues of H(d, s) are
+ξj = d(s −1) −js
+with multiplicity
+d
+j
+
+(s −1)j, for 0 ≤j ≤d.
+(7)
+Using Lemma 2.16 it is easy to see that for the Hamming graph H(d, s)
+τi = i
+and
+ψi−1 = 1,
+for 1 ≤i ≤d.
+The automorphism group of H(d, s) is isomorphic to the wreath product Ss≀Sd. Hence,
+its order is | Aut(H(d, s))| = (s!)dd!, the thickness satisﬁes θ(H(d, s)) ≥s = n1/d and
+motion(H(d, s)) ≤2sd−1 = O(n1−1/d).
+(8)
+In Section 4 we use the classiﬁcation of distance-regular graphs with the same inter-
+section array as Hamming graphs. In the case of diameter 2, the unique non-Hamming
+graph that has the intersection array of a Hamming graph is the Shrikande graph. It has
+16 vertices and has the same parameters as H(2, 4).
+Deﬁnition 2.23. The direct product of a Hamming graph H(t, 4) with ℓ≥1 copies of
+the Shrikande graph is called a Doob graph.
+One can check that Doob graphs are distance-regular and have the same intersection
+numbers as the Hamming graph H(t+2ℓ, 4). Yoshimi Egawa [16] proved that Doob graphs
+are the only graphs with this property.
+Theorem 2.24 (Egawa [16], see [9, Corollary 9.2.5]). A distance-regular graph of diameter
+d with intersection numbers given by Eq. (6) is a Hamming graph or a Doob graph.
+11
+
+=== PAGE 12 ===
+2.5
+Dual graphs
+Let X be a distance-regular graph which has a clique geometry C.
+Deﬁnition 2.25. By a dual graph of X (that corresponds to C) we mean the graph eX with
+the vertex set C, in which Ci and Cj are adjacent if and only if |Ci ∩Cj| = 1.
+Lemma 2.26. Let X be a geometric distance-regular graph of diameter d with smallest
+eigenvalue −m. Then its dual graph e
+X is an edge-regular graph of diameter d −1 with the
+vertex degree ek = (m −1)
+ k
+m + 1
+
+and eλ = (m −2) + (ψ1 −1) k
+m.
+Proof. It is known that every Delsarte clique is completely regular, with covering radius
+d−1, see [19, Lemma 7.2]. In particular, this implies that the diameter of e
+X is d−1. Every
+clique in the Delsarte clique geometry C of X has size 1 + k/m and, by Lemma 2.14, every
+vertex is in precisely m cliques from C. Since every pair of non-disjoint cliques intersects
+in precisely one vertex, we get ek = (m −1)(1 + k/m).
+Now assume that C1 and C2 are distinct cliques in C that share a vertex v. Let u ∈C1
+be a vertex distinct from v.
+Then u has ψ1 neighbors in C2.
+Let u′ be one of such
+neighbors distinct from v. Then the edge {u, u′} belongs to some clique C which is distinct
+from C1 and C2 and intersects both of them. Thus, C is a common neighbor of C1 and
+C2. Note, that a common neighbor C ∈C of C1 and C2, which does not contain v, is
+uniquely determined by u ∈C1 and its neighbor u′ in C2. Finally, note that any clique
+from C which contains v and is distinct from C1 and C2 is their common neighbor. Hence,
+eλ = (m −2) + (ψ1 −1)k/m.
+Let A and eA be the adjacency matrices of X and e
+X. Denote by spec(X) and spec( e
+X)
+the sets of eigenvalues of A and eA, respectively.
+Lemma 2.27. Let X be a geometric distance-regular graph with smallest eigenvalue −m.
+If k ≥m2, then spec( eX) ⊆{θ −k
+m + m −1 | θ ∈spec(X)}.
+Proof. Let C be a Delsarte clique geometry of X. Note that, by Lemma 2.14, every vertex
+of X belongs to precisely m cliques of C. Deﬁne N to be an n × |C| vertex-clique incidence
+matrix, i.e, Ni,j = 1 if the vertex vi belongs to the clique Cj, and Ni,j = 0 otherwise. Then
+A = NNT −mI
+and
+eA = NTN −
+ k
+m + 1
+
+I.
+(9)
+From linear algebra it is known that non-zero eigenvalues of NNT and NT N coincide.
+Since |C|(1 + k/m) = nm, we get |C| < n, so 0 is an eigenvalue of NNT . Therefore,
+spec(NT N) ⊆spec(NNT ) and the statement of the lemma follows from Eq. (9).
+12
+
+=== PAGE 13 ===
+3
+Spectral gap characterization of Johnson graphs
+In this section we prove Theorem 1.2, our characterization of Johnson graphs. Namely, we
+prove that a distance-regular graph with θ1 + 1 > (1 −ε∗)b1 and connected neighborhood
+graphs is a Johnson graph (for suﬃciently large k). We also show that the inequality
+θ1 + 1 > (1 −ε∗)b1 can hold for a distance-regular graph with disconnected neighborhood
+graphs only if µ ≤2 (see Proposition 3.11).
+The main idea of the proofs is to use the fact that for b+ =
+b1
+θ1 + 1 the expression
+−1 −b+ is a lower bound on the smallest eigenvalue of the neighborhood graph X(v).
+More precisely, we use the following result of Terwilliger [34].
+Theorem 3.1 (Terwilliger [34], see [9, Theorem 4.4.3]). Let X be a distance-regular graph
+of diameter d ≥2 with distinct eigenvalues k = θ0 > θ1 > . . . > θd, and put b+ =
+b1
+θ1 + 1,
+b−=
+b1
+θd + 1. Then each neighborhood graph X(v) has the smallest eigenvalue ≥−1 −b+,
+and the second largest eigenvalue ≤−1 −b−.
+Recall, we assume that the second largest eigenvalue of X satisﬁes θ1 + 1 ≥(1 −ε)b1.
+In this case the smallest eigenvalue of the neighborhood graph X(v) is at least −2 −δ, for
+δ = ε/(1 −ε). We also observe that if X is an edge-regular graph, its neighborhood graph
+X(v) is regular for every vertex v ∈X.
+First, we note that if the diameter d of a distance-regular graph X is at least 2, λ > 2
+and the neighborhood graph X(v) is connected, then the smallest eigenvalue of X(v) is at
+most −2. Indeed, if a regular connected graph has the smallest eigenvalue > −2, then it is
+a complete graph or an odd polygon. The neighborhood graph X(v) cannot be complete
+as d ≥2 and X(v) cannot be an odd polygon as λ > 2.
+The graphs for which smallest eigenvalue is precisely −2 were classiﬁed by Cameron,
+Goethals, Seidel and Shult [11]. We use their classiﬁcation in the case when a graph Y is
+a connected regular graph.
+Theorem 3.2 (Cameron et al. [11], see [9, Theorem 3.12.2]). Let Y be a connected regular
+graph with n ≥29 vertices and smallest eigenvalue ≥−2. Then Y is a line graph of a
+regular connected graph or of a bipartite semiregular connected graph.
+Next, we use the results of Hoﬀman, Bussemaker and Neumaier, which assert that for
+a small enough δ the smallest eigenvalue of a graph is never in the interval (−2 −δ, −2).
+Deﬁnition 3.3. Deﬁne ϑk to be the supremum of the smallest eigenvalues of graphs with
+minimal valency k and smallest eigenvalue < −2.
+Theorem 3.4 (Hoﬀman [21], see [9, Theorem 3.12.5]). The sequence (ϑk)k forms a mono-
+tone decreasing sequence with limit −1 −
+√
+2.
+13
+
+=== PAGE 14 ===
+Theorem 3.5 (Bussemaker, Neumaier [10], see [9, Theorem 3.12.5]). ϑ1 ≈−2.006594 is
+the smallest root of the equation
+θ2(θ2 −1)2(θ2 −3)(θ2 −4) = 1.
+The above discussion can be summarized in the following proposition.
+Proposition 3.6. Let X be a distance-regular graph of diameter d ≥2. Assume that the
+second largest eigenvalue of X satisﬁes θ1 + 1 > (1 −ε∗)b1, for 0 < ε∗= −2 −ϑ1
+−1 −ϑ1
+. Then
+for every vertex v of X, the neighborhood graph X(v) is a regular graph with smallest
+eigenvalue at least −2.
+Moreover, if X(v) is connected, λ > 2, and the vertex degree in X is at least 29, then
+X(v) is the line graph of a regular or of a bipartite semiregular connected graph.
+Remark 3.7. One can compute that ε∗≈0.006551. Observe that, the neighborhood
+graph X(V ) is regular of degree λ, and by Theorem 3.4, lim
+λ→∞ϑλ = −1 −
+√
+2. Thus, we can
+replace ε∗with any number less than 1 −1/
+√
+2 ≈0.29289, if we additionally require λ to
+be suﬃciently large.
+Next we analyze the structure of the local graph X(v) in the case when X is geometric.
+Lemma 3.8. Let X be a geometric distance distance-regular graph with smallest eigenvalue
+−m. Suppose that X(v) is the line graph of a regular or a bipartite semiregular connected
+graph. Assume that vertex degree k ≥max(m3, 3). Then, X(v) is the line graph of a
+complete bipartite graph Ks,t for each vertex v of X, where {s, t} = {m, k/m}.
+Proof. Fix a Delsarte clique geometry C of X. Let C1, C2, . . . , Cm ∈C be the cliques that
+contain a vertex v. Since every edge of X is contained in precisely one clique, every vertex
+of N(v) is contained in precisely one of C1, C2, . . . , Cm. Let u ∈C1 \ {v}, by the deﬁnition
+of ψi (see Section 2.3), u is adjacent with precisely ψ1 vertices of Ci for all i = 2, 3, . . . , m.
+Therefore, the degree of every vertex u in X(v) equals k/m −1 + (ψ1 −1)(m −1).
+Assume that Y is the line graph of a regular graph Z with vertex degree t. Then the
+degree of a vertex in Y is equal 2(t −1). Moreover, the size of a maximal clique in Y is t,
+if t ≥3. Since Y contains a clique of size k/m, we get t ≥k/m. Therefore, if k/m ≥3 and
+(k/m−1) > (ψ1−1)(m−1), then X(v) is not a line graph of a regular graph. In particular
+this is true, if k ≥max(m3, 3), as ψ1 ≤τ2 ≤m by the deﬁnition of τ2 and Lemma 2.17.
+Hence, for every v, the neighborhood graph X(v) is the line graph of a complete bipar-
+tite graph Ks,t. The size of the maximal clique in the line graph of Ks,t is max(s, t). Thus,
+max(s, t) = k/m. There are k vertices in X(v) and st vertices in the line graph of Ks,t, so
+{s, t} = {m, k/m}.
+In the case when X(v) is the line graph of a complete bipartite graph Ks,t and 1 + θ1 ≥
+(1 −ε)b1 we show that X is a Johnson graph. Our goal is to use the characterization of
+the Johnson graphs by local structure stated in Theorem 2.21. The only condition we still
+need to verify is µ ≤4. We prove that if µ > 4, then X contains an induced subgraph K3,2
+and so we can use the inequality provided by the theorem below.
+14
+
+=== PAGE 15 ===
+Theorem 3.9 ( [9, Theorem 4.4.6]). Let X be a distance-regular graph of diameter d ≥2
+with eigenvalues k = θ0 > θ1 > . . . > θd and put b+ = b1/(θ1 + 1). If X contains a
+non-empty induced complete bipartite subgraph Ks,t, then
+2st
+s + t ≤b+ + 1.
+Lemma 3.10. Let X be a geometric distance-regular graph of diameter d ≥2.
+1. Assume that ψ1 = 1, then X contains an induced Kτ2,2.
+2. Assume that µ ≥2, then X contains an induced K2,2 (a quadrangle).
+Proof. Let u and v be two vertices at distance 2 in X. By the deﬁnition of τ2 there exist
+distinct cliques C1, C2, . . . , Cτ2 which contain u and have non-trivial intersection with N(v).
+1. Each Ci has precisely ψ1 = 1 common vertices with N(v). Denote wi = Ci ∩N(v).
+Note that wi is at distance 1 from Cj for i ̸= j, moreover, wi is adjacent to u, while
+u ∈Cj and u ̸= wj. Thus wj is not adjacent to wi for i ̸= j. Therefore, X contains
+an induced Kτ2,2 (on vertices {w1, w2, . . . , wτ2, u, v}).
+2. By Lemma 2.17, τ2 ≥2, if µ ≥2. Take w ∈N(v) ∩C1. Assume there are no induced
+K2,2 in X. Then w is adjacent to each vertex in T = C2 ∩N(v). Note that |T| = ψ1,
+u /∈T and w is adjacent to u, so w has at least ψ1 + 1 neighbors in C2. This gives a
+contradiction with the deﬁnition of ψ1.
+Using the lemma above we obtain the following corollary to the Theorem 3.9.
+Proposition 3.11. Let X be a geometric distance-regular graph of diameter d ≥2. Assume
+that the neighborhood graphs of X are disconnected. If µ ≥3, then the second largest
+eigenvalue of X satisﬁes θ1 + 1 ≤5
+7b1.
+Proof. Since X is geometric and X(v) is disconnected, by Lemma 2.19, ψ1 = 1. Moreover,
+if µ ≥3, by Lemma 3.10, there is an induced K3,2. Therefore, by Theorem 3.9,
+b1
+θ1 + 1 ≥12
+5 −1 = 7
+5.
+In the next lemma we show the existence of an induced complete bipartite subgraph
+Kτ2,2 in the case when a neighborhood graph is the line graph of a triangle-free graph.
+Lemma 3.12. Let X be a geometric distance-regular graph. Assume that for each vertex
+v of X the induced subgraph X(v) is the line graph of a triangle-free graph. Then ψ1 = 2
+and X contains induced Kτ2,2.
+15
+
+=== PAGE 16 ===
+Proof. Observe that if the line graph Y of a triangle-free graph Y ′ contains a triangle,
+then the corresponding edges (of the base graph Y ′) of all three vertices of the triangle are
+incident to the same vertex in Y ′.
+Fix a Delsarte clique geometry C of X . Let v be a vertex of X, and C ∈C be a Delsarte
+clique which contains v, and let w ∈N(v) \ C. By Lemma 3.10, since X(v) is connected,
+ψ1 ≥2. Assume that ψ1 ≥3. Then w is adjacent to at least two vertices v1 and v2 in C
+distinct from v. Since w, v1, v2 form a triangle in X(v), the corresponding edges in the base
+graph are incident to the same vertex. Similarly, for any vertex x ∈C \ {v}, the edges of
+the base graph that correspond to x, v1 and v2 are incident to the same vertex. Therefore,
+{w} ∪C is a clique in X, which contradicts maximality of C. Therefore, ψ1 = 2.
+Let u and v be two vertices at distance 2 in X. There exist distinct cliques C1, C2, . . . , Cτ2
+which contain u and have non-trivial intersection with N(v), and distinct cliques C′
+1, C′
+2, . . . , C′
+τ2
+which contain v and have non-trivial intersection with N(u).
+Let T = N(u) ∩N(v). Assume that w1, w2 ∈T are adjacent, but {w1, w2} is not a
+subset of Ci or C′
+i for any i ∈[τ2]. Since ψ1 = 2 there exists a vertex w ∈T such that
+{w, w1} is a subset of some Ci. Similarly there is w′ ∈T with {w′, w1} ⊆C′
+j for some
+j. Assume that X(v) is a line graph of a triangle-free graph Y . Assume that edges of Y
+that correspond to w1, w′ are incident with a vertex x of Y . If corresponding to w2 edge is
+incident with x, then by the argument as above, w2 ∈C′
+j. This contradicts the choice of
+w2. Let y be the vertex of Y incident to the edges in Y corresponding to w2 and w1. Since
+|Ci ∩C′
+j| ≤1, we have w /∈C′
+j, so w is not incident to x. Thus, w is incident to y. Hence,
+w, w1 and w2 form a triangle.
+Since {w, w1} ⊆Ci and X(u) is also the line graph of a triangle-free graph we similarly
+get that w2 ∈Ci. This gives a contradiction with the choice of w1, w2. Therefore, any two
+vertices in T are adjacent if and only if they share the same clique Ci or C′
+i.
+We obtain that an edge between a pair of vertices in T is between vertices in T ∩Ci
+or between vertices in T ∩C′
+j for some i, j. We refer to them as edges of type 1 and edges
+of type 2, respectively. Since |T ∩Ci| = |T ∩C′
+i| = ψ1 = 2, every vertex in T is incident
+with precisely one edge of type 1 and precisely one edge of type 2. Therefore, the subgraph
+induced on T is a union of even cycles. Hence, we may choose an independent set S ⊆T
+of the size 1
+2|T| = 1
+2ψ1τ2 = τ2 in X. The graph induced on S ∪{u, v} is K2,τ2.
+Now we are ready to combine all the arguments into the proof of Theorem 1.2.
+Proof of Theorem 1.2. Denote b+ =
+b1
+θ1 + 1. Since ε∗= −2 −ϑ1
+−1 −ϑ1
+the assumptions of the
+theorem imply b+ < −1 −ϑ1. Since X is not complete, by Lemma 2.14, m ≥2. Thus
+k ≥m3 and λ ≥k/m −1 implies λ ≥3. Hence, by Proposition 3.6 and Lemma 3.8, either
+X(v) is a disconnected graph for some vertex v, or X(v) is the line graph of the complete
+bipartite graph Ks,t for any vertex v of X.
+In the latter case, by Lemma 3.12, X contains Kτ2,2 and ψ1 = 2. Since we assumed
+that b+ ≤−1 −ϑ1 < 7/5, by Theorem 3.9, we get that τ2 ≤2 (as otherwise there is
+induced K2,3 subgraph). Hence, µ ≤4. By Theorem 2.21, we get that X is a Johnson
+16
+
+=== PAGE 17 ===
+graph J(s, d), or a graph which can be double covered by J(2d, d). The later case is not
+possible as k ≥m3.
+Remark 3.13. We note that in the light of Remark 3.7, if we additionally assume that k is
+large enough, then we can replace ε∗with 2/7 in Theorem 1.2. Indeed, since λ ≥(k/m)−1
+and k ≥m3, the assumption that k is large enough guarantees that λ is large enough.
+Hence, the proof above will work as b+ < 7/5 <
+√
+2.
+4
+Spectral gap characterization of Hamming graphs
+In this section we prove a characterization of Hamming graphs in terms of the spectral
+gap and local parameters. As in the previous section, we assume that the second largest
+eigenvalue of X satisﬁes θ1 ≥(1 −ε)b1. We show that if additionally for each vertex the
+neighborhood graph is a disjoint union of cliques, µ = 2, and there is a dominant distance,
+then X is a Hamming graph. Our proof strategy relies on the following theorem.
+Theorem 4.1 (Terwilliger [34]). Let X be a distance-regular graph of diameter d ≥2.
+Assume that the second largest eigenvalue θ1 has multiplicity f1 < k. Then each local
+graph X(v) has eigenvalue −1 −b+ with multiplicity at least k −f1, where b+ =
+b1
+θ1 + 1.
+We prove that if X is not a Hamming graph, then the assumptions of Theorem 1.4
+imply that the second largest eigenvalue has multiplicity at most k −1. Therefore, by
+the theorem above, each neighborhood graph of X has an eigenvalue less than −1. This
+contradicts the assumption that each neighborhood graph is a disjoint union of cliques.
+We start by showing that for a geometric distance-regular graph the sequence (τi)t−1
+i=1 is
+increasing if µ ≥2 and ct is suﬃciently small.
+Lemma 4.2. Let X be a geometric distance-regular graph of diameter d, with smallest
+eigenvalue −m. Assume that µ ≥2 and ct ≤εk, where t ≤d and 0 < ε < 1/m2. Then
+τi < τi+1,
+for any i = 1, 2, . . . , t −2.
+Proof. Recall, by Lemma 2.16,
+ci = τiψi−1,
+bi = (m −τi)
+ k
+m + 1 −ψi
+
+.
+Hence, in particular, ψi−1 ≤ci ≤ct ≤εk, for i ≤t. So for i ≤t −1
+(m −τi)
+ 1
+m −ε
+
+k ≤bi ≤m −τi
+m
+k.
+(10)
+By Lemma 3.10, a geometric distance-regular graph with µ ≥2 contains a quadrangle.
+Thus, by the Terwilliger inequality (see Theorem 2.6) we have
+bi ≥bi+1 + λ + 2 + ci −ci+1, for i = 0, 1, . . . , d −1.
+17
+
+=== PAGE 18 ===
+Therefore, for i ≤t −2, using Eq. (10),
+m −τi
+m
+k ≥(m −τi+1)
+ 1
+m −ε
+
+k + λ + 2 −εk.
+Since λ ≥k/m −1, for i ≤t −2, we get
+(m −τi) ≥(m −τi+1) −m2ε + 1
+⇒
+τi+1 ≥τi + 1 −m2ε.
+Corollary 4.3. If the assumptions of Lemma 4.2 hold for t = d, then τi < τi+1 for i ≤d−1.
+Proof. By Lemma 4.2, τi < τi+1 for i ≤d −2. Observe, that by the deﬁnition of τi, we
+have τd = m and τi ≤m −1 for any i ≤d −1.
+Corollary 4.4. If the assumptions of Lemma 4.2 hold for t = d, then
+(d −i)
+ 1
+m −ε
+
+k ≤bi ≤m −i
+m
+k,
+for 1 ≤i ≤d −1.
+Proof. Since τ1 = 1 and τd−1 ≤m −1, by Lemma 4.2, we have i ≤τi ≤m −d + i for
+i ≤d −1. So the desired inequality directly follows from Eq. (10).
+To get a bound on the multiplicity of the second largest eigenvalue θ1 of X we ﬁrst prove
+lower bounds on the elements of the standard sequence corresponding to θ1 (see Sec. 2.2).
+Lemma 4.5. Let X be a geometric distance-regular graph of diameter d ≥2 with smallest
+eigenvalue −m. Let θ1 be its second largest eigenvalue and (ui)d
+i=0 be the corresponding
+standard sequence. Assume that µ ≥2, θ1 ≥(1 −ε)b1, and ct ≤εk for some 2 ≤t ≤d,
+where 0 < ε < 1/(24m2).
+Then, for 1 ≤j ≤t −1
+uj ≥(1 −3m2ε)j−1
+
+m −τj
+m −τj + j −1
+ θ1
+k .
+Proof. Recall that the standard sequence corresponding to the eigenvalue θ1 satisﬁes
+u0 = 1,
+u1 = θ1
+k ,
+ciui−1 + aiui + biui+1 = θ1ui, for i = 1, . . . , d −1.
+We can rewrite this as
+ui+1 = ui
+(θ1 + bi + ci −k)
+bi
+−ui−1
+ci
+bi
+≥ui
+
+1 −k −θ1
+bi
+
+−ui−1
+ci
+bi
+.
+(11)
+For 2 ≤i ≤t, by the assumptions of the lemma, ψi−1 ≤ci ≤ct ≤εk. So, by Lemma 2.16,
+k −θ1 ≤k −(1 −ε)b1 ≤(k −b1) + εk ≤k
+m + (m −1)ψ1 + εk ≤k
+m + mεk;
+(12)
+18
+
+=== PAGE 19 ===
+(m −τi)
+ 1
+m −ε
+
+k ≤bi,
+for i ≤t −1.
+(13)
+For the convenience of the future computations we ﬁrst show that for 1 ≤i ≤t −2,
+inequality 3ui+1 ≥ui ≥0 holds. Indeed, by Eq. (12), u1 ≥1
+3u0. Moreover, by Lemma 4.2,
+τi ≤τt−1 −1 ≤m −2, so by Eq. (12) and Eq. (13),
+1 −k −θ1
+bi
+≥1 −1 + m2ε
+2 −2mε ≥1
+2 −m2ε.
+Thus, using τi ≤m −2 for i ≤t −2, by induction, we get from Eq. (11) and Eq. (13)
+ui+1 ≥
+1
+2 −m2ε
+
+ui −mεui−1 ≥
+1
+2 −4m2ε
+
+ui ≥1
+3ui.
+Hence, for i ≤t −2, we can rewrite Eq. (11)
+ui+1 ≥ui
+(θ1 + bi + ci −k)
+bi
+−3ui
+ci
+bi
+≥ui
+
+1 −k −θ1 + 2εk
+bi
+
+.
+Thus, using Eq. (12) and Eq. (13), for i ≤t −2,
+ui+1 ≥ui
+
+1 −k + (m2 + 2m)εk
+mbi
+
+≥ui
+
+1 −
+1
+(m −τi)
+(1 + 2m2ε)
+(1 −mε)
+
+≥ui
+
+1 −(1 + 3m2ε)
+m −τi
+
+.
+By Lemma 4.2, τi ≤τj −(j −i) for i ≤j ≤t−1. Thus, for δ = 3m2ε and i+1 ≤j ≤t−1,
+ui+1 ≥(1 −δ)
+
+1 −
+1
+m −τi
+
+ui ≥(1 −δ)m −τj + j −i −1
+m −τj + j −i
+ui.
+Therefore, for any 1 ≤j ≤t −1,
+uj ≥(1 −δ)j−1
+j−1
+Y
+i=1
+m −τj + j −i −1
+m −τj + j −i
+u1 = (1 −δ)j−1
+
+m −τj
+m −τj + j −1
+ θ1
+k .
+Proposition 4.6. Let X be a geometric distance-regular graph of diameter d ≥2 with
+smallest eigenvalue −m. Take 0 < ε < 1/(6m4d). Suppose that µ ≥2, ct ≤εk and bt ≤εk
+for some 2 ≤t ≤d. Assume, moreover, that the second largest eigenvalue of X satisﬁes
+θ1 ≥(1 −ε)b1.
+Then either the multiplicity f1 of θ1 satisﬁes f1 ≤k −1, or m = d, t = d and cd = d.
+Proof. Let (ui)d
+i=0 be the standard sequence of X corresponding to θ1. Then, by the Biggs
+formula, multiplicity of an eigenvalue θ1 can be computed as
+f1 =
+n
+ dP
+i=0
+kiu2
+i
+.
+19
+
+=== PAGE 20 ===
+Note, as in Eq. (10), bi−1 ≥bt−1 ≥
+ 1
+m −ε
+
+k ≥
+1
+2mk and ci ≤ct for any 1 ≤i ≤t. So
+ki−1 =
+ci
+bi−1
+ki ≤
+ct
+bt−1
+ki ≤2mεki,
+for i ≤t.
+(14)
+For d −1 ≥i ≥t, by Lemma 2.16, bi ≤bt ≤εk implies
+ψi ≥
+ 1
+m −ε
+
+k ≥
+1
+2mk,
+so
+ci+1 = τi+1ψi ≥
+1
+2mk.
+Hence, for t ≤i ≤d −1 we deduce,
+ki+1 =
+bi
+ci+1
+ki ≤
+εk
+k/(2m)ki = 2mεki.
+(15)
+Combining Eq. (14) and Eq. (15) we obtain
+n =
+d
+X
+i=0
+ki ≤kt
+ 
+t
+X
+i=0
+(2mε)i +
+d−t
+X
+i=1
+(2mε)i
+!
+≤
+1
+1 −4mεkt
+⇒
+kt ≥(1 −4mε)n.
+As in Eq. (12), θ1/k ≥(m −1)/m −mε. So, by Lemma 4.5 and Eq.(10), for t ≥2,
+kt−1u2
+t−1 ≥kt
+ct
+bt−1
+(1 −3m2ε)2t−4
+
+m −τt−1
+m −τt−1 + t −2
+2 θ1
+k
+2
+≥
+≥kt
+ct
+bt−1
+(1 −3m2ε)2t−4
+
+m −τt−1
+m −τt−1 + t −2
+2
+(1 −2mε)2
+m −1
+m
+2
+≥
+≥(1 −4mε)n ·
+mct
+(m −τt−1)k · (1 −3m2ε)2d−1
+
+m −τt−1
+m −τt−1 + t −2
+2 m −1
+m
+2
+≥
+≥n
+k · (1 −3m2ε)2d · ct
+m · (m −τt−1)(m −1)2
+(m −τt−1 + t −2)2 .
+Our goal is to deduce from this inequality that kt−1u2
+t−1 > n/k, unless ct = t = m = d.
+We start by giving a bound on ct. Observe that ψt−2 ≥1, and τt−1 ≥t −1, by Lemma 4.2.
+So we obtain
+ct ≥ct−1 ≥τt−1ψt−2 ≥t −1.
+(16)
+Case 1. First, assume that ct = t −1.
+Then, Eq. (16) implies τt−1 = t −1 and ct = ct−1. Thus, in particular, we can simplify
+ct
+m · (m −τt−1)(m −1)2
+(m −τt−1 + t −2)2 = t −1
+m
+· (m −t + 1)(m −1)2
+(m −1)2
+= (t −1)(m −t + 1)
+m
+.
+Also, observe that the constraint ct = ct−1 implies t > 2 as 1 = c1 < 2 ≤µ = c2.
+Moreover, by Corollary 2.8, c3 > c2 for µ ≥2, so we should have t ≥4 in this case.
+20
+
+=== PAGE 21 ===
+At the same time, ct = ct−1, using Terwilliger’s inequality (see Theorem 2.6), implies
+bt−1 ≥ct−1 −ct + bt + λ + 2 ≥λ + 2 ≥k
+m + 1.
+Since
+bt−1 = (m −τt−1)
+ k
+m + 1 −ψt−1
+
+≤(m −τt−1) k
+m,
+we deduce τt−1 ≤m −2. So t ≤m −1, as τt−1 = t −1.
+Thus 4 ≤t ≤m −1, which implies m ≥5, and we get
+ct
+m · (m −τt−1)(m −1)2
+(m −τt−1 + t −2)2 = (t −1)(m −t + 1)
+m
+≥2(m −2)
+m
+≥2 −4
+m ≥6
+5.
+Since, 3m2ε < 1, by Bernoulli’s inequality
+(1 −3m2ε)2d ≥(1 −6dm2ε) > 5
+6.
+Therefore, in this case,
+kt−1u2
+t−1 > n
+k
+⇒
+f1 ≤
+n
+kt−1u2
+t−1
+< k
+⇒
+f1 ≤k −1.
+Case 2. Else we have ct ≥t.
+Lemma 4.2 implies t ≤τt−1 + 1 ≤m. It is not hard to check (see Appendix A), that
+(m −τt−1)(m −1)2
+(m −τt−1 + t −2)2 ≥m −1
+t −1 .
+(17)
+Hence, applying inequality from Eq. (17),
+kt−1u2
+t−1 ≥n
+k (1 −3m2ε)2d ct
+m
+m −1
+t −1
+
+≥n
+k (1 −3m2ε)2d
+
+t
+t −1
+ m −1
+m
+
+.
+If 2 ≤t < m, then
+
+t
+t −1
+ m −1
+m
+
+≥
+m −1
+m −2
+ m −1
+m
+
+= 1 +
+1
+m2 −2m ≥1 +
+1
+m2 −1.
+If 2 ≤t = m, and ct > t, then
+ ct
+t −1
+ m −1
+m
+
+≥
+t + 1
+t −1
+ m −1
+m
+
+= m + 1
+m
+≥1 +
+1
+m2 −1.
+In each of these two cases, we get
+kt−1u2
+t−1 ≥n
+k · (1 −3m2ε)2d
+
+1 +
+1
+m2 −1
+
+.
+21
+
+=== PAGE 22 ===
+By Bernoulli’s inequality, since 3m2ε < 1,
+(1 −3m2ε)2d ≥(1 −6dm2ε) > 1 −1
+m2 =
+
+1 +
+1
+m2 −1
+−1
+.
+Therefore, if ct > t or m > t, then kt−1u2
+t−1 > n/k and so
+f1 ≤
+n
+kt−1u2
+t−1
+< k
+⇒
+f1 ≤k −1.
+Finally, assume τtψt−1 = ct = t and m = t. We know from Lemma 4.2 that τt−1 ≥t −1.
+If t < d, then bt ≥1. So, by Terwilliger’s inequality and Lemma 2.16,
+k
+m ≥(m −τt−1)
+ k
+m + 1 −ψt−1
+
+= bt−1 ≥ct−1 −ct + bt + λ + 2 ≥λ + 2 ≥k
+m + 1,
+which gives a contradiction with the assumption t < d. Therefore, t = d and cd = d,
+m = d.
+Now we are ready to prove Theorem 1.4 in the following equivalent form (see Lemma 2.19).
+Theorem 4.7. Let X be a distance-regular graph of diameter d ≥2. Suppose that every
+neighborhood graph X(v) is a disjoint union of m cliques. Moreover, assume µ ≥2, ct ≤εk
+and bt ≤εk for some t ≤d and θ1 ≥(1 −ε)b1, where 0 < ε < 1/(6m4d).
+Then X is a Hamming graph H(d, s), for s = 1 + k/d.
+Proof. Pick some vertex v and let X(v) = Sm
+i=1 Ci, where Ci is a clique for every i. Since
+X is distance-regular, all Ci are of the same size λ + 1. Note that {v} ∪Ci is a maximal
+clique in X of the size k/m + 1. Since k ≥1/ε > m2, by Proposition 2.13, X is geometric
+with smallest eigenvalue −m.
+Hence, by Proposition 4.6, either we have f1 ≤k −1, or cd = m = d. If f1 ≤k −1, by
+Theorem 4.1, −1 −
+b1
+θ1 + 1 is an eigenvalue of X(v). However, b1 > 0 and θ1 > 0, so X(v)
+has an eigenvalue less than −1. This gives a contradiction with the assumption that X(v)
+is a disjoint union of cliques.
+Therefore, cd = m = d. By Lemma 4.2, we get τi ≥i for any i ∈[d]. At the same time,
+d = cd = τdψd−1, so τd = d and ψd−1 = 1. We immediately deduce τi = i for all i ∈[d].
+Assume that ψi−1 ≥2, while ψi = 1 for some 2 ≤i ≤d −1. Then we get a contradiction
+with
+i + 1 = ψiτi+1 = ci+1 ≥ci = ψi−1τi ≥2i.
+Thus, ψi = 1 for every i. This means, that the intersection array of X coincides with the
+intersection array of the Hamming graph H(d, 1 + k/d), as
+ci = i
+and
+bi = (d −i)k
+d.
+Using characterization of Hamming graphs by their intersection array (Theorem 2.24), X is
+a Hamming graph or a Doob graph. Note that X may be a Doob graph, only if 1+k/d = 4,
+which is not possible as k ≥1/ε ≥6d. Therefore, X is a Hamming graph.
+22
+
+=== PAGE 23 ===
+Corollary 4.8. Let X be a geometric distance-regular graph of diameter d ≥2. Suppose
+that X has µ = 2 and smallest eigenvalue −m. Take 0 < ε < 1/(6m4d). Assume, ct ≤εk
+and bt ≤εk for some t ∈[d], and θ1 ≥(1 −ε)b1. Then X is a Hamming graph H(d, s).
+Proof. By Lemma 2.16, µ = τ2ψ1, and by Lemma 2.17, τ2 ≥ψ1, so µ = 2 implies τ2 = 2
+and ψ1 = 1. This means that a neighborhood graph of X is a disjoint union of −θd = m
+cliques (Lemma 2.19). Therefore, the statement follows from the theorem above.
+5
+Proof of Babai’s conjecture
+In this section we prove Babai’s conjecture on the motion of distance-regular graphs. We
+start our discussion with the elusive case µ = 1.
+5.1
+Geometric distance-regular graphs with µ = 1
+In the case of µ = 1 our strategy is to show that the dual graph of X has linear motion
+and then to deduce that X itself has linear motion. We use the following Spectral tool for
+obtaining motion lower bounds, proved by Babai in [3].
+For a k-regular graph X let k = ξ1 ≥ξ2 ≥... ≥ξn denote the eigenvalues of the
+adjacency matrix of X. We call quantity ξ = ξ(X) = max{|ξi| : 2 ≤i ≤n} the zero-weight
+spectral radius of X.
+Lemma 5.1 (Babai, [3, Proposition 12]). Let X be a regular graph of degree k on n vertices
+with the zero-weight spectral radius ξ. Suppose every pair of vertices in X has at most q
+common neighbors. Then
+motion(X) ≥n · (k −ξ −q)
+k
+.
+Let X be a geometric distance-regular graph with µ = 1 and let e
+X be its dual graph.
+By Lemma 2.26, every vertex in e
+X has degree ek = km −1
+m
++ (m −1) and every pair of
+adjacent vertices in e
+X has eλ = m−2 common neighbors. Every pair of vertices at distance
+two in e
+X has eµ = 1 common neighbours. Indeed, if there are at least two edges between a
+pair of cliques C1 and C2, that do not share a vertex, then either ψ1 ≥2 in X, or there is
+an induced quadrangle. In both cases we get µ ≥2 and we reach a contradiction.
+Since q( e
+X) = max(eµ, eλ) is small, we are going to show that Lemma 5.1 can be applied.
+For this, it is suﬃcient to show that e
+X has a linear in k spectral gap. First, we bound
+the zero-weight spectral radius of a geometric distance-regular graph using the following
+lemma proven in [23].
+Theorem 5.2 ( [23, Theorem 3.11]). For every d ≥2 there exist ε = ε(d) > 0 and
+η = η(d) > 0 such that for any distance-regular graph X of diameter d one of the following
+is true.
+23
+
+=== PAGE 24 ===
+1. For some 0 ≤i ≤d −1 we have bi ≥εk and ci+1 ≥εk.
+2. The zero-weight spectral radius of X satisﬁes ξ ≤k(1 −η).
+Using the relationship between the spectrum of the geometric graph X and its dual
+graph e
+X we get the following corollary.
+Lemma 5.3. Let X be a geometric distance-regular graph of diameter d ≥2 with smallest
+eigenvalue −m, where m ≥3. Let e
+X be its dual graph. Let ε = ε(d) and η = η(d) ≤1/2
+be constants provided by Theorem 5.2. Assume k ≥m2, ct ≤εk and bt ≤εk for some
+t ∈[d]. Then the zero-weight spectral radius of e
+X satisﬁes
+ξ( e
+X) ≤ek(1 −η).
+Proof. Assumption k ≥m2 implies ek < k. Let eθ1 and eθmin denote the second largest and
+the smallest eigenvalues of eX. Then the statement of the lemma follows from the following
+two inequalities implied by Theorem 5.2 and Lemma 2.27,
+eθ1 ≤(1 −η)k −k
+m + m −1 = ek −ηk ≤ek(1 −η),
+eθmin ≥−m −k
+m + m −1 = −k
+m −1 = −
+ek
+m −1 ≥−ek(1 −η).
+Thus, using Lemma 5.1 we get a linear lower bound on the motion of e
+X.
+Proposition 5.4. Let X be a geometric distance-regular graph of diameter d ≥2 with
+µ = 1 and smallest eigenvalue −m, where m ≥3. Let ε = ε(d) and η = η(d) ≤1/2 be
+constants provided by Theorem 5.2. Assume ct ≤εk and bt ≤εk for some t ∈[d], and
+k ≥max(4m/η, m2). Let e
+X be the dual graph of X. Then
+motion( e
+X) ≥η
+2|V ( e
+X)|.
+Proof. Since µ = 1, by the discussion after Lemma 5.1, the maximal number of common
+neighbors of a pair of distinct vertices is equal q( e
+X) = max(eλ, eµ) = max(m −2, 1). Note
+that ek ≥m −1
+m
+k ≥k
+2. So ηek ≥2m ≥2q( e
+X). Hence,
+ξ( eX) + q( e
+X) ≤(1 −η)ek + η
+2
+ek =
+
+1 −η
+2
+
+ek.
+Therefore, the statement of the proposition follows from Lemma 5.1.
+We show that this implies that motion(X) is linear in n = |V (X)|.
+24
+
+=== PAGE 25 ===
+Lemma 5.5. Let F be a collection of size-s subsets of the set Ωsuch that every element
+of Ωis in m sets from F and any two distinct sets in F intersect in precisely one element
+of Ω. Let σ be a permutation of Ωwhich respects F, namely for every C ∈F its image
+σ(C) is in F, too. Assume that at most α|F| sets C ∈F are ﬁxed by σ, then at most
+
+α + 1 −α
+s
+
+|Ω| elements of Ωare ﬁxed by σ.
+Proof. Note that if C ∈F is not ﬁxed as set by σ, then |σ(C) ∩C| ≤1, as σ(C) ∈F too.
+Hence, at most one element x ∈Ωof C is ﬁxed by σ.
+Now let us count the number of pairs (C, v), such that v ∈C and σ(v) ̸= v. We just
+argued that each of at least (1−α)|F| sets in F have (s−1) elements that are not ﬁxed by
+σ. Therefore, the number of pairs we count is at least (1 −α)|F|(s −1). Note that every
+element of Ωbelongs to m sets in F. Therefore, the number of elements of Ωnot ﬁxed by
+σ is at least (1 −α)|F|(s −1)/m.
+Using that every set in F has s elements and every element belongs to m sets in F,
+we deduce that s|F| = m|Ω|. Therefore, the number of elements of Ωnot ﬁxed by σ is at
+least (1 −α)(s −1)
+s
+|Ω|.
+Corollary 5.6. Let X be a non-complete geometric distance-regular graph on n vertices and
+let e
+X be its dual graph on en vertices. Assume that motion( e
+X) ≥γen, then motion(X) ≥γ
+2n.
+Proof. Let σ be a non-identity element of Aut(X).
+Then σ maps Delsarte cliques to
+Delsarte cliques. Thus σ induces an automorphism eσ of e
+X. Note that if X is non-complete
+and geometric, then every vertex in X is uniquely determined by the set of Delsarte cliques
+that contain it. Hence, if σ is non-identity, then eσ is non-identity as well. So by assumptions
+of the corollary, eσ ﬁxes at most (1−γ)en vertices of e
+X. Using that every Delsarte clique is of
+size at least 2, we get from the previous lemma that σ ﬁxes at most (1−γ/2)n vertices.
+We summarize the discussion of this section in the following theorem.
+Theorem 5.7. Let X be a geometric distance-regular graph of diameter d ≥2 on n vertices.
+Suppose µ = 1 and the smallest eigenvalue of X is −m, where m ≥3. Let ε = ε(d) and
+η = η(d) < 1/2 be constants provided by Theorem 5.2. Assume ct ≤εk and bt ≤εk for
+some t ∈[d], and k ≥max(4m/η, m2). Then
+motion(X) ≥η
+4n.
+Proof. Let e
+X be a dual graph of X on en vertices. Then, Proposition 5.4 implies motion( e
+X) ≥
+(η/2) · en. Therefore, the statement of the theorem follows from Corollary 5.6.
+5.2
+Distance-regular line graphs with µ = 1
+Note that, by Lemma 2.15, geometric distance-regular graphs with smallest eigenvalue −2
+are line graphs. Thus, we can use the following result of Mohar and Shawe-Taylor [29].
+25
+
+=== PAGE 26 ===
+Deﬁnition 5.8. A distance-regular graph of diameter d with parameters
+k = s(t + 1), λ = s −1, ci = 1 and bi = k −s (for i = 1, . . . , d −1), cd = t + 1
+is called a generalized 2d-gon of order (s, t).
+Theorem 5.9 (Mohar, Shawe-Taylor [29, Theorem 3.4]). Suppose the line graph L(Y ) of a
+graph Y is distance-regular. Then, either Y is a Moore graph, or Y is a generalized 2d-gon
+of order (1, s) for some s ≥1, or Y = K1,s for s ≥1.
+By the Hoﬀman-Singleton theorem, it is known that a Moore graph is either a complete
+graph, a polygon, or it is the Peterson graph (k = 3), the Hoﬀman-Singleton graph (k = 7),
+or it has degree k = 57 and diameter d = 2.
+Note that a generalized 2d-gon of order (1, s) has intersection numbers ai = 0 for
+any i ∈[d]. Thus it is bipartite. Recall, that each of two connected components of the
+distance-2 graph X2 of a bipartite distance-regular graph X is called a halved graph.
+Fact 5.10 (see [9, Theorem. 6.5.1]). If X is a generalized 2d-gon of order (1, s), then d is
+even and its halved graph is a generalized d-gon of order (s, s).
+A celebrated theorem of W. Feit and G. Higman [18] asserts that apart from polygons,
+generalized 2d-gons exist only for 2d ∈{4, 6, 8, 12}.
+Theorem 5.11 (W. Feit, G. Higman). A generalized 2d-gon of order (s, t) exists only for
+2d ∈{4, 6, 8, 12} unless s = t = 1. If s > 1, then 2d ̸= 12.
+Finally, we use the following bound on the zero-weight spectral radius of generalized
+2d-gon of order (s, s) for 2d ≤6.
+Fact 5.12 ( [9, Table 6.4]). Let X be a generalized 2d-gon of order (s, s) for 2d ≤6, s > 1.
+Then the zero-weight spectral radius of X satisﬁes ξ(X) ≤2s.
+Proposition 5.13. Let X be a geometric distance-regular graph of diameter d ≥2 on n
+vertices. Suppose µ = 1, k > 4 and the smallest eigenvalue of X is −2. Then
+motion(X) ≥1
+16n.
+Proof. By Lemma 2.15, X is a line graph. Let e
+X be the dual graph of X. Thus, by
+Theorem 5.9, e
+X is a Moore graph or a generalized 2d-gon of order (1, s) for s = k/2 > 2.
+If eX is a Moore graph, then µ = 1 implies that e
+X is not complete, and k > 4 implies e
+X
+is not a polygon. Thus e
+X is a strongly regular graph. Hence, Theorem 1.9 implies that
+motion( e
+X) ≥n/8 and the desired bound on the motion of X follows from Corollary 5.6.
+Therefore, we may assume that e
+X is a generalized 2d-gon of order (1, s) for s > 2.
+Then, by Fact 5.10, a halved graph Y of e
+X is a generalized d-gon of order (s, s) (and d is
+26
+
+=== PAGE 27 ===
+even). Moreover, by Theorem 5.11, d ≤6 and by Fact 5.12, ξ(Y ) ≤2s. Note that any pair
+of vertices in Y has at most q(Y ) = s −1 common neighbors. Therefore, by Lemma 5.1,
+motion(Y ) ≥s(s + 1) −3s
+s(s + 1)
+|V (Y )| ≥s −2
+s + 1|V (Y )| ≥1
+4|V (Y )|.
+We note that |V ( e
+X)| = 2|V (Y )| and motion( e
+X) ≥motion(Y ) (see [23, Prop. 5.5]).
+Therefore, the statement of the proposition follows from Corollary 5.6.
+Remark 5.14. We note that one can show a linear lower bound (with a worse constant)
+on motion in this case without using the Feit-Higman classiﬁcation theorem. Since a dual
+graph e
+X is bipartite or of diameter 2, one can use Theorem 1.9 and the bounds on the
+motion of bipartite graphs, which we proved in [23, Theorem 5.6 and Prop. 5.11].
+5.3
+Combining all pieces together
+Finally, we combine the results of this paper and of [23] to get the proof of Babai’s con-
+jecture (Conjecture 1.10). From [23], in addition to Theorems 1.12 and 5.2, we need the
+following observation.
+Proposition 5.15 ( [23, Proposition 4.9]). Let X be a primitive distance-regular graph of
+diameter d ≥2. Fix some real number α > 0. Suppose that for some 1 ≤j ≤d −1 the
+inequalities bj ≥αk and cj+1 ≥αk hold. Then
+motion(X) ≥α
+d n.
+Theorem 5.16. For any d ≥3 there exists γd > 0, such that for any primitive distance-
+regular graph X of diameter d on n vertices either
+motion(X) ≥γdn,
+or X is the Hamming graph H(d, s) or the Johnson graph J(s, d).
+Proof. Recall, Theorem 1.12 implies that either motion(X) ≥γ′
+dn for some γ′
+d > 0, or X
+is geometric with smallest eigenvalue ≥−md, for some md ≥2.
+Let ε′ = ε(d) and ηd = η(d) be the constants provided by Theorem 5.2. Set
+0 < ε = 1
+2 min
+
+1
+6m4
+dd, ε′
+
+< 1/200.
+Case A. X is not geometric or the smallest eigenvalue of X is less than −md.
+Then, by Theorem 1.12, motion(X) ≥γ′
+dn.
+Case B. There exists t ∈[d] such that ct+1 ≥εk and bt ≥εk.
+Then, by Proposition 5.15, motion(X) ≥εn/d.
+27
+
+=== PAGE 28 ===
+Case C. X is geometric with smallest eigenvalue at least −md and there exists t ∈[d]
+such that ct ≤εk and bt ≤εk.
+By Theorem 5.2, the zero-weight spectral radius of X satisﬁes ξ(X) ≤(1 −ηd)k.
+Case C.1. k < max(29, 2m3
+d, 4md/ηd).
+Then X has at most Nd = max(29, 2m3
+d, 4md/ηd)d + 1 vertices. Moreover, every
+non-trivial automorphism moves at least 2 points, so motion(X) ≥2
+Nd
+n.
+Case C.2. k ≥max(2m3
+d, 29) and µ ≥2.
+Case C.2.i. θ1 < (1 −ε)b1.
+Using Corollary 2.18 we obtain, λ ≥k
+md
+−1 ≥m2
+d ≥µ. By Lemma 2.5, we have
+2λ ≤µ + k, so b1 ≥(k −µ)/2 ≥k/4. Thus
+ξ(X) + q(X) ≤k −εb1 ≤
+
+1 −ε
+4
+
+k.
+Hence, by Lemma 5.1, motion(X) ≥ε
+4n.
+Case C.2.ii. θ1 ≥(1 −ε)b1 and µ ≥3.
+Since ε <
+1
+200 < ε∗, by Theorem 1.2 and Proposition 3.11, X is a Johnson graph.
+Case C.2.iii. θ1 ≥(1 −ε)b1 and µ = 2.
+By Corollary 4.8, X is a Hamming graph.
+Case C.3. µ = 1 and k ≥max(4md/ηd, m2
+d).
+Case C.3.i. The smallest eigenvalue −m of X satisﬁes −m ≤−3.
+Then by Theorem 5.7, motion(X) ≥ηd
+4 n.
+Case C.3.ii. The smallest eigenvalue −m of X satisﬁes −m > −3.
+Since, by Lemma 2.14, m is integer, we get that m ≤2. Hence, m = 2, and by
+Proposition 5.13 motion(X) ≥n/16.
+Therefore, the statement of the theorem holds with γd = min
+ηd
+4 , ε
+d, 2
+Nd
+, γ′
+d, 1
+16
+
+.
+Finally, our main result on the motion, Theorem 1.11, follows from the theorem above
+and the following result we proved in [23].
+Theorem 5.17 ( [23, Theorem 1.7]). Assume Conjecture 1.10 is true. Then for any d ≥3
+there exists eγd > 0, such that for any distance-regular graph X of diameter d on n vertices
+either
+motion(X) ≥eγdn,
+or X is a Johnson graph J(s, d), or a Hamming graph H(d, s), or a cocktail-party graph.
+28
+
+=== PAGE 29 ===
+6
+Outlook: Minimal degree of permutation groups.
+Coherent conﬁgurations
+The study of the minimal degree of permutation groups started in the 19th century and
+experienced a revival in the post-classiﬁcation1 era.
+Elementary results.
+It seems that the minimal degree was ﬁrst studied in the 1871
+paper [22] by Jordan, who proved that there are only ﬁnitely many primitive groups with
+any given minimal degree m > 3. A remarkable result of Bochert [7] (1894) asserts that
+a doubly transitive permutation group of degree n, other than An and Sn, has minimal
+degree at least n/4 −1.
+Lower bounds on the minimal degree impose strong structural constraints on the group.
+For a group G, following Babai [3], by the thickness θ(G) we mean the maximal t for which
+the alternating group At is involved in G as a quotient of a subgroup. A classical result
+of Wielandt [37] shows that a linear lower bound on the minimal degree of a permutation
+group implies a logarithmic upper bound on the thickness of the group.
+Theorem 6.1 (Wielandt [37], see [2, Theorem 6.1]). Let n > k > ℓbe positive integers,
+k ≥7, and let 0 < α < 1. Suppose that G is a permutation group of degree n and minimal
+degree at least αn. If
+ℓ(ℓ−1)(ℓ−2) ≥(1 −α)k(k −1)(k −2),
+and θ(G) ≥k, then n ≥
+ k
+ℓ
+
+.
+Corollary 6.2. Let G be a permutation group of degree n. Suppose mindeg(G) ≥αn.
+Then the thickness θ(G) of G satisﬁes θ(G) ≤3
+α ln(n).
+It is known, as a corollary of CFSG, that doubly transitive groups G ≤Sn, other than
+An and Sn, have order at most n1+log(n) [13]. An elementary proof of a slightly weaker
+result was obtained by Babai and Pyber [2], [30] using Corollary 6.2 and Bochert’s bound
+on minimal degree.
+In light of Wielandt’s result, an immediate corollary of our Theorem 1.11 is the follow-
+ing.
+Theorem 6.3. For any d ≥3 there exists an αd > 0 such that for any distance-regular
+graph X of diameter d ≥3 with n vertices either
+θ(Aut(X)) ≤αd log n,
+or X is a Johnson graph, or a Hamming graph, or a cocktail-party graph.
+1We refer here to the Classiﬁcation of the Finite Simple Groups (CFSG)
+29
+
+=== PAGE 30 ===
+Post-classiﬁcation results.
+For a permutation group G ≤Sym(Ω) deﬁne G(k) to be
+the permutation group acting on the set of k-tuples
+ Ω
+k
+
+via the induced action. Using
+the CFSG, Liebeck and Saxl [26], [27] characterized all primitive permutation groups with
+minimal degree less than n/3. They showed that a group G with mindeg(G) < n/3 is of
+the form (A(k)
+m )d ≤G ≤S(k)
+m ≀Sd, where S(k)
+m ≀Sd is represented in the product action on
+ m
+k
+d
+elements. These groups are called Cameron groups, as primitive groups of degree n and
+order at least n1+log n are of this form, by a result of Cameron [12] based on consequences
+of the CFSG.
+Cameron groups act on “Cameron schemes” (see below). These structures can be seen
+as hybrids between Hamming and Johnson graphs.
+Coherent conﬁgurations.
+Following Schur [32] (1933), one can relate the following
+combinatorial structure with a permutation group G ≤Sym(Ω). Let R1, R2, . . . , Rk be the
+orbits of the G-action on Ω×Ω(the orbitals of G). The tuple X(G) = (Ω, {R1, R2, . . . , Rk})
+is called the orbital conﬁguration of G. The orbital conﬁgurations are a special case of more
+general combinatorial structures, called coherent conﬁgurations, which were also essentially
+deﬁned in the paper of Schur and were reintroduced later in various contexts [8], [35]
+(see [36]). The term “coherent conﬁguration” was introduced by Higman [20], who revived
+Schur’s program and developed a representation theory of coherent conﬁgurations.
+A
+graph-theoretic study of coherent conﬁgurations was initiated by Babai [1].
+Deﬁnition 6.4. Let Ωbe a set and R = {R1, R2, . . . , Rd} be a partition of Ω×Ω(Ri ̸= ∅).
+The pair X = (Ω, R) is called a coherent conﬁguration if the following properties hold.
+1. For every i ∈[d], if (x, x) ∈Ri for some x ∈Ω, then (y, z) /∈Ri for any y ̸= z ∈Ω.
+2. For every i ∈[d] there exists i∗such that, if (x, y) ∈Ri, then (y, x) ∈Ri∗.
+3. For every i, j, t ∈[d] there exists a number pt
+i,j, such that for any pair (x, y) ∈Rt
+there exist exactly pt
+i,j vertices z ∈Ωsuch that (x, z) ∈Ri and (z, y) ∈Rj.
+The number d of classes in the partition R is called the rank of X.
+The Cameron schemes are the orbital conﬁgurations of the Cameron groups. Babai con-
+jectured that the following combinatorial analog of the Liebeck-Saxl classiﬁcation should
+be true.
+Conjecture 6.5 (Babai). There exists an α > 0 such that for any primitive coherent
+conﬁguration X on the set of n vertices either
+motion(X) ≥αn,
+or X is a Cameron scheme.
+30
+
+=== PAGE 31 ===
+In the case of rank 3, this conjecture follows from Babai’s motion bound for strongly
+regular graphs [3] (see Theorem 1.9) and strongly regular tournaments [1]. We conﬁrm
+this conjecture in the case of rank 4 in [24].
+Distance-regular graphs give rise to a special class of coherent conﬁgurations, in which
+relations are induced by the distance metric in the graph. Specializing Conjecture 6.5 to
+the class of primitive distance-regular graphs we obtain the following statement.
+Conjecture 6.6 (Babai). There exists an α > 0 such that for any primitive distance-
+regular graph X of diameter d ≥3 on n vertices, either
+motion(X) ≥αn,
+or X is a Hamming graph, or a Johnson graph.
+This conjecture is a stronger version of Conjecture 1.10 and remains open.
+A
+Appendix
+Below we prove the inequality used in the proof of Proposition 4.6.
+Lemma A.1. Let 2 ≤t ≤x + 1 ≤m be integers, then
+(m −x)(m −1)2
+(m −x + t −2)2 ≥m −1
+t −1 .
+(18)
+Proof. Note that when x = m −1 the inequality is true, as m −1 ≥t −1. We can rewrite
+inequality (18) as
+(m −x)(m −1)(t −1) ≥(m −x + t −2)2,
+m(m −1)(t −1) −x(m −1)(t −1) ≥x2 −2x(m + t −2) + (m + t −2)2,
+m(m −1)(t −1) −(m + t −2)2 ≥x(x + m(t −3) −3t + 5)
+(19)
+If t ≥4, then x ≥3t −5 −m(t −3). Indeed, for t ≥5 this is true as
+x ≥t −1 ≥3t −5 −2m ≥3t −5 −m(t −3),
+and for t = 4 this holds as x ≥t −1 = 3 ≥7 −m. Thus, for t ≥4 the maximal value of
+the RHS of inequality (19) is achieved at maximal value of x, i.e., when x = m−1. But as
+noted above, inequality (18) holds for x = m −1, and inequality (19) is equivalent to it.
+The statement of the lemma is obvious if t = 2. Therefore, the only case we still need to
+check is t = 3. Since the desired inequality holds for x = m −1, we can assume x ≤m −2.
+In this case inequality (19) follows from
+2m(m −1) −(m + 1)2 = m2 −4m + 1 > (m −2)2 −4 ≥x2 −4 ≥x2 −4x.
+31
+
+=== PAGE 32 ===
+References
+[1] L´aszl´o Babai. “On the order of uniprimitive permutation groups.” Ann. Math. 113.3
+(1981): 553-568.
+[2] L´aszl´o Babai. “On the order of doubly transitive permutation groups.” Invent. Math
+65.3 (1982): 473-484.
+[3] L´aszl´o Babai. “On the Automorphism Groups of Strongly Regular Graphs I.” Proc.
+5th Innovations in Theoretical Comp. Sci. conf. (ITCS’14), ACM, (2014): 359-368.
+[4] L´aszl´o Babai. “On the automorphism groups of strongly regular graphs II.” J. Algebra
+421 (2015): 560-578.
+[5] Sejeong Bang, Akira Hiraki, and Jacobus H. Koolen. “Delsarte clique graphs.” Euro-
+pean J. of Combin. 28.2 (2007): 501-516.
+[6] Norman L. Biggs “Intersection matrices for graphs.” Comb. Mathematics and its ap-
+plications, Acad. Press, (1971): 15-23.
+[7] Alfred Bochert.“Ueber die Classe der transitiven Substitutionengruppen.” Mathema-
+tische Annalen 40.2 (1892): 176-193.
+[8] Ray C. Bose, and T. Shimamoto. “Classiﬁcation and analysis of partially balanced in-
+complete block designs with two associate classes.” J. Amer. Statistical Assoc. 47.258
+(1952): 151-184.
+[9] Andries E. Brouwer, Arjeh M. Cohen, and Arnold Neumaier. “Distance-Regular
+Graphs.” Springer, 1989.
+[10] Frans C. Bussemaker, and Arnold Neumaier “Exceptional graphs with smallest
+eigenvalue-2 and related problems.” Math. of Computation 59.200 (1992): 583-608.
+[11] Peter J. Cameron, Jean-Marie Goethals, Johan Jacob Seidel, E.E. Shult. “Line graphs,
+root systems and elliptic geometry.” J. Algebra 43 (1976): 305-327.
+[12] Peter J. Cameron.“Finite permutation groups and ﬁnite simple groups.” Bull. London
+Math. Soc. 13.1 (1981): 1-22.
+[13] Charles W. Curtis, William M. Kantor, and Gary M. Seitz. “The 2-transitive per-
+mutation representations of the ﬁnite Chevalley groups.” Transactions of the AMS
+(1976): 1-59.
+[14] Edwin R. van Dam, Jack H. Koolen, and Hajime Tanaka. “Distance-regular graphs.”
+Preprint arXiv:1410.6294 (2014).
+[15] Philippe Delsarte. “An algebraic approach to the association schemes of coding the-
+ory.” Philips Res. Reports Suppls. 10 (1973): vi+-97.
+32
+
+=== PAGE 33 ===
+[16] Yoshimi Egawa. “Characterization of H(n, q) by the parameters.” J. Combin. Theory
+Ser. A 31 (1981): 108-125.
+[17] Hikoe Enomoto. “Characterization of families of ﬁnite permutation groups by the
+subdegrees. II.” J. of the Faculty of Science, the Univ. of Tokyo. Sect. 1 A, 20.1
+(1973): 2-11.
+[18] Walter Feit, and Graham Higman. “The nonexistence of certain generalized polygons.”
+Journal of algebra 1.2 (1964): 114-131.
+[19] Chris D. Godsil, “Algebraic Combinatorics.” Chapman and Hall Math. Ser., Chapman
+and Hall, New York, 1993.
+[20] Donald G. Higman. “Coherent conﬁgurations I.” Rend. Sem. Mat. Univ. Padova 44
+(1970): 1-25.
+[21] Alan J. Hoﬀman. “On graphs whose least eigenvalue exceeds −1 −
+√
+2.” Lin. Alg.
+Appl. 16 (1977): 153-166.
+[22] Camille Jordan. “Theoremes sur les groupes primitifs.” J. Math Pures Appl. 17 (1871):
+351-367.
+[23] Bohdan Kivva. “On the spectral gap and the automorphism group of the distance-
+regular graphs.” Preprint arXiv:1912.10571 (2019).
+[24] Bohdan Kivva. “On the automorphism groups of coherent conﬁgurations.” In prepa-
+ration.
+[25] Jacobus H. Koolen, and Sejeong Bang. “On distance-regular graphs with smallest
+eigenvalue at least −m.” J. of Combinatorial Theory, Ser. B 100 (2010): 573-584.
+[26] Martin W. Liebeck. “On minimal degrees and base sizes of primitive permutation
+groups.” Archiv der Mathematik 43.1 (1984): 11-15.
+[27] Martin W. Liebeck, Jan Saxl. “Minimal Degrees of Primitive Permutation Groups,
+with an Application to Monodromy Groups of Covers of Riemann Surfaces.” Proc.
+London Math. Soc. 3.2 (1991): 266-314.
+[28] Klaus Metsch. “A characterization of Grassmann graphs.” European J. Combin. 16
+(1995): 639-644.
+[29] Bojan Mohar, John Shawe-Taylor. “Distance-biregular graphs with 2-valent vertices
+and distance-regular line graphs.” J. Combin. Theory, Ser. B 38.3 (1985): 193-203.
+[30] L´aszl´o Pyber. “On the orders of doubly transitive permutation groups, elementary
+estimates.” J. Combin. Theory, Ser. A 62.2 (1993): 361-366.
+33
+
+=== PAGE 34 ===
+[31] Alexander Russell, and Ravi Sundaram. “A note on the asymptotics and compu-
+tational complexity of graph distinguishability.” Electronic J. Combin. 5.1 (1998):
+23-30.
+[32] Issai Schur. “Zur Theorie der einfach transitiven Permutationsgruppen.” Sitzungs-
+berichte der Preussischen Akademie der Wissenschaften, Physikalisch-Mathematische
+Klasse, (1933): 598-623.
+[33] Paul Terwilliger. “Distance-regular graphs with girth 3 or 4, I.” J. Combin. Theory,
+Ser. B, 39 (1985): 265-281.
+[34] Paul Terwilliger. “A new feasibility condition for distance-regular graphs.” Discrete
+Math. 61 (1986): 311-315.
+[35] Boris Weisfeiler, and Andrey A. Leman.“A reduction of a graph to a canonical form
+and an algebra arising during this reduction.” Nauchno-Technicheskaya Informatsia
+2.9 (1968): 12-16.
+[36] Boris Weisfeiler, ed. “On construction and identiﬁcation of graphs.” Springer, 1976.
+[37] Helmut Wielandt. “Absch¨atzungen f¨ur den Grad einer Permutationsgruppe von
+vorgeschriebenem Transitivit¨atsgrad.” Schriften des Math. Seminars und des Insti-
+tuts f¨ur angew. Math. der Universit¨at Berlin 2, (1934): 151-174.
+34
