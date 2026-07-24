@@ -2,9 +2,9 @@
   "project": "project-taobanker",
   "purpose": "Package-wide integrity manifest (every file except this one)",
   "generated": "2026-07-24",
-  "generated_by": "Claude Fable 5 referee session (post-scrub refresh; absolute paths genericized)",
+  "generated_by": "Claude Fable 5 referee session (r2 strengthened-revision review added)",
   "note": "04-proof-assets/MANIFEST.json remains the original assembly-time manifest for proof assets; all 28 non-self entries verified matching on 2026-07-23. Its OWN self-entry (2901 bytes / e7620ffb4d47c5cc) is stale by construction: the assembler recorded it before appending the quarantine entries that grew the file to 4962 bytes. Not tampering; hash of the final file is in this package manifest.",
-  "file_count": 129,
+  "file_count": 138,
   "files": [
     {
       "path": ".claude\\settings.local.json",
@@ -30,6 +30,11 @@
       "path": "01-x-post\\POST-4-FRESHNESS-SWEEP-2026-07-24.md",
       "bytes": 4010,
       "sha256_16": "fc5efe71803f29cb"
+    },
+    {
+      "path": "01-x-post\\POST-5-KIVVA-FEEDBACK-R2-2026-07-24.md",
+      "bytes": 2958,
+      "sha256_16": "62108d332302d056"
     },
     {
       "path": "01-x-post\\POST.md",
@@ -548,13 +553,13 @@
     },
     {
       "path": "06-fable-brief\\CONSTANT_AUDIT.md",
-      "bytes": 5268,
-      "sha256_16": "67de573cf8e0c893"
+      "bytes": 7001,
+      "sha256_16": "a3109b9d99df759b"
     },
     {
       "path": "06-fable-brief\\DEPENDENCY_LEDGER.md",
-      "bytes": 11276,
-      "sha256_16": "54f9f2f2365e625f"
+      "bytes": 12910,
+      "sha256_16": "12db0163b2cc632f"
     },
     {
       "path": "06-fable-brief\\FABLE_LAUNCH_PROMPT.md",
@@ -608,8 +613,48 @@
     },
     {
       "path": "06-fable-brief\\VERDICT.md",
-      "bytes": 5816,
-      "sha256_16": "a70f188ec80e2411"
+      "bytes": 7581,
+      "sha256_16": "f816ad135ee70399"
+    },
+    {
+      "path": "07-revision-r2\\CONTEXT.md",
+      "bytes": 4587,
+      "sha256_16": "64191b3070fd6631"
+    },
+    {
+      "path": "07-revision-r2\\conversation-prose.md",
+      "bytes": 101053,
+      "sha256_16": "54a7b1d22f80d031"
+    },
+    {
+      "path": "07-revision-r2\\extracted_manuscript_raw.tex",
+      "bytes": 725,
+      "sha256_16": "6f0a30448169e378"
+    },
+    {
+      "path": "07-revision-r2\\r2_exact_audit.py",
+      "bytes": 5910,
+      "sha256_16": "6b392153a5097548"
+    },
+    {
+      "path": "07-revision-r2\\r2_exact_audit_output.txt",
+      "bytes": 1130,
+      "sha256_16": "1f27c6956e131c71"
+    },
+    {
+      "path": "07-revision-r2\\raw\\raw-share-page.html",
+      "bytes": 1614632,
+      "sha256_16": "6c150051b5a22179"
+    },
+    {
+      "path": "07-revision-r2\\raw\\stream-payloads-unescaped.txt",
+      "bytes": 1396688,
+      "sha256_16": "7983532be24ae603"
+    },
+    {
+      "path": "07-revision-r2\\REVIEW-STRENGTHENED.md",
+      "bytes": 7806,
+      "sha256_16": "ba60c3bc36b976d5"
     },
     {
       "path": "CLAUDE.md",
@@ -618,8 +663,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 11544,
-      "sha256_16": "caf730c81e1d3df5"
+      "bytes": 12990,
+      "sha256_16": "1cd6625ab43b2354"
     },
     {
       "path": "SOURCE_INDEX.md",

@@ -21,3 +21,15 @@ Per `VERSION_MATRIX.md`, each row is a separate object of review. "Supported by 
 ## Bottom line for the author
 
 Publicly claim **n/(14 d^3)** (and the bulletproof n/(13 d^5) fallback). Do not claim 1/12 (withdrawn, unwritten), 2/5 (conditional on an unpublished preprint plus enumeration), 1/8, or 1/15 (no manuscripts).
+
+---
+
+## Addendum (2026-07-24): new constants from the strengthened revision
+
+| Label | Claim | Supported? | Notes |
+|---|---|---|---|
+| strengthened (r2) | motion >= 500n/(5673 d^3) = n/(11.346 d^3) | **No flaw found — conditionally validated.** Architecture = the 1/12 lineage (audited twice in-session, matching this review's independent conclusions at 1/14); retuning layer machine-verified, 17/17 exact checks incl. the razor-thin Johnson margin (eps(3) = 1000/152671 < 3/458 < eps_K; C0 exactly 13/40500 above the provable limit (1+2/eps_K)/27). Awaiting the actual .tex/PDF (not physically in the share) for a final assembly check. | New strongest claim; supersedes 1/12; uses Kivva's EXACT threshold (Thm 3.5/Prop 3.6) because PS's rounded 0.0065 no longer suffices; no enumeration, no Lv–Koolen. See `07-revision-r2/REVIEW-STRENGTHENED.md`. |
+| c12 (original 1/12) | motion >= n/(12 d^3) | Status upgraded from "unwritten": the manuscript file exists on the author's side (uploaded to the r2 session as the "adversarial patch" PDF) and was audited twice there (valid conditional). Still not publicly recoverable from either share. | Superseded by 11.346 regardless. |
+| diameter-dependent | motion >= n/(4 d^3) for d >= 9 (with per-diameter table for 3 <= d <= 8) | Sketched in the r2 session only; **deliberately not asserted in any manuscript** ("their piecewise optimization would make the source audit substantially less readable"). Unaudited. | Future work; would need its own review. |
+
+**Updated bottom line:** the defensible ladder is now n/(13d^5) (bulletproof) < n/(14d^3) (fully validated) < n/(11.346d^3) (no flaw found, pending file check). Quote 11.346 with the pending-file caveat, or 14 unconditionally.

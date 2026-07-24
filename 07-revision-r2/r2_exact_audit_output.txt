@@ -1,0 +1,22 @@
+[PASS] p(-913/455) < 0 (exact)  p = -12841664057813389062001/380289177849714310556640625
+[PASS] p(-913/455) equals manuscript's exact value
+[PASS] p(-2) = -1 < 0 (root bracketing base)
+[PASS] bracket algebra: (3/455)/(1+3/455) == 3/458
+[PASS] eps(3) == 1000/152671
+[PASS] eps(3) < 3/458 (exact)  margin = 13/69923318
+[PASS] margin equals manuscript's 13/69923318
+[PASS] eps decreasing in d (spot d=4 < d=3)
+[PASS] (1 + 916/3)/27 == 919/81
+[PASS] 919/81 < 5673/500 (exact)  margin = 13/40500
+[PASS] margin equals manuscript's 13/40500
+[PASS] all retuned scalar/branch certificates, 3 <= d <= 2000
+[PASS] F-loss shifted certificate coefficients (x=d-3) all positive
+  theta_1 ~ -2.00659361834601673265051591768217383998531368470897500395812
+  eps_K   ~ 0.00655042732821118997889735584954099676002538997109763371353468
+  C_lim   ~ 11.3453182166562666682164400940069821047760452134785762804767
+[PASS] theta_1 matches session value -2.00659361834...
+[PASS] eps_K matches session value 0.00655042732821119...
+[PASS] eps(3) < true eps_K (decimal, 60 digits)
+[PASS] C_lim < C0 (decimal)
+
+RESULT: 17/17 checks passed

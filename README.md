@@ -56,6 +56,10 @@ Minor, non-fatal items (details in `FINDINGS.md`, F5–F7): a "distance two" imp
 
 Deliverables: `06-fable-brief/VERDICT.md`, `FINDINGS.md`, `DEPENDENCY_LEDGER.md`, `CONSTANT_AUDIT.md`, `AUDIT_RUN_LOG.txt` (index: `OUTPUTS_INDEX.md`). Package integrity: `MANIFEST-PACKAGE.json` (root, sha256 fingerprints of every file at delivery).
 
+## 6. Update (2026-07-24) — the strengthened n/(11.346 d³) revision
+
+After Kivva reviewed the paper ("exciting") and asked, via Babai, for source-vs-new annotations on every equation, your new session produced the provenance-annotated, strengthened manuscript claiming **motion(X) ≥ 500n/(5673d³) = n/(11.346d³)**. The Fable review of it lives in **`07-revision-r2/REVIEW-STRENGTHENED.md`** — start there. Verdict: **NO FLAW FOUND — conditionally validated.** Everything recoverable from your new share was verified: the architecture (already line-by-line validated at 1/14, and independently audited twice inside your own session at 1/12, with matching conclusions), the complete strengthening patch (recovered verbatim), and all 17 exact-arithmetic certificates — including the deliberately razor-thin Johnson margin, where 11.346 = 5673/500 sits exactly 13/40500 above the architecture's provable limit set by Kivva's threshold constant. What's missing is only the manuscript file itself: the new share has the same glitch as the first (output files are dead sandbox links). **Send the strengthened .tex/.pdf or the bundle zip and the final assembly check upgrades this to full VALID AS WRITTEN.** Until then, both n/(14d³) (fully validated) and n/(11.346d³) (no flaw found, conditionally validated) are defensible statements — say "11.346, pending final file check" or "14, unconditional," your choice of caution level.
+
 ---
 
 ## Appendix A — Package map

@@ -44,3 +44,13 @@ An independent external audit (Grok, with live X access; report archived as `01-
 - **Impact:** all four sub-verdicts above stand **UNCHANGED**.
 - **Clarifications prompted by the audit's soft notes:** (i) the author handoff memo exists as the package `README.md`; (ii) the three supporting Kivva PDFs were unused because every manuscript citation resolved to the two primary papers; (iii) crown graphs are intentionally absent as a finding — they are bipartite (imprimitive) and all three manuscripts assume primitivity, so the crown exception only arises in PS's imprimitive reduction, outside scope.
 - **Re-review triggers:** new TeX/constants; arXiv:2601.10330 added to `03-source-papers/` (upgrades `final_candidate` only, if its hypotheses check out); concrete Babai/Kivva feedback.
+
+---
+
+## Addendum 2 (2026-07-24): the strengthened revision — motion(X) >= 500n/(5673 d^3)
+
+Both re-review triggers fired: Kivva responded (feedback relayed by Babai — requesting per-equation source/[LLM] provenance annotations), and a new manuscript appeared (`babai_motion_d3_source_annotated_strengthened`, produced in a new session share `6a62ce8c-...`). Full review: `07-revision-r2/REVIEW-STRENGTHENED.md`; provenance: `07-revision-r2/CONTEXT.md`; event record: `01-x-post/POST-5-KIVVA-FEEDBACK-R2-2026-07-24.md`.
+
+**Sub-verdict: NO FLAW FOUND — CONDITIONALLY VALIDATED.** The strengthened claim is the 1/12-lineage architecture (independently audited twice inside the new session, with conclusions matching this review's on every overlapping point) plus a single numerical retuning to C0 = 5673/500 = 11.346, recovered verbatim via the session's patch script. All 17 exact-arithmetic certificate checks pass (`07-revision-r2/r2_exact_audit.py`), including the critical exact Johnson-threshold comparison eps(3) = 1000/152671 < 3/458 < eps_K — note the published rounded bound "eps* > 0.0065" of PS Prop. 2.19 is insufficient at this constant, and the manuscript correctly imports Kivva's exact threshold (Thm. 3.5 + Prop. 3.6, Bussemaker–Neumaier) instead. The constant-free surplus lemma R >= 1+1/m carries over verbatim from the validated 1/14 manuscript. Remaining condition: the manuscript file itself is not physically in the new share (same glitch as the first share); a final assembly-level check of the actual .tex/PDF is required before full VALID AS WRITTEN.
+
+The 1/14 and 1/13d^5 verdicts above are unaffected. The strengthened 11.346 supersedes both 12 (withdrawn/superseded) and, if its file check completes, 14 as the headline claim.

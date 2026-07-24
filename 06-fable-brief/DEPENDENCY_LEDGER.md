@@ -44,3 +44,12 @@ Manuscript keys: **C** = `babai_motion_d3_complete_proof.tex` (n/14d^3), **F** =
 - **C (n/14d^3):** 0 of its imports fail; all 20+ used within published hypotheses. New mathematics (Sections 2, 4, 6) independently verified.
 - **D5 (n/13d^5):** imports are PS-published statements only, all hypothesis-matched, including the delicate #15. Cleanest dependency profile in the package.
 - **F (2n/5d^3):** all checkable imports valid; **#20 (Lv–Koolen) is unverifiable offline and unpublished** — the manuscript's constant is conditional on it for d in {3, 4} (for d >= 5 the published #13 would suffice, but the manuscript as written invokes LK for all d).
+
+## Addendum (2026-07-24): imports added by the strengthened revision (n/(11.346 d^3))
+
+| # | Imported result | Source | Used in | Verdict |
+|---|---|---|---|---|
+| 33 | Exact Johnson threshold: eps_K = (-2 - theta_1)/(-1 - theta_1), where theta_1 ~ -2.006594 is the smallest root of x^2(x^2-1)^2(x^2-3)(x^2-4) = 1 (Bussemaker–Neumaier) | Kivva Def. 3.3, Thm. 3.4 (Hoffman), Thm. 3.5 (Bussemaker–Neumaier), Prop. 3.6 (arXiv p.13-14); Remark 1.3 licenses using the exact value in Thm. 1.2 | strengthened manuscript, mu>=3 branch (replaces the PS Prop. 2.19 rounded form, which is insufficient at eps(3) = 0.0065496 > 0.0065) | **VALID** — statements verbatim in the arXiv PDF; the manuscript's rational bracket (p(-913/455) < 0 => eps_K > 3/458 > eps) re-verified in exact arithmetic, 17/17 checks (`07-revision-r2/r2_exact_audit.py`) |
+| 34 | PS Prop. 2.14 at eta = 1/d^2 (from the manuscript's own geodesic Poincare inequality, not PS 2.9) | PS Prop. 2.14 (p.9) + LLM Poincare (independently verified, FINDINGS F3) | strengthened manuscript, mu=1 branch | **VALID** — k > C0 d^3 > 4md^2 = 4m/eta needs only C0 > 4; all other hypotheses as in row #11 |
+
+The remaining imports of the strengthened manuscript are identical to rows 1–19, 21–32 (its scope box: "no structural lemma, classification theorem, or source interface is changed"; Lv–Koolen present in the session but NOT used by the manuscript). Note also that the strengthened manuscript carries per-equation provenance tags ([PS, ...], [K, ...], [LLM]) with a machine checker — the in-document counterpart of this ledger, built in response to Kivva's request.
